@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-03T02:35:36.609Z</updated>
+  <updated>2017-08-03T09:12:14.498Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/08/02/hello-world/"/>
-    <id>http://yoursite.com/2017/08/02/hello-world/</id>
-    <published>2017-08-02T09:02:04.202Z</published>
-    <updated>2017-08-03T02:35:36.609Z</updated>
+    <title>基于hexo和github搭建个人博客概述</title>
+    <link href="http://yoursite.com/2017/08/13/hello-world/"/>
+    <id>http://yoursite.com/2017/08/13/hello-world/</id>
+    <published>2017-08-12T16:00:00.000Z</published>
+    <updated>2017-08-03T09:12:14.498Z</updated>
     
     <content type="html"><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world!"></a>hello world!</h1><p><a href="http://www.baidu.com" target="_blank" rel="external">百度</a></p>
 ]]></content>
@@ -31,6 +31,16 @@
     
     </summary>
     
+      <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   
