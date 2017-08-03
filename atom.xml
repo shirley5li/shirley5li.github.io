@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-08-03T02:35:36.609Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/08/02/hello-world/"/>
+    <id>http://yoursite.com/2017/08/02/hello-world/</id>
+    <published>2017-08-02T09:02:04.202Z</published>
+    <updated>2017-08-03T02:35:36.609Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world!"></a>hello world!</h1><p><a href="http://www.baidu.com" target="_blank" rel="external">百度</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;hello-world&quot;&gt;&lt;a href=&quot;#hello-world&quot; class=&quot;headerlink&quot; title=&quot;hello world!&quot;&gt;&lt;/a&gt;hello world!&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.baidu.com&quot; t
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
