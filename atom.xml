@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Shirley</title>
-  
+  <subtitle>一只自学成菜的仙女!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-04T07:35:41.193Z</updated>
+  <updated>2017-08-04T07:44:27.019Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
     <name>ShirleyLi</name>
-    
+    <email>1363814017@qq.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/13/hello-world/"/>
     <id>http://yoursite.com/2017/08/13/hello-world/</id>
     <published>2017-08-12T16:00:00.000Z</published>
-    <updated>2017-08-04T07:35:41.193Z</updated>
+    <updated>2017-08-04T07:44:27.019Z</updated>
     
     <content type="html"><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world!"></a>hello world!</h1><p><a href="http://www.baidu.com" target="_blank" rel="external">百度</a></p>
 ]]></content>
