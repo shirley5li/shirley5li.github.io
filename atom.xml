@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-07T12:00:25.344Z</updated>
+  <updated>2017-08-07T12:09:27.301Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/13/hello-world/"/>
     <id>http://yoursite.com/2017/08/13/hello-world/</id>
     <published>2017-08-12T16:00:00.000Z</published>
-    <updated>2017-08-07T12:00:25.344Z</updated>
+    <updated>2017-08-07T12:09:27.301Z</updated>
     
     <content type="html"><![CDATA[<p>前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）<br><a id="more"></a></p>
 <h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><h3 id="1、hexo"><a href="#1、hexo" class="headerlink" title="1、hexo"></a>1、hexo</h3><p>根据<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a>的介绍，hexo是一个快速简洁且高效的博客框架。hexo利用markdown等渲染引擎解析文章，快速生成静态网页。</p>
@@ -57,8 +57,7 @@ npm -v
 <p>在Create a new repository页面下，填写Repository name框框，框框中填写yourname.github.io，其中yourname为Owner框框中的那个名字。再勾选一下Initialize this repository with a README 。</p>
 <p><img src="/images/b4.png" alt="新建仓库"></p>
 <p>正确创建代码仓库后，需要开启github pages功能。在刚刚新建的代码仓库界面点击Settings，就会打开这个库的设置页面，向下拖动，会看见GitHub Pages，点击Launch Automatic page generator，github 自动创建出一个github pages页面。然后你可以试着访问yourname.github.io这个网址。</p>
-<p>##2 hexo下载安装 ##</p>
-<p>在合适的盘，例如以E盘为例，在E盘根目录下新建hexo文件夹，然后右键点击选中hexo,选择Git Bash Here,在git命令窗口中输入以下命令：</p>
+<h2 id="2-hexo下载安装"><a href="#2-hexo下载安装" class="headerlink" title="2 hexo下载安装"></a>2 hexo下载安装</h2><p>在合适的盘，例如以E盘为例，在E盘根目录下新建hexo文件夹，然后右键点击选中hexo,选择Git Bash Here,在git命令窗口中输入以下命令：</p>
 <pre><code>$ npm install hexo-cli -g
 </code></pre><p>然后输入</p>
 <pre><code>$ npm install hexo --save
@@ -75,7 +74,7 @@ $ npm install hexo-renderer-stylus@0.3.0 --save #渲染器
 <p>安装完成后可查看下所安装的hexo版本信息。在hexo文件夹下右键进入git bash,输入以下命令:</p>
 <pre><code>$ hexo -v
 </code></pre><p>若看到类似如图所示版本信息说明hexo安装成功。</p>
-<p><img src="/images/b5.png" alt="hexo版本信息">    </p>
+<p><img src="/images/b5.png" alt="hexo版本信息"></p>
 <h2 id="3-hexo相关配置"><a href="#3-hexo相关配置" class="headerlink" title="3 hexo相关配置"></a>3 hexo相关配置</h2><ul>
 <li>hexo初始化 -&gt;在hexo文件夹下右键进入git bash,输入以下初始化命令： <code>$ hexo init</code></li>
 <li>hexo生成 -&gt;输入以下命令生成静态页面: <code>$ hexo g</code></li>
@@ -140,10 +139,10 @@ disqus:
   enable: true
   shortname:     #shortname即为你上面填写的唯一disqus路径，填上就好
   count: true
-</code></pre><h4 id="添加百度分享功能"><a href="#添加百度分享功能" class="headerlink" title="添加百度分享功能"></a>添加百度分享功能</h4><p>百度分享功能的添加可以参考下面这篇博客。<a href="http://blog.csdn.net/cl534854121/article/details/76121105" target="_blank" rel="external">Hexo+Github搭建个人博客(三)——百度分享集成</a></p>
-<h4 id="百度统计访客访问量功能"><a href="#百度统计访客访问量功能" class="headerlink" title="百度统计访客访问量功能"></a>百度统计访客访问量功能</h4><p>其他酷炫小功能参考<a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="external">hexo的next主题个性化教程:打造炫酷网站</a>。</p>
-</li>
+</code></pre></li>
 </ul>
+<h4 id="添加百度分享功能"><a href="#添加百度分享功能" class="headerlink" title="添加百度分享功能"></a>添加百度分享功能</h4><p>百度分享功能的添加可以参考下面这篇博客。<a href="http://blog.csdn.net/cl534854121/article/details/76121105" target="_blank" rel="external">Hexo+Github搭建个人博客(三)——百度分享集成</a></p>
+<h4 id="百度统计访客访问量功能"><a href="#百度统计访客访问量功能" class="headerlink" title="百度统计访客访问量功能"></a>百度统计访客访问量功能</h4><p>其他酷炫小功能参考<a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="external">hexo的next主题个性化教程:打造炫酷网站</a>。</p>
 <h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="external">手把手教你用Hexo+Github 搭建属于自己的博客 </a></p>
 <p><a href="http://www.jianshu.com/p/017e01718d41" target="_blank" rel="external">记录第一次搭建hexo</a></p>
 <p>嘤嘤嘤<del>~</del>~~THE END!</p>
