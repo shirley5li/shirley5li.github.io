@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-07T12:09:27.301Z</updated>
+  <updated>2017-08-08T02:00:37.433Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>基于hexo和github搭建个人博客概述</title>
-    <link href="http://yoursite.com/2017/08/13/hello-world/"/>
-    <id>http://yoursite.com/2017/08/13/hello-world/</id>
-    <published>2017-08-12T16:00:00.000Z</published>
-    <updated>2017-08-07T12:09:27.301Z</updated>
+    <link href="http://yoursite.com/2017/08/06/hello-world/"/>
+    <id>http://yoursite.com/2017/08/06/hello-world/</id>
+    <published>2017-08-05T16:00:00.000Z</published>
+    <updated>2017-08-08T02:00:37.433Z</updated>
     
     <content type="html"><![CDATA[<p>前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）<br><a id="more"></a></p>
 <h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><h3 id="1、hexo"><a href="#1、hexo" class="headerlink" title="1、hexo"></a>1、hexo</h3><p>根据<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a>的介绍，hexo是一个快速简洁且高效的博客框架。hexo利用markdown等渲染引擎解析文章，快速生成静态网页。</p>
