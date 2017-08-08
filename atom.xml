@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-08T02:00:37.433Z</updated>
+  <updated>2017-08-08T03:00:35.861Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,18 +20,33 @@
     <link href="http://yoursite.com/2017/08/06/hello-world/"/>
     <id>http://yoursite.com/2017/08/06/hello-world/</id>
     <published>2017-08-05T16:00:00.000Z</published>
-    <updated>2017-08-08T02:00:37.433Z</updated>
+    <updated>2017-08-08T03:00:35.861Z</updated>
     
     <content type="html"><![CDATA[<p>前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）<br><a id="more"></a></p>
-<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><h3 id="1、hexo"><a href="#1、hexo" class="headerlink" title="1、hexo"></a>1、hexo</h3><p>根据<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a>的介绍，hexo是一个快速简洁且高效的博客框架。hexo利用markdown等渲染引擎解析文章，快速生成静态网页。</p>
+<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><ul>
+<li>hexo </li>
+</ul>
+<p>根据<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a>的介绍，hexo是一个快速简洁且高效的博客框架。hexo利用markdown等渲染引擎解析文章，快速生成静态网页。</p>
 <p>Hexo是基于node.js的, 在安装它之前需要用到npm安装工具, 这个工具是 node.js 安装包的工具, 所以需要先安装 node.js。</p>
 <p>关于hexo搭建博客原理进一步了解-<a href="https://segmentfault.com/a/1190000008784436" target="_blank" rel="external">hexo原理浅析</a>。</p>
-<h3 id="2、node-js"><a href="#2、node-js" class="headerlink" title="2、node.js"></a>2、node.js</h3><p>node.js是运行在服务端的javascript，是一个允许开发人员使用javascript语言编写服务端代码的框架。</p>
-<h3 id="3、npm"><a href="#3、npm" class="headerlink" title="3、npm"></a>3、npm</h3><p>npm是随同node.js一起安装的包管理工具，能解决node.js代码部署上的很多问题。<br>允许用户从npm服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。<br>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</p>
+<ul>
+<li>node.js </li>
+</ul>
+<p>node.js是运行在服务端的javascript，是一个允许开发人员使用javascript语言编写服务端代码的框架。</p>
+<ul>
+<li>npm </li>
+</ul>
+<p>npm是随同node.js一起安装的包管理工具，能解决node.js代码部署上的很多问题。<br>允许用户从npm服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。<br>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</p>
 <p>新版的node.js已经集成了npm，所以下载安装node.js也一并将npm安装好了。</p>
-<h3 id="4、git"><a href="#4、git" class="headerlink" title="4、git"></a>4、git</h3><p>git是一种非常流行的分布式版本控制系统，它和其他版本控制系统的主要差别在于git只关心文件数据的整体是否发生变化，而大多数版本其他系统只关心文件内容的具体差异。</p>
+<ul>
+<li>git </li>
+</ul>
+<p>git是一种非常流行的分布式版本控制系统，它和其他版本控制系统的主要差别在于git只关心文件数据的整体是否发生变化，而大多数版本其他系统只关心文件内容的具体差异。</p>
 <p>我们利用git将hexo生成的静态博客页面，部署到github pages上。关于git的<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001373962845513aefd77a99f4145f0a2c7a7ca057e7570000" target="_blank" rel="external">更多了解</a>。</p>
-<h3 id="5、github"><a href="#5、github" class="headerlink" title="5、github"></a>5、github</h3><p>随着git迅速成为最流行的分布式版本控制系统，github网站上线了。github是一个基于git的代码托管平台，它为开源项目免费提供git存储，无数开源项目开始迁移至GitHub，包括jQuery，PHP，Ruby等等。</p>
+<ul>
+<li>github </li>
+</ul>
+<p>随着git迅速成为最流行的分布式版本控制系统，github网站上线了。github是一个基于git的代码托管平台，它为开源项目免费提供git存储，无数开源项目开始迁移至GitHub，包括jQuery，PHP，Ruby等等。</p>
 <p>github pages 是github提供给用户用来展示个人或者项目主页的静态网页系统。每个用户都可以使用自己的github项目创建，上传静态页面的html文件，github会帮你自动更新你的页面。</p>
 <h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><p>1.环境准备（node.js，git，github相关设置）  </p>
 <p>2.hexo下载安装  </p>
@@ -40,18 +55,18 @@
 <p>5.发布第一篇博文</p>
 <p>6.hexo主题介绍及配置  </p>
 <p>7.hexo第三方服务集成（disqus评论，百度分享，访客记录等）</p>
-<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1 环境准备"></a>1 环境准备</h2><h4 id="（1）node-js下载安装"><a href="#（1）node-js下载安装" class="headerlink" title="（1）node.js下载安装"></a>（1）node.js下载安装</h4><p><a href="http://nodejs.cn/download/" target="_blank" rel="external">node.js下载</a></p>
+<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1 环境准备"></a>1 环境准备</h2><h3 id="（1）node-js下载安装"><a href="#（1）node-js下载安装" class="headerlink" title="（1）node.js下载安装"></a>（1）node.js下载安装</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="external">node.js下载</a></p>
 <p>下载完成后一路默认next即可。利用win+R打开命令窗口，在命令窗口中输入以下命令，可以查看node和npm的版本信息。如果可以正确显示版本信息，说明安装正确，否则检查安装过程，重新安装。</p>
 <pre><code>node -v
 npm -v
 </code></pre><p>结果如下图所示。</p>
 <p><img src="/images/b1.png" alt="node版本检查"></p>
-<h4 id="2-git下载安装"><a href="#2-git下载安装" class="headerlink" title="(2)git下载安装"></a>(2)git下载安装</h4><p><a href="https://git-scm.com/downloads" target="_blank" rel="external">git下载</a></p>
+<h3 id="2-git下载安装"><a href="#2-git下载安装" class="headerlink" title="(2)git下载安装"></a>(2)git下载安装</h3><p><a href="https://git-scm.com/downloads" target="_blank" rel="external">git下载</a></p>
 <p>下载完成后一路默认next即可。在命令窗口中输入以下命令，可以查看git的版本信息。</p>
 <pre><code>git --version
 </code></pre><p>结果如下图所示。</p>
 <p><img src="/images/b2.png" alt="git版本检查"></p>
-<h4 id="3-github注册相关"><a href="#3-github注册相关" class="headerlink" title="(3)github注册相关"></a>(3)github注册相关</h4><p>若没有注册过github账号，在<a href="https://github.com/" target="_blank" rel="external">github官网</a>按照步骤注册成功就好。</p>
+<h3 id="3-github注册相关"><a href="#3-github注册相关" class="headerlink" title="(3)github注册相关"></a>(3)github注册相关</h3><p>若没有注册过github账号，在<a href="https://github.com/" target="_blank" rel="external">github官网</a>按照步骤注册成功就好。</p>
 <p>注册登录后，在页面右上角+号选择New repository创建新的代码仓库。</p>
 <p><img src="/images/b3.png" alt="新建仓库"></p>
 <p>在Create a new repository页面下，填写Repository name框框，框框中填写yourname.github.io，其中yourname为Owner框框中的那个名字。再勾选一下Initialize this repository with a README 。</p>
@@ -129,7 +144,7 @@ hexo d == hexo deploy
 <li>测试主题启用是否成功 -&gt;执行 <code>hexo s</code>命令，在浏览器访问 <a href="http://localhost:4000查看主题效果。" target="_blank" rel="external">http://localhost:4000查看主题效果。</a></li>
 </ul>
 <p>PS：主题的其他相关设置可以参考该博客，写的很详细<a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="external">手把手教你用Hexo+Github 搭建属于自己的博客</a>。</p>
-<h2 id="7-hexo第三方服务集成"><a href="#7-hexo第三方服务集成" class="headerlink" title="7 hexo第三方服务集成"></a>7 hexo第三方服务集成</h2><h4 id="添加disqus评论"><a href="#添加disqus评论" class="headerlink" title="添加disqus评论"></a>添加disqus评论</h4><p>由于以前国内使用较多的多说评论下架了，所以选用了国外较为稳定的disqus，但使用该评论功能需要“科学上网”！</p>
+<h2 id="7-hexo第三方服务集成"><a href="#7-hexo第三方服务集成" class="headerlink" title="7 hexo第三方服务集成"></a>7 hexo第三方服务集成</h2><h3 id="添加disqus评论"><a href="#添加disqus评论" class="headerlink" title="添加disqus评论"></a>添加disqus评论</h3><p>由于以前国内使用较多的多说评论下架了，所以选用了国外较为稳定的disqus，但使用该评论功能需要“科学上网”！</p>
 <ul>
 <li>注册disqus账号<a href="https://disqus.com" target="_blank" rel="external">https://disqus.com</a></li>
 <li>在disqus设置页面中点 Add Disqus to your site 添加你的网站地址(即为<a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a>), 和设置Choose your unique Disqus URL, 你所填写的unique Disqus URL即为hexo配置文件中需要修改的short_name字段。</li>
@@ -141,8 +156,8 @@ disqus:
   count: true
 </code></pre></li>
 </ul>
-<h4 id="添加百度分享功能"><a href="#添加百度分享功能" class="headerlink" title="添加百度分享功能"></a>添加百度分享功能</h4><p>百度分享功能的添加可以参考下面这篇博客。<a href="http://blog.csdn.net/cl534854121/article/details/76121105" target="_blank" rel="external">Hexo+Github搭建个人博客(三)——百度分享集成</a></p>
-<h4 id="百度统计访客访问量功能"><a href="#百度统计访客访问量功能" class="headerlink" title="百度统计访客访问量功能"></a>百度统计访客访问量功能</h4><p>其他酷炫小功能参考<a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="external">hexo的next主题个性化教程:打造炫酷网站</a>。</p>
+<h3 id="添加百度分享功能"><a href="#添加百度分享功能" class="headerlink" title="添加百度分享功能"></a>添加百度分享功能</h3><p>百度分享功能的添加可以参考下面这篇博客。<a href="http://blog.csdn.net/cl534854121/article/details/76121105" target="_blank" rel="external">Hexo+Github搭建个人博客(三)——百度分享集成</a></p>
+<h3 id="百度统计访客访问量功能"><a href="#百度统计访客访问量功能" class="headerlink" title="百度统计访客访问量功能"></a>百度统计访客访问量功能</h3><p>其他酷炫小功能参考<a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="external">hexo的next主题个性化教程:打造炫酷网站</a>。</p>
 <h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="external">手把手教你用Hexo+Github 搭建属于自己的博客 </a></p>
 <p><a href="http://www.jianshu.com/p/017e01718d41" target="_blank" rel="external">记录第一次搭建hexo</a></p>
 <p>嘤嘤嘤<del>~</del>~~THE END!</p>
