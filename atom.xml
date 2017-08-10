@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-10T14:20:57.020Z</updated>
+  <updated>2017-08-10T14:22:54.093Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/08/10/blog-donate/"/>
     <id>http://yoursite.com/2017/08/10/blog-donate/</id>
     <published>2017-08-10T12:44:56.000Z</published>
-    <updated>2017-08-10T14:20:57.020Z</updated>
+    <updated>2017-08-10T14:22:54.093Z</updated>
     
-    <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line"># 打赏功能 </div><div class="line">首先在主题配置文件即hexo/themes/next/_config.yml找到version字段，查看自己的next主题的版本，如下图所示，我用的next主题的版本为5.1.2</div><div class="line"></div><div class="line">![next主题版本](/images/blog_donate/1.png)</div><div class="line"></div><div class="line">在网上查了一些添加打赏功能的方法，参照来做的时候，发现了一些问题，可能是由于next主题升级到version5后自身增加了些隐藏的新功能，所以在网上找到的别人的一些方法不太适用，下面的添加文章结束功能也是如此。因此自己尝试设置好后特来分享一哈~</div><div class="line"></div><div class="line">在主题配置文件找到Reward字段部分，如下图所示，其中reward_comment字段设置你的打赏介绍，wechatpay和alipay分别为你保存微信以及支付宝收款二维码的路径，可以是本地路径，也可以是用图床生成的链接地址。我是把图片放在本地的，即将两个二维码图片放在了next/source/images文件夹下。</div><div class="line"></div><div class="line">![next主题版本](/images/blog_donate/2.png)</div><div class="line"></div><div class="line">此时默认的打赏按钮如下，略丑。。。然后作了小小改动，把打赏按钮变好看一点点</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line"># 打赏功能 </div><div class="line">首先在主题配置文件即hexo/themes/next/_config.yml找到version字段，查看自己的next主题的版本，如下图所示，我用的next主题的版本为5.1.2</div><div class="line"></div><div class="line">![next主题版本](/images/blog_donate/1.png)</div><div class="line"></div><div class="line">在网上查了一些添加打赏功能的方法，参照来做的时候，发现了一些问题，可能是由于next主题升级到version5后自身增加了些隐藏的新功能，所以在网上找到的别人的一些方法不太适用，下面的添加文章结束功能也是如此。因此自己尝试设置好后特来分享一哈~</div><div class="line"></div><div class="line">在主题配置文件找到Reward字段部分，如下图所示，其中reward_comment字段设置你的打赏介绍，wechatpay和alipay分别为你保存微信以及支付宝收款二维码的路径，可以是本地路径，也可以是用图床生成的链接地址。我是把图片放在本地的，即将两个二维码图片放在了next/source/images文件夹下。</div><div class="line"></div><div class="line">![next主题版本](/images/blog_donate/2.png)</div><div class="line"></div><div class="line">此时默认的打赏按钮如下，略丑。。。然后作了小小改动，把打赏按钮变好看一点点</div></pre></td></tr></table></figure></p>
 <p><img src="/images/blog_donate/3.png" alt="next主题版本"></p>
 <p>改动方法如下：在hexo\themes\next\layout_macro下找到reward.swig文件，这个文件是关于打赏功能样式设置的。用下面代码覆盖原文件中的代码即可。由于保存的自动生成的微信及支付宝二维码图片的大小不一，且原图略大，所以可以通过设置包裹两幅图片的div元素的宽度和高度（代码两处注解处）来限制图片的大小，使其更加美观。宽度和高度可以依据自己喜欢更改大小。</p>
 <pre><code>&lt;div style=&quot;padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;&quot;&gt;
