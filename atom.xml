@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-08T03:22:18.200Z</updated>
+  <updated>2017-08-10T12:44:56.140Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>blog_donate</title>
+    <link href="http://yoursite.com/2017/08/10/blog-donate/"/>
+    <id>http://yoursite.com/2017/08/10/blog-donate/</id>
+    <published>2017-08-10T12:44:56.000Z</published>
+    <updated>2017-08-10T12:44:56.140Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>基于hexo和github搭建个人博客概述</title>
