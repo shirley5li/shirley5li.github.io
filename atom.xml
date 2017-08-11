@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-11T01:55:27.217Z</updated>
+  <updated>2017-08-11T02:10:54.968Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/10/blog-donate/"/>
     <id>http://yoursite.com/2017/08/10/blog-donate/</id>
     <published>2017-08-10T12:44:56.000Z</published>
-    <updated>2017-08-11T01:55:27.217Z</updated>
+    <updated>2017-08-11T02:10:54.968Z</updated>
     
     <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~<br><a id="more"></a></p>
 <h1 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h1><p>首先在主题配置文件即hexo/themes/next/_config.yml找到version字段，查看自己的next主题的版本，如下图所示，我用的next主题的版本为5.1.2</p>
@@ -28,7 +28,41 @@
 <p>在网上查了一些添加打赏功能的方法，参照来做的时候，发现了一些问题，可能是由于next主题升级到version5后自身增加了些隐藏的新功能，所以在网上找到的别人的一些方法不太适用，下面的添加文章结束功能也是如此。因此自己尝试设置好后特来分享一哈~</p>
 <p>在主题配置文件找到Reward字段部分，如下图所示，其中reward_comment字段设置你的打赏介绍，wechatpay和alipay分别为你保存微信以及支付宝收款二维码的路径，可以是本地路径，也可以是用图床生成的链接地址。我是把图片放在本地的，即将两个二维码图片放在了next/source/images文件夹下。</p>
 <p><img src="/images/blog_donate/2.png" alt="next主题版本"></p>
-<p>此时默认的打赏按钮如下，略丑。。。然后作了小小改动，把打赏按钮变好看一点点<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">![next主题版本](/images/blog_donate/3.png)</div><div class="line"></div><div class="line">改动方法如下：在hexo\themes\next\layout\_macro下找到reward.swig文件，这个文件是关于打赏功能样式设置的。用下面代码覆盖原文件中的代码即可。由于保存的自动生成的微信及支付宝二维码图片的大小不一，且原图略大，所以可以通过设置包裹两幅图片的div元素的宽度和高度（代码两处注解处）来限制图片的大小，使其更加美观。宽度和高度可以依据自己喜欢更改大小。</div><div class="line"></div><div class="line">	&lt;div style=&quot;padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;&quot;&gt;</div><div class="line">	  &lt;div&gt;&#123;&#123; theme.reward_comment &#125;&#125;&lt;/div&gt;</div><div class="line">	  &lt;button id=&quot;rewardButton&quot; disable=&quot;enable&quot; style=&quot;width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;</div><div class="line">	margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);&quot; onclick=&quot;var qr = document.getElementById(&apos;QR&apos;); if (qr.style.display === &apos;none&apos;) &#123;qr.style.display=&apos;block&apos;;&#125; else &#123;qr.style.display=&apos;none&apos;&#125;&quot;&gt;</div><div class="line">	    打赏</div><div class="line">	  &lt;/button&gt;</div><div class="line">	  &lt;div id=&quot;QR&quot; style=&quot;display: none;&quot;&gt;</div><div class="line">	</div><div class="line">	    &#123;% if theme.wechatpay %&#125;</div><div class="line">	      &lt;div id=&quot;wechat&quot; style=&quot;display: inline-block;width:150px;height:150px&quot;&gt; //此处限制微信二维码图片大小</div><div class="line">	        &lt;img id=&quot;wechat_qr&quot; src=&quot;&#123;&#123; theme.wechatpay &#125;&#125;&quot; alt=&quot;&#123;&#123; theme.author &#125;&#125; WeChat Pay&quot;/&gt;</div><div class="line">	        &lt;p&gt;WeChat Pay&lt;/p&gt;</div><div class="line">	      &lt;/div&gt;</div><div class="line">	    &#123;% endif %&#125;</div><div class="line">	</div><div class="line">	    &#123;% if theme.alipay %&#125;</div><div class="line">	      &lt;div id=&quot;alipay&quot; style=&quot;display: inline-block;width:150px;height:150px&quot;&gt; //此处限制支付宝二维码图片大小</div><div class="line">	        &lt;img id=&quot;alipay_qr&quot; src=&quot;&#123;&#123; theme.alipay &#125;&#125;&quot; alt=&quot;&#123;&#123; theme.author &#125;&#125; Alipay&quot;/&gt;</div><div class="line">	        &lt;p&gt;Alipay&lt;/p&gt;</div><div class="line">	      &lt;/div&gt;</div><div class="line">	    &#123;% endif %&#125;</div><div class="line">	</div><div class="line">	    &#123;% if theme.bitcoin %&#125;</div><div class="line">	      &lt;div id=&quot;bitcoin&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">	        &lt;img id=&quot;bitcoin_qr&quot; src=&quot;&#123;&#123; theme.bitcoin &#125;&#125;&quot; alt=&quot;&#123;&#123; theme.author &#125;&#125; Bitcoin&quot;/&gt;</div><div class="line">	        &lt;p&gt;Bitcoin&lt;/p&gt;</div><div class="line">	      &lt;/div&gt;</div><div class="line">	    &#123;% endif %&#125;</div><div class="line">	</div><div class="line">	  &lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">调整后的效果见下图，是不是稍微不那么丑了一点点呢，红红火火恍恍惚惚~</div></pre></td></tr></table></figure></p>
+<p>此时默认的打赏按钮如下，略丑。。。然后作了小小改动，把打赏按钮变好看一点点 ~~~</p>
+<p><img src="/images/blog_donate/3.png" alt="next主题版本"></p>
+<p>改动方法如下：在hexo\themes\next\layout_macro下找到reward.swig文件，这个文件是关于打赏功能样式设置的。用下面代码覆盖原文件中的代码即可。由于保存的自动生成的微信及支付宝二维码图片的大小不一，且原图略大，所以可以通过设置包裹两幅图片的div元素的宽度和高度（代码两处注解处）来限制图片的大小，使其更加美观。宽度和高度可以依据自己喜欢更改大小。</p>
+<pre><code>&lt;div style=&quot;padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;&quot;&gt;
+  &lt;div&gt;{{ theme.reward_comment }}&lt;/div&gt;
+  &lt;button id=&quot;rewardButton&quot; disable=&quot;enable&quot; style=&quot;width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;
+margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);&quot; onclick=&quot;var qr = document.getElementById(&apos;QR&apos;); if (qr.style.display === &apos;none&apos;) {qr.style.display=&apos;block&apos;;} else {qr.style.display=&apos;none&apos;}&quot;&gt;
+    打赏
+  &lt;/button&gt;
+  &lt;div id=&quot;QR&quot; style=&quot;display: none;&quot;&gt;
+
+    {% if theme.wechatpay %}
+	      <div id="wechat" style="display: inline-block;width:150px;height:150px"> //此处限制微信二维码图片大小
+	        <img id="wechat_qr" src="{{ theme.wechatpay }}" alt="{{ theme.author }} WeChat Pay">
+	        <p>WeChat Pay</p>
+	      </div>
+	    {% endif %}
+
+    {% if theme.alipay %}
+	      <div id="alipay" style="display: inline-block;width:150px;height:150px"> //此处限制支付宝二维码图片大小
+	        <img id="alipay_qr" src="{{ theme.alipay }}" alt="{{ theme.author }} Alipay">
+	        <p>Alipay</p>
+	      </div>
+	    {% endif %}
+
+    {% if theme.bitcoin %}
+	      <div id="bitcoin" style="display: inline-block">
+	        <img id="bitcoin_qr" src="{{ theme.bitcoin }}" alt="{{ theme.author }} Bitcoin">
+	        <p>Bitcoin</p>
+	      </div>
+	    {% endif %}
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>调整后的效果见下图，是不是稍微不那么丑了一点点呢，红红火火恍恍惚惚~~~~</p>
 <p><img src="/images/blog_donate/4.png" alt="next主题版本"></p>
 <h1 id="文章结束标志"><a href="#文章结束标志" class="headerlink" title="文章结束标志"></a>文章结束标志</h1><p>本以为这是一个非常简单的小功能，其实的确是一个很简单的功能，但由于参考的人家的做法可能不适于我使用的版本，导致这个小小的问题又折腾了好久T T</p>
 <p>在hexo\themes\next\layout_macro文件夹下新建passage-end-tag.swig文件，并添加代码如下：</p>
