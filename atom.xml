@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-11T04:30:22.886Z</updated>
+  <updated>2017-08-11T04:32:52.815Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/10/blog-donate/"/>
     <id>http://yoursite.com/2017/08/10/blog-donate/</id>
     <published>2017-08-10T12:44:56.000Z</published>
-    <updated>2017-08-11T04:30:22.886Z</updated>
+    <updated>2017-08-11T04:32:52.815Z</updated>
     
     <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~<br><a id="more"></a></p>
 <h1 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h1><p>首先在主题配置文件即hexo/themes/next/_config.yml找到version字段，查看自己的next主题的版本，如下图所示，我用的next主题的版本为5.1.2</p>
@@ -49,7 +49,7 @@ passage_end_tag:
 </code></pre><p>效果如下图所示：</p>
 <p><img src="/images/blog_donate/6.png" alt="6"></p>
 <p>最后，运行下hexo g -d 看下部署到github后的效果吧！</p>
-<p>PS:比较坑的一点，我使用的markdownpad，使用Tab缩进打代码块时，在右侧预览区可以正常显示代码块文本，但是 <code>hexo s</code> 在本地浏览器预览后，代码块文本却没有正确完整的显示，有些html标签被解释掉了。好像是Tab缩进可以被markdownpad的解释器正确解释，但是hexo的解释器却没有将其正确解析。后面换了一种打代码块的方式，就可以在浏览器正确显示了，但在markdownpad的预览区却没得到正常显示。即在代码块的最前面和最后面单独一行使用三个反引号    ```。如下图所示。</p>
+<p><strong>PS:</strong>比较坑的一点，我使用的markdownpad，使用Tab缩进打代码块时，在右侧预览区可以正常显示代码块文本，但是 <code>hexo s</code> 在本地浏览器预览后，代码块文本却没有正确完整的显示，有些html标签被解释掉了。好像是Tab缩进可以被markdownpad的解释器正确解释，但是hexo的解释器却没有将其正确解析。后面换了一种打代码块的方式，就可以在浏览器正确显示了，但在markdownpad的预览区却没得到正常显示。即在代码块的最前面和最后面单独一行使用三个反引号    ```。如下图所示。</p>
 <p><img src="/images/blog_donate/7.png" alt="7"></p>
 <p>效果显示如下：</p>
 <p><img src="/images/blog_donate/8.png" alt="8"></p>
