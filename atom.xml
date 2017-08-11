@@ -64,9 +64,9 @@ passage_end_tag:
       <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
       <category term="next" scheme="http://yoursite.com/tags/next/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
@@ -227,13 +227,13 @@ disqus:
       <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
       <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
     
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
       <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
