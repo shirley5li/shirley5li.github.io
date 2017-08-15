@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-11T04:32:52.815Z</updated>
+  <updated>2017-08-15T13:16:22.489Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/08/10/blog-donate/"/>
     <id>http://yoursite.com/2017/08/10/blog-donate/</id>
     <published>2017-08-10T12:44:56.000Z</published>
-    <updated>2017-08-11T04:32:52.815Z</updated>
+    <updated>2017-08-15T13:16:22.489Z</updated>
     
-    <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~吼吼吼<br><a id="more"></a></p>
 <h1 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h1><p>首先在主题配置文件即hexo/themes/next/_config.yml找到version字段，查看自己的next主题的版本，如下图所示，我用的next主题的版本为5.1.2</p>
 <p><img src="/images/blog_donate/1.png" alt="1"></p>
 <p>在网上查了一些添加打赏功能的方法，参照来做的时候，发现了一些问题，可能是由于next主题升级到version5后自身增加了些隐藏的新功能，所以在网上找到的别人的一些方法不太适用，下面的添加文章结束功能也是如此。因此自己尝试设置好后特来分享一哈~</p>
@@ -57,7 +57,7 @@ passage_end_tag:
     
     <summary type="html">
     
-      &lt;p&gt;这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~&lt;br&gt;
+      &lt;p&gt;这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~吼吼吼&lt;br&gt;
     
     </summary>
     
