@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-30T07:18:27.502Z</updated>
+  <updated>2017-09-30T07:26:16.812Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/09/29/demo-qixi/"/>
     <id>http://yoursite.com/2017/09/29/demo-qixi/</id>
     <published>2017-09-29T12:31:33.000Z</published>
-    <updated>2017-09-30T07:18:27.502Z</updated>
+    <updated>2017-09-30T07:26:16.812Z</updated>
     
-    <content type="html"><![CDATA[<p>这段时间照着慕课网上的一个动画案例-<a href="http://www.imooc.com/learn/453" target="_blank" rel="external">H5+JS+CSS3实现七夕言情</a>学习，<br><a id="more"></a><br>并将老师给出的各个部分的代码进行整合，最后将代码托管到github上，并通过github pages展示这个动画demo。一些地方自己修改以后没有老师的效果好，但这是自己第一个敲出来的前端小demo，成就感满满，哈哈。。。</p>
+    <content type="html"><![CDATA[<p>这段时间照着慕课网上的一个动画案例-<a href="http://www.imooc.com/learn/453" target="_blank" rel="external">H5+JS+CSS3实现七夕言情</a>学习，<br><a id="more"></a><br>并将学习的各部分的代码进行整合，最后将代码托管到github上，并通过github pages展示这个动画demo。一些地方自己修改以后没有老师的效果好，但这是自己第一个敲出来的前端小demo，成就感满满，哈哈。。。</p>
 <h1 id="关于动画案例"><a href="#关于动画案例" class="headerlink" title="关于动画案例"></a>关于动画案例</h1><p>里面用到一些jQuery和ajax相关的知识，由于自己学习js不久，很多深一点的概念理解不到位，比如一开始代码的封装和流程的编写，都是照葫芦画瓢，不是很理解，但是慢慢的看得多了，这个过程也就熟悉起来了。</p>
 <p>页面布局部分比较容易理解，但是三个主题页面滚动起来最开始对自己还是有点难度。该案例很多部分都利用了CSS3的transform属性和animation属性。而且这个案例的思想是，把实现特定动作或者动能的代码封装起来，暴露一个接口出来，增强了安全性简化了编程过程。</p>
 <p>具体的学习过程和用到的知识点，大家可以跟着<a href="http://www.imooc.com/learn/453" target="_blank" rel="external">H5+JS+CSS3实现七夕言情</a>学习，边看边学的效果比抱着书一直看的效果要好一些。但js高级教程的基础必须打牢，很多师兄师姐给的建议，也是网上一些大佬的建议。</p>
