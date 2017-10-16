@@ -1922,7 +1922,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fee875;
+  background: #f2743d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3004,6 +3004,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
+  width: 100%;
 }
 .main-inner {
   margin-top: 60px;
