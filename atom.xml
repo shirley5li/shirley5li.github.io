@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-17T11:48:10.266Z</updated>
+  <updated>2017-10-18T05:20:44.081Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,79 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有默认margin，padding值的html标签</title>
+    <link href="http://yoursite.com/2017/10/18/%E9%BB%98%E8%AE%A4margin%E5%80%BC%E5%85%83%E7%B4%A0/"/>
+    <id>http://yoursite.com/2017/10/18/默认margin值元素/</id>
+    <published>2017-10-18T05:00:44.000Z</published>
+    <updated>2017-10-18T05:20:44.081Z</updated>
+    
+    <content type="html"><![CDATA[<p>总结一下那些有默认margin及padding值的html标签，在CSS reset时，最好将这些元素的padding和margin值初始化为0，以实现不同浏览器下的样式兼容，避免后期团队开发过程因不同浏览器下默认样式不同而造成混乱。<br><a id="more"></a></p>
+<h2 id="h1-h6标签"><a href="#h1-h6标签" class="headerlink" title="h1~h6标签"></a>h1~h6标签</h2><p>有默认margin（top,bottom且相同）值，没有默认padding值。</p>
+<pre><code>在chrome中：16,15,14,16,17,19;
+
+在firefox中：16,15,14,16,17,20;
+
+在safari中：16,15,14,16,17,19;
+
+在opera中：16,15,14,14,17,21;
+
+在maxthon中：16,14,14,15,16,18;
+
+在IE6.0中：都是19；
+
+在IE7.0中：都是19；
+
+在IE8.0中：16,15,14,16,17,19;
+</code></pre><h2 id="dl标签"><a href="#dl标签" class="headerlink" title="dl标签"></a>dl标签</h2><p>有默认margin（top,bottom且相同）值，没有默认padding值。</p>
+<pre><code>在Chrome,Firefox,Safari,Opera,Maxthon,IE8.0中：margin:12px 0px;
+
+在IE6.0,7.0中：margin:19px 0px;
+</code></pre><p>dd标签有默认margin-left：40px;(在所有上述浏览器中)。</p>
+<h2 id="ol-ul标签"><a href="#ol-ul标签" class="headerlink" title="ol,ul标签"></a>ol,ul标签</h2><p>有默认margin-（top,bottom且相同）值，有默认padding-left值</p>
+<pre><code>在Chrome,Firefox,Safari,Opera,Maxthon,IE8.0中：margin:12px 0px;
+
+在IE6.0,7.0中：margin:19px 0px;
+</code></pre><p>默认padding-left值：在Chrome,Firefox,Safari,Opera,Maxthon,IE8.0中都是padding-left：40px;在IE6.0,7.0中没有默认padding值，因为ol,ul标签的边框不包含序号。</p>
+<h2 id="th-td标签"><a href="#th-td标签" class="headerlink" title="th,td标签"></a>th,td标签</h2><p>th,td标签没有默认的margin值，有默认的padding值。</p>
+<pre><code>在Chrome,Firefox,Safari,Opera,Maxthon中：padding：1px;
+
+在IE8.0中：padding：0px 1px 1px;
+
+在IE7.0中：padding：0px 1px；
+</code></pre><p>相同内容th的宽度要比td宽，因为th字体有加粗效果。</p>
+<p><strong>注意 ：table标签没有默认的margin,padding值。</strong></p>
+<h2 id="form标签"><a href="#form标签" class="headerlink" title="form标签"></a>form标签</h2><p>form标签在Chrome,Firefox,Safari,Opera,Maxthon,IE8.0中没有默认的margin,padding值，但在IE6.0,7.0中有默认的margin：19px 0px;</p>
+<h2 id="p标签"><a href="#p标签" class="headerlink" title="p标签"></a>p标签</h2><p>p标签有默认margin(top,bottom)值,没有默认padding值。</p>
+<pre><code>在Chrome,Firefox,Safari,Opera,Maxthon,IE8.0中：margin:12px 0px;
+
+在IE6.0,7.0中：margin:19px 0px;
+</code></pre><h2 id="textarea标签"><a href="#textarea标签" class="headerlink" title="textarea标签"></a>textarea标签</h2><p>textarea标签在上述所有浏览器中：margin:2px；padding:2px；</p>
+<h2 id="select标签"><a href="#select标签" class="headerlink" title="select标签"></a>select标签</h2><p>select标签在Chrome,Safari,Maxthon中有默认的margin：2px；在Opera,Firefox,IE6.0,7.0,8.0没有默认的margin值。</p>
+<h2 id="option标签"><a href="#option标签" class="headerlink" title="option标签"></a>option标签</h2><p>option标签只有在firefox中有默认的padding-left：3px；</p>
+<h2 id="CSS-reset"><a href="#CSS-reset" class="headerlink" title="CSS reset"></a>CSS reset</h2><pre><code>/*CSS style init*/
+body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,p,input,select,option,textarea,form,th,td{margin: 0; padding: 0;}
+body{font:14px/1.5 &quot;宋体&quot;;}
+img{border:none;}
+li{list-style:none;}
+input,select,textarea{outline:none;border:none;background:none;}
+textarea{resize:none;}
+a{text-decoration:none;}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结一下那些有默认margin及padding值的html标签，在CSS reset时，最好将这些元素的padding和margin值初始化为0，以实现不同浏览器下的样式兼容，避免后期团队开发过程因不同浏览器下默认样式不同而造成混乱。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS清除浮动的几种方法</title>
@@ -369,9 +442,9 @@ passage_end_tag:
       <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
       <category term="next" scheme="http://yoursite.com/tags/next/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
@@ -532,13 +605,13 @@ disqus:
       <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
       <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
     
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
       <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
