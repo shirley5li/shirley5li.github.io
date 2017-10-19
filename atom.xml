@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-18T05:20:44.081Z</updated>
+  <updated>2017-10-19T14:31:00.721Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PS切图笔记from慕课网</title>
+    <link href="http://yoursite.com/2017/10/18/PS%E5%88%87%E5%9B%BE%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/10/18/PS切图笔记/</id>
+    <published>2017-10-18T08:19:00.000Z</published>
+    <updated>2017-10-19T14:31:00.721Z</updated>
+    
+    <content type="html"><![CDATA[<p>在慕课网学习的简单的关于PS切图的基本使用。下面是慕课网的视频学习链接<a href="http://www.imooc.com/learn/506" target="_blank" rel="external">前端工程师必备的PS技能——切图篇</a>。<br><a id="more"></a></p>
+<h2 id="Photoshop界面设置"><a href="#Photoshop界面设置" class="headerlink" title="Photoshop界面设置"></a>Photoshop界面设置</h2><p>使用的photoshop版本为photoshop cc 2015。</p>
+<h3 id="新建设置"><a href="#新建设置" class="headerlink" title="新建设置"></a>新建设置</h3><p>文件–&gt;新建–&gt;文档类型（自定）–&gt;宽度一般固定（1920像素）–&gt;高度一般不定(此时设为2000像素)–&gt;分辨率72像素/英寸–&gt;背景内容(透明)。</p>
+<p>再点击“确定”即可生成一张新的界面。此时还可点击“存储预设为”将本次自定义设置预设，留作以后使用该设置参数时使用。参数设置即生成图片分别为下列两图所示。</p>
+<p><img src="/images/PS切图笔记/1.png" alt="1"></p>
+<p><img src="/images/PS切图笔记/2.png" alt="2"></p>
+<p>不知道是不是我下载的破解版的原因，键盘在中文输入法状态下时，左侧导航栏的工具图标不显示提示名称，切换到英文输入状态时就会显示。。</p>
+<h3 id="移动工具设置"><a href="#移动工具设置" class="headerlink" title="移动工具设置"></a>移动工具设置</h3><p>第一个工具图标为：移动工具，快捷键V。 如下图所示。</p>
+<p><img src="/images/PS切图笔记/3.png" alt="3"></p>
+<p>选择移动工具–不勾选自动选择–选择图层–按住ctrl+鼠标左键可以自由选择想要的图层，会在右侧图层显示信息栏为你筛选出当前鼠标左键选择的图层。如下图所示。</p>
+<p><img src="/images/PS切图笔记/4.png" alt="4"></p>
+<h3 id="视图设置"><a href="#视图设置" class="headerlink" title="视图设置"></a>视图设置</h3><p>勾选两个功能：（1）视图–&gt;显示–&gt;智能参考线  （2）视图–&gt;标尺<br>可以在窗口–&gt;库，颜色，路径，通道， 把这几个功能关掉。</p>
+<p>窗口–&gt;历史记录，信息，图层，三个功能模块打开。</p>
+<p>最后在右侧区域一共用到四个功能，即信息，字符，图层，历史纪录。见下图。</p>
+<p><img src="/images/PS切图笔记/5.png" alt="5"></p>
+<p>信息面板设置如下：</p>
+<p><img src="/images/PS切图笔记/6.png" alt="6"></p>
+<p>在编辑–&gt;首选项–&gt;单位与标尺，将单位改为像素。</p>
+<h2 id="Photoshop基本操作"><a href="#Photoshop基本操作" class="headerlink" title="Photoshop基本操作"></a>Photoshop基本操作</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在慕课网学习的简单的关于PS切图的基本使用。下面是慕课网的视频学习链接&lt;a href=&quot;http://www.imooc.com/learn/506&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;前端工程师必备的PS技能——切图篇&lt;/a&gt;。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PS" scheme="http://yoursite.com/categories/PS/"/>
+    
+    
+      <category term="PS" scheme="http://yoursite.com/tags/PS/"/>
+    
+  </entry>
   
   <entry>
     <title>有默认margin，padding值的html标签</title>
