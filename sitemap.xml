@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/10/20/next-js/</loc>
+    
+    <lastmod>2017-10-20T12:27:04.046Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/18/PS%E5%88%87%E5%9B%BE%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2017-10-19T14:31:00.721Z</lastmod>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-19T14:31:00.721Z</updated>
+  <updated>2017-10-20T12:27:04.046Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,212 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS笔记(一)--from next十天训练营</title>
+    <link href="http://yoursite.com/2017/10/20/next-js/"/>
+    <id>http://yoursite.com/2017/10/20/next-js/</id>
+    <published>2017-10-20T01:21:29.000Z</published>
+    <updated>2017-10-20T12:27:04.046Z</updated>
+    
+    <content type="html"><![CDATA[<p>NEXT十天训练营有关JS学习的笔记。<br><a id="more"></a></p>
+<h2 id="认识JavaScript"><a href="#认识JavaScript" class="headerlink" title="认识JavaScript"></a>认识JavaScript</h2><p>JS是目前主流浏览器唯一支持的脚本语言，由以下三部分组成：</p>
+<p>（1）ECMAScript:语言基础（核心）。</p>
+<p>ECMA-262标准规定了ECMAScript这门语言的组成部分，例如语法、类型、语句、关键字、保留字、操作符、对象。</p>
+<p>Web浏览器只是ECMAScript实现可能的宿主环境之一，其他宿主环境还包括Node(一种服务端JavaScript平台)和Adobe Flash。</p>
+<p>（2）DOM（Document Object Model,文档对象模型）</p>
+<p>通过DOM可以操作HTML元素，包括删除、添加、替换、修改节点等。DOM将整个HTML文档映射为一个多层节点结构，即DOM树。</p>
+<p>（3）BOM（Browser Object Model,浏览器对象模型）</p>
+<p>通过BOM获取一些浏览器的信息，以及控制浏览器的一些行为。</p>
+<h2 id="引入JavaScript"><a href="#引入JavaScript" class="headerlink" title="引入JavaScript"></a>引入JavaScript</h2><p>有三种方式可以在HTML文档里引入JavaScript。</p>
+<p>（1）行内方式。即直接在HTML元素的属性上应用js代码。</p>
+<p>例如以下代码中button元素的onclick属性，点击button就会弹出消息框并显示“hello”。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;title&gt;JavaScript引入&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id=&quot;helloBtn&quot; onclick=&quot;alert(&apos;hello&apos;);&quot;&gt;点击弹出消息框&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>但这种方式不建议使用。一是因为这种方式针对一些用户的事件触发js执行，局限性较大。二是html文档中掺杂js代码会显得文档很乱，背离了结构应与样式、行为相分离的原则。</p>
+<p>（2）内嵌方式。即通过一对<script></script>标签在html文档中插入js代码。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;title&gt;JavaScript引入&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id=&quot;helloBtn&quot; &gt;点击弹出消息框&lt;/button&gt;
+    &lt;sript&gt;
+        var helloBtn = documnet.getElementById(&quot;helloBtn&quot;);
+        helloBtn.onclick = function() {
+            alert(&quot;hello&quot;);
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>此种方式也有缺点。例如在不同页面使用上述<script></script>标签之间这段js代码时，即在不同页面使用同一段js代码会有冗余。根据场景判断是否使用该方式。</p>
+<p>（3）外链方式。即将js代码从html文档中提取出来单独形成一个.js文件，并在html文档中引入这个.js文件。</p>
+<p>例如将方法（2）中<script></script>标签之间这段js代码提取出来，保存在一个hello.js文件中，并在html文件中引入。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;title&gt;JavaScript引入&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id=&quot;helloBtn&quot;&gt;点击弹出消息框&lt;/button&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;hello.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>根据场景判断是否使用该方式。</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>（1）语法:</p>
+<pre><code>var 变量名
+</code></pre><p>变量名区分大小写，首字母必须是字母、下划线或者$，非关键字和保留字。<br>例如，<code>var name = &quot;bottle&quot;;</code></p>
+<p>（2）全局变量和局部变量：</p>
+<p>使用var定义的变量可能是全局变量也可能是局部变量，取决于是否在一个function中。如在function中使用var定义一个变量message，此变量即为一个局部变量。局部变量在function外面访问不到。若在function内不使用var定义变量message，则在函数外可以访问到该变量。</p>
+<p>使用var定义</p>
+<pre><code>function test() {
+    var message = &quot;hi&quot;;//定义一个局部变量
+}
+test();
+alert(message);//错误，找不到变量message
+</code></pre><p>不使用var定义</p>
+<pre><code>function test() {
+    message = &quot;hi&quot;;//定义一个全局变量
+}
+test();
+alert(message);//hi
+</code></pre><p>使用控制台console来调试js代码。alert()弹出一个提示框。console.log()打印。</p>
+<p>利用sources里面的snippets来观察变量。如下所示。</p>
+<p><img src="/images/next-js/1.png" alt="1"></p>
+<p>局部变量测试结果如下所示。</p>
+<p><img src="/images/next-js/2.png" alt="2"></p>
+<p><img src="/images/next-js/3.png" alt="3"></p>
+<p>全局变量测试结果如下所示。</p>
+<p><img src="/images/next-js/4.png" alt="4"></p>
+<p><img src="/images/next-js/5.png" alt="5"></p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>1、基本数据类型</p>
+<p>（1）字符串类型String</p>
+<p>（2）数字类型Number</p>
+<p>（3）布尔类型Boolean ,取值true或false</p>
+<p>（4）Null</p>
+<p>（5）Undefined</p>
+<p>2、复杂数据类型/引用数据类型 Object</p>
+<p><strong>怎样判断数据类型</strong></p>
+<p>在浏览器控制台可使用type of 操作符来判断以下数据类型。</p>
+<pre><code>typeof 1//&quot;number&quot;
+typeof &apos;a&apos;//&quot;string&quot;
+typeof true//&quot;boolean&quot;
+typeof undefined//&quot;undefined&quot;
+typeof null//&quot;object&quot; (这个比较特殊)
+typeof {}//&quot;object&quot;
+typeof function(){};//&quot;function&quot;
+</code></pre><p>判断数据类型的几个例子如下。</p>
+<p><img src="/images/next-js/6.png" alt="6"></p>
+<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><p>1、创建对象</p>
+<p>（1）使用对象字面量{}创建杯子对象。（推荐，简洁明了）</p>
+<pre><code>var bottle = {
+    name: &quot;bottle&quot;, //key: value
+    price: 49, 
+    isKeepWarm: true 
+}
+</code></pre><p>对象的每一个属性都可以用对应的键值对(key: value)来描述，其中key为任一合法字符，value为任意数据类型。如果属性名包含多个中间含空格的字符，要用引号包含起来。</p>
+<p>（2）使用Object构造函数创建杯子对象。</p>
+<pre><code>var bottle = new Object();
+bottle.name = &quot;bottle&quot;;
+bottle.price = 49;
+bottle.isKeepWarm = true;
+</code></pre><p>2、对象属性读操作</p>
+<p>（1）使用点操作符 <code>console.log(bottle.name);//&quot;bottle&quot;</code>（推荐）</p>
+<p>（2）使用中括号操作符 <code>console.log(bottle[&quot;name&quot;]);//&quot;bottle&quot;</code>（如果对象属性名即key包含空格时，必须使用中括号操作符）</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>1、函数的定义</p>
+<p>（1）函数声明</p>
+<pre><code>function 函数名（参数1，参数2，...）{
+    函数体
+    return ;
+}
+</code></pre><p>函数声明的特点，在相同作用域下，不管在何处声明都可以调用的到。即使声明在调用之后。</p>
+<p>（2）函数表达式</p>
+<pre><code>var 变量 = function(参数1，参数2，...){
+    函数体
+    return ;
+}
+</code></pre><p>函数表达式的调用必须在函数表达式声明之后。这是区别于函数声明的地方。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><img src="/images/next-js/7.png" alt="7"></p>
+<p>如上图所示，bottles是在函数之外声明的，是全局作用域的一个变量，所以在函数内部可以访问到bottles。而函数内部（函数作用域）声明的num为局部变量，只可以在函数内部被访问到，在函数外部无法获取。</p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>（1）if语句</p>
+<pre><code>if(条件) {
+    执行语句1;
+}
+else{
+    执行语句2;
+}
+</code></pre><p>（2）switch语句</p>
+<pre><code>swith(n){
+    case 0: 执行语句1；
+    case 1: 执行语句2;
+    ...
+
+}
+</code></pre><h2 id="字符串的有关操作"><a href="#字符串的有关操作" class="headerlink" title="字符串的有关操作"></a>字符串的有关操作</h2><h3 id="分割字符串-split"><a href="#分割字符串-split" class="headerlink" title="分割字符串 split"></a>分割字符串 split</h3><p>split()方法可以把字符串分割为字符串数组。</p>
+<pre><code>&quot;2:3:4:5&quot;.split(&quot;:&quot;)    // 将返回 [&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]
+
+&quot;|a|b|c&quot;.split(&quot;|&quot;)    // 将返回 [&quot;&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+</code></pre><h3 id="截取字符串-substring"><a href="#截取字符串-substring" class="headerlink" title="截取字符串 substring"></a>截取字符串 substring</h3><p>substring() 方法用于提取字符串中介于两个指定下标之间的字符。语法：<code>str.substring(indexStart, [indexEnd])</code></p>
+<pre><code>var str = &apos;Hello World!&apos;;
+console.log(str.substring(3)); // 将返回 lo world!
+</code></pre><h3 id="字符串转换大写-toUpperCase"><a href="#字符串转换大写-toUpperCase" class="headerlink" title="字符串转换大写 toUpperCase()"></a>字符串转换大写 toUpperCase()</h3><p>toUpperCase() 方法用于把字符串转换为大写。</p>
+<pre><code>var str = &apos;Hello World!&apos;;
+console.log(str.toUpperCase()); // 将返回 HELLO WORLD!
+</code></pre><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>完善函数 convertToCamelCase 的功能。函数 convertToCamelCase 会转换传入的字符串参数 string 为驼峰格式，并返回转换后的字符串。具体要求如下：</p>
+<ul>
+<li><p>参数 string 是以中划线（-）连接单词的字符串，需将第二个起的非空单词首字母转为大写，如 -webkit-border-radius 转换后的结果为 webkitBorderRadius。</p>
+</li>
+<li><p>返回转换后的字符串</p>
+</li>
+</ul>
+<p>解决方法：</p>
+<pre><code>function convertToCamelCase(str){
+    var strSplit = str.split(&quot;-&quot;);//转换为字符串数组
+    if(strSplit[0] === &quot;&quot;){ //如果第一个字符串为空的话，左移删掉，否则的话不变
+        strSplit.shift();
+    }
+    for(var i = 1; i &lt; strSplit.length; i++){
+            var letter = strSplit[i].charAt(0);//取得字符串数组中每个字符串的首字母
+            //使用replace方法将每个字符串的首写字母大写
+            strSplit[i] = strSplit[i].replace(letter, function replace(letter){
+                return letter.toUpperCase();
+            });
+
+    }  
+    return strSplit.join(&quot;&quot;);//join方法串接起字符串
+}
+convertToCamelCase(&quot;-ni-hao-a&quot;);
+</code></pre><p>还可以使用<strong>正则表达式</strong>的方法。</p>
+<pre><code>function convertToCamelCase(str) {
+  return str.replace(/\-[a-z]/g , function(a, b){
+      return b == 0 ? a.replace(&apos;-&apos;,&apos;&apos;) : a.replace(&apos;-&apos;,&apos;&apos;).toUpperCase();
+  });
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NEXT十天训练营有关JS学习的笔记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>PS切图笔记from慕课网</title>
