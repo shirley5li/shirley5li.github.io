@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-20T12:27:04.046Z</updated>
+  <updated>2017-10-21T05:57:32.996Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,171 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS笔记(二)DOM操作--from next十天训练营</title>
+    <link href="http://yoursite.com/2017/10/20/next-js2/"/>
+    <id>http://yoursite.com/2017/10/20/next-js2/</id>
+    <published>2017-10-20T12:21:29.000Z</published>
+    <updated>2017-10-21T05:57:32.996Z</updated>
+    
+    <content type="html"><![CDATA[<p>JS调用DOM接口修改样式。<br><a id="more"></a></p>
+<h2 id="DOM简介"><a href="#DOM简介" class="headerlink" title="DOM简介"></a>DOM简介</h2><p><img src="/images/next-js2/1.png" alt="1"></p>
+<p>上图是一张网页的生成过程，大致分为五步：</p>
+<p>（1）html代码转化为DOM树</p>
+<p>（2）CSS代码转化成CSSOM（CSS Object Model）</p>
+<p>（3）结合DOM和CSSOM，生成一棵渲染树（包含每个节点的视觉信息）</p>
+<p>（4）生成布局（layout），即将所有渲染树的所有节点进行平面合成</p>
+<p>（5）将布局绘制（paint）在屏幕上</p>
+<p>“生成布局”（flow）和”绘制”（paint）这两步，合称为”渲染”（render）。</p>
+<p>其中，在html文档生成DOM树后，JS可以通过DOM提供的接口来添加、删除、修改元素和样式。</p>
+<h2 id="DOM查找"><a href="#DOM查找" class="headerlink" title="DOM查找"></a>DOM查找</h2><p>查找API:</p>
+<pre><code>document.getElementById()//通过元素id查找，查找一个元素
+
+[document|Element].getElementsByClassName()//通过元素类名查找，查找一组元素，得到一个类数组(html collection)
+
+[document|Element].getElementsByTagName()//通过元素标签名查找,查找一组元素，得到一个类数组
+
+[document|Element].querySelector()//通过CSS选择器查找，例如 var qId = document.querySelector(&apos;#id&apos;);
+
+[document|Element].querySelectorAll()//通过CSS选择器查找
+</code></pre><p>后两者常用。</p>
+<h2 id="DOM新增和删除"><a href="#DOM新增和删除" class="headerlink" title="DOM新增和删除"></a>DOM新增和删除</h2><p>（1）新增节点<br>新增一个元素时，包括插入和追加。前面插入用insertBefore()，后面追加用appendChild()。</p>
+<pre><code>parent.appendChild(element)//新增节点到父元素的末尾
+
+parentElement.insertBefore(newElement, targetElement)//新增节点到targetElement元素的前面
+</code></pre><p>注意：使用.insertBefore()方法时，不必搞清楚父元素到底是哪个，因为targetElement元素的parentNode属性值就是它。所以可以通过<code>targetElement.parentNode.insertBefore(newElement, targetElement)</code>来插入。</p>
+<p>新增多个元素时，可以利用上述两个方法结合循环实现，但循环会导致一个问题，因为直接操作DOM会导致浏览器反复渲染。利用DocumentFragment节点解决这个反复渲染问题。</p>
+<p><strong>DocumentFragment</strong>文档片段，可以理解为“轻量级”的节点。有两个属性，分别为：nodeType = 11, nodeName = #document-fragment。<br>DocumentFragment作为仓库来使用，不在DOM树中，游离在DOM树之外。当增加多个节点时，可将这多个节点临时存放在DocumentFragment仓库中，最后再一次性插入DOM树中，就解决了浏览器反复渲染的问题。</p>
+<p>（2）删除节点<br>删除节点使用removeChild()</p>
+<p>（3）创建节点</p>
+<p>此时创建出的节点即为DocumentFragment文档碎片，创建完以后再插入或者追加到DOM树中。</p>
+<pre><code>document.createElement(nodeName)//创建元素节点,nodeName即为h1,h2,li,p,....
+
+document.creatTextNode(text)//创建文本节点
+</code></pre><p><strong>练习题</strong></p>
+<p>题目要求:现有 HTML 代码如下,</p>
+<pre><code>&lt;body&gt;
+    &lt;h1&gt;按要求新增元素&lt;/h1&gt;
+&lt;/body&gt;
+</code></pre><p>在h1元素的后面新增一个ul元素，ul元素中有一百个li元素，li的内容就是 1-100 ，如下所示：</p>
+<pre><code>&lt;body&gt;
+    &lt;h1&gt;按要求新增元素&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;1&lt;/li&gt;
+        &lt;li&gt;2&lt;/li&gt;
+        &lt;li&gt;3&lt;/li&gt;
+        ......
+        &lt;li&gt;98&lt;/li&gt;
+        &lt;li&gt;99&lt;/li&gt;
+        &lt;li&gt;100&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><p>js代码如下：</p>
+<pre><code>var len = 100;
+var ul = document.createElement(&apos;ul&apos;);
+var body = document.getElementsByTagName(&apos;body&apos;)[0];
+for(var i = 0; i &lt; len; i++){
+    var li = document.createElement(&apos;li&apos;);
+    var liText = document.createTextNode(i+1);
+    li.appendChild(liText);
+    ul.appendChild(li);
+
+} 
+body.appendChild(ul);
+</code></pre><h2 id="DOM修改样式"><a href="#DOM修改样式" class="headerlink" title="DOM修改样式"></a>DOM修改样式</h2><p>两种方式修改元素样式：通过元素style属性修改；通过元素class属性修改。</p>
+<p>（1）style属性</p>
+<p>style属性包含着元素诸如颜色大小等样式，style属性是一个对象。如访问style对象的color属性：<code>element.style.color</code>。</p>
+<p>注意：当引用一个中间带减号的CSS属性时，DOM要求用驼峰命名法。CSS属性font-family变为了DOM属性fontFamily：<code>element.style.fontFamily</code>。这是因为减号和加号之类的操作符是保留字，不允许用在函数或变量的名字里，意味着也不能用在方法和属性的名字里。</p>
+<p>缺点：style属性只能返回内嵌样式。即只有把CSS style属性插入到标记里，才可以用DOM style属性去获取那些属性信息。DOM style属性不能用来检索外部CSS文件里声明的样式。</p>
+<p>（2）class属性</p>
+<p>利用DOM修改元素的class属性（比如新增一个class或者删除一个class），使得利用外部CSS文件中的设置的样式改变元素的样式，而不是用DOM直接操作style属性修改样式。</p>
+<p>例如要给要给elem元素设置class属性为intro，方法如下：</p>
+<p><strong>a.</strong>利用setAttribute()方法, <code>elem.setAttribute(&quot;class&quot;,&quot;intro&quot;)</code></p>
+<p><strong>b.</strong>通过更新className属性。className属性是一个可读可写的属性，凡是元素节点都有这个属性。可以用className属性获取一个元素的class属性，<code>element.className</code>。</p>
+<p>用className属性和赋值操作符设置一个元素的class属性：<code>element.className = value</code></p>
+<p>该方法的<strong>不足</strong>，通过className属性设置某个元素的class属性时将替换该元素原有的属性（而不是追加）。</p>
+<p><strong>在需要给一个元素追加新的class时，可以按照以下思路：</strong></p>
+<p>检查className属性的是否为null；</p>
+<p>如果是，把新的class设置值直接赋值给className属性；</p>
+<p>若不是，把一个空格和新的class设置值追加到className属性上去。</p>
+<p>把上述步骤封装为一个函数addClass,该函数有两个参数，第一个为需要添加的新class的元素，第二个是新的class设置值。</p>
+<pre><code>function addClass(element, value){
+    if(!element.className){
+        element.className = value;
+    }else{
+        newClassName = element.className;
+        newClassName+= &quot; &quot;;
+        newClassName+=value;
+        element.className = newClassName;
+    }
+}
+</code></pre><h2 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h2><pre><code>&lt;!DOCTTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;title&gt;事件简介&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;section&gt;
+        &lt;button id=&quot;button&quot;&gt;点击切换背景颜色&lt;/button&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>针对上述代码，当点击了button后事件反应机制有两种(这两种是上古时代的做法 。 。)</p>
+<p>第一种是点击button后，button将事件传递到section，再传递到body，再传递到html，再传递到document。该种方式即为事件冒泡机制。<br>如下图所示：</p>
+<p><img src="/images/next-js2/2.png" alt="2"></p>
+<p>第二种是点击button后，从document开始一层层捕获，即为事件捕获机制。如下图所示。</p>
+<p><img src="/images/next-js2/3.png" alt="3"></p>
+<p>目前<strong>标准的DOM事件流</strong>做法分为三个阶段：事件捕获阶段、处于目标阶段、事件冒泡阶段。</p>
+<p>事件捕获阶段的结束阶段为目标元素的父元素，然后是处于目标阶段，接下来是事件冒泡阶段。在实际开发过程中，由于浏览器兼容问题，事件捕获过程基本不用，会频繁使用目标和事件冒泡。流程如下所示。</p>
+<p><img src="/images/next-js2/4.png" alt="4"></p>
+<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p><strong>添加</strong>事件处理程序：</p>
+<pre><code>element.addEventListener(type, handle, false)//type表示事件类型，handle为事件处理函数，false表示采用冒泡机制
+</code></pre><p><strong>删除</strong>事件处理程序：</p>
+<pre><code>element.removeEventListener(type, handle)
+</code></pre><p>例如：</p>
+<pre><code>h1.addEventListener(&apos;click&apos;, function(){
+    console.log(this);//this指向绑定事件处理函数的对象，即h1元素
+}, false);
+</code></pre><p><strong>事件对象</strong></p>
+<p>事件对象包含着所有与事件相关的信息。</p>
+<pre><code>var h1 = document.querySelector(&apos;h1&apos;);
+var handle = function(event) {   //event即为事件处理对象，包括了触发点击事件时鼠标的位置等等信息
+    console.log(&apos;event&apos;, event);  //将event对象打印出来并查看event对象包含哪些信息
+}
+h1.addEventListener(&apos;click&apos;, handle, false);
+</code></pre><p><strong>事件冒泡</strong></p>
+<pre><code>var h1 = document.querySelector(&apos;h1&apos;);
+var handle = function(event) {   
+    console.log(&apos;event&apos;, event);  
+}
+document.body.addEventListener(&apos;click&apos;, handle, false);//将点击事件函数绑定在body上
+</code></pre><p>虽然点击事件绑定在body上，但此时点击h1元素，仍会触发事件打印event对象。此为事件冒泡。</p>
+<p>流程：当点击目标元素h1，先找h1上有没有点击事件，有则触发，没有则按照冒泡机制一层层往上找，看有没有点击事件，直到冒泡到document。</p>
+<p>阻止事件冒泡：</p>
+<pre><code>var h1 = document.querySelector(&apos;h1&apos;);
+var handle = function(event) {   
+    console.log(&apos;event&apos;, event);  
+}
+document.body.addEventListener(&apos;click&apos;, handle, false);//将点击事件函数绑定在body上
+h1.addEventListener(&apos;click&apos; function(event) {
+event.stopPropagation();//阻止事件冒泡，当点击h1元素时，不会触发点击事件
+}, false);
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JS调用DOM接口修改样式。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JS笔记(一)--from next十天训练营</title>

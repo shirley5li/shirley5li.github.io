@@ -96,26 +96,23 @@
 
 
 
-<meta name="description" content="NEXT十天训练营有关JS学习的笔记。">
+<meta name="description" content="JS调用DOM接口修改样式。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS笔记(一)--from next十天训练营">
-<meta property="og:url" content="http://yoursite.com/2017/10/20/next-js/index.html">
+<meta property="og:title" content="JS笔记(二)DOM操作--from next十天训练营">
+<meta property="og:url" content="http://yoursite.com/2017/10/20/next-js2/index.html">
 <meta property="og:site_name" content="Shirley">
-<meta property="og:description" content="NEXT十天训练营有关JS学习的笔记。">
+<meta property="og:description" content="JS调用DOM接口修改样式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/next-js/1.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/2.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/3.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/4.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/5.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/6.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/7.png">
-<meta property="og:updated_time" content="2017-10-20T12:27:04.046Z">
+<meta property="og:image" content="http://yoursite.com/images/next-js2/1.png">
+<meta property="og:image" content="http://yoursite.com/images/next-js2/2.png">
+<meta property="og:image" content="http://yoursite.com/images/next-js2/3.png">
+<meta property="og:image" content="http://yoursite.com/images/next-js2/4.png">
+<meta property="og:updated_time" content="2017-10-21T05:57:32.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS笔记(一)--from next十天训练营">
-<meta name="twitter:description" content="NEXT十天训练营有关JS学习的笔记。">
-<meta name="twitter:image" content="http://yoursite.com/images/next-js/1.png">
+<meta name="twitter:title" content="JS笔记(二)DOM操作--from next十天训练营">
+<meta name="twitter:description" content="JS调用DOM接口修改样式。">
+<meta name="twitter:image" content="http://yoursite.com/images/next-js2/1.png">
 
 
 
@@ -144,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/20/next-js/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/20/next-js2/"/>
 
 
 
 
 
-  <title>JS笔记(一)--from next十天训练营 | Shirley</title>
+  <title>JS笔记(二)DOM操作--from next十天训练营 | Shirley</title>
   
 
 
@@ -313,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/next-js/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/next-js2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShirleyLi">
@@ -330,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS笔记(一)--from next十天训练营</h1>
+          <h1 class="post-title" itemprop="name headline">JS笔记(二)DOM操作--from next十天训练营</h1>
         
 
         <div class="post-meta">
@@ -342,7 +339,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T09:21:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T20:21:29+08:00">
                 2017-10-20
               </time>
             
@@ -383,9 +380,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/20/next-js/#comments" itemprop="discussionUrl">
+                <a href="/2017/10/20/next-js2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/20/next-js/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/10/20/next-js2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,190 +415,149 @@
       
 
       
-        <p>NEXT十天训练营有关JS学习的笔记。<br><a id="more"></a></p>
-<h2 id="认识JavaScript"><a href="#认识JavaScript" class="headerlink" title="认识JavaScript"></a>认识JavaScript</h2><p>JS是目前主流浏览器唯一支持的脚本语言，由以下三部分组成：</p>
-<p>（1）ECMAScript:语言基础（核心）。</p>
-<p>ECMA-262标准规定了ECMAScript这门语言的组成部分，例如语法、类型、语句、关键字、保留字、操作符、对象。</p>
-<p>Web浏览器只是ECMAScript实现可能的宿主环境之一，其他宿主环境还包括Node(一种服务端JavaScript平台)和Adobe Flash。</p>
-<p>（2）DOM（Document Object Model,文档对象模型）</p>
-<p>通过DOM可以操作HTML元素，包括删除、添加、替换、修改节点等。DOM将整个HTML文档映射为一个多层节点结构，即DOM树。</p>
-<p>（3）BOM（Browser Object Model,浏览器对象模型）</p>
-<p>通过BOM获取一些浏览器的信息，以及控制浏览器的一些行为。</p>
-<h2 id="引入JavaScript"><a href="#引入JavaScript" class="headerlink" title="引入JavaScript"></a>引入JavaScript</h2><p>有三种方式可以在HTML文档里引入JavaScript。</p>
-<p>（1）行内方式。即直接在HTML元素的属性上应用js代码。</p>
-<p>例如以下代码中button元素的onclick属性，点击button就会弹出消息框并显示“hello”。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot; onclick=&quot;alert(&apos;hello&apos;);&quot;&gt;点击弹出消息框&lt;/button&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>但这种方式不建议使用。一是因为这种方式针对一些用户的事件触发js执行，局限性较大。二是html文档中掺杂js代码会显得文档很乱，背离了结构应与样式、行为相分离的原则。</p>
-<p>（2）内嵌方式。即通过一对<script></script>标签在html文档中插入js代码。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot; &gt;点击弹出消息框&lt;/button&gt;
-    &lt;sript&gt;
-        var helloBtn = documnet.getElementById(&quot;helloBtn&quot;);
-        helloBtn.onclick = function() {
-            alert(&quot;hello&quot;);
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>此种方式也有缺点。例如在不同页面使用上述<script></script>标签之间这段js代码时，即在不同页面使用同一段js代码会有冗余。根据场景判断是否使用该方式。</p>
-<p>（3）外链方式。即将js代码从html文档中提取出来单独形成一个.js文件，并在html文档中引入这个.js文件。</p>
-<p>例如将方法（2）中<script></script>标签之间这段js代码提取出来，保存在一个hello.js文件中，并在html文件中引入。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot;&gt;点击弹出消息框&lt;/button&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;hello.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>根据场景判断是否使用该方式。</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>（1）语法:</p>
-<pre><code>var 变量名
-</code></pre><p>变量名区分大小写，首字母必须是字母、下划线或者$，非关键字和保留字。<br>例如，<code>var name = &quot;bottle&quot;;</code></p>
-<p>（2）全局变量和局部变量：</p>
-<p>使用var定义的变量可能是全局变量也可能是局部变量，取决于是否在一个function中。如在function中使用var定义一个变量message，此变量即为一个局部变量。局部变量在function外面访问不到。若在function内不使用var定义变量message，则在函数外可以访问到该变量。</p>
-<p>使用var定义</p>
-<pre><code>function test() {
-    var message = &quot;hi&quot;;//定义一个局部变量
-}
-test();
-alert(message);//错误，找不到变量message
-</code></pre><p>不使用var定义</p>
-<pre><code>function test() {
-    message = &quot;hi&quot;;//定义一个全局变量
-}
-test();
-alert(message);//hi
-</code></pre><p>使用控制台console来调试js代码。alert()弹出一个提示框。console.log()打印。</p>
-<p>利用sources里面的snippets来观察变量。如下所示。</p>
-<p><img src="/images/next-js/1.png" alt="1"></p>
-<p>局部变量测试结果如下所示。</p>
-<p><img src="/images/next-js/2.png" alt="2"></p>
-<p><img src="/images/next-js/3.png" alt="3"></p>
-<p>全局变量测试结果如下所示。</p>
-<p><img src="/images/next-js/4.png" alt="4"></p>
-<p><img src="/images/next-js/5.png" alt="5"></p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>1、基本数据类型</p>
-<p>（1）字符串类型String</p>
-<p>（2）数字类型Number</p>
-<p>（3）布尔类型Boolean ,取值true或false</p>
-<p>（4）Null</p>
-<p>（5）Undefined</p>
-<p>2、复杂数据类型/引用数据类型 Object</p>
-<p><strong>怎样判断数据类型</strong></p>
-<p>在浏览器控制台可使用type of 操作符来判断以下数据类型。</p>
-<pre><code>typeof 1//&quot;number&quot;
-typeof &apos;a&apos;//&quot;string&quot;
-typeof true//&quot;boolean&quot;
-typeof undefined//&quot;undefined&quot;
-typeof null//&quot;object&quot; (这个比较特殊)
-typeof {}//&quot;object&quot;
-typeof function(){};//&quot;function&quot;
-</code></pre><p>判断数据类型的几个例子如下。</p>
-<p><img src="/images/next-js/6.png" alt="6"></p>
-<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><p>1、创建对象</p>
-<p>（1）使用对象字面量{}创建杯子对象。（推荐，简洁明了）</p>
-<pre><code>var bottle = {
-    name: &quot;bottle&quot;, //key: value
-    price: 49, 
-    isKeepWarm: true 
-}
-</code></pre><p>对象的每一个属性都可以用对应的键值对(key: value)来描述，其中key为任一合法字符，value为任意数据类型。如果属性名包含多个中间含空格的字符，要用引号包含起来。</p>
-<p>（2）使用Object构造函数创建杯子对象。</p>
-<pre><code>var bottle = new Object();
-bottle.name = &quot;bottle&quot;;
-bottle.price = 49;
-bottle.isKeepWarm = true;
-</code></pre><p>2、对象属性读操作</p>
-<p>（1）使用点操作符 <code>console.log(bottle.name);//&quot;bottle&quot;</code>（推荐）</p>
-<p>（2）使用中括号操作符 <code>console.log(bottle[&quot;name&quot;]);//&quot;bottle&quot;</code>（如果对象属性名即key包含空格时，必须使用中括号操作符）</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>1、函数的定义</p>
-<p>（1）函数声明</p>
-<pre><code>function 函数名（参数1，参数2，...）{
-    函数体
-    return ;
-}
-</code></pre><p>函数声明的特点，在相同作用域下，不管在何处声明都可以调用的到。即使声明在调用之后。</p>
-<p>（2）函数表达式</p>
-<pre><code>var 变量 = function(参数1，参数2，...){
-    函数体
-    return ;
-}
-</code></pre><p>函数表达式的调用必须在函数表达式声明之后。这是区别于函数声明的地方。</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><img src="/images/next-js/7.png" alt="7"></p>
-<p>如上图所示，bottles是在函数之外声明的，是全局作用域的一个变量，所以在函数内部可以访问到bottles。而函数内部（函数作用域）声明的num为局部变量，只可以在函数内部被访问到，在函数外部无法获取。</p>
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>（1）if语句</p>
-<pre><code>if(条件) {
-    执行语句1;
-}
-else{
-    执行语句2;
-}
-</code></pre><p>（2）switch语句</p>
-<pre><code>swith(n){
-    case 0: 执行语句1；
-    case 1: 执行语句2;
-    ...
+        <p>JS调用DOM接口修改样式。<br><a id="more"></a></p>
+<h2 id="DOM简介"><a href="#DOM简介" class="headerlink" title="DOM简介"></a>DOM简介</h2><p><img src="/images/next-js2/1.png" alt="1"></p>
+<p>上图是一张网页的生成过程，大致分为五步：</p>
+<p>（1）html代码转化为DOM树</p>
+<p>（2）CSS代码转化成CSSOM（CSS Object Model）</p>
+<p>（3）结合DOM和CSSOM，生成一棵渲染树（包含每个节点的视觉信息）</p>
+<p>（4）生成布局（layout），即将所有渲染树的所有节点进行平面合成</p>
+<p>（5）将布局绘制（paint）在屏幕上</p>
+<p>“生成布局”（flow）和”绘制”（paint）这两步，合称为”渲染”（render）。</p>
+<p>其中，在html文档生成DOM树后，JS可以通过DOM提供的接口来添加、删除、修改元素和样式。</p>
+<h2 id="DOM查找"><a href="#DOM查找" class="headerlink" title="DOM查找"></a>DOM查找</h2><p>查找API:</p>
+<pre><code>document.getElementById()//通过元素id查找，查找一个元素
 
-}
-</code></pre><h2 id="字符串的有关操作"><a href="#字符串的有关操作" class="headerlink" title="字符串的有关操作"></a>字符串的有关操作</h2><h3 id="分割字符串-split"><a href="#分割字符串-split" class="headerlink" title="分割字符串 split"></a>分割字符串 split</h3><p>split()方法可以把字符串分割为字符串数组。</p>
-<pre><code>&quot;2:3:4:5&quot;.split(&quot;:&quot;)    // 将返回 [&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]
+[document|Element].getElementsByClassName()//通过元素类名查找，查找一组元素，得到一个类数组(html collection)
 
-&quot;|a|b|c&quot;.split(&quot;|&quot;)    // 将返回 [&quot;&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-</code></pre><h3 id="截取字符串-substring"><a href="#截取字符串-substring" class="headerlink" title="截取字符串 substring"></a>截取字符串 substring</h3><p>substring() 方法用于提取字符串中介于两个指定下标之间的字符。语法：<code>str.substring(indexStart, [indexEnd])</code></p>
-<pre><code>var str = &apos;Hello World!&apos;;
-console.log(str.substring(3)); // 将返回 lo world!
-</code></pre><h3 id="字符串转换大写-toUpperCase"><a href="#字符串转换大写-toUpperCase" class="headerlink" title="字符串转换大写 toUpperCase()"></a>字符串转换大写 toUpperCase()</h3><p>toUpperCase() 方法用于把字符串转换为大写。</p>
-<pre><code>var str = &apos;Hello World!&apos;;
-console.log(str.toUpperCase()); // 将返回 HELLO WORLD!
-</code></pre><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>完善函数 convertToCamelCase 的功能。函数 convertToCamelCase 会转换传入的字符串参数 string 为驼峰格式，并返回转换后的字符串。具体要求如下：</p>
-<ul>
-<li><p>参数 string 是以中划线（-）连接单词的字符串，需将第二个起的非空单词首字母转为大写，如 -webkit-border-radius 转换后的结果为 webkitBorderRadius。</p>
-</li>
-<li><p>返回转换后的字符串</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<pre><code>function convertToCamelCase(str){
-    var strSplit = str.split(&quot;-&quot;);//转换为字符串数组
-    if(strSplit[0] === &quot;&quot;){ //如果第一个字符串为空的话，左移删掉，否则的话不变
-        strSplit.shift();
+[document|Element].getElementsByTagName()//通过元素标签名查找,查找一组元素，得到一个类数组
+
+[document|Element].querySelector()//通过CSS选择器查找，例如 var qId = document.querySelector(&apos;#id&apos;);
+
+[document|Element].querySelectorAll()//通过CSS选择器查找
+</code></pre><p>后两者常用。</p>
+<h2 id="DOM新增和删除"><a href="#DOM新增和删除" class="headerlink" title="DOM新增和删除"></a>DOM新增和删除</h2><p>（1）新增节点<br>新增一个元素时，包括插入和追加。前面插入用insertBefore()，后面追加用appendChild()。</p>
+<pre><code>parent.appendChild(element)//新增节点到父元素的末尾
+
+parentElement.insertBefore(newElement, targetElement)//新增节点到targetElement元素的前面
+</code></pre><p>注意：使用.insertBefore()方法时，不必搞清楚父元素到底是哪个，因为targetElement元素的parentNode属性值就是它。所以可以通过<code>targetElement.parentNode.insertBefore(newElement, targetElement)</code>来插入。</p>
+<p>新增多个元素时，可以利用上述两个方法结合循环实现，但循环会导致一个问题，因为直接操作DOM会导致浏览器反复渲染。利用DocumentFragment节点解决这个反复渲染问题。</p>
+<p><strong>DocumentFragment</strong>文档片段，可以理解为“轻量级”的节点。有两个属性，分别为：nodeType = 11, nodeName = #document-fragment。<br>DocumentFragment作为仓库来使用，不在DOM树中，游离在DOM树之外。当增加多个节点时，可将这多个节点临时存放在DocumentFragment仓库中，最后再一次性插入DOM树中，就解决了浏览器反复渲染的问题。</p>
+<p>（2）删除节点<br>删除节点使用removeChild()</p>
+<p>（3）创建节点</p>
+<p>此时创建出的节点即为DocumentFragment文档碎片，创建完以后再插入或者追加到DOM树中。</p>
+<pre><code>document.createElement(nodeName)//创建元素节点,nodeName即为h1,h2,li,p,....
+
+document.creatTextNode(text)//创建文本节点
+</code></pre><p><strong>练习题</strong></p>
+<p>题目要求:现有 HTML 代码如下,</p>
+<pre><code>&lt;body&gt;
+    &lt;h1&gt;按要求新增元素&lt;/h1&gt;
+&lt;/body&gt;
+</code></pre><p>在h1元素的后面新增一个ul元素，ul元素中有一百个li元素，li的内容就是 1-100 ，如下所示：</p>
+<pre><code>&lt;body&gt;
+    &lt;h1&gt;按要求新增元素&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;1&lt;/li&gt;
+        &lt;li&gt;2&lt;/li&gt;
+        &lt;li&gt;3&lt;/li&gt;
+        ......
+        &lt;li&gt;98&lt;/li&gt;
+        &lt;li&gt;99&lt;/li&gt;
+        &lt;li&gt;100&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><p>js代码如下：</p>
+<pre><code>var len = 100;
+var ul = document.createElement(&apos;ul&apos;);
+var body = document.getElementsByTagName(&apos;body&apos;)[0];
+for(var i = 0; i &lt; len; i++){
+    var li = document.createElement(&apos;li&apos;);
+    var liText = document.createTextNode(i+1);
+    li.appendChild(liText);
+    ul.appendChild(li);
+
+} 
+body.appendChild(ul);
+</code></pre><h2 id="DOM修改样式"><a href="#DOM修改样式" class="headerlink" title="DOM修改样式"></a>DOM修改样式</h2><p>两种方式修改元素样式：通过元素style属性修改；通过元素class属性修改。</p>
+<p>（1）style属性</p>
+<p>style属性包含着元素诸如颜色大小等样式，style属性是一个对象。如访问style对象的color属性：<code>element.style.color</code>。</p>
+<p>注意：当引用一个中间带减号的CSS属性时，DOM要求用驼峰命名法。CSS属性font-family变为了DOM属性fontFamily：<code>element.style.fontFamily</code>。这是因为减号和加号之类的操作符是保留字，不允许用在函数或变量的名字里，意味着也不能用在方法和属性的名字里。</p>
+<p>缺点：style属性只能返回内嵌样式。即只有把CSS style属性插入到标记里，才可以用DOM style属性去获取那些属性信息。DOM style属性不能用来检索外部CSS文件里声明的样式。</p>
+<p>（2）class属性</p>
+<p>利用DOM修改元素的class属性（比如新增一个class或者删除一个class），使得利用外部CSS文件中的设置的样式改变元素的样式，而不是用DOM直接操作style属性修改样式。</p>
+<p>例如要给要给elem元素设置class属性为intro，方法如下：</p>
+<p><strong>a.</strong>利用setAttribute()方法, <code>elem.setAttribute(&quot;class&quot;,&quot;intro&quot;)</code></p>
+<p><strong>b.</strong>通过更新className属性。className属性是一个可读可写的属性，凡是元素节点都有这个属性。可以用className属性获取一个元素的class属性，<code>element.className</code>。</p>
+<p>用className属性和赋值操作符设置一个元素的class属性：<code>element.className = value</code></p>
+<p>该方法的<strong>不足</strong>，通过className属性设置某个元素的class属性时将替换该元素原有的属性（而不是追加）。</p>
+<p><strong>在需要给一个元素追加新的class时，可以按照以下思路：</strong></p>
+<p>检查className属性的是否为null；</p>
+<p>如果是，把新的class设置值直接赋值给className属性；</p>
+<p>若不是，把一个空格和新的class设置值追加到className属性上去。</p>
+<p>把上述步骤封装为一个函数addClass,该函数有两个参数，第一个为需要添加的新class的元素，第二个是新的class设置值。</p>
+<pre><code>function addClass(element, value){
+    if(!element.className){
+        element.className = value;
+    }else{
+        newClassName = element.className;
+        newClassName+= &quot; &quot;;
+        newClassName+=value;
+        element.className = newClassName;
     }
-    for(var i = 1; i &lt; strSplit.length; i++){
-            var letter = strSplit[i].charAt(0);//取得字符串数组中每个字符串的首字母
-            //使用replace方法将每个字符串的首写字母大写
-            strSplit[i] = strSplit[i].replace(letter, function replace(letter){
-                return letter.toUpperCase();
-            });
-
-    }  
-    return strSplit.join(&quot;&quot;);//join方法串接起字符串
 }
-convertToCamelCase(&quot;-ni-hao-a&quot;);
-</code></pre><p>还可以使用<strong>正则表达式</strong>的方法。</p>
-<pre><code>function convertToCamelCase(str) {
-  return str.replace(/\-[a-z]/g , function(a, b){
-      return b == 0 ? a.replace(&apos;-&apos;,&apos;&apos;) : a.replace(&apos;-&apos;,&apos;&apos;).toUpperCase();
-  });
+</code></pre><h2 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h2><pre><code>&lt;!DOCTTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;title&gt;事件简介&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;section&gt;
+        &lt;button id=&quot;button&quot;&gt;点击切换背景颜色&lt;/button&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>针对上述代码，当点击了button后事件反应机制有两种(这两种是上古时代的做法 。 。)</p>
+<p>第一种是点击button后，button将事件传递到section，再传递到body，再传递到html，再传递到document。该种方式即为事件冒泡机制。<br>如下图所示：</p>
+<p><img src="/images/next-js2/2.png" alt="2"></p>
+<p>第二种是点击button后，从document开始一层层捕获，即为事件捕获机制。如下图所示。</p>
+<p><img src="/images/next-js2/3.png" alt="3"></p>
+<p>目前<strong>标准的DOM事件流</strong>做法分为三个阶段：事件捕获阶段、处于目标阶段、事件冒泡阶段。</p>
+<p>事件捕获阶段的结束阶段为目标元素的父元素，然后是处于目标阶段，接下来是事件冒泡阶段。在实际开发过程中，由于浏览器兼容问题，事件捕获过程基本不用，会频繁使用目标和事件冒泡。流程如下所示。</p>
+<p><img src="/images/next-js2/4.png" alt="4"></p>
+<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p><strong>添加</strong>事件处理程序：</p>
+<pre><code>element.addEventListener(type, handle, false)//type表示事件类型，handle为事件处理函数，false表示采用冒泡机制
+</code></pre><p><strong>删除</strong>事件处理程序：</p>
+<pre><code>element.removeEventListener(type, handle)
+</code></pre><p>例如：</p>
+<pre><code>h1.addEventListener(&apos;click&apos;, function(){
+    console.log(this);//this指向绑定事件处理函数的对象，即h1元素
+}, false);
+</code></pre><p><strong>事件对象</strong></p>
+<p>事件对象包含着所有与事件相关的信息。</p>
+<pre><code>var h1 = document.querySelector(&apos;h1&apos;);
+var handle = function(event) {   //event即为事件处理对象，包括了触发点击事件时鼠标的位置等等信息
+    console.log(&apos;event&apos;, event);  //将event对象打印出来并查看event对象包含哪些信息
 }
+h1.addEventListener(&apos;click&apos;, handle, false);
+</code></pre><p><strong>事件冒泡</strong></p>
+<pre><code>var h1 = document.querySelector(&apos;h1&apos;);
+var handle = function(event) {   
+    console.log(&apos;event&apos;, event);  
+}
+document.body.addEventListener(&apos;click&apos;, handle, false);//将点击事件函数绑定在body上
+</code></pre><p>虽然点击事件绑定在body上，但此时点击h1元素，仍会触发事件打印event对象。此为事件冒泡。</p>
+<p>流程：当点击目标元素h1，先找h1上有没有点击事件，有则触发，没有则按照冒泡机制一层层往上找，看有没有点击事件，直到冒泡到document。</p>
+<p>阻止事件冒泡：</p>
+<pre><code>var h1 = document.querySelector(&apos;h1&apos;);
+var handle = function(event) {   
+    console.log(&apos;event&apos;, event);  
+}
+document.body.addEventListener(&apos;click&apos;, handle, false);//将点击事件函数绑定在body上
+h1.addEventListener(&apos;click&apos; function(event) {
+event.stopPropagation();//阻止事件冒泡，当点击h1元素时，不会触发点击事件
+}, false);
 </code></pre>
       
     </div>
@@ -668,8 +624,8 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/18/PS切图笔记/" rel="next" title="PS切图笔记from慕课网">
-                <i class="fa fa-chevron-left"></i> PS切图笔记from慕课网
+              <a href="/2017/10/20/next-js/" rel="next" title="JS笔记(一)--from next十天训练营">
+                <i class="fa fa-chevron-left"></i> JS笔记(一)--from next十天训练营
               </a>
             
           </div>
@@ -677,10 +633,6 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/20/next-js2/" rel="prev" title="JS笔记(二)DOM操作--from next十天训练营">
-                JS笔记(二)DOM操作--from next十天训练营 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -936,7 +888,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#认识JavaScript"><span class="nav-number">1.</span> <span class="nav-text">认识JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入JavaScript"><span class="nav-number">2.</span> <span class="nav-text">引入JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">3.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">4.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object对象"><span class="nav-number">5.</span> <span class="nav-text">Object对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">6.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">7.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">8.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的有关操作"><span class="nav-number">9.</span> <span class="nav-text">字符串的有关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分割字符串-split"><span class="nav-number">9.1.</span> <span class="nav-text">分割字符串 split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截取字符串-substring"><span class="nav-number">9.2.</span> <span class="nav-text">截取字符串 substring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串转换大写-toUpperCase"><span class="nav-number">9.3.</span> <span class="nav-text">字符串转换大写 toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">9.4.</span> <span class="nav-text">题目</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM简介"><span class="nav-number">1.</span> <span class="nav-text">DOM简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM查找"><span class="nav-number">2.</span> <span class="nav-text">DOM查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM新增和删除"><span class="nav-number">3.</span> <span class="nav-text">DOM新增和删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM修改样式"><span class="nav-number">4.</span> <span class="nav-text">DOM修改样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件模型"><span class="nav-number">5.</span> <span class="nav-text">事件模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件处理程序"><span class="nav-number">6.</span> <span class="nav-text">事件处理程序</span></a></li></ol></div>
             
 
           </div>
@@ -1100,9 +1052,9 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/10/20/next-js/';
-          this.page.identifier = '2017/10/20/next-js/';
-          this.page.title = 'JS笔记(一)--from next十天训练营';
+          this.page.url = 'http://yoursite.com/2017/10/20/next-js2/';
+          this.page.identifier = '2017/10/20/next-js2/';
+          this.page.title = 'JS笔记(二)DOM操作--from next十天训练营';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shirleyli.disqus.com/embed.js';
