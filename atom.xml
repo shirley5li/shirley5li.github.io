@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-21T05:57:32.996Z</updated>
+  <updated>2017-10-30T09:32:22.906Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>planeGame-H5 Canvas小游戏未完成的问题</title>
+    <link href="http://yoursite.com/2017/10/30/planeGameQuestion/"/>
+    <id>http://yoursite.com/2017/10/30/planeGameQuestion/</id>
+    <published>2017-10-30T08:31:25.000Z</published>
+    <updated>2017-10-30T09:32:22.906Z</updated>
+    
+    <content type="html"><![CDATA[<p>H5 Canvas打飞机游戏中未完成以及存在疑惑的地方。<br><a id="more"></a></p>
+<h2 id="未完成内容"><a href="#未完成内容" class="headerlink" title="未完成内容"></a>未完成内容</h2><h3 id="游戏设置部分"><a href="#游戏设置部分" class="headerlink" title="游戏设置部分"></a>游戏设置部分</h3><p>音乐设置（HTML5 audio相关的学习，包括设置游戏背景音乐以及各种子弹、爆炸等声音，以及切换声音的开启和关闭）</p>
+<p>背景设置（即切换背景图片）</p>
+<p>战机设置（即切换战机plane的icon图片）</p>
+<h3 id="存在问题的地方"><a href="#存在问题的地方" class="headerlink" title="存在问题的地方"></a>存在问题的地方</h3><p>点击“再玩一次”之后，敌机以及子弹的速度会越来越快，差不多第三次重玩就无法进行了。感觉是因为上一次游戏过程中的一些数据没有清除，怀疑过是不是setInterval()的原因，百度了查了好多，在end处添加了window.clearInterval()，但也是无济于事。特将此问题记录，以待后面将js学深了再来解决。</p>
+<h3 id="可以改进的地方"><a href="#可以改进的地方" class="headerlink" title="可以改进的地方"></a>可以改进的地方</h3><p>游戏结束以后，除了“再玩一次”，再添加一个“退出游戏”功能，使页面切换到index状态。</p>
+<p>适应手机端的，试了下在电脑上战机移动不了，应该是手指移动事件那里还未考虑鼠标移动来兼容电脑浏览器。</p>
+<h2 id="效果截图"><a href="#效果截图" class="headerlink" title="效果截图"></a>效果截图</h2><p>主页面如下：</p>
+<p><img src="/images/planeGameQuestion/1.png" alt="1"></p>
+<p>游戏结束，“再玩一次”界面</p>
+<p><img src="/images/planeGameQuestion/2.png" alt="2"></p>
+<h2 id="github源码"><a href="#github源码" class="headerlink" title="github源码"></a>github源码</h2><p>github仓库地址：<a href="https://github.com/shirley5li/demo-planegame" target="_blank" rel="external">demo-planegame</a></p>
+<p>放在gh-pages上的样子，电脑端战机移动不了。。。。<a href="https://shirley5li.github.io/demo-planegame/" target="_blank" rel="external">demo展示</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;H5 Canvas打飞机游戏中未完成以及存在疑惑的地方。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="HTML5 Canvas" scheme="http://yoursite.com/categories/HTML5-Canvas/"/>
+    
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
+    
+  </entry>
   
   <entry>
     <title>JS笔记(二)DOM操作--from next十天训练营</title>
