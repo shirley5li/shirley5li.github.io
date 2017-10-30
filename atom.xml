@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-30T11:20:38.102Z</updated>
+  <updated>2017-10-30T11:23:37.102Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/10/30/planeGameQuestion/"/>
     <id>http://yoursite.com/2017/10/30/planeGameQuestion/</id>
     <published>2017-10-30T08:31:25.000Z</published>
-    <updated>2017-10-30T11:20:38.102Z</updated>
+    <updated>2017-10-30T11:23:37.102Z</updated>
     
     <content type="html"><![CDATA[<p>H5 Canvas打飞机游戏中未完成以及存在疑惑的地方。<br><a id="more"></a></p>
 <h2 id="未完成内容"><a href="#未完成内容" class="headerlink" title="未完成内容"></a>未完成内容</h2><h3 id="游戏设置部分"><a href="#游戏设置部分" class="headerlink" title="游戏设置部分"></a>游戏设置部分</h3><p>音乐设置（HTML5 audio相关的学习，包括设置游戏背景音乐以及各种子弹、爆炸等声音，以及切换声音的开启和关闭）</p>
@@ -34,7 +34,7 @@
 <p>游戏结束，“再玩一次”界面</p>
 <p><img src="/images/planeGameQuestion/2.png" alt="2"></p>
 <h2 id="github源码"><a href="#github源码" class="headerlink" title="github源码"></a>github源码</h2><p>github仓库地址：<a href="https://github.com/shirley5li/demo-planegame" target="_blank" rel="external">demo-planegame</a></p>
-<p>放在gh-pages上的样子，电脑端战机移动不了。。。。<a href="https://shirley5li.github.io/demo-planegame/" target="_blank" rel="external">demo展示</a></p>
+<p>放在gh-pages上的样子，电脑端战机移动不了。<a href="https://shirley5li.github.io/demo-planegame/" target="_blank" rel="external">demo展示</a></p>
 ]]></content>
     
     <summary type="html">
