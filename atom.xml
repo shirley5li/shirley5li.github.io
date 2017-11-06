@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-30T11:23:37.102Z</updated>
+  <updated>2017-11-06T12:49:49.936Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ajax-imooc</title>
+    <link href="http://yoursite.com/2017/11/06/ajax-imooc/"/>
+    <id>http://yoursite.com/2017/11/06/ajax-imooc/</id>
+    <published>2017-11-06T08:13:39.000Z</published>
+    <updated>2017-11-06T12:49:49.936Z</updated>
+    
+    <content type="html"><![CDATA[<p>ajax,即异步JavaScript和XML，通过在后台和服务器少量的数据交换实现页面的异步局部加载更新。<br>ajax中一个关键的对象 <strong>XMLHttpRequest</strong>对象，作为网页和服务器之间交换数据的桥梁，来实现网页的异步请求、局部刷新。<br><a id="more"></a></p>
+<h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><p>在现代浏览器中创建XMLHttpRequest对象</p>
+<pre><code>var request = new XMLHttpRequest();//现代浏览器
+</code></pre><p>若在早期老版本浏览器中，考虑兼容性，创建XMLHttpRequest对象方式如下：</p>
+<pre><code>var request;
+if(window.XMLHttpRequest) {
+request = new XMLHttpRequest();
+} else {
+request = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);//IE6,IE5
+}
+</code></pre><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>HTTP是一种无状态协议。一个HTTP请求包括以下7个步骤：</p>
+<ul>
+<li>建立TCP连接</li>
+<li>WEB浏览器向WEB服务器发送请求命令</li>
+<li>WEB浏览器发送请求头信息</li>
+<li>WEB服务器应答</li>
+<li>WEB服务器发送应答头信息</li>
+<li>WEB服务器向浏览器发送数据</li>
+<li>WEB服务器关闭TCP连接</li>
+</ul>
+<p><strong>HTTP请求</strong><br>一个HTTP请求一般由四部分组成：</p>
+<ul>
+<li>HTTP请求的方法和动作，比如GET或POST请求</li>
+<li>正在请求的URL</li>
+<li>请求头，包含一些客户端环境信息、身份验证信息等</li>
+<li>请求体，即请求正文，包含客户提交的查询字符串信息、表单信息等<br>一般来说请求头和请求正文之间有一个空行，表示请求头结束。<br><a href="http://blog.csdn.net/findsafety/article/details/47129021" target="_blank" rel="external">一篇关于GET、POST请求的博文详解</a><br><strong>GET:</strong>一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符。(用于查询，一般不用于新建和修改。默认为GET提交)<br><strong>POST:</strong>一般用于修改服务器上的资源，对所发送信息的数量无限制。<br><strong>HTTP响应</strong><br>一个HTTP响应一般由三部分组成：</li>
+<li>一个数字和文字组成的状态码，表示请求成功还是失败</li>
+<li>响应头，包含服务器类型、日期时间、内容类型、长度等</li>
+<li>响应体，即响应正文<br>HTTP状态码的类型：<br><img src="/images/ajax-imooc/1.png" alt="1"></li>
+</ul>
+<h2 id="XMLHttpRequest发送请求"><a href="#XMLHttpRequest发送请求" class="headerlink" title="XMLHttpRequest发送请求"></a>XMLHttpRequest发送请求</h2><p>两个方法，open和send</p>
+<ul>
+<li>open(method, url, async)</li>
+<li><p>send(string)<br>open方法用于设置请求，第一个参数method表示请求的类型，即GET或POST；第二个参数url即请求的地址，绝对地址或相对地址；第三个参数表示是否异步请求，默认为true。<br>send方法用于发送请求，当使用get请求时，send可不给出参数，而使用post请求时必须有参数。<br>例如：</p>
+<p> request.open(“POST”,”create.php”,true);<br> request.setRequestHeader(“Content-type”,”application/x-www-form-urlencoded “)//设置HTTP头信息，一定要写在open()和send()之间<br> request.send(“name=xxxx&amp;sex=xxx”);</p>
+</li>
+</ul>
+<h2 id="XMLHttpRequest取得响应"><a href="#XMLHttpRequest取得响应" class="headerlink" title="XMLHttpRequest取得响应"></a>XMLHttpRequest取得响应</h2><p><img src="/images/ajax-imooc/2.png" alt="2"><br>通过监听XMLHttpRequest对象readyState属性的变化，判断服务器的状态变化信息。<br><img src="/images/ajax-imooc/3.png" alt="3"><br>通过.onreadystatechange()方法监听readyState属性的变化，当readyState为4（响应完成）并且status为200(请求成功)时，再对响应数据做处理：</p>
+<pre><code>var request = new XMLHttpRequest();
+request.open(&quot;POST&quot;,&quot;get.php&quot;,true);
+request.send();
+request.onreadystatechange = function() {
+  if(request.readyState == 4 &amp;&amp; request.status == 200) {
+  //做一些处理，例如request.responseText
+ }
+}
+</code></pre><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><p><img src="/images/ajax-imooc/4.png" alt="4"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ajax,即异步JavaScript和XML，通过在后台和服务器少量的数据交换实现页面的异步局部加载更新。&lt;br&gt;ajax中一个关键的对象 &lt;strong&gt;XMLHttpRequest&lt;/strong&gt;对象，作为网页和服务器之间交换数据的桥梁，来实现网页的异步请求、局部刷新。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ajax" scheme="http://yoursite.com/categories/ajax/"/>
+    
+    
+      <category term="ajax" scheme="http://yoursite.com/tags/ajax/"/>
+    
+  </entry>
   
   <entry>
     <title>planeGame-H5 Canvas小游戏未完成的问题</title>
