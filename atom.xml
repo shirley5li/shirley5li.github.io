@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-06T12:49:49.936Z</updated>
+  <updated>2017-11-15T14:15:40.139Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSONP简要了解</title>
+    <link href="http://yoursite.com/2017/11/15/JSONP%E7%AE%80%E8%A6%81%E4%BA%86%E8%A7%A3/"/>
+    <id>http://yoursite.com/2017/11/15/JSONP简要了解/</id>
+    <published>2017-11-15T13:08:22.000Z</published>
+    <updated>2017-11-15T14:15:40.139Z</updated>
+    
+    <content type="html"><![CDATA[<p>在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用<code>$.getJSON(()</code>方法会因为跨域资源共享(CORS)问题发生错误信息。<a href="https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541" target="_blank" rel="external"> freeCodeCamp Challenge Guide: How to Use the TwitchTV API </a>中建议使用jQuery的JSONP方法来解决CORS问题。<br><a id="more"></a></p>
+<h2 id="JSONP的诞生"><a href="#JSONP的诞生" class="headerlink" title="JSONP的诞生"></a>JSONP的诞生</h2><p>传统ajax无法跨域，而<script\>标签的src属性是可以跨域的,可以通过把跨域服务器写成<strong>调用本地的函数</strong> ，回调数据回来。</script\></p>
+<p>json刚好被js支持（<strong>object</strong>）</p>
+<p>调用跨域服务器上动态生成的js格式文件（<strong>不管是什么类型的地址，最终生成的返回值都是一段js代码</strong>）</p>
+<p>这种获取远程数据的方式看起来非常像ajax，但其实并不一样，便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作<strong>JSONP</strong>。</p>
+<p>传递一个<strong>callback参数</strong>给跨域服务端，然后跨域服务端返回数据时会将这个callback参数作为函数名来包裹住json数据即可。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>（1）</p>
+<p><strong>跨域服务器</strong></p>
+<p>文件：<strong>remote.js</strong></p>
+<pre><code>alert(&quot;我是远程文件&quot;);
+</code></pre><p><strong>本地</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;跨域服务器/remote.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>在本地<script\>标签直接引入一个js文件，页面将会弹出警告框。</script\></p>
+<p>（2）</p>
+<p><strong>跨域服务器</strong></p>
+<p>文件：<strong>remote.js</strong></p>
+<pre><code>localHandler({&quot;result&quot;:&quot;我是远程js带来的数据&quot;});
+</code></pre><p><strong>本地</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
+    var localHandler = function(data){
+        alert(&apos;我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：&apos; + data.result); 
+    }; 
+&lt;/script&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;跨域服务器/remote.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>该例子中在本地定义了一个函数<code>localHandler</code>，在本地通过<script\>标签的<code>src</code>属性引入了跨域服务器上的一个js文件<code>remote.js</code>，在引入的js文件里调用了本地定义的函数<code>localHandler</code>。</script\></p>
+<p><strong>问题</strong>：如何让远程js文件知道它应该调用的本地函数的名字呢？毕竟jsonp的服务者都要面对很多服务对象，而这些服务对象各自的本地函数都不相同。</p>
+<p>（3）</p>
+<p><strong>跨域服务器</strong></p>
+<p>文件：<strong>flightResult.php</strong></p>
+<pre><code>flightHandler({
+    &quot;code&quot;:&quot;CA1998&quot;,
+    &quot;price&quot;: 1780,
+    &quot;tickets&quot;: 5
+});
+</code></pre><p><strong>本地</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
+    // 得到航班信息查询结果后的回调函数 
+    var flightHandler = function(data){
+        alert(&apos;你查询的航班结果是：票价 &apos; + data.price + &apos; 元，&apos; + &apos;余票 &apos; + data.tickets + &apos; 张。&apos;);
+    }; 
+    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码） 
+    var url = &quot;跨域服务器/flightResult.php?code=CA1998&amp;callback=flightHandler&quot;;
+    // 创建script标签，设置其属性 
+    var script = document.createElement(&apos;script&apos;); 
+    script.setAttribute(&apos;src&apos;, url); 
+    // 把script标签加入head，此时调用开始 
+    document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script); 
+&lt;/script&gt;
+</code></pre><p>在该例中动态创建<script\>标签（动态创建脚本）； url中传递了一个code参数，服务器去做查询CA1998次航班的信息，callback参数告诉服务器，我的本地回调函数叫做flightHandler； 跨域服务端调用这个函数flightHandler，页面将会弹出一个提示窗体，显示出票价和余票。</script\></p>
+<h2 id="JSONP方法中服务器做的事情"><a href="#JSONP方法中服务器做的事情" class="headerlink" title="JSONP方法中服务器做的事情"></a>JSONP方法中服务器做的事情</h2><pre><code>// 数据
+$data = [
+    &quot;name&quot;:&quot;anonymous66&quot;,
+    &quot;age&quot;:&quot;18&quot;,
+    &quot;like&quot;:&quot;jianshu&quot;
+];
+// 接收callback函数名称
+$callback = $_GET[&apos;callback&apos;];
+// 输出
+echo $callback . &quot;(&quot; . json_encode($data) . &quot;)&quot;;
+</code></pre><p>服务器端做的就是获取url中的callback参数，并将callback参数作为函数名来包裹json数据，动态生成js文件，再返回给客户端。</p>
+<h2 id="JSONP与AJAX的区别"><a href="#JSONP与AJAX的区别" class="headerlink" title="JSONP与AJAX的区别"></a>JSONP与AJAX的区别</h2><p>ajax的核心是通过XmlHttpRequest获取非本页内容。</p>
+<p>jsonp的核心则是动态添加<script\>标签来调用服务器提供的js脚本。</script\></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用&lt;code&gt;$.getJSON(()&lt;/code&gt;方法会因为跨域资源共享(CORS)问题发生错误信息。&lt;a href=&quot;https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; freeCodeCamp Challenge Guide: How to Use the TwitchTV API &lt;/a&gt;中建议使用jQuery的JSONP方法来解决CORS问题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="jsonp" scheme="http://yoursite.com/categories/jsonp/"/>
+    
+    
+      <category term="jsonp" scheme="http://yoursite.com/tags/jsonp/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="json" scheme="http://yoursite.com/tags/json/"/>
+    
+  </entry>
   
   <entry>
     <title>ajax-imooc</title>
@@ -957,9 +1045,9 @@ passage_end_tag:
       <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="next" scheme="http://yoursite.com/tags/next/"/>
-    
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="next" scheme="http://yoursite.com/tags/next/"/>
     
   </entry>
   
@@ -1120,13 +1208,13 @@ disqus:
       <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
       <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
     
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
       <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
