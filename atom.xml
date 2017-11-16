@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-16T01:47:15.112Z</updated>
+  <updated>2017-11-16T01:50:42.942Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/11/15/JSONP%E7%AE%80%E8%A6%81%E4%BA%86%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/11/15/JSONP简要了解/</id>
     <published>2017-11-15T13:08:22.000Z</published>
-    <updated>2017-11-16T01:47:15.112Z</updated>
+    <updated>2017-11-16T01:50:42.942Z</updated>
     
     <content type="html"><![CDATA[<p>在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用<code>$.getJSON(()</code>方法会因为跨域资源共享(CORS)问题发生错误信息。<a href="https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541" target="_blank" rel="external"> freeCodeCamp Challenge Guide: How to Use the TwitchTV API </a>中建议使用jQuery的JSONP方法来解决CORS问题。<br><a id="more"></a></p>
 <h2 id="JSONP的诞生"><a href="#JSONP的诞生" class="headerlink" title="JSONP的诞生"></a>JSONP的诞生</h2><p>传统ajax无法跨域，而<script\>标签的src属性是可以跨域的,可以通过把跨域服务器写成<strong>调用本地的函数</strong> ，回调数据回来。</script\></p>
@@ -76,7 +76,7 @@ $callback = $_GET[&apos;callback&apos;];
 // 输出
 echo $callback . &quot;(&quot; . json_encode($data) . &quot;)&quot;;
 </code></pre><p>服务器端做的就是获取url中的callback参数，并将callback参数作为函数名来包裹json数据，动态生成js文件，再返回给客户端。</p>
-<h2 id="JSONP与AJAX的区别"><a href="#JSONP与AJAX的区别" class="headerlink" title="JSONP与AJAX的区别"></a>JSONP与AJAX的区别</h2><p>ajax的核心是通过XmlHttpRequest获取非本页内容。</p>
+<h2 id="JSONP与AJAX的区别"><a href="#JSONP与AJAX的区别" class="headerlink" title="JSONP与AJAX的区别"></a>JSONP与AJAX的区别</h2><p>ajax的核心是通过XMLHttpRequest获取非本页内容。</p>
 <p>jsonp的核心则是动态添加<script\>标签来调用服务器提供的js脚本。</script\></p>
 <p>转自：segmentfault专栏<a href="https://segmentfault.com/a/1190000007935557" target="_blank" rel="external">JSONP是什么</a></p>
 ]]></content>
