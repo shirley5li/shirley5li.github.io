@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-17T09:12:50.191Z</updated>
+  <updated>2017-11-17T09:16:42.352Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://yoursite.com/2017/11/16/freeCodeCamp-%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/16/freeCodeCamp-中级算法编程/</id>
     <published>2017-11-16T13:49:52.000Z</published>
-    <updated>2017-11-17T09:12:50.191Z</updated>
+    <updated>2017-11-17T09:16:42.352Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS中级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Sum-All-Numbers-in-a-Range"><a href="#Sum-All-Numbers-in-a-Range" class="headerlink" title="Sum All Numbers in a Range"></a>Sum All Numbers in a Range</h2><p><strong>题目：</strong>传递给一个包含两个数字的数组。返回这两个数字和它们之间所有数字的和。（最小的数字并非总在最前面。）</p>
-<p><strong>tips:</strong> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max" target="_blank" rel="external">Math.max()</a> &nbsp;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/min" target="_blank" rel="external">Math.min()</a><br>&nbsp;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">Array.reduce()</a></p>
+<p><strong>tips:</strong> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max" target="_blank" rel="external">Math.max()</a> &nbsp;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/min" target="_blank" rel="external">Math.min()</a>&nbsp;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">Array.reduce()</a></p>
 <p><strong>实现1</strong></p>
 <pre><code>function sumAll(arr) {
   //获取两个数中的最小值
