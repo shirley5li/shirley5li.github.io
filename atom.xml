@@ -428,7 +428,7 @@ ReactDOM.render(
     <link href="http://yoursite.com/2017/11/16/freeCodeCamp-%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/16/freeCodeCamp-中级算法编程/</id>
     <published>2017-11-16T13:49:52.000Z</published>
-    <updated>2017-11-19T11:16:31.579Z</updated>
+    <updated>2017-11-20T14:27:50.555Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS中级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Sum-All-Numbers-in-a-Range"><a href="#Sum-All-Numbers-in-a-Range" class="headerlink" title="Sum All Numbers in a Range"></a>Sum All Numbers in a Range</h2><p><strong>题目：</strong>传递给一个包含两个数字的数组。返回这两个数字和它们之间所有数字的和。（最小的数字并非总在最前面。）</p>
@@ -676,6 +676,48 @@ function firstUpperCase(str) {
 ***/
 // charAt()方法可返回字符串指定位置的字符，stringObject.charAt(index)
 myReplace(&quot;A quick brown fox jumped over the lazy dog&quot;, &quot;jumped&quot;, &quot;leaped&quot;);
+</code></pre><h2 id="Pig-Latin"><a href="#Pig-Latin" class="headerlink" title="Pig Latin"></a>Pig Latin</h2><p><strong>题目：</strong>把指定的字符串翻译成 pig latin。</p>
+<p><a href="https://en.wikipedia.org/wiki/Pig_Latin" target="_blank" rel="external">Pig Latin</a> 把一个英文单词的第一个辅音或辅音丛（consonant cluster）移到词尾，然后加上后缀 “ay”。</p>
+<p>如果单词以元音开始，你只需要在词尾添加 “way” 就可以了。</p>
+<p><strong>tips：</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf" target="_blank" rel="external">Array.indexOf()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank" rel="external">Array.push()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank" rel="external">Array.join()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substr" target="_blank" rel="external">String.substr()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="external">String.split()</a></p>
+<p><strong>实现1</strong></p>
+<pre><code>function translate(str) {
+  // 元音
+  var vowel = [&apos;a&apos;, &apos;e&apos;, &apos;i&apos;, &apos;o&apos;, &apos;u&apos;];
+  // 如果单词首字母以元音开头，直接在单词后面加&apos;way&apos;
+  if(vowel.indexOf(str.substr(0,1)) !== -1) {
+    return str + &quot;way&quot;;
+  }
+  /*** 只要单词是以辅音或辅音丛开始，将该辅音移到后面，最后加&apos;ay&apos;。
+  while循环每次都检查移动辅音后的单词，移动一个辅音字母后若还不是元音字母，继续移动，移完后再加&quot;ay&quot;***/
+  while(vowel.indexOf(str.substr(0,1)) == -1) {
+    str = str.substr(1) + str.substr(0,1);
+  }
+  return str + &quot;ay&quot;;
+}
+translate(&quot;glove&quot;);//测试数据&quot;california&quot;，&quot;paragraphs&quot;，&quot;algorithm&quot;，&quot;eight&quot;
+</code></pre><p><strong>实现2</strong></p>
+<pre><code>function translate(str) {
+    var tempArr = [];
+    var answer;
+    tempArr = str.split(&apos;&apos;);//将str分解为单个字符存入数组
+    var i = 0;
+    //如果首个字符不是元音则 i++，如果首个字符是元音则退出while循环
+    while (tempArr[i] != &apos;a&apos; &amp;&amp; tempArr[i] != &apos;o&apos; &amp;&amp; tempArr[i] != &apos;i&apos; &amp;&amp; tempArr[i] != &apos;e&apos; &amp;&amp; tempArr[i] != &apos;u&apos;) {
+      i++;
+    }
+    answer = str.substr(i);//将str辅音或辅音丛后面的部分提取出来
+    answer += str.substr(0,i);//再将辅音或辅音丛部分追加在answer后
+    //i=0时，首字母为元音，在变换之后加&quot;way&quot;
+    if(i === 0) {
+      answer += &quot;way&quot;;
+    }
+    //i不为0时，首字母为辅音或辅音丛，在变换后加&quot;ay&quot;
+    else {
+      answer += &quot;ay&quot;;
+    }
+    return answer;
+}
 </code></pre>]]></content>
     
     <summary type="html">
