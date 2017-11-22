@@ -428,7 +428,7 @@ ReactDOM.render(
     <link href="http://yoursite.com/2017/11/16/freeCodeCamp-%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/16/freeCodeCamp-中级算法编程/</id>
     <published>2017-11-16T13:49:52.000Z</published>
-    <updated>2017-11-22T09:17:11.444Z</updated>
+    <updated>2017-11-22T14:16:59.717Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS中级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Sum-All-Numbers-in-a-Range"><a href="#Sum-All-Numbers-in-a-Range" class="headerlink" title="Sum All Numbers in a Range"></a>Sum All Numbers in a Range</h2><p><strong>题目：</strong>传递给一个包含两个数字的数组。返回这两个数字和它们之间所有数字的和。（最小的数字并非总在最前面。）</p>
@@ -853,6 +853,24 @@ unite([1, 3, 2], [5, 2, 1, 4], [2, 1]);//返回[1,3,2,5,4]
     return arr.indexOf(item) === index;
   });
 }
+</code></pre><h2 id="Convert-HTML-Entities"><a href="#Convert-HTML-Entities" class="headerlink" title="Convert HTML Entities"></a>Convert HTML Entities</h2><p><strong>题目：</strong>将字符串中的字符 &amp;、&lt;、&gt;、” （双引号）, 以及 ‘ （单引号）转换为它们对应的 HTML 实体。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">RegExp</a> <a href="https://dev.w3.org/html5/html-author/charref" target="_blank" rel="external">HTML Entities</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function convert(str) {
+  //替换规则映射对象
+  var entityMap = {  
+    &apos;&amp;&apos; : &apos;&amp;amp;&apos;, 
+    &apos;&lt;&apos; : &apos;&amp;lt;&apos;,  
+    &apos;&gt;&apos; : &apos;&amp;gt;&apos;,  
+    &apos;\&quot;&apos; : &apos;&amp;quot;&apos;,  
+    &apos;\&apos;&apos; : &apos;&amp;apos;&apos; ,
+  };
+  //使用string的replace规则，将匹配到的字符根据替换规则替换掉
+  return str.replace(/[&amp;&lt;&gt;&quot;&apos;]/g, function(matched) {
+    return entityMap[matched];
+  });  
+}  
+convert(&quot;Dolce &amp; Gabbana&quot;);//输出结果&quot;Dolce &amp;amp; Gabbana&quot;
 </code></pre>]]></content>
     
     <summary type="html">

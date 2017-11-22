@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T09:17:11.444Z">
+<meta property="og:updated_time" content="2017-11-22T14:16:59.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp Javascript中级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
@@ -833,6 +833,24 @@ unite([1, 3, 2], [5, 2, 1, 4], [2, 1]);//返回[1,3,2,5,4]
     return arr.indexOf(item) === index;
   });
 }
+</code></pre><h2 id="Convert-HTML-Entities"><a href="#Convert-HTML-Entities" class="headerlink" title="Convert HTML Entities"></a>Convert HTML Entities</h2><p><strong>题目：</strong>将字符串中的字符 &amp;、&lt;、&gt;、” （双引号）, 以及 ‘ （单引号）转换为它们对应的 HTML 实体。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">RegExp</a> <a href="https://dev.w3.org/html5/html-author/charref" target="_blank" rel="external">HTML Entities</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function convert(str) {
+  //替换规则映射对象
+  var entityMap = {  
+    &apos;&amp;&apos; : &apos;&amp;amp;&apos;, 
+    &apos;&lt;&apos; : &apos;&amp;lt;&apos;,  
+    &apos;&gt;&apos; : &apos;&amp;gt;&apos;,  
+    &apos;\&quot;&apos; : &apos;&amp;quot;&apos;,  
+    &apos;\&apos;&apos; : &apos;&amp;apos;&apos; ,
+  };
+  //使用string的replace规则，将匹配到的字符根据替换规则替换掉
+  return str.replace(/[&amp;&lt;&gt;&quot;&apos;]/g, function(matched) {
+    return entityMap[matched];
+  });  
+}  
+convert(&quot;Dolce &amp; Gabbana&quot;);//输出结果&quot;Dolce &amp;amp; Gabbana&quot;
 </code></pre>
       
     </div>
@@ -1167,7 +1185,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convert-HTML-Entities"><span class="nav-number">11.</span> <span class="nav-text">Convert HTML Entities</span></a></li></ol></div>
             
 
           </div>
