@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-20T14:27:50.555Z">
+<meta property="og:updated_time" content="2017-11-22T09:17:11.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp Javascript中级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
@@ -698,6 +698,141 @@ translate(&quot;glove&quot;);//测试数据&quot;california&quot;，&quot;paragr
     }
     return answer;
 }
+</code></pre><h2 id="DNA-Pairing"><a href="#DNA-Pairing" class="headerlink" title="DNA Pairing"></a>DNA Pairing</h2><p><strong>题目：</strong>DNA 链缺少配对的碱基。依据每一个碱基，为其找到配对的碱基，然后将结果作为第二个数组返回。</p>
+<p><a href="https://en.wikipedia.org/wiki/Base_pair" target="_blank" rel="external">Base pairs（碱基对）</a> 是一对 AT 和 CG，为给定的字母匹配缺失的碱基。</p>
+<p>在每一个数组中将给定的字母作为第一个碱基返回。字母和与之配对的字母在一个数组内，然后所有数组再被组织起来封装进一个数组。例如，对于输入的 GCG，相应地返回 [[“G”, “C”], [“C”,”G”],[“G”, “C”]]</p>
+<p><strong>tips：</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank" rel="external">Array.push()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="external">String.split()</a></p>
+<p><strong>实现1</strong></p>
+<pre><code>function pair(str) {
+  var inputArr = [];
+  var resultArr = [];
+  //将输入字符串按单个字母拆分为数组
+  inputArr = str.split(&apos;&apos;);
+  //对输入数组的每一种情况配对，GC,CG,AT,TA
+  inputArr.forEach(function(item, index) {
+    switch(item) {
+      case &quot;G&quot;:
+        resultArr.push([&quot;G&quot;,&quot;C&quot;]);
+        break;
+      case &quot;C&quot;:
+        resultArr.push([&quot;C&quot;,&quot;G&quot;]);
+        break;
+      case &quot;A&quot;:
+        resultArr.push([&quot;A&quot;,&quot;T&quot;]);
+        break;
+      case &quot;T&quot;:
+        resultArr.push([&quot;T&quot;,&quot;A&quot;]);
+        break;        
+    }
+  });  
+  return resultArr;
+}
+pair(&quot;GCG&quot;);//返回 [[&quot;G&quot;, &quot;C&quot;], [&quot;C&quot;,&quot;G&quot;],[&quot;G&quot;, &quot;C&quot;]]
+</code></pre><p>实现2和实现3来自<a href="http://blog.csdn.net/wangmc0827/article/details/72630469" target="_blank" rel="external">博客</a>。</p>
+<p><strong>实现2</strong></p>
+<p>解题思路：把字符串进行匹配和对应关系进行匹配，将匹配到的字符推入该数组。最后将所有的数组推入一个新的数组。</p>
+<p>匹配方式：用对象存储对应关系。</p>
+<pre><code>function pair(str) {  
+  var obj = {&apos;A&apos;:&apos;T&apos;,&apos;T&apos;:&apos;A&apos;,&apos;G&apos;:&apos;C&apos;,&apos;C&apos;:&apos;G&apos;};  
+  var arr = [];  
+  for(var i in str){  
+    arr.push([str[i],obj[str[i]]]);  
+  }  
+  return arr;  
+}        
+pair(&quot;GCG&quot;); 
+</code></pre><p><strong>实现3</strong></p>
+<p>用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external">map</a>函数来进行优化,其实就是简化了写法。map函数可以改变原有的数组，给予指定的方法就可以了。</p>
+<pre><code>function pair(str) {  
+  var obj = {&apos;A&apos;:&apos;T&apos;,&apos;T&apos;:&apos;A&apos;,&apos;G&apos;:&apos;C&apos;,&apos;C&apos;:&apos;G&apos;};  
+  //ES6 的写法 
+  return str.split(&apos;&apos;).map(e =&gt; [e,obj[e]]);  
+}        
+pair(&quot;GCG&quot;);
+</code></pre><p>ES5 的写法</p>
+<pre><code>function pair(str) {  
+  var obj = {&apos;A&apos;:&apos;T&apos;,&apos;T&apos;:&apos;A&apos;,&apos;G&apos;:&apos;C&apos;,&apos;C&apos;:&apos;G&apos;};  
+  return str.split(&apos;&apos;).map(function(e){   
+    return [e,obj[e]];  
+  });  
+}        
+pair(&quot;GCG&quot;); 
+</code></pre><h2 id="Missing-letters"><a href="#Missing-letters" class="headerlink" title="Missing letters"></a>Missing letters</h2><p><strong>题目：</strong>从传递进来的字母序列中找到缺失的字母并返回它。如果所有字母都在序列中，返回 undefined。</p>
+<p><strong>tips：</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank" rel="external">String.charCodeAt()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode" target="_blank" rel="external">String.fromCharCode()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function fearNotLetter(str) {
+  var resultStr = &quot;&quot;;
+  //先判断所有字母是否都在序列中,若都在则返回undefined
+  if((str.charCodeAt(0) + str.length - 1) === str.charCodeAt(str.length - 1) ) {
+    return undefined;
+  } else {
+    //若不然，则根据str每个字母的编码是否连续来返回缺失字母
+    for (i = 0; i &lt; str.length - 1; i++) { 
+      var startCode = str.charCodeAt(i);
+      var nextCode = str.charCodeAt(i + 1);
+      //如果相邻两个字母之间的编码不连续，则将两个字母之间缺失的字母追加到resultStr中
+      while ( nextCode - startCode !== 1) {
+         resultStr += String.fromCharCode(startCode + 1);
+        startCode ++;
+      }     
+    }
+  }  
+  return resultStr;
+}
+fearNotLetter(&quot;abce&quot;);//返回&quot;d&quot;
+fearNotLetter(&quot;abch&quot;);//返回&quot;defg&quot;
+</code></pre><p>关于此题目的回答，比较了一些博主的答案，他们的答案大多只满足两个输入相邻字母之间只缺少一个字母的情况，对于缺失多个字母的情况没有考虑。自己的回答考虑到了两个相邻字母之间缺失多个字母的情况。</p>
+<h2 id="Boo-who"><a href="#Boo-who" class="headerlink" title="Boo who"></a>Boo who</h2><p><strong>题目：</strong>检查一个值是否是基本布尔类型，并返回 true 或 false。基本布尔类型即 true 和 false。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" rel="external">Boolean Objects</a></p>
+<p><strong>补充：</strong>5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。 1种复杂数据类型Object（包括Function、Array、Date等）。</p>
+<pre><code>typeof操作符返回下列某个字符串：
+&quot;undefined&quot;---未定义
+&quot;boolean&quot;---布尔值
+&quot;string&quot;---字符串
+&quot;number&quot;---数值
+&quot;object&quot;---对象或null
+&quot;function&quot;---函数
+</code></pre><p><strong>实现</strong></p>
+<pre><code>function boo(bool) {
+  //使用typeof操作符检测数据类型
+  return typeof(bool) === &quot;boolean&quot; ? true : false;//可直接写为 return typeof bool===&apos;boolean&apos;;  
+}
+boo(null);//返回false
+</code></pre><h2 id="Sorted-Union"><a href="#Sorted-Union" class="headerlink" title="Sorted Union"></a>Sorted Union</h2><p><strong>题目：</strong>写一个 function，传入两个或两个以上的数组，返回一个以给定的原始数组排序的但不包含重复值的新数组。</p>
+<p>换句话说，新数组中的所有值都应该以原始顺序被包含在内，但是不包含重复值。即非重复的数字应该以它们原始的顺序排序。例如unite([1, 3, 2], [5, 2, 1, 4], [2, 1]) 应该返回 [1, 3, 2, 5, 4]。unite([1, 3, 2], [1, [5]], [2, [4]]) 应该返回 [1, 3, 2, [5], [4]]。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="external">Arguments object</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">Array.reduce()</a></p>
+<p><strong>实现1</strong></p>
+<pre><code>function unite(arr1, arr2, arr3) {
+  //unite函数的输入参数类对象数组arguments
+  for(i = 1; i &lt; arguments.length; i ++) {
+    for (j = 0; j &lt; arguments[i].length; j ++) {
+      //若第i个输入数组的第j个数字在第一个数组中没出现过，则追加到第一个数组中，否则什么也不做
+      if (arr1.indexOf(arguments[i][j]) == -1) {
+        arr1.push(arguments[i][j]);
+      }
+    }
+  }
+  return arr1;
+}
+unite([1, 3, 2], [5, 2, 1, 4], [2, 1]);//返回[1,3,2,5,4]
+</code></pre><p><strong>实现2</strong></p>
+<p>思路：先将多个输入参数（数组）合并，再去重。来源于<a href="http://www.jianshu.com/p/51301859043c" target="_blank" rel="external">简书</a>。</p>
+<pre><code>function unite(arr1, arr2, arr3) {
+  //Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例，即返回[arr1, arr2, arr3]的形式
+  var args = Array.from(arguments);
+  //reduce() 方法对累加器和数组中的每个元素（从左到右）应用一个函数，将其减少为单个值。
+  var arr = args.reduce(function(accumulator,cur){
+    //将多个输入数组合并为一个数组arr,即返回[1,3,2,5,2,1,4,2,1]的形式
+    return accumulator.concat(cur);
+  });
+  var resultArr = [];
+  //对合并后的数组arr去重
+  return resultArr = arr.filter(function(item,index){
+    //返回true则filter到结果数组，indexOf()方法返回第一个匹配元素的index，
+    //后面重复元素的indexOf返回值为该元素第一次出现时的index（比如对第二个2应用indexOf返回2）
+    return arr.indexOf(item) === index;
+  });
+}
 </code></pre>
       
     </div>
@@ -1032,7 +1167,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li></ol></div>
             
 
           </div>
