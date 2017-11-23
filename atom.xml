@@ -428,7 +428,7 @@ ReactDOM.render(
     <link href="http://yoursite.com/2017/11/16/freeCodeCamp-%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/16/freeCodeCamp-中级算法编程/</id>
     <published>2017-11-16T13:49:52.000Z</published>
-    <updated>2017-11-22T14:16:59.717Z</updated>
+    <updated>2017-11-23T03:52:41.078Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS中级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Sum-All-Numbers-in-a-Range"><a href="#Sum-All-Numbers-in-a-Range" class="headerlink" title="Sum All Numbers in a Range"></a>Sum All Numbers in a Range</h2><p><strong>题目：</strong>传递给一个包含两个数字的数组。返回这两个数字和它们之间所有数字的和。（最小的数字并非总在最前面。）</p>
@@ -871,6 +871,55 @@ unite([1, 3, 2], [5, 2, 1, 4], [2, 1]);//返回[1,3,2,5,4]
   });  
 }  
 convert(&quot;Dolce &amp; Gabbana&quot;);//输出结果&quot;Dolce &amp;amp; Gabbana&quot;
+</code></pre><h2 id="Spinal-Tap-Case"><a href="#Spinal-Tap-Case" class="headerlink" title="Spinal Tap Case"></a>Spinal Tap Case</h2><p><strong>题目：</strong>将字符串转换为 spinal case。Spinal case 是 all-lowercase-words-joined-by-dashes 这种形式的，也就是以连字符连接所有小写单词。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">RegExp</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank" rel="external">String.replace()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function spinalCase(str) {
+  //将str分为两类，一类是以空格、下划线、短横线连接的字符串；一类是驼峰形式的字符串
+  //驼峰形式的字符串
+  if(str.split(/\W|_/).length === 1) {
+    for (i = 0; i &lt; str.length; i++) {
+      //找到所有单词的首写大写字母，并用短横线和对应小写替换
+      if (str[i].toUpperCase() === str[i]) {
+        str = str.replace(str[i], &quot;-&quot;+str[i].toLowerCase());
+      }
+    }
+  }
+  //以空格、下划线、短横线连接的字符串，先转换为小写再替换
+  else {
+    //注意匹配模式加上全局标志，否则只会找到第一个匹配
+    str = str.toLowerCase().replace(/\W|_/g, &quot;-&quot;);    
+  }
+  return str;
+}
+spinalCase(&apos;This Is Spinal Tap&apos;);//返回 &quot;this-is-spinal-tap&quot;
+spinalCase(&quot;The_Andy_Griffith_Show&quot;);//返回 &quot;the-andy-griffith-show&quot;
+spinalCase(&quot;Teletubbies say Eh-oh&quot;);//返回 &quot;teletubbies-say-eh-oh&quot;
+spinalCase(&quot;thisIsSpinalTap&quot;);//返回 &quot;this-is-spinal-tap&quot;
+</code></pre><h2 id="Sum-All-Odd-Fibonacci-Numbers"><a href="#Sum-All-Odd-Fibonacci-Numbers" class="headerlink" title="Sum All Odd Fibonacci Numbers"></a>Sum All Odd Fibonacci Numbers</h2><p><strong>题目：</strong>给一个正整数num，返回小于或等于num的斐波纳契奇数之和。</p>
+<p>斐波纳契数列中的前几个数字是 1、1、2、3、5 和 8，随后的每一个数字都是前两个数字之和。</p>
+<p>例如，sumFibs(4)应该返回 5，因为斐波纳契数列中所有小于4的奇数是 1、1、3。</p>
+<p>提示：此题不能用递归来实现斐波纳契数列。因为当num较大时，内存会溢出，推荐用数组来实现。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder_(.25" target="_blank" rel="external">Remainder</a>) <a href="http://www.cnblogs.com/meteoric_cry/archive/2010/11/29/1891241.html" target="_blank" rel="external">参考文档</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function sumFibs(num) {
+  //先找到所有小于num的斐波那契数，并存在数组fibsArr中
+  var fibsArr = [1, 1, 2];
+  for(i = 2; i &lt; num; i++) {
+    if (fibsArr[i] + fibsArr[i-1] &lt;= num) {
+      fibsArr.push(fibsArr[i] + fibsArr[i-1]);
+    }
+  }
+  //筛选出fibsArr中的奇数并求和
+  var sum = fibsArr.filter(function(element, index) {
+    //若为奇数则返回
+    return element % 2 !== 0;
+  }).reduce(function(prev, curr) {
+    return prev += curr;
+  });
+  return sum;
+}
+sumFibs(1);//返回2
 </code></pre>]]></content>
     
     <summary type="html">
