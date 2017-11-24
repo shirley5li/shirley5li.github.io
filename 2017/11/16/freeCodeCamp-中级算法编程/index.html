@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-23T03:52:41.078Z">
+<meta property="og:updated_time" content="2017-11-24T14:25:20.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp Javascript中级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
@@ -900,6 +900,140 @@ spinalCase(&quot;thisIsSpinalTap&quot;);//返回 &quot;this-is-spinal-tap&quot;
   return sum;
 }
 sumFibs(1);//返回2
+</code></pre><h2 id="Sum-All-Primes"><a href="#Sum-All-Primes" class="headerlink" title="Sum All Primes"></a>Sum All Primes</h2><p><strong>题目：</strong>求小于等于给定数值的质数之和。 给定的数不一定是质数。</p>
+<p>只有 1 和它本身两个约数的数叫质数。例如，2 是质数，因为它只能被 1 和 2 整除。1 不是质数，因为它只能被自身整除。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for" target="_blank" rel="external">For Loops</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank" rel="external">Array.push()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>//判断一个数是不是素数
+function isPrime(num) {
+  //判断输入是否为number类型，是否为整数
+  if(typeof(num) !== &apos;number&apos; || !Number.isInteger(num)) {
+    return false;
+  }
+  //num小于2时，不是素数
+  if(num &lt; 2) {return false;}
+  //num等于2时，是素数
+  if(num === 2) {return true;}
+  //num大于2时，如果num可以被2整除（即num为偶数），不是素数
+   else if(num % 2 === 0) {return false;}
+  //num大于2时，依次判断num能否被奇数整除，最大循环为num的开方 
+  var range = Math.ceil(Math.sqrt(num));
+  for(var i = 3; i &lt;= range; i+=2) {
+  if(num % i === 0) {return false;}
+  }
+  return true;
+}
+//求小于等于给定数值的质数之和
+function sumPrimes(num) {
+  var sum = 0;
+  for(var i = 0; i &lt;= num; i ++) {
+    //对于小于num的每个数先判断是否为素数，若为素数则叠加
+    if(isPrime(i)) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+sumPrimes(977);//返回73156
+</code></pre><h2 id="Smallest-Common-Multiple"><a href="#Smallest-Common-Multiple" class="headerlink" title="Smallest Common Multiple"></a>Smallest Common Multiple</h2><p><strong>题目：</strong>找出能被两个给定参数和它们之间的连续数字整除的最小公倍数。</p>
+<p>范围是两个数字构成的数组，两个数字不一定按数字顺序排序。</p>
+<p>例如对 1 和 3 —— 找出能被 1 和 3 和它们之间所有数字整除的最小公倍数。</p>
+<p><strong>tips:</strong><a href="https://www.mathsisfun.com/least-common-multiple.html" target="_blank" rel="external">Smallest Common Multiple</a> <a href="https://baike.baidu.com/item/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95/4625352?fr=aladdin" target="_blank" rel="external">辗转相除法</a></p>
+<p><strong>思路：</strong>最小公倍数 = 两个数的积 / 最大公约数</p>
+<p>最大公约数用辗转相除法（欧几里得算法）求得，即当 <code>a mod b=0</code>时，<code>gcd(a,b)=0</code>,否则<code>gcd(a,b)=gcd(b,a mod b)</code>。</p>
+<p>求连续几个数的最小公倍数，可以先求得边界两个数的最小公倍数，再用此最小公倍数依次和中间的数值求最小公倍数，从而得到所有数的最小公倍数。</p>
+<p><strong>实现</strong></p>
+<pre><code>function smallestCommons(arr) {
+  //首先对两个给定参数排序,按从小到大排序
+  arr.sort(function(a, b) {
+    return a - b;
+  });
+  //求a和b的最小公倍数
+  var a = arr[0];
+  var b = arr[1];
+  //flag表示边界两个数的最小公倍数
+  var flag = smallestCommonMultiple(a, b);
+  //用flag依次和中间的数值求最小公倍数，即得最终的最小公倍数
+  for(var i = a +1; i &lt; b; i ++) {
+    flag = smallestCommonMultiple(flag, i);
+  }
+  return flag;
+}
+//欧几里得算法求两个数的最大公约数,a&lt;=b
+function gcd (a, b) {
+  //当除数为零时，最大公约数为被除数a
+  if(!b) {return a;}
+  //否则辗转相除
+  return gcd(b, a%b);
+}
+//求两个数的最小公倍数
+function smallestCommonMultiple(a, b) {
+  return a * b / gcd(a, b);
+}
+smallestCommons([1,5]);//返回60
+</code></pre><h2 id="Finders-Keepers"><a href="#Finders-Keepers" class="headerlink" title="Finders Keepers"></a>Finders Keepers</h2><p><strong>题目：</strong>写一个 function，它遍历数组 arr，并返回数组中第一个满足 func 返回值的元素。举个例子，如果 arr 为 [1, 2, 3]，func 为 function(num) {return num === 2; }，那么 find 的返回值应为 2。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="external">Array.filter()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function find(arr, func) {
+  var num = 0;
+  //注意filter()方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
+  //而我们只需要返回第一个满足func的元素
+  num = arr.filter(func).length === 0 ? undefined : arr.filter(func)[0];
+  return num;
+}
+find([1, 2, 3, 4], function(num){ return num % 2 === 0; });//返回2
+</code></pre><h2 id="Drop-it"><a href="#Drop-it" class="headerlink" title="Drop it"></a>Drop it</h2><p><strong>题目：</strong>丢弃数组(arr)的元素，从左边开始，直到回调函数return true就停止。</p>
+<p>第二个参数，func，是一个函数。用来测试数组的第一个元素，如果返回fasle，就从数组中抛出该元素(注意：此时数组已被改变)，继续测试数组的第一个元素，如果返回fasle，继续抛出，直到返回true。</p>
+<p>最后返回数组的剩余部分，如果没有剩余，就返回一个空数组。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="external">Arguments object</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift" target="_blank" rel="external">Array.shift()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="external">Array.slice()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function drop(arr, func) {
+  //只要func返回false就左移抛出该元素，继续判断左移后的第一个元素是否满足条件
+    while(!func(arr[0])) {
+      //shift() 方法从数组中删除第一个元素，并返回该元素的值。shift()方法会改变原数组
+      arr.shift();
+    }    
+  return arr;
+}
+drop([1, 2, 3], function(n) {return n &lt; 3; });
+</code></pre><h2 id="Steamroller"><a href="#Steamroller" class="headerlink" title="Steamroller"></a>Steamroller</h2><p><strong>题目：</strong>对嵌套的数组进行扁平化处理。你必须考虑到不同层级的嵌套。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray" target="_blank" rel="external">Array.isArray()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function steamroller(arr) {
+  //扁平化处理后的数组
+  var afterArr = [];
+  for(var i = 0; i &lt; arr.length; i ++) {
+    //依次判断数组中元素类型是否为数组
+    //如果元素是数组类型，继续对该元素做数组扁平化处理
+    if(Array.isArray(arr[i])) {
+      var midArr = steamroller(arr[i]);
+      afterArr = afterArr.concat(midArr);
+     //如果不是数组类型，则将该元素push进afterArr储存 
+    }else {
+      afterArr.push(arr[i]);        
+      }
+    } 
+  return afterArr;
+}
+steamroller([1, [2], [3, [[4]]]]);//返回[1,2,3,4]
+</code></pre><h2 id="Binary-Agents"><a href="#Binary-Agents" class="headerlink" title="Binary Agents"></a>Binary Agents</h2><p><strong>题目：</strong>传入二进制字符串，翻译成英语句子并返回。二进制字符串是以空格分隔的。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank" rel="external">String.charCodeAt()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode" target="_blank" rel="external">String.fromCharCode()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function binaryAgent(str) {
+  var strToArr = [];
+  var afterTrans = &quot;&quot;;
+  //将二进制字符串按空格划分为字符串数组，并转化为number类型，十进制形式
+  str.split(&quot; &quot;).forEach(function(item,index) {
+    //将二进制形式转化为十进制形式
+    strToArr.push(parseInt(item, 2));
+  });
+  afterTrans = strToArr.reduce(function(prev, curr) {
+    //将数组中的十进制Unicode码通过String.fromCharCode()方法转换为字母，利用reduce()方法依次处理数组元素并拼接成字符串
+    return prev + String.fromCharCode(curr);
+  },&quot;&quot;);
+  return afterTrans;
+}
+binaryAgent(&quot;01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001&quot;);//返回&quot;I love FreeCodeCamp!&quot;
 </code></pre>
       
     </div>
@@ -1234,7 +1368,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convert-HTML-Entities"><span class="nav-number">11.</span> <span class="nav-text">Convert HTML Entities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spinal-Tap-Case"><span class="nav-number">12.</span> <span class="nav-text">Spinal Tap Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Odd-Fibonacci-Numbers"><span class="nav-number">13.</span> <span class="nav-text">Sum All Odd Fibonacci Numbers</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convert-HTML-Entities"><span class="nav-number">11.</span> <span class="nav-text">Convert HTML Entities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spinal-Tap-Case"><span class="nav-number">12.</span> <span class="nav-text">Spinal Tap Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Odd-Fibonacci-Numbers"><span class="nav-number">13.</span> <span class="nav-text">Sum All Odd Fibonacci Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Primes"><span class="nav-number">14.</span> <span class="nav-text">Sum All Primes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smallest-Common-Multiple"><span class="nav-number">15.</span> <span class="nav-text">Smallest Common Multiple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finders-Keepers"><span class="nav-number">16.</span> <span class="nav-text">Finders Keepers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drop-it"><span class="nav-number">17.</span> <span class="nav-text">Drop it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steamroller"><span class="nav-number">18.</span> <span class="nav-text">Steamroller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Agents"><span class="nav-number">19.</span> <span class="nav-text">Binary Agents</span></a></li></ol></div>
             
 
           </div>
