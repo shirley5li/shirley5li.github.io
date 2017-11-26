@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-26T03:10:53.727Z</updated>
+  <updated>2017-11-26T03:15:39.456Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/11/26/freeCodeCamp-%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/26/freeCodeCamp-高级算法编程/</id>
     <published>2017-11-26T03:07:43.000Z</published>
-    <updated>2017-11-26T03:10:53.727Z</updated>
+    <updated>2017-11-26T03:15:39.456Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS高级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Validate-US-Telephone-Numbers"><a href="#Validate-US-Telephone-Numbers" class="headerlink" title="Validate US Telephone Numbers"></a>Validate US Telephone Numbers</h2>]]></content>
@@ -30,6 +30,8 @@
       &lt;p&gt;几个 freeCodeCamp JS高级算法编程例题的学习总结。&lt;br&gt;
     
     </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
