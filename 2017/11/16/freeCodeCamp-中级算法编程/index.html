@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-24T14:25:20.102Z">
+<meta property="og:updated_time" content="2017-11-26T02:55:15.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp Javascript中级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS中级算法编程例题的学习总结。">
@@ -1034,6 +1034,56 @@ steamroller([1, [2], [3, [[4]]]]);//返回[1,2,3,4]
   return afterTrans;
 }
 binaryAgent(&quot;01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001&quot;);//返回&quot;I love FreeCodeCamp!&quot;
+</code></pre><h2 id="Everything-Be-True"><a href="#Everything-Be-True" class="headerlink" title="Everything Be True"></a>Everything Be True</h2><p><strong>题目：</strong>完善编辑器中的every函数，如果集合(collection)中的所有对象都存在对应的属性(pre)，并且属性(pre)对应的值为真。函数返回ture。反之，返回false。</p>
+<p>记住：你只能通过中括号来访问对象的变量属性(pre)。</p>
+<p><strong>tips:</strong>可以有多种实现方式，最简洁的方式莫过于<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every" target="_blank" rel="external">Array.prototype.every()</a></p>
+<p>every 方法为数组中的每个元素执行一次 callback 函数，直到它找到一个使 callback 返回 false（表示可转换为布尔值 false 的值）的元素。如果发现了一个这样的元素，every 方法将会立即返回 false。否则，callback 为每一个元素返回 true，every 就会返回 true。</p>
+<p>callback 被调用时传入三个参数：元素值，元素的索引，原数组。</p>
+<p><strong>实现</strong></p>
+<pre><code>function every(collection, pre) {
+  //使用every() 方法测试数组的所有元素是否都通过了指定函数的测试。
+  var flag = collection.every(function(item, index) {
+    //如果对象不存在pre属性，则返回false
+    if(!item.hasOwnProperty(pre)) {return false;}
+    //测试pre属性的值是否为true
+    if(!item[pre]) {return false;}
+    return true;    
+  });
+  return flag;
+}
+every([{&quot;user&quot;: &quot;Tinky-Winky&quot;, &quot;sex&quot;: &quot;male&quot;}, {&quot;user&quot;: &quot;Dipsy&quot;, &quot;sex&quot;: &quot;male&quot;}, {&quot;user&quot;: &quot;Laa-Laa&quot;, &quot;sex&quot;: &quot;female&quot;}, {&quot;user&quot;: &quot;Po&quot;, &quot;sex&quot;: &quot;female&quot;}], &quot;sex&quot;);//返回true
+</code></pre><p>换一种简洁的写法：</p>
+<pre><code>function every(collection, pre) {
+  return collection.every(function(elements){
+    return elements.hasOwnProperty(pre) &amp;&amp; Boolean(elements[pre]);
+  });
+}
+</code></pre><h2 id="Arguments-Optional"><a href="#Arguments-Optional" class="headerlink" title="Arguments Optional"></a>Arguments Optional</h2><p><strong>题目：</strong>创建一个计算两个参数之和的 function。如果只有一个参数，则返回一个 function，该 function 请求一个参数然后返回求和的结果。</p>
+<p>例如，<code>add(2, 3)</code> 应该返回 5，而 add(2) 应该返回一个 function。调用这个有一个参数的返回的 function，返回求和的结果：<code>var sumTwoAnd = add(2)</code>;<code>sumTwoAnd(3)</code> 返回 5。如果两个参数都不是有效的数字，则返回 undefined。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">Closures</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="external">Arguments object</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function add() {
+    //如果add有两个参数，则返回两个参数的和
+    if(arguments.length === 2 &amp;&amp; typeof arguments[0] === &quot;number&quot; &amp;&amp; typeof arguments[1] === &quot;number&quot;) {
+      return arguments[0] + arguments[1];
+    }
+    //如果add有一个参数，则通过闭包方式返回一个函数
+    if(arguments.length === 1 &amp;&amp; typeof arguments[0] === &quot;number&quot;) {
+      var x = arguments[0];
+      //通过闭包方式返回只有一个参数的函数
+      return function(y) {
+        if(typeof y === &quot;number&quot;) {
+          return x + y;}
+        return undefined;
+        };
+    }    
+  return undefined;
+}
+add(2,3);//返回5
+add(2)(3);//返回5
+add(2)([3]);//返回undefined
+add(2, &quot;3&quot;);//返回undefined
+add(&quot;http://bit.ly/IqT6zt&quot;);//返回undefined
 </code></pre>
       
     </div>
@@ -1368,7 +1418,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convert-HTML-Entities"><span class="nav-number">11.</span> <span class="nav-text">Convert HTML Entities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spinal-Tap-Case"><span class="nav-number">12.</span> <span class="nav-text">Spinal Tap Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Odd-Fibonacci-Numbers"><span class="nav-number">13.</span> <span class="nav-text">Sum All Odd Fibonacci Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Primes"><span class="nav-number">14.</span> <span class="nav-text">Sum All Primes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smallest-Common-Multiple"><span class="nav-number">15.</span> <span class="nav-text">Smallest Common Multiple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finders-Keepers"><span class="nav-number">16.</span> <span class="nav-text">Finders Keepers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drop-it"><span class="nav-number">17.</span> <span class="nav-text">Drop it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steamroller"><span class="nav-number">18.</span> <span class="nav-text">Steamroller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Agents"><span class="nav-number">19.</span> <span class="nav-text">Binary Agents</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Numbers-in-a-Range"><span class="nav-number">1.</span> <span class="nav-text">Sum All Numbers in a Range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Diff Two Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roman-Numeral-Converter"><span class="nav-number">3.</span> <span class="nav-text">Roman Numeral Converter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-art-thou"><span class="nav-number">4.</span> <span class="nav-text">Where art thou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-and-Replace"><span class="nav-number">5.</span> <span class="nav-text">Search and Replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pig-Latin"><span class="nav-number">6.</span> <span class="nav-text">Pig Latin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNA-Pairing"><span class="nav-number">7.</span> <span class="nav-text">DNA Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-letters"><span class="nav-number">8.</span> <span class="nav-text">Missing letters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boo-who"><span class="nav-number">9.</span> <span class="nav-text">Boo who</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Union"><span class="nav-number">10.</span> <span class="nav-text">Sorted Union</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convert-HTML-Entities"><span class="nav-number">11.</span> <span class="nav-text">Convert HTML Entities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spinal-Tap-Case"><span class="nav-number">12.</span> <span class="nav-text">Spinal Tap Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Odd-Fibonacci-Numbers"><span class="nav-number">13.</span> <span class="nav-text">Sum All Odd Fibonacci Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sum-All-Primes"><span class="nav-number">14.</span> <span class="nav-text">Sum All Primes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smallest-Common-Multiple"><span class="nav-number">15.</span> <span class="nav-text">Smallest Common Multiple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finders-Keepers"><span class="nav-number">16.</span> <span class="nav-text">Finders Keepers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drop-it"><span class="nav-number">17.</span> <span class="nav-text">Drop it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steamroller"><span class="nav-number">18.</span> <span class="nav-text">Steamroller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Agents"><span class="nav-number">19.</span> <span class="nav-text">Binary Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Everything-Be-True"><span class="nav-number">20.</span> <span class="nav-text">Everything Be True</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arguments-Optional"><span class="nav-number">21.</span> <span class="nav-text">Arguments Optional</span></a></li></ol></div>
             
 
           </div>
