@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T03:33:34.642Z">
+<meta property="og:updated_time" content="2017-12-01T08:00:00.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp JavaScript高级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
@@ -466,7 +466,54 @@ telephoneCheck(&quot;1 555)555-5555&quot;);//返回false
   });
 }
 sym([1, 2, 3], [5, 2, 1, 4]);
-</code></pre>
+</code></pre><h2 id="Exact-Change"><a href="#Exact-Change" class="headerlink" title="Exact Change"></a>Exact Change</h2><p><strong>题目：</strong>设计一个收银程序 checkCashRegister() ，其把购买价格(price)作为第一个参数 , 付款金额 (cash)作为第二个参数, 和收银机中零钱 (cid) 作为第三个参数.</p>
+<p>cid 是一个二维数组，存着当前可用的找零.</p>
+<p>当收银机中的钱不够找零时返回字符串 “Insufficient Funds”. 如果正好则返回字符串 “Closed”.否则, 返回应找回的零钱列表,且由大到小存在二维数组中.</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="external">Global Object</a></p>
+<p><strong>思路：</strong>输入为商品价格，实际付款，收银机零钱的余额。然后返回值有三种，如果找不开返回”Insufficient Funds”；如果正好找开，收银机余额空了，返回”Closed”；其余则返回找零的数组。</p>
+<p>先将美元的各面额存入数组，对面额数组由大到小遍历，如果待找零钱大于该面额且该面额在收银机中存在的话，则进行该面额的找零操作，否则进入下一面额的找零操作。本面额的找零操作过程为：先根据待找零钱计算出该面额需要的张数，如果待找零钱&gt;=该面额的总值，则将该面额的钱全部给出，然后待找零钱更新，将该面额的找零结果输出；如果待找零钱小于该面额的总值，则从该面额总值中给出需要找出的那几张，然后更新待找零钱，输出该面额的找零结果。</p>
+<p><strong>实现</strong></p>
+<pre><code>function checkCashRegister(price, cash, cid) {
+  var change = cash - price;//待找零钱数目
+  var denominationArr = [0.01, 0.05, 0.1, 0.25, 1, 5, 10, 20, 100];//将不同面额存入数组，对应于cid[i][0]
+  var total = 0;//用来记录收银机总共的零钱数
+  var money = change;//将待找零钱数change备份，因为下面找零过程中会更新change
+  var resultArr = [];//用来输出找零列表
+  //从大面额到小面额遍历
+  for(var i = cid.length - 1; i &gt;= 0; i--) {
+    total += cid[i][1];//记录收银机的总钱数
+    //如果待找零钱大于等于某个面额，并且该面额的钱数大于0，则需要给出该面额的零钱
+    if(change &gt; denominationArr[i] &amp;&amp; cid[i][1] &gt; 0) {//denominationArr[i] 表示第i种面额钱的面值，cid[i][1]表示收银机中该面额的总额
+      //num表示需要给出的该面额的数量   
+      var num = parseInt(change / denominationArr[i]);
+      //如果change需要的第i种面额的钱数大于等于收银机中该面额的实际钱数，则将收银机中该面额的钱全部给出,更新change和resultArr
+      if(denominationArr[i] * num &gt;= cid[i][1]) {
+        change -= cid[i][1];
+        resultArr.push(cid[i]);
+      } else {
+        //否则change需要的第i种面额的钱小于收银机中该面额的实际钱数，则找出change需要的该面额数目，更新change和resultArr
+        change -= denominationArr[i] * num;
+        resultArr.push([cid[i][0], denominationArr[i] * num]);
+      }
+      //操作过程中会使得change变为一个无限小数，因此使用.toFixed(2)方法保留两位小数
+      change = change.toFixed(2);//四舍五入保留两位小数
+    }
+  }  
+  //如果收银机中的总钱数正好等于待找零钱数，返回&quot;Closed&quot; 
+  if(total=== money) {
+     return &quot;Closed&quot;;
+  }
+  //如果收银机中的总钱数不够找，或者不能正好找整即change不能最后更新到0，则返回&quot;Insufficient Funds&quot;
+  else if(total &lt; money || (change-0) !== 0) { //使用(cahnge-0)将0.00转化为0   
+    return &quot;Insufficient Funds&quot;;
+    }
+  return resultArr;
+}
+checkCashRegister(3.26, 100.00, [[&quot;PENNY&quot;, 1.01], [&quot;NICKEL&quot;, 2.05], [&quot;DIME&quot;, 3.10], [&quot;QUARTER&quot;, 4.25], [&quot;ONE&quot;, 90.00], [&quot;FIVE&quot;, 55.00], [&quot;TEN&quot;, 20.00], [&quot;TWENTY&quot;, 60.00], [&quot;ONE HUNDRED&quot;, 100.00]]);
+//返回[[&quot;TWENTY&quot;, 60.00], [&quot;TEN&quot;, 20.00], [&quot;FIVE&quot;, 15], [&quot;ONE&quot;, 1], [&quot;QUARTER&quot;, 0.50], [&quot;DIME&quot;, 0.20], [&quot;PENNY&quot;, 0.04]]
+</code></pre><p><strong>注意：</strong> js计算浮点数精度不准确容易导致一些小问题，老是有几个测试例子通不过，使用.toFixed(2)方法四舍五入保留两位小数，但该方法也不严谨。具体见博客<a href="https://www.cnblogs.com/xinggood/p/6639022.html" target="_blank" rel="external">关于js浮点数计算精度不准确问题的解决办法</a>。</p>
+<p>另外由于<code>change = change.toFixed(2)</code>，使得找零完毕后<code>change=&quot;0.00&quot;</code>，因此使用(cahnge-0)将0.00转化为0，否则使用严格不等<code>change！==0</code>是错误的，因为0.00和0不完全相等。当然若不使用 <code>(change-0) !== 0</code>，也可以使用不严格不等<code>change != 0</code>。</p>
+
       
     </div>
     
@@ -796,7 +843,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li></ol></div>
             
 
           </div>
