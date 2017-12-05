@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-05T13:26:37.701Z</updated>
+  <updated>2017-12-05T13:56:03.183Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/11/26/freeCodeCamp-%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/26/freeCodeCamp-高级算法编程/</id>
     <published>2017-11-26T03:07:43.000Z</published>
-    <updated>2017-12-05T13:26:37.701Z</updated>
+    <updated>2017-12-05T13:56:03.183Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS高级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Validate-US-Telephone-Numbers"><a href="#Validate-US-Telephone-Numbers" class="headerlink" title="Validate US Telephone Numbers"></a>Validate US Telephone Numbers</h2><p><strong>题目：</strong>如果传入字符串是一个有效的美国电话号码，则返回 true.</p>
@@ -336,6 +336,30 @@ makeFriendlyDates([&quot;2001-12-20&quot;, &quot;2001-12-20&quot;]);//返回[&qu
 };
 var bob = new Person(&apos;Bob Ross&apos;);
 bob.getFirstName();//返回&quot;Bob&quot;
+</code></pre><h2 id="Map-the-Debris"><a href="#Map-the-Debris" class="headerlink" title="Map the Debris"></a>Map the Debris</h2><p><strong>题目：</strong>返回一个数组，其内容是把原数组中对应元素的平均海拔转换成其对应的轨道周期.原数组中会包含格式化的对象内容，像这样 {name: ‘name’, avgAlt: avgAlt}.</p>
+<p>求得的值应该是一个与其最接近的整数，轨道是以地球为基准的.</p>
+<p>地球半径是 6367.4447 kilometers, 地球的GM值是 398600.4418, 圆周率为Math.PI</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/pow" target="_blank" rel="external">Math.pow()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank" rel="external">Math.round()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+
+  //轨道周期公式 T=2π√(a^3/GM)
+  for(var i = 0; i &lt; arr.length; i++) {
+    //a为轨道半径，等于地球半径加平均海拔
+    var  a = earthRadius + arr[i].avgAlt;
+    var T1 = Math.sqrt(4 * Math.pow(Math.PI, 2) * Math.pow(a, 3) / GM);
+    //将求得的周期转化为整数
+    var T = Math.round(T1);
+    //删除原有属性海拔
+    delete arr[i].avgAlt;
+    //添加新的属性轨道周期
+    arr[i].orbitalPeriod = T;
+  }  
+  return arr;
+}
+orbitalPeriod([{name : &quot;sputnik&quot;, avgAlt : 35873.5553}]);//返回[{name: &quot;sputnik&quot;, orbitalPeriod: 86400}]
 </code></pre>]]></content>
     
     <summary type="html">

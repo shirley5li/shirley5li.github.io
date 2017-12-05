@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-05T13:26:37.701Z">
+<meta property="og:updated_time" content="2017-12-05T13:56:03.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp JavaScript高级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
@@ -724,6 +724,30 @@ makeFriendlyDates([&quot;2001-12-20&quot;, &quot;2001-12-20&quot;]);//返回[&qu
 };
 var bob = new Person(&apos;Bob Ross&apos;);
 bob.getFirstName();//返回&quot;Bob&quot;
+</code></pre><h2 id="Map-the-Debris"><a href="#Map-the-Debris" class="headerlink" title="Map the Debris"></a>Map the Debris</h2><p><strong>题目：</strong>返回一个数组，其内容是把原数组中对应元素的平均海拔转换成其对应的轨道周期.原数组中会包含格式化的对象内容，像这样 {name: ‘name’, avgAlt: avgAlt}.</p>
+<p>求得的值应该是一个与其最接近的整数，轨道是以地球为基准的.</p>
+<p>地球半径是 6367.4447 kilometers, 地球的GM值是 398600.4418, 圆周率为Math.PI</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/pow" target="_blank" rel="external">Math.pow()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank" rel="external">Math.round()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+
+  //轨道周期公式 T=2π√(a^3/GM)
+  for(var i = 0; i &lt; arr.length; i++) {
+    //a为轨道半径，等于地球半径加平均海拔
+    var  a = earthRadius + arr[i].avgAlt;
+    var T1 = Math.sqrt(4 * Math.pow(Math.PI, 2) * Math.pow(a, 3) / GM);
+    //将求得的周期转化为整数
+    var T = Math.round(T1);
+    //删除原有属性海拔
+    delete arr[i].avgAlt;
+    //添加新的属性轨道周期
+    arr[i].orbitalPeriod = T;
+  }  
+  return arr;
+}
+orbitalPeriod([{name : &quot;sputnik&quot;, avgAlt : 35873.5553}]);//返回[{name: &quot;sputnik&quot;, orbitalPeriod: 86400}]
 </code></pre>
       
     </div>
@@ -1054,7 +1078,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Update"><span class="nav-number">4.</span> <span class="nav-text">Inventory Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-repeats-please"><span class="nav-number">5.</span> <span class="nav-text">No repeats please</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Friendly-Date-Ranges"><span class="nav-number">6.</span> <span class="nav-text">Friendly Date Ranges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-Person"><span class="nav-number">7.</span> <span class="nav-text">Make a Person</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Update"><span class="nav-number">4.</span> <span class="nav-text">Inventory Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-repeats-please"><span class="nav-number">5.</span> <span class="nav-text">No repeats please</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Friendly-Date-Ranges"><span class="nav-number">6.</span> <span class="nav-text">Friendly Date Ranges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-Person"><span class="nav-number">7.</span> <span class="nav-text">Make a Person</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-the-Debris"><span class="nav-number">8.</span> <span class="nav-text">Map the Debris</span></a></li></ol></div>
             
 
           </div>
