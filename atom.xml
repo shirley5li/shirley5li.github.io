@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-03T04:29:56.779Z</updated>
+  <updated>2017-12-05T08:18:05.208Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/11/26/freeCodeCamp-%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/26/freeCodeCamp-高级算法编程/</id>
     <published>2017-11-26T03:07:43.000Z</published>
-    <updated>2017-12-03T04:29:56.779Z</updated>
+    <updated>2017-12-05T08:18:05.208Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS高级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Validate-US-Telephone-Numbers"><a href="#Validate-US-Telephone-Numbers" class="headerlink" title="Validate US Telephone Numbers"></a>Validate US Telephone Numbers</h2><p><strong>题目：</strong>如果传入字符串是一个有效的美国电话号码，则返回 true.</p>
@@ -171,6 +171,67 @@ var newInv = [
     [7, &quot;Toothpaste&quot;]
 ];
 updateInventory(curInv, newInv);//返回[[88, &quot;Bowling Ball&quot;], [2, &quot;Dirty Sock&quot;], [3, &quot;Hair Pin&quot;], [3, &quot;Half-Eaten Apple&quot;], [5, &quot;Microphone&quot;], [7, &quot;Toothpaste&quot;]]
+</code></pre><h2 id="No-repeats-please"><a href="#No-repeats-please" class="headerlink" title="No repeats please"></a>No repeats please</h2><p><strong>题目：</strong>把一个字符串中的字符重新排列生成新的字符串，返回新生成的字符串里没有连续重复字符的字符串个数.连续重复只以单个字符为准。</p>
+<p>例如, aab 应该返回 2 因为它总共有6中排列 (aab, aab, aba, aba, baa, baa), 但是只有两个 (aba and aba)没有连续重复的字符 (在本例中是 a).</p>
+<p><strong>考察全排列</strong></p>
+<p><strong>tips:</strong><a href="https://www.mathsisfun.com/combinatorics/combinations-permutations.html" target="_blank" rel="external">Permutations</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">RegExp</a> <a href="https://www.cnblogs.com/nokiaguy/archive/2008/05/11/1191914.html" target="_blank" rel="external">全排列算法原理和实现</a></p>
+<p><strong>实现</strong></p>
+<pre><code>//求一个字符串的全排列字符串中，不含连续重复字符的字符串个数
+function permAlone(str) {
+  //将输入字符串转化为数组
+  strArr = str.split(&quot;&quot;);
+  //求该字符串数组的全排列形式
+  permResultArr = [];
+  perm(strArr, 0, strArr.length-1);
+  //找出全排列后非连续重复的字符串个数
+  var count = 0;
+  for(var i = 0; i &lt; permResultArr.length; i++) {
+    if(conRepCharacter(permResultArr[i])) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+//判断一个字符串是否含连续重复的字符，若不包含连续重复字符，则返回true
+function conRepCharacter(str) {
+  if(str.length === 1) {
+    return true;
+  }
+  for(var i = 0; i &lt; str.length-1; i++) {
+    if(str[i+1] === str[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+//交换数组中两个字符的位置
+function swapCharacter(arr, i, j) {
+  var temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+  return arr;
+}
+
+//求给定字符串数组的全排列,其中strArr表示输入字符串转化成的数组，flag表示递归到哪一位，end表示递归结束的位即字符串长度减1
+function perm(strArr, flag, end) {
+  //递归结束输出结果
+  if(flag === end) {
+    permResultArr.push(strArr.join(&quot;&quot;));
+  }
+  for(var i = flag; i &lt;= end; i++) {
+    //将字符串中的所有字母分别与第一个字母交换
+    strArr = swapCharacter(strArr, flag, i);
+    //对交换后的字符串继续递归排列，由于第一个字母已经排列，因此从一个字母开始排列，即flag+1
+    perm(strArr, flag+1, end);
+    //由于在进入到下一次循环时序列是被改变了，可如果要假定第一个字母的所有可能性的话，必须是建立在这些序列的初始状态一致的情况下
+    //因此通过再次交换恢复之前的排列顺序
+     strArr = swapCharacter(strArr, flag, i);  
+  }
+  return permResultArr;
+}
+permAlone(&quot;abc&quot;);//返回6
 </code></pre>]]></content>
     
     <summary type="html">
