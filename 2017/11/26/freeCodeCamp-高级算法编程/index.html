@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-05T08:18:05.208Z">
+<meta property="og:updated_time" content="2017-12-05T12:05:21.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp JavaScript高级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
@@ -620,6 +620,76 @@ function perm(strArr, flag, end) {
   return permResultArr;
 }
 permAlone(&quot;abc&quot;);//返回6
+</code></pre><h2 id="Friendly-Date-Ranges"><a href="#Friendly-Date-Ranges" class="headerlink" title="Friendly Date Ranges"></a>Friendly Date Ranges</h2><p><strong>题目：</strong>把常见的日期格式如：YYYY-MM-DD 转换成一种更易读的格式。<br>易读格式应该是用月份名称代替月份数字，用序数词代替数字来表示天 (1st 代替 1).</p>
+<p>如果一个日期区间里结束日期与开始日期相差小于一年，则结束日期就不用写年份了；在这种情况下，如果月份开始和结束日期如果在同一个月，则结束日期月份也不用写了。另外, 如果开始日期年份是当前年份，且结束日期与开始日期小于一年，则开始日期的年份也不用写。</p>
+<p>例如:包含当前年份和相同月份的时候，makeFriendlyDates([“2017-01-02”, “2017-01-05”]) 应该返回 [“January 2nd”,”5th”]。不包含当前年份，makeFriendlyDates([“2003-08-15”, “2009-09-21”]) 应该返回 [“August 15th, 2003”, “September 21st, 2009”]。</p>
+<p>考虑清楚所有可能出现的情况，包括传入的日期区间是否合理。对于不合理的日期区间，直接返回 undefined 即可。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="external">String.split()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substr" target="_blank" rel="external">String.substr()</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external">parseInt()</a></p>
+<p><strong>实现</strong></p>
+<pre><code>function makeFriendlyDates(arr) {
+  var resultArr = [];
+  //开始日期数组
+  var startArr = arr[0].split(&quot;-&quot;);
+  //结束日期数组
+  var endArr = arr[1].split(&quot;-&quot;);
+
+  //开始日期的年月日
+  var sYear = parseInt(startArr[0], 10);
+  var sMonth = parseInt(startArr[1], 10);
+  var sDay = parseInt(startArr[2], 10);
+  //结束日期的年月日
+  var eYear = parseInt(endArr[0], 10);
+  var eMonth = parseInt(endArr[1], 10);
+  var eDay = parseInt(endArr[2], 10);
+
+  //开始日期与结束日期之间相差的天数
+  var distDays = (eYear-sYear)*365 + (eMonth-sMonth)*30 + eDay-sDay;
+
+  //获取当前日期的年份
+  var currDate = new Date();
+  var currYear = currDate.getFullYear();
+
+  //月份字符串数组
+  var monthsArr = [&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;,&quot;August&quot;,&quot;September&quot;,&quot;October&quot;,&quot;November&quot;,&quot;December&quot;];
+  //日字符串数组
+  var daysArr = [&quot;1st&quot;,&quot;2nd&quot;,&quot;3rd&quot;,&quot;4th&quot;,&quot;5th&quot;,&quot;6th&quot;,&quot;7th&quot;,&quot;8th&quot;,&quot;9th&quot;,&quot;10th&quot;,&quot;11th&quot;,&quot;12th&quot;,&quot;13th&quot;,&quot;14th&quot;,&quot;15th&quot;,&quot;16th&quot;,&quot;17th&quot;,&quot;18th&quot;,&quot;19th&quot;,&quot;20th&quot;,&quot;21st&quot;,&quot;22nd&quot;,&quot;23rd&quot;,&quot;24th&quot;,&quot;25th&quot;,&quot;26th&quot;,&quot;27th&quot;,&quot;28th&quot;,&quot;29th&quot;,&quot;30th&quot;,&quot;31st&quot;];
+  //先判断日期区间是否合理,若不合理返回undefined
+  if(distDays &lt; 0) {
+    return &quot;undefined&quot;;
+  }
+  //如果开始日期和结束日期一样，则返回一个
+  if(sYear === eYear &amp;&amp; sMonth === eMonth &amp;&amp; sDay === eDay) {
+    resultArr = [monthsArr[sMonth-1] + &quot; &quot; + daysArr[sDay-1] + &quot;, &quot; + sYear];
+    return resultArr;
+  }
+  //如果开始日期年份是当前年份,结束日期与开始日期相差小于一年，月份开始和结束日期如果在同一个月，则开始日期年份、结束日期年份和月份也不用写了
+  if(currYear === sYear &amp;&amp; distDays &lt; 365 &amp;&amp; sMonth === eMonth) {
+    resultArr = [monthsArr[sMonth-1] + &quot; &quot;+ daysArr[sDay-1], daysArr[eDay-1]];
+    return resultArr;
+  }
+  //如果开始日期年份是当前年份,结束日期与开始日期相差小于一年，月份开始和结束日期不在同一个月,则开始日期年份、结束日期年份不用写了
+  if(currYear === sYear &amp;&amp; distDays &lt; 365 &amp;&amp; sMonth !== eMonth) {
+    resultArr = [monthsArr[sMonth-1] + &quot; &quot; + daysArr[sDay-1], monthsArr[eMonth-1] + &quot; &quot; + daysArr[eDay-1]];
+    return resultArr;
+  }
+  //如果开始日期年份不是当前年份,结束日期与开始日期相差小于一年，月份开始和结束日期在同一个月,则结束日期年份和月份不用写了
+  if(currYear !== sYear &amp;&amp; distDays &lt; 365 &amp;&amp; sYear === eYear &amp;&amp; sMonth === eMonth) {
+    resultArr = [monthsArr[sMonth-1] + &quot; &quot; + daysArr[sDay-1] + &quot;, &quot; + sYear, daysArr[eDay-1]];
+    return resultArr;
+  }
+  //如果开始日期年份不是当前年份,结束日期与开始日期相差小于一年，月份开始和结束日期不在同一个月,则结束日期年份不用写了
+  if(currYear !== sYear &amp;&amp; distDays &lt; 365 &amp;&amp; sYear !== eYear &amp;&amp; distDays &gt; 30) {
+    resultArr = [monthsArr[sMonth-1] + &quot; &quot; + daysArr[sDay-1] + &quot;, &quot; + sYear, monthsArr[eMonth-1] + &quot; &quot; + daysArr[eDay-1]];
+    return resultArr;
+  }
+   //如果开始日期年份不是当前年份,结束日期与开始日期相差大于等于一年
+  if(distDays &gt;= 365) {
+    resultArr = [monthsArr[sMonth-1] + &quot; &quot; + daysArr[sDay-1] + &quot;, &quot; + sYear, monthsArr[eMonth-1] + &quot; &quot; + daysArr[eDay-1] + &quot;, &quot; + eYear];
+    return resultArr;
+  }
+
+}
+makeFriendlyDates([&quot;2001-12-20&quot;, &quot;2001-12-20&quot;]);//返回[&quot;December 20th, 2001&quot;]
 </code></pre>
       
     </div>
@@ -950,7 +1020,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Update"><span class="nav-number">4.</span> <span class="nav-text">Inventory Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-repeats-please"><span class="nav-number">5.</span> <span class="nav-text">No repeats please</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Update"><span class="nav-number">4.</span> <span class="nav-text">Inventory Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-repeats-please"><span class="nav-number">5.</span> <span class="nav-text">No repeats please</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Friendly-Date-Ranges"><span class="nav-number">6.</span> <span class="nav-text">Friendly Date Ranges</span></a></li></ol></div>
             
 
           </div>
