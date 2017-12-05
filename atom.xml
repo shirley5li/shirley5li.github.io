@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-05T12:05:21.217Z</updated>
+  <updated>2017-12-05T13:26:37.701Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/11/26/freeCodeCamp-%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/26/freeCodeCamp-高级算法编程/</id>
     <published>2017-11-26T03:07:43.000Z</published>
-    <updated>2017-12-05T12:05:21.217Z</updated>
+    <updated>2017-12-05T13:26:37.701Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS高级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Validate-US-Telephone-Numbers"><a href="#Validate-US-Telephone-Numbers" class="headerlink" title="Validate US Telephone Numbers"></a>Validate US Telephone Numbers</h2><p><strong>题目：</strong>如果传入字符串是一个有效的美国电话号码，则返回 true.</p>
@@ -302,6 +302,40 @@ permAlone(&quot;abc&quot;);//返回6
 
 }
 makeFriendlyDates([&quot;2001-12-20&quot;, &quot;2001-12-20&quot;]);//返回[&quot;December 20th, 2001&quot;]
+</code></pre><h2 id="Make-a-Person"><a href="#Make-a-Person" class="headerlink" title="Make a Person"></a>Make a Person</h2><p><strong>题目：</strong>用下面给定的方法构造一个对象.</p>
+<p>方法有 getFirstName(), getLastName(), getFullName(), setFirstName(first), setLastName(last), and setFullName(firstAndLast).</p>
+<p>所有有参数的方法只接受一个字符串参数.所有的方法只与实体对象交互.</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">Closures</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model" target="_blank" rel="external">Details of the Object Model</a></p>
+<p><strong>实现</strong></p>
+<pre><code>var Person = function(firstAndLast) {
+  this.getFirstName = function() {
+    var arr = firstAndLast.split(&quot; &quot;);
+    return arr[0];
+  };
+  this.getLastName = function() {
+    var arr = firstAndLast.split(&quot; &quot;);
+    return arr[1];
+  };
+  this.getFullName = function() {
+    return firstAndLast;
+  };
+  this.setFirstName = function(first) {
+    var arr = firstAndLast.split(&quot; &quot;);
+    arr[0] = first;
+    firstAndLast = arr.join(&quot; &quot;);
+  };
+  this.setLastName = function(last) {
+    var arr = firstAndLast.split(&quot; &quot;);
+    arr[1] = last;
+    firstAndLast = arr.join(&quot; &quot;);
+  };
+  this.setFullName = function(firstAndLast2) {
+    firstAndLast = firstAndLast2;
+  };
+
+};
+var bob = new Person(&apos;Bob Ross&apos;);
+bob.getFirstName();//返回&quot;Bob&quot;
 </code></pre>]]></content>
     
     <summary type="html">
