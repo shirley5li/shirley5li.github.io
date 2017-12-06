@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-05T13:56:03.183Z</updated>
+  <updated>2017-12-06T02:52:35.069Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/11/26/freeCodeCamp-%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/26/freeCodeCamp-高级算法编程/</id>
     <published>2017-11-26T03:07:43.000Z</published>
-    <updated>2017-12-05T13:56:03.183Z</updated>
+    <updated>2017-12-06T02:52:35.069Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS高级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Validate-US-Telephone-Numbers"><a href="#Validate-US-Telephone-Numbers" class="headerlink" title="Validate US Telephone Numbers"></a>Validate US Telephone Numbers</h2><p><strong>题目：</strong>如果传入字符串是一个有效的美国电话号码，则返回 true.</p>
@@ -360,6 +360,27 @@ bob.getFirstName();//返回&quot;Bob&quot;
   return arr;
 }
 orbitalPeriod([{name : &quot;sputnik&quot;, avgAlt : 35873.5553}]);//返回[{name: &quot;sputnik&quot;, orbitalPeriod: 86400}]
+</code></pre><h2 id="Pairwise"><a href="#Pairwise" class="headerlink" title="Pairwise"></a>Pairwise</h2><p><strong>题目：</strong>举个例子：有一个能力数组[7,9,11,13,15]，按照最佳组合值为20来计算，只有7+13和9+11两种组合。而7在数组的索引为0，13在数组的索引为3，9在数组的索引为1，11在数组的索引为2。</p>
+<p>所以我们说函数：pairwise([7,9,11,13,15],20) 的返回值应该是0+3+1+2的和，即6。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">Array.reduce()</a>自己没有用上reduce()方法</p>
+<p><strong>实现</strong></p>
+<pre><code>function pairwise(arr, arg) {
+  var sumIndex = 0;
+  for(var i = 0; i &lt; arr.length; i++) {
+    //与当前元素应该配对的元素值
+    var pairVal = arg - arr[i];
+    //配对元素应有的索引值,配对元素不能为自己
+    var pairIndex = arr.indexOf(pairVal);
+    //如果找到与当前元素配对的，则将这一对的索引值累加，并将当前元素和与之配对的元素值置为-1
+    if(pairIndex !== -1 &amp;&amp; pairIndex !== i) {
+      arr[i] = -1;
+      arr[pairIndex] = -1;
+      sumIndex += i + pairIndex;
+    }
+  }
+  return sumIndex;
+}
+pairwise([1, 3, 2, 4], 4);//返回1
 </code></pre>]]></content>
     
     <summary type="html">

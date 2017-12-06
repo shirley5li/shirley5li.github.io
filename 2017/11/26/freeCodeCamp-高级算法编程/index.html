@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-05T13:56:03.183Z">
+<meta property="og:updated_time" content="2017-12-06T02:52:35.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="freeCodeCamp JavaScript高级算法编程学习总结">
 <meta name="twitter:description" content="几个 freeCodeCamp JS高级算法编程例题的学习总结。">
@@ -748,6 +748,27 @@ bob.getFirstName();//返回&quot;Bob&quot;
   return arr;
 }
 orbitalPeriod([{name : &quot;sputnik&quot;, avgAlt : 35873.5553}]);//返回[{name: &quot;sputnik&quot;, orbitalPeriod: 86400}]
+</code></pre><h2 id="Pairwise"><a href="#Pairwise" class="headerlink" title="Pairwise"></a>Pairwise</h2><p><strong>题目：</strong>举个例子：有一个能力数组[7,9,11,13,15]，按照最佳组合值为20来计算，只有7+13和9+11两种组合。而7在数组的索引为0，13在数组的索引为3，9在数组的索引为1，11在数组的索引为2。</p>
+<p>所以我们说函数：pairwise([7,9,11,13,15],20) 的返回值应该是0+3+1+2的和，即6。</p>
+<p><strong>tips:</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">Array.reduce()</a>自己没有用上reduce()方法</p>
+<p><strong>实现</strong></p>
+<pre><code>function pairwise(arr, arg) {
+  var sumIndex = 0;
+  for(var i = 0; i &lt; arr.length; i++) {
+    //与当前元素应该配对的元素值
+    var pairVal = arg - arr[i];
+    //配对元素应有的索引值,配对元素不能为自己
+    var pairIndex = arr.indexOf(pairVal);
+    //如果找到与当前元素配对的，则将这一对的索引值累加，并将当前元素和与之配对的元素值置为-1
+    if(pairIndex !== -1 &amp;&amp; pairIndex !== i) {
+      arr[i] = -1;
+      arr[pairIndex] = -1;
+      sumIndex += i + pairIndex;
+    }
+  }
+  return sumIndex;
+}
+pairwise([1, 3, 2, 4], 4);//返回1
 </code></pre>
       
     </div>
@@ -1078,7 +1099,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Update"><span class="nav-number">4.</span> <span class="nav-text">Inventory Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-repeats-please"><span class="nav-number">5.</span> <span class="nav-text">No repeats please</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Friendly-Date-Ranges"><span class="nav-number">6.</span> <span class="nav-text">Friendly Date Ranges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-Person"><span class="nav-number">7.</span> <span class="nav-text">Make a Person</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-the-Debris"><span class="nav-number">8.</span> <span class="nav-text">Map the Debris</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Validate-US-Telephone-Numbers"><span class="nav-number">1.</span> <span class="nav-text">Validate US Telephone Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symmetric-Difference"><span class="nav-number">2.</span> <span class="nav-text">Symmetric Difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exact-Change"><span class="nav-number">3.</span> <span class="nav-text">Exact Change</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Update"><span class="nav-number">4.</span> <span class="nav-text">Inventory Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-repeats-please"><span class="nav-number">5.</span> <span class="nav-text">No repeats please</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Friendly-Date-Ranges"><span class="nav-number">6.</span> <span class="nav-text">Friendly Date Ranges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-Person"><span class="nav-number">7.</span> <span class="nav-text">Make a Person</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-the-Debris"><span class="nav-number">8.</span> <span class="nav-text">Map the Debris</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pairwise"><span class="nav-number">9.</span> <span class="nav-text">Pairwise</span></a></li></ol></div>
             
 
           </div>
