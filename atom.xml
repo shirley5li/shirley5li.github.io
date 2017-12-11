@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-06T02:52:35.069Z</updated>
+  <updated>2017-12-09T07:40:20.510Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AngularJS学习笔记01</title>
+    <link href="http://yoursite.com/2017/12/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/"/>
+    <id>http://yoursite.com/2017/12/08/AngularJS学习笔记01/</id>
+    <published>2017-12-08T08:41:16.000Z</published>
+    <updated>2017-12-09T07:40:20.510Z</updated>
+    
+    <content type="html"><![CDATA[<p> AngularJS是Google开源的一款JavaScript MVC的前端框架，弥补了HTML在构建应用方面的不足，其通过使用指令（directives）结构来扩展HTML词汇，且通过表达式绑定数据到 HTML，使开发者可以使用HTML来声明动态内容，从而使得Web开发和测试工作变得更加容易。<br><a id="more"></a><br> AngularJS 是一个为动态WEB应用设计的结构框架，提供给大家一种新的开发应用方式，这种方式可以让你扩展HTML的语法，以弥补在构建动态WEB应用时静态文本的不足，从而在web应用程序中使用HTML声明动态内容。Angular可以帮助你组织JavaScript代码，可以创建响应式网站（会对用户的请求产生快速的反应），Angular可以和JQuery很好的协调、方便测试（搭建可维护的应用）。</p>
+<p>简单的解释Angular就是一个可以给HTML加上互动性的客户端JS框架。</p>
+<p>关于传统网页请求和AngularJS网页请求之间的区别，参见博客<a href="http://blog.csdn.net/xiaoyao0909/article/details/51419078" target="_blank" rel="external">AngularJS系列——简介</a>。</p>
+<h2 id="AngularJS简介"><a href="#AngularJS简介" class="headerlink" title="AngularJS简介"></a>AngularJS简介</h2><pre><code>AngularJS 通过 ng-directives 扩展了 HTML。
+ng-app 指令定义一个 AngularJS 应用程序。
+ng-model 指令把元素值（比如输入域的值）绑定到应用程序变量。
+ng-bind 指令把应用程序数据绑定到 HTML 视图。
+</code></pre><p>例如：</p>
+<pre><code>&lt;body&gt;
+    &lt;div ng-app=&quot;&quot;&gt;
+        &lt;p&gt;名字 : &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;&lt;/p&gt;
+        &lt;h1&gt;Hello {{name}}&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>ng-app 指令告诉 AngularJS，<div\> 元素是 AngularJS 应用程序 的”所有者”。ng-model 指令把输入域的值绑定到应用程序变量 name。ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。</div\></p>
+<p>AngularJS 使得开发现代的单一页面应用程序（SPAs：Single Page Applications）变得更加容易。</p>
+<pre><code>AngularJS 把应用程序数据绑定到 HTML 元素。
+AngularJS 可以克隆和重复 HTML 元素。
+AngularJS 可以隐藏和显示 HTML 元素。
+AngularJS 可以在 HTML 元素&quot;背后&quot;添加代码。
+AngularJS 支持输入验证。
+</code></pre><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>AngularJS 使用表达式把数据绑定到 HTML。</p>
+<p>AngularJS 表达式写在双大括号内：。AngularJS表达式很像JavaScript表达式：它们可以包含文字、运算符和变量。</p>
+<pre><code>&lt;body&gt;
+    &lt;div ng-app=&quot;&quot;&gt;
+        &lt;p&gt;我的第一个表达式: {{ 5 + 5 }}&lt;/p&gt;
+    &lt;/div&gt; 
+&lt;/body&gt;
+</code></pre><p>AngularJS 表达式把数据绑定到 HTML，这与 ng-bind 指令有异曲同工之妙。例如：</p>
+<pre><code>&lt;div ng-app=&quot;&quot; ng-init=&quot;quantity=1;cost=5&quot;&gt;
+    &lt;p&gt;总价： {{ quantity * cost }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><p>使用 ng-bind 的相同实例：</p>
+<pre><code>&lt;div ng-app=&quot;&quot; ng-init=&quot;quantity=1;cost=5&quot;&gt; 
+    &lt;p&gt;总价： &lt;span ng-bind=&quot;quantity * cost&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><p><strong>AngularJS表达式与JavaScript表达式比较</strong></p>
+<pre><code>类似于 JavaScript 表达式，AngularJS 表达式可以包含字母，操作符，变量。
+与 JavaScript 表达式不同，AngularJS 表达式可以写在 HTML 中。
+与 JavaScript 表达式不同，AngularJS 表达式不支持条件判断，循环及异常。
+与 JavaScript 表达式不同，AngularJS 表达式支持过滤器。
+</code></pre><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>AngularJS 通过<strong>指令</strong>新属性来扩展 HTML，指令带有前缀 ng-。</p>
+<p>AngularJS 通过内置的指令来为应用添加功能，允许自定义指令。</p>
+<pre><code>ng-app 指令初始化一个 AngularJS 应用程序。
+ng-init 指令初始化应用程序数据。
+ng-model 指令把元素值（比如输入域的值）绑定到应用程序。
+ng-repeat 指令对于集合中（数组中）的每个项会 克隆一次 HTML 元素
+</code></pre><p>例如：</p>
+<pre><code>&lt;div ng-app=&quot;&quot; ng-init=&quot;firstName=&apos;John&apos;&quot;&gt;
+     &lt;p&gt;在输入框中尝试输入：&lt;/p&gt;
+     &lt;p&gt;姓名：&lt;input type=&quot;text&quot; ng-model=&quot;firstName&quot;&gt;&lt;/p&gt;
+     &lt;p&gt;你输入的为： {{ firstName }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><p>使用 .directive 函数来添加自定义的指令。要调用自定义指令，HTML 元素上需要添加自定义指令名。<br>使用驼峰法来命名一个指令， runoobDirective, 但在使用它时需要以 - 分割, runoob-directive。</p>
+<pre><code>&lt;body ng-app=&quot;myApp&quot;&gt;
+    &lt;runoob-directive&gt;&lt;/runoob-directive&gt;
+    &lt;script&gt;
+        var app = angular.module(&quot;myApp&quot;, []);
+        app.directive(&quot;runoobDirective&quot;, function() {
+            return {
+                template : &quot;&lt;h1&gt;自定义指令!&lt;/h1&gt;&quot;
+            };
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p>你可以通过以下方式来调用指令：元素名、属性、类名、注释。</p>
+<pre><code>&lt;runoob-directive&gt;&lt;/runoob-directive&gt;
+&lt;div runoob-directive&gt;&lt;/div&gt;
+&lt;div class=&quot;runoob-directive&quot;&gt;&lt;/div&gt;
+&lt;!-- directive: runoob-directive --&gt;
+</code></pre><h2 id="AngularJS模型-ng-model指令"><a href="#AngularJS模型-ng-model指令" class="headerlink" title="AngularJS模型 ng-model指令"></a>AngularJS模型 ng-model指令</h2><p>ng-model 指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; AngularJS是Google开源的一款JavaScript MVC的前端框架，弥补了HTML在构建应用方面的不足，其通过使用指令（directives）结构来扩展HTML词汇，且通过表达式绑定数据到 HTML，使开发者可以使用HTML来声明动态内容，从而使得Web开发和测试工作变得更加容易。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
+    
+    
+      <category term="Angular" scheme="http://yoursite.com/tags/Angular/"/>
+    
+  </entry>
   
   <entry>
     <title>freeCodeCamp JavaScript高级算法编程学习总结</title>
