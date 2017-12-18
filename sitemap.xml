@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/12/18/test/</loc>
+    
+    <lastmod>2017-12-18T07:34:23.307Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/12/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</loc>
     
     <lastmod>2017-12-09T07:40:20.510Z</lastmod>
