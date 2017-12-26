@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-26T03:03:13.529Z</updated>
+  <updated>2017-12-26T03:05:56.277Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://yoursite.com/2017/12/25/JS%E9%AB%98%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ing/"/>
     <id>http://yoursite.com/2017/12/25/JS高程学习笔记-ing/</id>
     <published>2017-12-25T09:17:54.000Z</published>
-    <updated>2017-12-26T03:03:13.529Z</updated>
+    <updated>2017-12-26T03:05:56.277Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="模仿块级作用域"><a href="#模仿块级作用域" class="headerlink" title="模仿块级作用域"></a>模仿块级作用域</h2><p>JS没有块级作用域，即在块语句中定义的变量，实际是在包含函数中创建的，而非在块语句中创建的。如下：</p>
+    <content type="html"><![CDATA[<p>JavaScript学习笔记。<br><a id="more"></a></p>
+<h2 id="模仿块级作用域"><a href="#模仿块级作用域" class="headerlink" title="模仿块级作用域"></a>模仿块级作用域</h2><p>JS没有块级作用域，即在块语句中定义的变量，实际是在包含函数中创建的，而非在块语句中创建的。如下：</p>
 <pre><code>function outputNumbers(count) {
     for( var i = 0; i &lt; count; i++) {
         console.log(i);
@@ -102,7 +103,7 @@ outputNumbers(4);//打印值为0 1 2 3 4
     
     <summary type="html">
     
-      &lt;h2 id=&quot;模仿块级作用域&quot;&gt;&lt;a href=&quot;#模仿块级作用域&quot; class=&quot;headerlink&quot; title=&quot;模仿块级作用域&quot;&gt;&lt;/a&gt;模仿块级作用域&lt;/h2&gt;&lt;p&gt;JS没有块级作用域，即在块语句中定义的变量，实际是在包含函数中创建的，而非在块语句中创建的。如下：&lt;
+      &lt;p&gt;JavaScript学习笔记。&lt;br&gt;
     
     </summary>
     
