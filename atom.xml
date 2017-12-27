@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-26T08:41:37.868Z</updated>
+  <updated>2017-12-27T03:02:10.721Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博文集锦</title>
+    <link href="http://yoursite.com/2017/12/27/good-blog-post/"/>
+    <id>http://yoursite.com/2017/12/27/good-blog-post/</id>
+    <published>2017-12-27T02:58:05.000Z</published>
+    <updated>2017-12-27T03:02:10.721Z</updated>
+    
+    <content type="html"><![CDATA[<p>以下是一些关于WEB开发比较好的技术文章集锦，收集以待后面再看一遍。<br><a id="more"></a></p>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p><a href="https://www.cnblogs.com/rainy-shurun/p/5603686.html" target="_blank" rel="external">浏览器内部工作原理</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以下是一些关于WEB开发比较好的技术文章集锦，收集以待后面再看一遍。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="bolgPost" scheme="http://yoursite.com/categories/bolgPost/"/>
+    
+    
+      <category term="blogPost" scheme="http://yoursite.com/tags/blogPost/"/>
+    
+  </entry>
   
   <entry>
     <title>JS高程（3）学习笔记</title>
