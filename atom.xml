@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-29T13:00:44.490Z</updated>
+  <updated>2017-12-29T13:18:03.764Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/12/29/github-pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
     <id>http://yoursite.com/2017/12/29/github-pages绑定域名/</id>
     <published>2017-12-29T06:49:39.000Z</published>
-    <updated>2017-12-29T13:00:44.490Z</updated>
+    <updated>2017-12-29T13:18:03.764Z</updated>
     
-    <content type="html"><![CDATA[<p>在帆锅的启示下，试着给github pages买个域名，毕竟github.io还是有点长哦。以下域名购买、绑定设置，以及DNS的相关知识得益于帆锅的给自己博客绑定域名的笔记以及各位大佬的博客，感谢！<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p>在帆锅的启示下，试着给github pages买个域名，毕竟github.io还是有点长哦。以下域名购买、绑定设置，以及DNS的相关知识得益于帆锅给自己博客绑定域名的笔记以及各位大佬的博客，感谢！<br><a id="more"></a></p>
 <h2 id="域名相关知识"><a href="#域名相关知识" class="headerlink" title="域名相关知识"></a>域名相关知识</h2><h3 id="域名是什么"><a href="#域名是什么" class="headerlink" title="域名是什么"></a>域名是什么</h3><p>根据百度百科，域名（Domain Name），是由一串用“点”分隔的字符组成的Internet上某一台计算机或计算机组的名称。用于在数据传输时标识计算机的电子方位。</p>
 <p>对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。域名同时也仅限于ASCII字符的一个子集，这使得很多其他语言无法正确表示他们的名字和单词。</p>
 <p>在域名中大小写是没有区分的。域名一般不能超过5级，从左到右域的级别变高，高的级域包含低的级域。域名在整个Internet中是唯一的，当高级子域名相同时，低级子域名不允许重复。一台服务器只能有一个IP地址，但是却可以有多个域名。</p>
@@ -51,7 +51,7 @@
 <p><img src="/images/github-pages绑定域名/1.png" alt="1"><br>这个操作等同于在项目根目录下创建一个名为CNAME的文件，文件内容为上述填写的域名。</p>
 <p>回到GoDaddy的主页上，点击个人用户–&gt;管理域名。</p>
 <p><img src="/images/github-pages绑定域名/2.png" alt="2"></p>
-<p>再点击那三个点点（真的对用户超不友好，找半天！！！，选择管理DNS。</p>
+<p>再点击那三个点点（真的对用户超不友好，找半天！！！），选择管理DNS。</p>
 <p><img src="/images/github-pages绑定域名/3.png" alt="3"></p>
 <p>默认的DNS记录如下所示：</p>
 <p><img src="/images/github-pages绑定域名/4.png" alt="4"></p>
@@ -72,6 +72,8 @@
 <p><img src="/images/github-pages绑定域名/10.png" alt="10"> </p>
 <p>等待一段时间就可以成功用DNSPod解析域名到Github博客，在浏览器地址栏输入shirley5li.me，可以看到如下github pages博客主页：</p>
 <p><img src="/images/github-pages绑定域名/11.png" alt="11"> </p>
+<p>至此大功告成。</p>
+<p>PS:参考一些博客，他们在域名注册成功后，在github博客本地目录source下创建CNAME文件，里面填入自己申请的域名即shirley5li.me，保存后<code>hexo g -d</code>上传至Github Repo中。此步骤相当于在搭建博客那个项目，点击设置Settings，在Custom domain，填入申请的域名的过程，因为上面已经操作了Custom domain填入申请域名的过程，所以没有此步骤也可以正常解析shirley5li.me，但再添加也无妨。</p>
 <h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D" target="_blank" rel="external">域名–wikipedia</a></p>
 <p><a href="http://blog.csdn.net/f87089/article/details/51480278" target="_blank" rel="external">怎么区分域名级别，举例说明更易懂</a></p>
 <p><a href="http://winterttr.me/2015/10/23/from-dns-to-github-custom-domain/" target="_blank" rel="external">从DNS到github pages自定义域名 – 漫谈域名那些事</a></p>
@@ -83,7 +85,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;在帆锅的启示下，试着给github pages买个域名，毕竟github.io还是有点长哦。以下域名购买、绑定设置，以及DNS的相关知识得益于帆锅的给自己博客绑定域名的笔记以及各位大佬的博客，感谢！&lt;br&gt;
+      &lt;p&gt;在帆锅的启示下，试着给github pages买个域名，毕竟github.io还是有点长哦。以下域名购买、绑定设置，以及DNS的相关知识得益于帆锅给自己博客绑定域名的笔记以及各位大佬的博客，感谢！&lt;br&gt;
     
     </summary>
     
