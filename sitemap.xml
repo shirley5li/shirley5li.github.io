@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/02/CSS-layout/</loc>
+    
+    <lastmod>2018-01-02T09:08:49.662Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/17/clearfix/</loc>
+    
+    <lastmod>2018-01-02T06:03:09.054Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/12/29/github-pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</loc>
     
     <lastmod>2017-12-29T13:18:03.764Z</lastmod>
@@ -103,13 +117,6 @@
     <loc>http://yoursite.com/2017/10/18/%E9%BB%98%E8%AE%A4margin%E5%80%BC%E5%85%83%E7%B4%A0/</loc>
     
     <lastmod>2017-10-18T05:20:44.081Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/17/clearfix/</loc>
-    
-    <lastmod>2017-10-17T11:48:10.266Z</lastmod>
     
   </url>
   
