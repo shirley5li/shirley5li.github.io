@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jsonp,javascript,json," />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -96,18 +96,23 @@
 
 
 
-<meta name="description" content="在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用$.getJSON(()方法会因为跨域资源共享(CORS)问题发生错误信息。 freeCodeCamp Challenge Guide: How to Use the TwitchTV API 中建议使用jQuery的JSONP方法来解决CORS问题。">
-<meta name="keywords" content="jsonp,javascript,json">
+<meta name="description" content="来自于NEXT十天训练营CSS篇关于动画的笔记。">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSONP简要了解">
-<meta property="og:url" content="http://yoursite.com/2017/11/15/JSONP简要了解/index.html">
+<meta property="og:title" content="CSS动画简介">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/CSS动画简介/index.html">
 <meta property="og:site_name" content="Shirley">
-<meta property="og:description" content="在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用$.getJSON(()方法会因为跨域资源共享(CORS)问题发生错误信息。 freeCodeCamp Challenge Guide: How to Use the TwitchTV API 中建议使用jQuery的JSONP方法来解决CORS问题。">
+<meta property="og:description" content="来自于NEXT十天训练营CSS篇关于动画的笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T01:50:42.942Z">
+<meta property="og:image" content="http://yoursite.com/images/CSS动画简介/1.png">
+<meta property="og:image" content="http://yoursite.com/images/CSS动画简介/2.png">
+<meta property="og:image" content="http://yoursite.com/images/CSS动画简介/3.png">
+<meta property="og:image" content="http://yoursite.com/images/CSS动画简介/4.png">
+<meta property="og:updated_time" content="2018-01-03T03:47:30.958Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSONP简要了解">
-<meta name="twitter:description" content="在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用$.getJSON(()方法会因为跨域资源共享(CORS)问题发生错误信息。 freeCodeCamp Challenge Guide: How to Use the TwitchTV API 中建议使用jQuery的JSONP方法来解决CORS问题。">
+<meta name="twitter:title" content="CSS动画简介">
+<meta name="twitter:description" content="来自于NEXT十天训练营CSS篇关于动画的笔记。">
+<meta name="twitter:image" content="http://yoursite.com/images/CSS动画简介/1.png">
 
 
 
@@ -136,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/15/JSONP简要了解/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/03/CSS动画简介/"/>
 
 
 
 
 
-  <title>JSONP简要了解 | Shirley</title>
+  <title>CSS动画简介 | Shirley</title>
   
 
 
@@ -339,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/15/JSONP简要了解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/CSS动画简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShirleyLi">
@@ -356,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JSONP简要了解</h1>
+          <h1 class="post-title" itemprop="name headline">CSS动画简介</h1>
         
 
         <div class="post-meta">
@@ -368,8 +373,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T21:08:22+08:00">
-                2017-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T09:53:24+08:00">
+                2018-01-03
               </time>
             
 
@@ -391,8 +396,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jsonp/" itemprop="url" rel="index">
-                    <span itemprop="name">jsonp</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -433,63 +438,92 @@
       
 
       
-        <p>在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用<code>$.getJSON(()</code>方法会因为跨域资源共享(CORS)问题发生错误信息。<a href="https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541" target="_blank" rel="external"> freeCodeCamp Challenge Guide: How to Use the TwitchTV API </a>中建议使用jQuery的JSONP方法来解决CORS问题。<br><a id="more"></a></p>
-<h2 id="JSONP的诞生"><a href="#JSONP的诞生" class="headerlink" title="JSONP的诞生"></a>JSONP的诞生</h2><p>传统ajax无法跨域，而<script\>标签的src属性是可以跨域的,可以通过把跨域服务器写成<strong>调用本地的函数</strong> ，回调数据回来。</script\></p>
-<p>json刚好被js支持（<strong>object</strong>）</p>
-<p>调用跨域服务器上动态生成的js格式文件（<strong>不管是什么类型的地址，最终生成的返回值都是一段js代码</strong>）</p>
-<p>这种获取远程数据的方式看起来非常像ajax，但其实并不一样，便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作<strong>JSONP</strong>。</p>
-<p>传递一个<strong>callback参数</strong>给跨域服务端，然后跨域服务端返回数据时会将这个callback参数作为函数名来包裹住json数据即可。</p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>（1）<strong>跨域服务器</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件：<strong>remote.js</strong></p>
-<pre><code>alert(&quot;我是远程文件&quot;);
-</code></pre><p><strong>本地</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;跨域服务器/remote.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>在本地<script\>标签直接引入一个js文件，页面将会弹出警告框。</script\></p>
-<p>（2）<strong>跨域服务器</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件：<strong>remote.js</strong></p>
-<pre><code>localHandler({&quot;result&quot;:&quot;我是远程js带来的数据&quot;});
-</code></pre><p><strong>本地</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
-    var localHandler = function(data){
-        alert(&apos;我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：&apos; + data.result); 
-    }; 
-&lt;/script&gt; 
-&lt;script type=&quot;text/javascript&quot; src=&quot;跨域服务器/remote.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>该例子中在本地定义了一个函数<code>localHandler</code>，在本地通过<script\>标签的<code>src</code>属性引入了跨域服务器上的一个js文件<code>remote.js</code>，在引入的js文件里调用了本地定义的函数<code>localHandler</code>。</script\></p>
-<p><strong>问题</strong>：如何让远程js文件知道它应该调用的本地函数的名字呢？毕竟jsonp的服务者都要面对很多服务对象，而这些服务对象各自的本地函数都不相同。</p>
-<p>（3）<strong>跨域服务器</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件：<strong>flightResult.php</strong></p>
-<pre><code>flightHandler({
-    &quot;code&quot;:&quot;CA1998&quot;,
-    &quot;price&quot;: 1780,
-    &quot;tickets&quot;: 5
-});
-</code></pre><p><strong>本地</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
-    // 得到航班信息查询结果后的回调函数 
-    var flightHandler = function(data){
-        alert(&apos;你查询的航班结果是：票价 &apos; + data.price + &apos; 元，&apos; + &apos;余票 &apos; + data.tickets + &apos; 张。&apos;);
-    }; 
-    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码） 
-    var url = &quot;跨域服务器/flightResult.php?code=CA1998&amp;callback=flightHandler&quot;;
-    // 创建script标签，设置其属性 
-    var script = document.createElement(&apos;script&apos;); 
-    script.setAttribute(&apos;src&apos;, url); 
-    // 把script标签加入head，此时调用开始 
-    document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script); 
-&lt;/script&gt;
-</code></pre><p>在该例中动态创建<script\>标签（动态创建脚本）； url中传递了一个code参数，服务器去做查询CA1998次航班的信息，callback参数告诉服务器，我的本地回调函数叫做flightHandler； 跨域服务端调用这个函数flightHandler，页面将会弹出一个提示窗体，显示出票价和余票。</script\></p>
-<h2 id="JSONP方法中服务器做的事情"><a href="#JSONP方法中服务器做的事情" class="headerlink" title="JSONP方法中服务器做的事情"></a>JSONP方法中服务器做的事情</h2><pre><code>// 数据
-$data = [
-    &quot;name&quot;:&quot;anonymous66&quot;,
-    &quot;age&quot;:&quot;18&quot;,
-    &quot;like&quot;:&quot;jianshu&quot;
-];
-// 接收callback函数名称
-$callback = $_GET[&apos;callback&apos;];
-// 输出
-echo $callback . &quot;(&quot; . json_encode($data) . &quot;)&quot;;
-</code></pre><p>服务器端做的就是获取url中的callback参数，并将callback参数作为函数名来包裹json数据，动态生成js文件，再返回给客户端。</p>
-<h2 id="JSONP与AJAX的区别"><a href="#JSONP与AJAX的区别" class="headerlink" title="JSONP与AJAX的区别"></a>JSONP与AJAX的区别</h2><p>ajax的核心是通过XMLHttpRequest获取非本页内容。</p>
-<p>jsonp的核心则是动态添加<script\>标签来调用服务器提供的js脚本。</script\></p>
-<p>转自：segmentfault专栏<a href="https://segmentfault.com/a/1190000007935557" target="_blank" rel="external">JSONP是什么</a></p>
+        <p>来自于NEXT十天训练营CSS篇关于动画的笔记。<br><a id="more"></a></p>
+<h2 id="CSS动画分类"><a href="#CSS动画分类" class="headerlink" title="CSS动画分类"></a>CSS动画分类</h2><p>CSS动画主要有两类，即<strong>补间动画和帧动画</strong>。</p>
+<p>补间动画只需定义一个开始状态和结束状态，其余中间状态由浏览器自动填充，使用transition属性实现。</p>
+<p>帧动画不只要定义开始和结束状态，还需要定义中间过程的帧，使用animation属性实现。</p>
+<p><img src="/images/CSS动画简介/1.png" alt="1"> <img src="/images/CSS动画简介/2.png" alt="2"></p>
+<h2 id="transition动画"><a href="#transition动画" class="headerlink" title="transition动画"></a>transition动画</h2><p>transition动画只需定义动画的开始和结束状态，其余过渡状态由浏览器自动补全。示例代码如下：</p>
+<p>HTML结构：</p>
+<pre><code>&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>CSS样式：</p>
+<pre><code>.box {
+    width: 600px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: 200px auto;
+}
+.circle {
+    width: 50px;
+    height: 50px;
+    /*定义开始状态小球的颜色和位置*/
+    background-color: blue;
+    border-radius: 50%;
+    margin: 75px 0;
+    /*注意transition有多个属性，此处为简写新形式，包括了两个属性*/
+    /*即transition-property: all; transition-duration: 2s;*/
+
+    /*transition-property设置过渡效果的CSS属性的名称*/
+    /*transtion-property的值为all，表示background-color和transform都是过渡渐变属性，*/
+
+    /*若此处transtion-property值为background-color，而transform不变，则只过渡渐变颜色，位置瞬移*/
+    transition: all 2s;
+}
+/*定义结束状态小球的位置和颜色*/
+.box:hover .circle {
+    background-color: red;
+    transform: translate(550px, 0);
+}
+</code></pre><p>实例效果见<a href="https://codepen.io/shirley5li/full/wpeLmw/" target="_blank" rel="external">codepen</a>。transition共有如下四个属性。</p>
+<p><img src="/images/CSS动画简介/3.png" alt="3"></p>
+<p>另外transition-property不支持动画的一些属性如下：</p>
+<p><img src="/images/CSS动画简介/4.png" alt="4"></p>
+<p>不支持将a图片过渡渐变为b图片；不支持float属性（即float属性从无到有）；不支持将width/height属性从无渐变为某个值，但支持从一个长度渐变为另一个长度；不支持display属性从无到有；不支持visibility属性；不支持poisition属性。</p>
+<h2 id="animation动画"><a href="#animation动画" class="headerlink" title="animation动画"></a>animation动画</h2><p>animation动画通过关键帧来定义动画的变化状态。示例代码如下：</p>
+<p>HTML结构：</p>
+<pre><code>&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>CSS样式：</p>
+<pre><code>.circle {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50%;
+    margin: 75px 0;
+    /*animation: circleRun 2s ease infinite;*/
+    /*animation也是一个简写属性，即上一句包括如下属性*/
+    animation-name: circleRun;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    /*此外animation还有如下几个属性*/
+    animation-delay: 2s;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+/*定义中间状态小球的关键帧*/
+@keyframes circleRun {
+    from {
+        transform: translate(0, 75px);
+    }
+    33% {
+        transform: translate(150px, 75px);
+    }
+    66% {
+        transform: translate(400px, -75px);
+    }
+    to {
+        transform: translate(550px, 0);
+        background-color: red;
+    }
+}
+</code></pre><p>实例效果见<a href="https://codepen.io/shirley5li/full/baRXbE/" target="_blank" rel="external">codepen</a>。</p>
+<p>使用animation实现页面正在loading的效果见<a href="https://codepen.io/shirley5li/full/dJRxzB/" target="_blank" rel="external">codepen demo-animationLoading</a></p>
 
       
     </div>
@@ -543,11 +577,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
       
         <div class="post-tags">
           
-            <a href="/tags/jsonp/" rel="tag"><i class="fa fa-tag"></i> jsonp</a>
-          
-            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
-          
-            <a href="/tags/json/" rel="tag"><i class="fa fa-tag"></i> json</a>
+            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
           
         </div>
       
@@ -560,8 +590,8 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/ajax-imooc/" rel="next" title="ajax-imooc">
-                <i class="fa fa-chevron-left"></i> ajax-imooc
+              <a href="/2018/01/02/CSS-layout/" rel="next" title="关于CSS几种布局方式的学习总结">
+                <i class="fa fa-chevron-left"></i> 关于CSS几种布局方式的学习总结
               </a>
             
           </div>
@@ -569,10 +599,6 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/16/freeCodeCamp-中级算法编程/" rel="prev" title="freeCodeCamp JavaScript中级算法编程学习总结">
-                freeCodeCamp JavaScript中级算法编程学习总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -823,7 +849,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP的诞生"><span class="nav-number">1.</span> <span class="nav-text">JSONP的诞生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP方法中服务器做的事情"><span class="nav-number">3.</span> <span class="nav-text">JSONP方法中服务器做的事情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP与AJAX的区别"><span class="nav-number">4.</span> <span class="nav-text">JSONP与AJAX的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS动画分类"><span class="nav-number">1.</span> <span class="nav-text">CSS动画分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transition动画"><span class="nav-number">2.</span> <span class="nav-text">transition动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation动画"><span class="nav-number">3.</span> <span class="nav-text">animation动画</span></a></li></ol></div>
             
 
           </div>

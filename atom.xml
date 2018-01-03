@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-02T09:08:49.662Z</updated>
+  <updated>2018-01-03T03:47:30.958Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,114 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS动画简介</title>
+    <link href="http://yoursite.com/2018/01/03/CSS%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/"/>
+    <id>http://yoursite.com/2018/01/03/CSS动画简介/</id>
+    <published>2018-01-03T01:53:24.000Z</published>
+    <updated>2018-01-03T03:47:30.958Z</updated>
+    
+    <content type="html"><![CDATA[<p>来自于NEXT十天训练营CSS篇关于动画的笔记。<br><a id="more"></a></p>
+<h2 id="CSS动画分类"><a href="#CSS动画分类" class="headerlink" title="CSS动画分类"></a>CSS动画分类</h2><p>CSS动画主要有两类，即<strong>补间动画和帧动画</strong>。</p>
+<p>补间动画只需定义一个开始状态和结束状态，其余中间状态由浏览器自动填充，使用transition属性实现。</p>
+<p>帧动画不只要定义开始和结束状态，还需要定义中间过程的帧，使用animation属性实现。</p>
+<p><img src="/images/CSS动画简介/1.png" alt="1"> <img src="/images/CSS动画简介/2.png" alt="2"></p>
+<h2 id="transition动画"><a href="#transition动画" class="headerlink" title="transition动画"></a>transition动画</h2><p>transition动画只需定义动画的开始和结束状态，其余过渡状态由浏览器自动补全。示例代码如下：</p>
+<p>HTML结构：</p>
+<pre><code>&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>CSS样式：</p>
+<pre><code>.box {
+    width: 600px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: 200px auto;
+}
+.circle {
+    width: 50px;
+    height: 50px;
+    /*定义开始状态小球的颜色和位置*/
+    background-color: blue;
+    border-radius: 50%;
+    margin: 75px 0;
+    /*注意transition有多个属性，此处为简写新形式，包括了两个属性*/
+    /*即transition-property: all; transition-duration: 2s;*/
+
+    /*transition-property设置过渡效果的CSS属性的名称*/
+    /*transtion-property的值为all，表示background-color和transform都是过渡渐变属性，*/
+
+    /*若此处transtion-property值为background-color，而transform不变，则只过渡渐变颜色，位置瞬移*/
+    transition: all 2s;
+}
+/*定义结束状态小球的位置和颜色*/
+.box:hover .circle {
+    background-color: red;
+    transform: translate(550px, 0);
+}
+</code></pre><p>实例效果见<a href="https://codepen.io/shirley5li/full/wpeLmw/" target="_blank" rel="external">codepen</a>。transition共有如下四个属性。</p>
+<p><img src="/images/CSS动画简介/3.png" alt="3"></p>
+<p>另外transition-property不支持动画的一些属性如下：</p>
+<p><img src="/images/CSS动画简介/4.png" alt="4"></p>
+<p>不支持将a图片过渡渐变为b图片；不支持float属性（即float属性从无到有）；不支持将width/height属性从无渐变为某个值，但支持从一个长度渐变为另一个长度；不支持display属性从无到有；不支持visibility属性；不支持poisition属性。</p>
+<h2 id="animation动画"><a href="#animation动画" class="headerlink" title="animation动画"></a>animation动画</h2><p>animation动画通过关键帧来定义动画的变化状态。示例代码如下：</p>
+<p>HTML结构：</p>
+<pre><code>&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>CSS样式：</p>
+<pre><code>.circle {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50%;
+    margin: 75px 0;
+    /*animation: circleRun 2s ease infinite;*/
+    /*animation也是一个简写属性，即上一句包括如下属性*/
+    animation-name: circleRun;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    /*此外animation还有如下几个属性*/
+    animation-delay: 2s;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+/*定义中间状态小球的关键帧*/
+@keyframes circleRun {
+    from {
+        transform: translate(0, 75px);
+    }
+    33% {
+        transform: translate(150px, 75px);
+    }
+    66% {
+        transform: translate(400px, -75px);
+    }
+    to {
+        transform: translate(550px, 0);
+        background-color: red;
+    }
+}
+</code></pre><p>实例效果见<a href="https://codepen.io/shirley5li/full/baRXbE/" target="_blank" rel="external">codepen</a>。</p>
+<p>使用animation实现页面正在loading的效果见<a href="https://codepen.io/shirley5li/full/dJRxzB/" target="_blank" rel="external">codepen demo-animationLoading</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;来自于NEXT十天训练营CSS篇关于动画的笔记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>关于CSS几种布局方式的学习总结</title>
@@ -2863,61 +2971,6 @@ clear:both; 清除前面元素浮动带来的影响
       <category term="tour" scheme="http://yoursite.com/tags/tour/"/>
     
       <category term="lahsa" scheme="http://yoursite.com/tags/lahsa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Next主题配置---打赏功能+文章结束标志</title>
-    <link href="http://yoursite.com/2017/08/10/blog-donate/"/>
-    <id>http://yoursite.com/2017/08/10/blog-donate/</id>
-    <published>2017-08-10T12:44:56.000Z</published>
-    <updated>2017-09-13T12:57:24.933Z</updated>
-    
-    <content type="html"><![CDATA[<p>这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~吼吼吼<br><a id="more"></a></p>
-<h1 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h1><p>首先在主题配置文件即hexo/themes/next/_config.yml找到version字段，查看自己的next主题的版本，如下图所示，我用的next主题的版本为5.1.2</p>
-<p><img src="/images/blog_donate/1.png" alt="1"></p>
-<p>在网上查了一些添加打赏功能的方法，参照来做的时候，发现了一些问题，可能是由于next主题升级到version5后自身增加了些隐藏的新功能，所以在网上找到的别人的一些方法不太适用，下面的添加文章结束功能也是如此。因此自己尝试设置好后特来分享一哈~</p>
-<p>在主题配置文件找到Reward字段部分，如下图所示，其中reward_comment字段设置你的打赏介绍，wechatpay和alipay分别为你保存微信以及支付宝收款二维码的路径，可以是本地路径，也可以是用图床生成的链接地址。我是把图片放在本地的，即将两个二维码图片放在了next/source/images文件夹下。</p>
-<p><img src="/images/blog_donate/2.png" alt="2"></p>
-<p>此时默认的打赏按钮如下，略丑。。。然后作了小小改动，把打赏按钮变好看一点点 ~~~</p>
-<p><img src="/images/blog_donate/3.png" alt="3"></p>
-<p>改动方法如下：在hexo\themes\next\layout_macro下找到reward.swig文件，这个文件是关于打赏功能样式设置的。用下面代码覆盖原文件中的代码即可。由于保存的自动生成的微信及支付宝二维码图片的大小不一，且原图略大，所以可以通过设置包裹两幅图片的div元素的宽度和高度（代码两处注解处）来限制图片的大小，使其更加美观。宽度和高度可以依据自己喜欢更改大小。当然也可以自己使用图片处理工具将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;&quot;&gt;</div><div class="line">  &lt;div&gt;&#123;&#123; theme.reward_comment &#125;&#125;&lt;/div&gt;</div><div class="line">  &lt;button id=&quot;rewardButton&quot; disable=&quot;enable&quot; style=&quot;width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;</div><div class="line">margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);&quot; onclick=&quot;var qr = document.getElementById(&apos;QR&apos;); if (qr.style.display === &apos;none&apos;) &#123;qr.style.display=&apos;block&apos;;&#125; else &#123;qr.style.display=&apos;none&apos;&#125;&quot;&gt;</div><div class="line">    打赏</div><div class="line">  &lt;/button&gt;</div><div class="line">  &lt;div id=&quot;QR&quot; style=&quot;display: none;&quot;&gt;</div><div class="line"></div><div class="line">    &#123;% if theme.wechatpay %&#125;</div><div class="line">      &lt;div id=&quot;wechat&quot; style=&quot;display: inline-block;width:150px;height:150px&quot;&gt;</div><div class="line">        &lt;img id=&quot;wechat_qr&quot; src=&quot;&#123;&#123; theme.wechatpay &#125;&#125;&quot; alt=&quot;&#123;&#123; theme.author &#125;&#125; WeChat Pay&quot;/&gt;</div><div class="line">        &lt;p&gt;WeChat Pay&lt;/p&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line"></div><div class="line">    &#123;% if theme.alipay %&#125;</div><div class="line">      &lt;div id=&quot;alipay&quot; style=&quot;display: inline-block;width:150px;height:150px&quot;&gt;</div><div class="line">        &lt;img id=&quot;alipay_qr&quot; src=&quot;&#123;&#123; theme.alipay &#125;&#125;&quot; alt=&quot;&#123;&#123; theme.author &#125;&#125; Alipay&quot;/&gt;</div><div class="line">        &lt;p&gt;Alipay&lt;/p&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line"></div><div class="line">    &#123;% if theme.bitcoin %&#125;</div><div class="line">      &lt;div id=&quot;bitcoin&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">        &lt;img id=&quot;bitcoin_qr&quot; src=&quot;&#123;&#123; theme.bitcoin &#125;&#125;&quot; alt=&quot;&#123;&#123; theme.author &#125;&#125; Bitcoin&quot;/&gt;</div><div class="line">        &lt;p&gt;Bitcoin&lt;/p&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line"></div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>调整后的效果见下图，是不是稍微不那么丑了一点点呢，红红火火恍恍惚惚~~~~</p>
-<p><img src="/images/blog_donate/4.png" alt="4"></p>
-<h1 id="文章结束标志"><a href="#文章结束标志" class="headerlink" title="文章结束标志"></a>文章结束标志</h1><p>本以为这是一个非常简单的小功能，其实的确是一个很简单的功能，但由于参考的人家的做法可能不适于我使用的版本，导致这个小小的问题又折腾了好久T T</p>
-<p>在hexo\themes\next\layout_macro文件夹下新建passage-end-tag.swig文件，并添加代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt; &#123;% if not is_index %&#125; &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-smile-o&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt; &#123;% endif %&#125; &lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>其中的 <code>&lt;i class=&quot;fa fa-smile-o&quot;&gt;&lt;/i&gt;</code>为<a href="http://www.yeahzan.com/fa/facss.html" target="_blank" rel="external">FontAwesome图标</a>,可以在其中挑选自己喜欢的图标，我选了一个笑脸，嘻嘻(●’◡’●)</p>
-<p>然后打开hexo\themes\next\layout_macro文件夹下的post.swig文件，在 <code>END POST BODY</code>这段注解后添加如下图框框中的代码：</p>
-<p><img src="/images/blog_donate/5.png" alt="5"></p>
-<p>具体代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;% if theme.passage_end_tag.enabled and not is_index %&#125;</div><div class="line">   &lt;div&gt;</div><div class="line">      &#123;% include &apos;passage-end-tag.swig&apos; %&#125;</div><div class="line">   &lt;/div&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
-<p>再然后，打开主题配置文件hexo/themes/next/_config.yml，在末尾添加如下代码：</p>
-<pre><code># 文章末尾添加“本文结束”标记
-passage_end_tag:
-  enabled: true
-</code></pre><p>效果如下图所示：</p>
-<p><img src="/images/blog_donate/6.png" alt="6"></p>
-<p>最后，运行下hexo g -d 看下部署到github后的效果吧！</p>
-<p><strong>PS:</strong>比较坑的一点，我使用的markdownpad，使用Tab缩进打代码块时，在右侧预览区可以正常显示代码块文本，但是 <code>hexo s</code> 在本地浏览器预览后，代码块文本却没有正确完整的显示，有些html标签被解释掉了。好像是Tab缩进可以被markdownpad的解释器正确解释，但是hexo的解释器却没有将其正确解析。后面换了一种打代码块的方式，就可以在浏览器正确显示了，但在markdownpad的预览区却没得到正常显示。即在代码块的最前面和最后面单独一行使用三个反引号    ```。如下图所示。</p>
-<p><img src="/images/blog_donate/7.png" alt="7"></p>
-<p>效果显示如下：</p>
-<p><img src="/images/blog_donate/8.png" alt="8"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 ~~~吼吼吼&lt;br&gt;
-    
-    </summary>
-    
-      <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="next" scheme="http://yoursite.com/tags/next/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
