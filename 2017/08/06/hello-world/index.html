@@ -104,16 +104,16 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/b1.png">
-<meta property="og:image" content="http://yoursite.com/images/b2.png">
-<meta property="og:image" content="http://yoursite.com/images/b3.png">
-<meta property="og:image" content="http://yoursite.com/images/b4.png">
-<meta property="og:image" content="http://yoursite.com/images/b5.png">
-<meta property="og:updated_time" content="2017-08-08T03:22:18.200Z">
+<meta property="og:image" content="http://yoursite.com/images/blog1/b1.png">
+<meta property="og:image" content="http://yoursite.com/images/blog1/b2.png">
+<meta property="og:image" content="http://yoursite.com/images/blog1/b3.png">
+<meta property="og:image" content="http://yoursite.com/images/blog1/b4.png">
+<meta property="og:image" content="http://yoursite.com/images/blog1/b5.png">
+<meta property="og:updated_time" content="2018-01-06T10:21:48.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于hexo和github搭建个人博客概述">
 <meta name="twitter:description" content="前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）">
-<meta name="twitter:image" content="http://yoursite.com/images/b1.png">
+<meta name="twitter:image" content="http://yoursite.com/images/blog1/b1.png">
 
 
 
@@ -477,17 +477,17 @@
 <pre><code>node -v
 npm -v
 </code></pre><p>结果如下图所示。</p>
-<p><img src="/images/b1.png" alt="node版本检查"></p>
+<p><img src="/images/blog1/b1.png" alt="node版本检查"></p>
 <h3 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h3><p><a href="https://git-scm.com/downloads" target="_blank" rel="external">git下载</a></p>
 <p>下载完成后一路默认next即可。在命令窗口中输入以下命令，可以查看git的版本信息。</p>
 <pre><code>git --version
 </code></pre><p>结果如下图所示。</p>
-<p><img src="/images/b2.png" alt="git版本检查"></p>
+<p><img src="/images/blog1/b2.png" alt="git版本检查"></p>
 <h3 id="github注册相关"><a href="#github注册相关" class="headerlink" title="github注册相关"></a>github注册相关</h3><p>若没有注册过github账号，在<a href="https://github.com/" target="_blank" rel="external">github官网</a>按照步骤注册成功就好。</p>
 <p>注册登录后，在页面右上角+号选择New repository创建新的代码仓库。</p>
-<p><img src="/images/b3.png" alt="新建仓库"></p>
+<p><img src="/images/blog1/b3.png" alt="新建仓库"></p>
 <p>在Create a new repository页面下，填写Repository name框框，框框中填写yourname.github.io，其中yourname为Owner框框中的那个名字。再勾选一下Initialize this repository with a README 。</p>
-<p><img src="/images/b4.png" alt="新建仓库"></p>
+<p><img src="/images/blog1/b4.png" alt="新建仓库"></p>
 <p>正确创建代码仓库后，需要开启github pages功能。在刚刚新建的代码仓库界面点击Settings，就会打开这个库的设置页面，向下拖动，会看见GitHub Pages，点击Launch Automatic page generator，github 自动创建出一个github pages页面。然后你可以试着访问yourname.github.io这个网址。</p>
 <h2 id="hexo下载安装"><a href="#hexo下载安装" class="headerlink" title="hexo下载安装"></a>hexo下载安装</h2><p>在合适的盘，例如以E盘为例，在E盘根目录下新建hexo文件夹，然后右键点击选中hexo,选择Git Bash Here,在git命令窗口中输入以下命令：</p>
 <pre><code>$ npm install hexo-cli -g
@@ -506,7 +506,7 @@ $ npm install hexo-renderer-stylus@0.3.0 --save #渲染器
 <p>安装完成后可查看下所安装的hexo版本信息。在hexo文件夹下右键进入git bash,输入以下命令:</p>
 <pre><code>$ hexo -v
 </code></pre><p>若看到类似如图所示版本信息说明hexo安装成功。</p>
-<p><img src="/images/b5.png" alt="hexo版本信息"></p>
+<p><img src="/images/blog1/b5.png" alt="hexo版本信息"></p>
 <h2 id="hexo相关配置"><a href="#hexo相关配置" class="headerlink" title="hexo相关配置"></a>hexo相关配置</h2><ul>
 <li>hexo初始化 -&gt;在hexo文件夹下右键进入git bash,输入以下初始化命令： <code>$ hexo init</code></li>
 <li>hexo生成 -&gt;输入以下命令生成静态页面: <code>$ hexo g</code></li>
