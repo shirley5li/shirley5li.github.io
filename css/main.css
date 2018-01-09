@@ -2023,7 +2023,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c3835d;
+  background: #25b170;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3099,4 +3099,7 @@ hr {
     width: auto;
     text-align: center;
   }
+}
+.posts-expand .post-body ul li {
+  list-style: disc;
 }

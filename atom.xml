@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-03T03:47:30.958Z</updated>
+  <updated>2018-01-09T02:32:55.380Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,203 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>introduction about HTTP</title>
+    <link href="http://yoursite.com/2018/01/09/introduction-about-HTTP/"/>
+    <id>http://yoursite.com/2018/01/09/introduction-about-HTTP/</id>
+    <published>2018-01-08T16:15:58.000Z</published>
+    <updated>2018-01-09T02:32:55.380Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于HTTP协议相关知识的学习总结。</p>
+<a id="more"></a>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>HTTP协议（Hyper Text Transfer Protocol，超文本传输协议）,是用于从万维网（WWW:World    Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+<p>HTTP基于TCP/IP通信协议来传递数据。  </p>
+<p>HTTP基于客户端/服务端（C/S）架构模型，通过一个可靠的链接来交换信息，是一个无状态的请求/响应协议。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>（1）HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。   </p>
+<p>（2）HTTP是媒体独立的：只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。   </p>
+<p>（3）HTTP是无状态：无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
+<h2 id="通信流程"><a href="#通信流程" class="headerlink" title="通信流程"></a>通信流程</h2><p><img src="https://uploadfiles.nowcoder.com/files/20160727/213669_1469604624728_cgiarch.gif" alt="http协议通信流程图"></p>
+<h2 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h2><p>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。一旦建立连接后，数据消息就通过类似Internet邮件所使用的格式[RFC5322]和多用途Internet邮件扩展（MIME）[RFC2045]来传送。</p>
+<p>客户端请求消息：请求行、请求头部、空行和请求数据。<br>    GET /hello.txt HTTP/1.1<br>    User-Agent: curl/7.16.3 libcurl/7.16.3<br>    OpenSSL/0.9.7l zlib/1.2.3<br>    Host: www.example.com Accept-Language: en, mi<br>服务端响应消息：状态行、消息报头、空行和响应正文。<br>    HTTP/1.1 200 OK<br>    Date: Mon, 27 Jul 2009 12:28:53 GMT<br>    Server: Apache<br>    Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT<br>    ETag: “34aa387-d-1568eb00”<br>    Accept-Ranges: bytes<br>    Content-Length: 51<br>    Vary: Accept-Encoding<br>    Content-Type: text/plain</p>
+<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><p>​    GET 请求指定的页面信息，并返回实体主体。   </p>
+<p>​    HEAD    类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头   </p>
+<p>​    POST   向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。     POST请求可能会导致新的资源的建立和/或已有资源的修改。   </p>
+<p>​    PUT 从客户端向服务器传送的数据取代指定的文档的内容。   </p>
+<p>​    DELETE  请求服务器删除指定的页面。   </p>
+<p>​    CONNECT HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。   </p>
+<p>​    OPTIONS 允许客户端查看服务器的性能。   </p>
+<p>​    TRACE   回显服务器收到的请求，主要用于测试或诊断</p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><strong>HTTP状态码分类</strong><br>​        1xx  信息，服务器收到请求，需要请求者继续执行操作<br>​        2xx 成功，操作被成功接收并处理<br>​        3xx 重定向，需要进一步的操作以完成请求<br>​        4xx 客户端错误，请求包含语法错误或无法完成请求<br>​        5xx 服务器错误，服务器在处理请求的过程中发生了错   </p>
+<p><strong>HTTP状态码列表</strong><br>​    100 Continue    继续。客户端应继续其请求   </p>
+<p>​    101 Switching Protocols      切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议   </p>
+<p>​      200 OK  请求成功。一般用于GET与POST请求    </p>
+<p>​    201 Created 已创建。成功请求并创建了新的资源   </p>
+<p>​    202 Accepted    已接受。已经接受请求，但未处理完成   </p>
+<p>​    203 Non-Authoritative Information        非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本   </p>
+<p>​    204 No Content       无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档   </p>
+<p>​    205 Reset Content        重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域   </p>
+<p>​    206 Partial Content 部分内容。服务器成功处理了部分GET请求   </p>
+<p>​    300 Multiple Choices         多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择   </p>
+<p>​      301 Moved Permanently   永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替    </p>
+<p>​    302 Found   临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI   </p>
+<p>​    303 See Other   查看其它地址。与301类似。使用GET和POST请求查看   </p>
+<p>​      304 Not Modified    未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源    </p>
+<p>​    305 Use Proxy   使用代理。所请求的资源必须通过代理访问   </p>
+<p>​    306 Unused  已经被废弃的HTTP状态码   </p>
+<p>​      307 Temporary Redirect  临时重定向。与302类似。使用GET请求重定向    </p>
+<p>​    400 Bad Request 客户端请求的语法错误，服务器无法理解   </p>
+<p>​    401 Unauthorized    请求要求用户的身份认证   </p>
+<p>​    402 Payment Required    保留，将来使用   </p>
+<p>​    403 Forbidden   服务器理解请求客户端的请求，但是拒绝执行此请求   </p>
+<p>​      404 Not Found   服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面    </p>
+<p>​    405 Method Not Allowed  客户端请求中的方法被禁止   </p>
+<p>​    406 Not Acceptable  服务器无法根据客户端请求的内容特性完成请求   </p>
+<p>​    407 Proxy Authentication Required        请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权   </p>
+<p>​    408 Request Time-out    服务器等待客户端发送的请求时间过长，超时   </p>
+<p>​    409 Conflict    服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突   </p>
+<p>​    410 Gone         客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置   </p>
+<p>​    411 Length Required 服务器无法处理客户端发送的不带Content-Length的请求信息   </p>
+<p>​    412 Precondition Failed 客户端请求信息的先决条件错误   </p>
+<p>​    413 Request Entity Too Large         由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息   </p>
+<p>​    414 Request-URI Too Large   请求的URI过长（URI通常为网址），服务器无法处理   </p>
+<p>​    415 Unsupported Media Type  服务器无法处理请求附带的媒体格式   </p>
+<p>​    416 Requested range not satisfiable 客户端请求的范围无效   </p>
+<p>​    417 Expectation Failed  服务器无法满足Expect的请求头信息   </p>
+<p>​      500 Internal Server Error   服务器内部错误，无法完成请求    </p>
+<p>​    501 Not Implemented 服务器不支持请求的功能，无法完成请求   </p>
+<p>​    502 Bad Gateway 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求   </p>
+<p>​    503 Service Unavailable      由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中   </p>
+<p>​    504 Gateway Time-out    充当网关或代理的服务器，未及时从远端服务器获取请求   </p>
+<p>​    505 HTTP Version not supported  服务器不支持请求的HTTP协议的版本，无法完成处理   </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于HTTP协议相关知识的学习总结。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="http" scheme="http://yoursite.com/categories/http/"/>
+    
+    
+      <category term="http" scheme="http://yoursite.com/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【interview questions about HTML/CSS】 from牛客网</title>
+    <link href="http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/"/>
+    <id>http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/</id>
+    <published>2018-01-08T07:16:53.000Z</published>
+    <updated>2018-01-08T09:04:49.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/review-frontend?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="external">前端面试常考知识点 HTML+CSS</a> 篇学习总结。<br><a id="more"></a></p>
+<h3 id="浏览器页面有哪三层构成"><a href="#浏览器页面有哪三层构成" class="headerlink" title="浏览器页面有哪三层构成"></a>浏览器页面有哪三层构成</h3><p><strong>浏览器页面有哪三层构成，分别是什么，作用是什么?</strong><br>浏览器页面有结构层、表示层、行为层，三层构成，分别是HTML、CSS、JavaScript，作用是HTML实现页面结构(骨架)，CSS完成页面的表现与风格(肌肤)，JavaScript实现一些客户端的功能与业务(动作)，对用户事件作出反应。<br>不过，在这三种技术之间存在着一些潜在的<strong>重叠区域</strong>，如DOM技术可以用来改变网页的结构；CSS诸如<code>:hover</code>和<code>:focus</code>之类的class伪类，使我们可以根据用户触发事件来改变呈现效果。<br>改变元素的呈现效果当然是表示层的“势力范围”，但对用户触发事件做出反应却是行为层的领地。表示层和行为层的这种重叠形成了一个灰色地带。class伪类是 CSS 正在深入DOM领地证据，但 DOM在这方面也不是毫无作为，完全可以利用 DOM 技术把样式信息施加在HTML元素身上。<br>分离的效果要做到即使去掉表示层和行为层，文档的内容也依然可以访问，因为“内容才是一切”。而且网页的行为层(javascript)与其结构(HTML)是彼此互不干扰的，不能混杂在一起。还要给行为层“预留退路”，要考虑到如果你的用户禁用了Javascript会怎样？网页是否还可以正常运作。做到<strong>平稳退化，渐进增强</strong>。</p>
+<h3 id="HTML5的优点与缺点"><a href="#HTML5的优点与缺点" class="headerlink" title="HTML5的优点与缺点"></a>HTML5的优点与缺点</h3><p><strong>优点：</strong></p>
+<ul>
+<li>网络标准统一<br>HTML5本身是由W3C推荐出来的，它的开发是通过谷歌、苹果，诺基亚、中国移动等几百家公司一起酝酿的技术，这个技术最大的好处在于它是一个公开的技术。换句话说，每一个公开的标准都可以根据W3C的资料库找寻根源。另一方面，W3C通过的HTML5标准也就意味着每一个浏览器或每一个平台都会去实现。</li>
+<li>多设备跨平台，可移植性好<br>HTML5的优点主要在于，这个技术可以进行跨平台的使用。比如你开发了一款HTML5的游戏，你可以很轻易地移植到UC的开放平台、Opera的游戏中心、Facebook应用平台,甚至可以通过封装的技术发放到AppStore或GooglePlay上，所以它的跨平台性非常强大，这也是大多数人对HTML5有兴趣的主要原因。</li>
+<li>自适应网页设计<br>即“一次设计，普遍适用”，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局(layout)。</li>
+<li>即时更新<br>游戏客户端每次都要更新，很麻烦。可是更新HTML5游戏就好像更新页面一样，是马上的、即时的更新。</li>
+<li>提高可用性和改进用户的友好体验</li>
+<li>增加几个新的标签，这将有助于开发人员定义重要的内容</li>
+<li>可以给站点带来更多的多媒体元素(视频和音频)</li>
+<li>可以很好的替代FLASH和Silverlight<br>Silverlight是一个跨浏览器、跨平台的插件，为网络带来下一代基于.NET媒体体验，和丰富的交互式应用程序。</li>
+<li>当涉及到网站的抓取和索引的时候，对于SEO很友好<br>SEO，即搜索引擎优化是一种利用搜索引擎的搜索规则来提高目前网站在有关搜索引擎内的自然排名的方式。</li>
+<li><p>将被大量应用于移动应用程序和游戏<br><strong>缺点：</strong></p>
+</li>
+<li><p>安全方面<br>像之前Firefox4的web socket和透明代理的实现存在严重的安全问题，同时web storage、web socket这样的功能很容易被黑客利用，来盗取用户的信息和资料。</p>
+</li>
+<li>完善性方面<br>许多特性各浏览器的支持程度也不一样。</li>
+<li>技术门槛方面<br>HTML5技术开发者工作的同时，有许多新的属性和API需要开发者学习，像<a href="http://blog.csdn.net/leledexixi/article/details/55210717" target="_blank" rel="external">web worker、web socket、web storage</a>等新特性，甚至后台及浏览器原理的知识。这是机遇的同时也是巨大的挑战。</li>
+<li>性能方面<br>某些平台上的引擎问题导致HTML5性能低下.</li>
+<li>浏览器兼容性方面<br>IE9以下浏览器几乎不支持。</li>
+</ul>
+<h3 id="Doctype作用"><a href="#Doctype作用" class="headerlink" title="Doctype作用"></a>Doctype作用</h3><p><strong>Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</strong><br>告诉浏览器应该用什么文档类型规范来解析这个文档。doctype不存在或格式不正确会导致文档以混杂模式呈现。严格模式的排版和js运作模式是以浏览器最高标准运行。混杂模式， 页面以宽松的向后兼容的形式展示。<br>参考博客<a href="http://blog.csdn.net/Vivian_jay/article/details/61933580" target="_blank" rel="external">DOCTYPE声明</a>。</p>
+<h3 id="HTML5有哪些新特性、移除了哪些元素"><a href="#HTML5有哪些新特性、移除了哪些元素" class="headerlink" title="HTML5有哪些新特性、移除了哪些元素"></a>HTML5有哪些新特性、移除了哪些元素</h3><p>HTML5新增了27个元素，废弃了16个元素，根据现有的标准规范，把HTML5的元素按优先级定义为结构性元素、级块性元素、行内语义性元素和交互性元素4大类。<br><strong>结构性元素</strong>主要负责web上下文结构的定义：<br><code>section</code>：在 web 页面应用中，该元素也可以用于区域的章节描述。<br><code>header</code>：页面主体上的头部， header 元素往往在一对 body 元素中。<br><code>footer</code>：页面的底部（页脚），通常会标出网站的相关信息。<br><code>nav</code>：专门用于菜单导航、链接导航的元素，是 navigator 的缩写。<br><code>article</code>：用于表现一篇文章的主体内容，一般为文字集中显示的区域。</p>
+<p><strong>级块性元素</strong>主要完成web页面区域的划分，确保内容的有效分割。<br><code>aside</code>：用于表达注记、贴士、侧栏、摘要、插入的引用等作为补充主体的内容。<br><code>figure</code>：是对多个元素进行组合并展示的元素，通常与 ficaption 联合使用。<br><code>code</code>：表示一段代码块。<br><code>dialog</code>：用于表达人与人之间的对话，该元素包含 dt 和 dd 这两个组合元素， dt 用于表示说话者，而 dd 用来表示说话内容。</p>
+<p><strong>行内语义性元素</strong>主要完成web页面具体内容的引用和描述，是丰富内容展示的基础。<br><code>meter</code>：表示特定范围内的数值，可用于工资、数量、百分比等。<br><code>time</code>：表示时间值。<br><code>progress</code>：用来表示进度条，可通过对其 max 、min 、step 等属性进行控制，完成对进度的表示和监事。<br><code>video</code>：视频元素，用于支持和实现视频文件的直接播放，支持缓冲预载和多种视频媒体格式。<br><code>audio</code>：音频元素，用于支持和实现音频文件的直接播放，支持缓冲预载和多种音频媒体格式。</p>
+<p><strong>交互性元素</strong>主要用于功能性的内容表达，会有一定的内容和数据的关联，是各种事件的基础。<br><code>details</code>：用来表示一段具体的内容，但是内容默认可能不显示，通过某种手段（如单击）与 legend 交互才会显示出来。<br><code>datagrid</code>：用来控制客户端数据与显示，可以由动态脚本及时更新。<br><code>menu</code>：主要用于交互菜单（曾被废弃又被重新启用的元素）。<br><code>command</code>：用来处理命令按钮。 </p>
+<p><strong>移除的元素</strong><br>纯表现的元素：<code>&lt;basefont&gt;</code> 默认字体，不设置字体，以此渲染; <code>&lt;font&gt;</code> 字体标签; <code>&lt;center&gt;</code>水平居中; <code>&lt;u&gt;</code>下划线; <code>&lt;big&gt;</code> 大字体; <code>&lt;strike&gt;</code>中横线; <code>&lt;tt&gt;</code>文本等宽;<br>框架集：<code>&lt;frameset&gt;</code> <code>&lt;noframes&gt;</code> <code>&lt;frame&gt;</code> </p>
+<h3 id="浏览器的内核分类"><a href="#浏览器的内核分类" class="headerlink" title="浏览器的内核分类"></a>浏览器的内核分类</h3><p>IE: Trident 内核<br>Firefox： Gecko 内核(开源)<br>Safari: Webkit 内核(开源)<br>Chrome: Webkit<br>Opera: 以前是Presto内核，现已改用Blink内核(基于Webkit, Google与Opera Software共同开发)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;来自牛客网&lt;a href=&quot;https://www.nowcoder.com/ta/review-frontend?query=&amp;amp;asc=true&amp;amp;order=&amp;amp;page=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;前端面试常考知识点 HTML+CSS&lt;/a&gt; 篇学习总结。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="interview questions" scheme="http://yoursite.com/categories/interview-questions/"/>
+    
+    
+      <category term="interview questions" scheme="http://yoursite.com/tags/interview-questions/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在两台电脑上更新维护github pages + hexo博客</title>
+    <link href="http://yoursite.com/2018/01/07/maintain%20github%20blog%20on%20two%20computer/"/>
+    <id>http://yoursite.com/2018/01/07/maintain github blog on two computer/</id>
+    <published>2018-01-07T13:10:12.000Z</published>
+    <updated>2018-01-08T09:16:35.887Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前在台式机上通过GitHub pages 和Hexo搭建了静态博客，一直用台式机写文章更新博客，这几天想着是不是也可以用笔记本写文章维护下博客，毕竟笔记本带着方便啊。于是就看了一些博客，尝试着在笔记本上实现跟台式机一样的发博客过程，也遇到了一些问题，特将过程总结下来。这篇文章即在笔记本上完成的。</p>
+<a id="more"></a>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>主要思路利用git分支实现。利用Hexo框架生成的静态博客文件默认放在博客repo的master分支，即台式机上初次搭建好的本地博客环境Hexo文件夹下的public文件夹的内容对应github上博客repo的master分支内容。现在我们需要在博客repo新建一个hexo分支，用来放Hexo源文件，即放台式机上Hexo文件夹下的全部文件，而不只是public文件夹（public用来存放静态网站文件）。</p>
+<p>现在我们的博客repo即xxxx.github.io这个仓库有了两个分支，一个master分支用来放Hexo生成的静态网站，一个hexo分支放Hexo的源文件。相当于用hexo分支备份了之前台式机上本地的Hexo环境，在笔记本上将hexo分支clone下来，然后写文章、更新博客到hexo分支（<code>git push</code>到hexo分支，使得备份源文件最新），保证hexo分支的内容最新，然后执行<code>hexo g -d</code>命令，生成的静态文件会被默认push到master分支，更新博客站点内容。</p>
+<p>下面来叙述一下具体的操作步骤。</p>
+<h2 id="原来台式机上的操作"><a href="#原来台式机上的操作" class="headerlink" title="原来台式机上的操作"></a>原来台式机上的操作</h2><ul>
+<li>在Github的xxx.github.io仓库上新建一个hexo分支，并切换到该分支，并在该仓库-&gt;Settings-&gt;Branches-&gt;Default branch中将默认分支设为hexo（之前的默认分支是master），save保存。</li>
+</ul>
+<ul>
+<li>然后将该仓库克隆到本地，进入该xxx.github.io文件目录。在当前目录使用Git Bash，执行<code>git branch</code>命令查看当前文件夹下内容所在的分支，查询结果应为新建的分支hexo。</li>
+</ul>
+<ul>
+<li>接下来，将本地博客的部署文件（<strong>Hexo目录下的全部文件</strong>，即Hexo源文件）全部拷贝进xxx.github.io文件目录中去。最后将xxx.github.io目录下的全部文件push到hexo分支，即完成了Hexo源文件的备份过程。</li>
+</ul>
+<p><strong>注意：</strong>将themes目录以内中的主题的.git目录删除（如果有），因为一个git仓库中不能包含另一个git仓库，提交主题文件夹会失败。可能有人会问，删除了themes目录中的.git不就不能<code>git pull</code>更新主题了吗，很简单，需要更新主题时在另一个地方<code>git clone</code>下来该主题的最新版本，然后将内容拷到当前主题目录即可。</p>
+<p>上面的注意点中的情形我没有遇到，直接把本地Hexo文件夹下的全部内容复制到新clone下来的xxx.github.io文件夹下，然后通过git命令push到博客repo的hexo分支。</p>
+<p><strong>push到hexo分支的git命令介绍:</strong><code>git status</code>可以查看当前目录下哪些文件被改动过了，被改动过但还未被git管理的显示红色，被改动过但已经add添加到暂存区的显示绿色；<code>git add .</code>可以将当前目录下的全部改动文件添加到暂存区，以待被提交；<code>git commit -m &quot;back up hexo files&quot;</code>将暂存区的内容提交至HEAD，以待被push到远端；<code>git push</code>将HEAD内容push到远端github博客仓库的hexo分支。至此完成了台式机本地Hexo源文件备份到xxx.github.io仓库的hexo分支。</p>
+<h2 id="新的笔记本上的操作"><a href="#新的笔记本上的操作" class="headerlink" title="新的笔记本上的操作"></a>新的笔记本上的操作</h2><p>由于上面过程已经完成了原来电脑上本地Hexo源文件的备份，所以博客现在可以在其他电脑上维护和更新了。</p>
+<p>由于笔记本上没有安装node.js、git等，所以需要像初次搭建博客那样，先安装配置好环境。参考之前的文章<a href="http://shirley5li.me/2017/08/06/hello-world/" target="_blank" rel="external">基于hexo和github搭建个人博客概述</a>，先下载安装node.js，下载安装git。（如果电脑有这两个工具可以忽略这一步）</p>
+<ul>
+<li><p>将新电脑即笔记本生成的ssh key添加到GitHub账户上（因为通过SSH url方式，使用git客户端第一次git clone github.com代码需要验证ssh key），具体的添加SSH key方法参考<a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="external">github设置添加SSH</a>。</p>
+</li>
+<li><p>在笔记本上克隆xxx.github.io仓库的hexo分支到本地，此时本地git仓库处于hexo分支，使用<code>git branch</code>命令查看。</p>
+</li>
+</ul>
+<ul>
+<li>切换到xxx.github.io目录，执行npm install(由于仓库有一个.gitignore文件，里面默认是忽略掉 node_modules文件夹的，也就是说仓库的hexo分支并没有存储该目录，所以需要install下)。</li>
+</ul>
+<p>另外可以看到仓库hexo分支themes/next主题文件夹是空的，所以clone到本地的next主题文件夹也是空的（原因还没搞清楚，为什么备份的时候单单next主题文件夹push不上去），所以只好将台式机上的next主题文件夹拷贝一份到笔记本上，替换clone下来的空next主题文件夹。这个地方算是遇到的一个坑，因为本地测试的时候提示无法渲染index.html，搜索了原因有人回答是不是主题文件没有，这才发现next文件夹是空的。</p>
+<p>还有就是，由于还需要Hexo框架帮我们生成静态网站并push到master分支，而此时你有没有发现我们还忘记装Hexo了，没装Hexo我们怎么能用<code>hexo g -d</code>这样的命令呢。所以最后一步，把Hexo装上。Hexo的下载安装同样参考之前的博客<a href="http://shirley5li.me/2017/08/06/hello-world/" target="_blank" rel="external">基于hexo和github搭建个人博客概述</a>。之前我以为备份好Hexo源文件，再clone下来就自带Hexo环境，可以执行<code>hexo g</code>这样命令，我参考的那篇博文也没重装Hexo这一步，但当我试着写了文章执行本地<code>hexo s</code>测试时，提示找不到<code>hexo</code>这样的命令，然后我照初次搭建博客那样<code>$ npm install hexo --save</code>，又装了一下Hexo，就可以执行<code>hexo s</code>命令了，并测试了一下正确。</p>
+<p>至此就可以在笔记本上写博客了。</p>
+<p>在xxx.github.io目录下，执行<code>hexo new post &quot;the first post on laptop&quot;</code>，可以新建一篇文章，然后编辑撰写，或者改动以前的文章。</p>
+<ul>
+<li><p>然后用执行<code>git status</code>可以查看当前目录下哪些文件被改动过了，即新写的文章、添加的文件、修改的文件等；执行<code>git add .</code>将当前目录下的全部改动文件添加到暂存区，以待被提交；执行<code>git commit -m &quot;back up hexo files&quot;</code>将暂存区的内容提交至HEAD，以待被push到远端；执行<code>git push</code>将HEAD内容push到远端github博客仓库的hexo分支。至此完成了笔记本本地Hexo源文件备份到xxx.github.io仓库的hexo分支的过程，即不管是在台式机操作还是在笔记本操作，都要保证hexo分支的内容是最新的。</p>
+</li>
+<li><p>最后执行<code>hexo g -d</code>命令，即将本地编辑好的.md形式的文件生成静态博客文件并push到博客repo的master分支，这一步完成了博客站点的更新。</p>
+</li>
+</ul>
+<h2 id="再回到台式机上更新博客时的操作"><a href="#再回到台式机上更新博客时的操作" class="headerlink" title="再回到台式机上更新博客时的操作"></a>再回到台式机上更新博客时的操作</h2><p><strong>注意： 每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，最好先执行<code>git pull hexo</code>命令</strong>，即将远端最新的hexo分支拉到本地，使本地与远端达到同步。</p>
+<p>另外看到一篇讲解<a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="external">Hexo的版本控制与持续集成</a>的文章，将本地push到hexo分支和利用hexo部署博客静态文件到master分支的两个步骤合二为一，使用GitHub进行版本控制，又能做到一键发布。即用到了持续集成，也就是用CI来完成一键发布：当有新的change push到Source Repo时，自动执行CI脚本，生成最新的静态网站发布到Content Repo。自己还没有实际操作过，等操作过后再作总结。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="external">利用Hexo在多台电脑上提交和更新github pages博客</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前在台式机上通过GitHub pages 和Hexo搭建了静态博客，一直用台式机写文章更新博客，这几天想着是不是也可以用笔记本写文章维护下博客，毕竟笔记本带着方便啊。于是就看了一些博客，尝试着在笔记本上实现跟台式机一样的发博客过程，也遇到了一些问题，特将过程总结下来。这篇文章即在笔记本上完成的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="github pages" scheme="http://yoursite.com/categories/github-pages/"/>
+    
+    
+      <category term="github pages" scheme="http://yoursite.com/tags/github-pages/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS动画简介</title>
@@ -2763,218 +2960,6 @@ clear:both; 清除前面元素浮动带来的影响
     
     
       <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NTFS文件系统介绍</title>
-    <link href="http://yoursite.com/2017/10/16/NTFS-file-system/"/>
-    <id>http://yoursite.com/2017/10/16/NTFS-file-system/</id>
-    <published>2017-10-16T02:49:05.000Z</published>
-    <updated>2017-10-16T05:50:34.771Z</updated>
-    
-    <content type="html"><![CDATA[<p>【转】Windows文件系统FAT16、FAT32、NTFS的简单介绍。<br><a id="more"></a></p>
-<h1 id="什么是NTFS文件系统"><a href="#什么是NTFS文件系统" class="headerlink" title="什么是NTFS文件系统"></a>什么是NTFS文件系统</h1><p>介绍NTFS之前，先来介绍一下FAT。</p>
-<p>FAT(File Allocation Table)表示“文件分配表”，它的意义在于对硬盘分区的管理。FAT16、FAT32、NTFS是Windows系统最常见的三种文件系统。   </p>
-<p>FAT16：以前用的DOS、Windows95都使用FAT16文件系统，后来的Windows98/2000/XP等系统均支持FAT16文件系统。它最大可以管理大到2GB的分区，但每个分区最多只能有65525个簇（簇是磁盘空间的配置单位，即文件的存取的最小单位，一个簇包含若干扇区，而扇区是磁盘驱动器向磁盘读取和写入数据的最小单位）。随着硬盘或分区容量的增大，每个簇所占的空间将越来越大，从而导致硬盘空间的浪费。 更多关于硬盘的基本知识参见博客<a href="http://blog.csdn.net/fyfcauc/article/details/39576065" target="_blank" rel="external">硬盘基本知识</a>。</p>
-<p>FAT32：随着大容量硬盘的出现，从Windows98开始，FAT32开始流行。它是FAT16的增强版本，可以支持大到2TB（2048GB)的分区。FAT32使用的簇比FAT16小，从而有效地节约了硬盘空间。</p>
-<p>NTFS：微软Windows NT内核的系列操作系统支持的、一个特别为网络和磁盘配额、文件加密等管理安全特性设计的磁盘格式。从1993年开始，随着以NT为内核的Windows 2000/XP的普及，很多个人用户开始用到了NTFS。NTFS也是以簇为单位来存储数据文件，但NTFS中簇的大小并不依赖于磁盘或分区的大小。簇尺寸的缩小不但降低了磁盘空间的浪费，还减少了产生磁盘碎片的可能。NTFS支持文件加密管理功能，可为用户提供更高层次的安全保证。</p>
-<p>在NTFS文件系统中，文件存取是按簇进行分配，一个簇必需是物理扇区的整数倍，而且总是2的整数次方倍。NTFS文件系统并不去关心什么是扇区，也不会去关心扇区到底有多大（如是不是512字节）。簇大小在使用格式化程序时则会由格式化程序根据卷大小自动的进行分配。 </p>
-<p>文件通过主文件表（MFT）来确定其在磁盘上的存储位置。主文件表是一个对应的数据库，由一系列的文件记录组成。 卷中每一个文件都有一个文件记录（对于大型文件还可能有多个记录与之相对应）。主文件表本身也有它自己的文件记录。</p>
-<p>NTFS卷上的每个文件都有一个64 bit称为文件引用号（File Reference Number，也称文件索引号）的唯一标识。文件引用号由两部分组成：一是文件号，二是文件顺序号。文件号为48位，对应于该文件在MFT中的位置。文件顺序号随着每次文件记录的重用而增加，这是为NTFS进行内部一致性检查而设计的。</p>
-<p>NTFS使用逻辑簇号（Logical Cluster Number，LCN）和虚拟簇号（Virtual Cluster Number，VCN）来进行簇的定位。LCN是对整个卷中所有的簇从头到尾所进行的简单编号。卷因子乘以LCN，NTFS就能够得到卷上的物理字节偏移量，从而得到物理磁盘地址。VCN则是对属于特定文件的簇从头到尾进行编号，以便于引用文件中的数据。VCN可以映射成LCN，而不必要求在物理上连续。</p>
-<p>NTFS的目录只是一个简单的文件名和文件引用号的索引，如果目录的属性列表小于一个记录的长度，那么该目录的所有信息都存储在主文件表的记录中，对于大于记录的目录则使用B+树进行管理。</p>
-<p>主文件表中的基本文件记录中有一个指针指向一个存储非常驻索引缓冲–包括该目录下所有下一级子目录和文件的外部簇，而B+树结构便于大型目录中文件和子目录的快速查找。</p>
-<p>在NTFS中，所有存储在卷上的数据都包含在文件中，包括用来定位和获取文件的数据结构，以及引导程序和记录这个卷的记录（NTFS元数据）的位图，这体现了NTFS的原则：磁盘上的任何事物都为文件。在文件中存储一切使得文件系统很容易定位和维护数据，而在NTFS中，卷中所有存放的数据均在一个叫做MFT的文件记录数组中，称为主文件表(Master File Table)，MFT是由高级格式化产生的。而MFT则由文件记录(File Record)数组构成。File Record的大小一般是固定的，不管簇的大小是多少，均为1KB，这个概念相当于Linux中的inode（i节点）。File Record在MFT文件记录数组中物理上是连续的，且从0开始编号。</p>
-<p>MFT仅供系统本身组织、架构文件系统使用，这在NTFS中称为元数据(metadata)。其中最基本的前16个记录是操作系统使用的非常重要的元数据文件。这些NTFS主文件表的重要的元数据文件都是以$(美元符号)开始的名字，所以是隐藏文件，在Windows 2000中不能使用dir命令(甚至加上/ah参数)像普通文件一样列出这些元数据文件。实际上File System Driver(ntfs.sys)维护了一个系统变量NTFS Protect System Files用于隐藏这些元数据。但是微软公司也提供了一个OEM TOOL,叫做NFI.EXE,用此工具可以转储NTFS主文件表的重要的元数据文件（元数据：是存储在卷上支持文件系统格式管理的数据。它不能被应用程序来访问，它只能为系统提供服务）。这些元数据文件文件是系统驱动程序装配卷所必需的，WINDOWS 2000给每个分区赋予一个盘符并不表示该分区包含有WINDOWS 2000可以识别的文件系统格式，如果一旦主文件表损坏，那么该分区在WINDOWS 2000下是无法读取的。为了使该分区能够在WINDOWS 2000下能被识别，也就是必须首先建立WINDOWS 2000可以识别的文件系统格式即主文件表，这可通过高级格式化该分区来完成。众所周知，Windows以簇号来定位文件在磁盘存储的位置，在FAT格式的文件系统中有关簇号的指针是包含在FAT表中的，而在NTFS中有关簇号的指针是包含在$MFT及$MFTMirr文件中的。 </p>
-<h2 id="NTFS元文件"><a href="#NTFS元文件" class="headerlink" title="NTFS元文件"></a>NTFS元文件</h2><p>MFT中的第1个记录就是MFT自身。由于MFT文件本身的重要性，为了确保文件系统结构的可靠性，系统专门为它准备了一个镜像文件（＄MftMirr），也就是MFT中的第2个记录。 </p>
-<p>第3个记录是日志文件（＄LogFile）。该文件是NTFS为实现可恢复性和安全性而设计的。当系统运行时，NTFS就会在日志文件中记录所有影响NTFS卷结构的操作，包括文件的创建和改变目录结构的命令，例如复制，从而在系统失败时能够恢复NTFS卷。 </p>
-<p>第4个记录是卷文件（＄Volume），它包含了卷名、被格式化的卷的NTFS版本和一个标明该磁盘是否损坏的标志位（NTFS系统以此决定是否需要调用Chkdsk程序来进行修复）。 </p>
-<p>第5个记录是属性定义表（＄AttrDef，attribute definition table），其中存放了卷所支持的所有文件属性，并指出它们是否可以被索引和恢复等。 </p>
-<p>第6个记录是根目录（\），其中保存了存放于该卷根目录下所有文件和目录的索引。在访问了一个文件后，NTFS就保留该文件的MFT引用，第二次就能够直接进行对该文件的访问。 </p>
-<p>第7个记录是位图文件（＄Bitmap）。NTFS卷的分配状态都存放在位图文件中，其中每一位（bit）代表卷中的一簇，标识该簇是空闲的还是已被分配了的，由于该文件可以很容易的被扩大，所以NTFS的卷可以很方便的动态的扩大，而FAT格式的文件系统由于涉及到FAT表的变化，所以不能随意的对分区大小进行调整。 </p>
-<p>第8个记录是引导文件（＄Boot），它是另一个重要的系统文件，存放着Windows 2000/XP的引导程序代码。该文件必须位于特定的磁盘位置才能够正确地引导系统。该文件是在Format程序运行时创建的，这正体现了NTFS把磁盘上的所有事物都看成是文件的原则。这也意味着虽然该文件享受NTFS系统的各种安全保护，但还是可以通过普通的文件I/O操作来修改。 </p>
-<p>第9个记录是坏簇文件（＄BadClus），它记录了磁盘上该卷中所有的损坏的簇号，防止系统对其进行分配使用。 </p>
-<p>第10个记录是安全文件（＄Secure），它存储了整个卷的安全描述符数据库。NTFS文件和目录都有各自的安全描述符，为了节省空间，NTFS将具有相同描述符的文件和目录存放在一个公共文件中。 </p>
-<p>第11个记录为大写文件（＄UpCase，upper case file），该文件包含一个大小写字符转换表。 </p>
-<p>第12个记录是扩展元数据目录（＄Extended metadata directory）。 </p>
-<p>第13个记录是重解析点文件（$Extend\$Reparse）。 </p>
-<p>第14个记录是变更日志文件（$Extend\$UsnJrnl）。</p>
-<p>第15个记录是配额管理文件（$Extend\$Quota）。 </p>
-<p>第16个记录是对象ID文件（$Extend\$ObjId）。 </p>
-<p>第17～23记录是是系统保留记录，用于将来扩展。 </p>
-<p>MFT的前16个元数据文件是如此重要，为了防止数据的丢失，NTFS系统在该卷文件存储部分的正中央对它们进行了备份。</p>
-<p>NTFS把磁盘分成了两大部分，其中大约12%分配给了MFT，以满足其不断增长的文件数量。为了保持MFT元文件的连续性，MFT对这12%的空间享有独占权。余下的88%的空间被分配用来存储文件。而剩余磁盘空间则包含了所有的物理剩余空间–MFT剩余空间也包含在里面。MFT空间的使用机制可以这样来描述：当文件耗尽了存储空间时，Windows操作系统会简单地减少MFT空间，并把它分配给文件存储。当有剩余空间时，这些空间又会重新被划分给MFT。虽然系统尽力保持MFT空间的专用性，但是有时不得不做出牺牲。尽管MFT碎片有时是无法忍受的，却无法阻止它的发生。 </p>
-<p>那么NTFS到底是怎么通过MFT来访问卷的呢？首先，当NTFS访问某个卷时，它必须”装载”该卷：NTFS会查看引导文件（在图中的＄Boot元数据文件定义的文件），找到MFT的物理磁盘地址。然后它就从文件记录的数据属性中获得VCN到LCN的映射信息，并存储在内存中。这个映射信息定位了MFT的运行（run或extent）在磁盘上的位置。接着，NTFS再打开几个元数据文件的MFT记录，并打开这些文件。如有必要NTFS开始执行它的文件系统恢复操作。在NTFS打开了剩余的元数据文件后，用户就可以开始访问该卷了。</p>
-<h1 id="文件和目录记录"><a href="#文件和目录记录" class="headerlink" title="文件和目录记录"></a>文件和目录记录</h1><p>NTFS将文件作为属性/属性值的集合来处理，这一点与其他文件系统不一样。文件数据就是未命名属性的值，其他文件属性包括文件名、文件拥有者、文件时间标记等。</p>
-<p>每个属性由单个的流（stream）组成，即简单的字符队列。严格地说，NTFS并不对文件进行操作，而只是对属性流进行读写。NTFS提供对属性流的各种操作：创建、删除、读取（字节范围）以及写入（字节范围）。读写操作一般是针对文件的未命名属性的，对于已命名的属性则可以通过已命名的数据流句法来进行操作。</p>
-<p>一个文件通常占用一个文件记录。然而，当一个文件具有很多项属性值或很零碎的时候，就可能需要占用一个以上的文件记录。这种情况下，第一个文件记录是其基本的文件记录，存储有该文件需要的其它文件记录的位置。<strong>小文件和文件夹（典型的如1500字节或更少）将全部存储在文件的MFT记录里</strong>。 <strong>文件夹记录</strong>包括索引信息，小文件夹记录完全存储在MFT结构内，然而大的文件夹则被组织成B+树结构，用一个指针指向一个外部簇，该簇用来存储那些MFT内存储不了的文件夹的属性。 </p>
-<p><strong>NTFS卷上文件的常用属性</strong>列出如下（并不是所有文件都有所有这些属性）：</p>
-<p>（1）常驻属性与非常驻属性</p>
-<p>当一个文件很小时，其所有属性和属性值可存放在MFT的文件记录中。当属性值能直接存放在MFT中时，该属性就称为常驻属性（resident attribute）。有些属性总是常驻的，这样NTFS才可以确定其他非常驻属性。例如，标准信息属性和根索引就总是常驻属性。</p>
-<p>每个属性都是以一个标准头开始的，在头中包含该属性的信息和NTFS通常用来管理属性的信息。该头总是常驻的，并记录着属性值是否常驻、对于常驻属性，头中还包含着属性值的偏侈量和属性值的长度。</p>
-<p>如果属性值能直接存放在MFT中，那么NTFS对它的访问时间就将大大缩短。NTFS只需访问磁盘一次，就可立即获得数据；而不必像FAT文件系统那样，先在FAT表中查找文件，再读出连续分配的单元，最后找到文件的数据。<br>小文件或小目录的所有属性，均可以在MFT中常驻。小文件的未命名属性可以包括所有文件数据。</p>
-<p>大文件或大目录的所有属性，就不可能都常驻在MFT中。如果一个属性（如文件数据属性）太大而不能存放在只有1KB的MFT文件记录中，那么NTFS将从MFT之外分配区域。这些区域通常称为一个运行（run）或一个盘区（extent），它们可用来存储属性值，如文件数据。如果以后属性值又增加，那么NTFS将会再分配一个运行，以便用来存储额外的数据。值存储在运行中而不是在MFT文件记录中的属性称为非常驻属性（nonresident attribute）。NTFS决定了一个属性是常驻还是非常驻的；而属性值的位置对访问它的进程而言是透明的。当一个属性为非常驻时，如大文件的数据，它的头部包含了NTFS需要在磁盘上定位该属性值的有关信息。 </p>
-<p>在标准属性中，只有可以增长的属性才是非常驻的。对文件来说，可增长的属性有数据、属性列表等。标准信息和文件名属性总是常驻的。 </p>
-<p>（2）MFT文件记录结构分析  </p>
-<p>主文件表MFT的文件记录由记录头和属性列表组成，由”FF FF FF FF”结束，一般大小为1K，或一个簇大小（这样一般就更大），记录头包括以下一些域： </p>
-<p><img src="/images/NTFS-file-system/1.png" alt="1"></p>
-<p>每次记录被修改都将导致日志文件序列号$LogFile Sequence Number（LSN）发生变化。<br>序列号Sequence Number（SN）用于记录主文件表记录被重复使用的次数。<br>硬连接数Hard Link Count记录硬连接的数目，只出现在基本文件记录中。<br>文件记录的实际长度是文件记录在磁盘上实际占用的字节空间。<br>基本文件记录中的文件索引号，对于基本文件记录，其值为0，如果不为0，则是一个主文件表的文件索引号，指向所属的基本文件记录中的文件记录号，在基本文件记录中包含有扩展文件记录的信息，存储在”属性列表ATTRIBUTE_LIST”属性中。<br>属性列表是可变长度区，以”FF FF FF FF”结束，对于1K长度的MFT记录，属性列表的起始偏移为0x30。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;【转】Windows文件系统FAT16、FAT32、NTFS的简单介绍。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="文件系统" scheme="http://yoursite.com/categories/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="NTFS" scheme="http://yoursite.com/tags/NTFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>慕课网七夕动画学习总结+github pages展示</title>
-    <link href="http://yoursite.com/2017/09/29/demo-qixi/"/>
-    <id>http://yoursite.com/2017/09/29/demo-qixi/</id>
-    <published>2017-09-29T12:31:33.000Z</published>
-    <updated>2017-09-30T07:26:16.812Z</updated>
-    
-    <content type="html"><![CDATA[<p>这段时间照着慕课网上的一个动画案例-<a href="http://www.imooc.com/learn/453" target="_blank" rel="external">H5+JS+CSS3实现七夕言情</a>学习，<br><a id="more"></a><br>并将学习的各部分的代码进行整合，最后将代码托管到github上，并通过github pages展示这个动画demo。一些地方自己修改以后没有老师的效果好，但这是自己第一个敲出来的前端小demo，成就感满满，哈哈。。。</p>
-<h1 id="关于动画案例"><a href="#关于动画案例" class="headerlink" title="关于动画案例"></a>关于动画案例</h1><p>里面用到一些jQuery和ajax相关的知识，由于自己学习js不久，很多深一点的概念理解不到位，比如一开始代码的封装和流程的编写，都是照葫芦画瓢，不是很理解，但是慢慢的看得多了，这个过程也就熟悉起来了。</p>
-<p>页面布局部分比较容易理解，但是三个主题页面滚动起来最开始对自己还是有点难度。该案例很多部分都利用了CSS3的transform属性和animation属性。而且这个案例的思想是，把实现特定动作或者动能的代码封装起来，暴露一个接口出来，增强了安全性简化了编程过程。</p>
-<p>具体的学习过程和用到的知识点，大家可以跟着<a href="http://www.imooc.com/learn/453" target="_blank" rel="external">H5+JS+CSS3实现七夕言情</a>学习，边看边学的效果比抱着书一直看的效果要好一些。但js高级教程的基础必须打牢，很多师兄师姐给的建议，也是网上一些大佬的建议。</p>
-<p>关于画面自己做的一点小改动，button的样式做了修改，并增加了链接到github仓库的logo（shirly与猫）,嘤嘤嘤。如下，左下角和右下角辣么一点点。</p>
-<p><img src="/images/demo-qixi/1.png" alt="1"></p>
-<h1 id="关于将页面搭建在github-pages上"><a href="#关于将页面搭建在github-pages上" class="headerlink" title="关于将页面搭建在github pages上"></a>关于将页面搭建在github pages上</h1><p>关于动画制作的学习过程如果说困难和迷惑的话，那这最后一步展示在github pages上的过程，就应该是差点死在最后的1%上。在网上看了很多博客和教程，总会遇到很多小问题，无法显示自己在本地的效果。最后看到了这篇博客，<a href="http://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="external">【 js 工具 】如何在Github Pages搭建自己写的页面？</a>，这篇博客对于利用github pages搭建自己写的网页描述很详细，从在github上建仓库，到github pages的设置，再到利用git命令克隆github上的仓库到本地，最后push到远程master分支上。</p>
-<p>更多关于github的使用可参考<a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">Github 简明教程</a>,其中讲解的git维护的本地仓库的工作流很清晰，对于我这个初步使用git的菜鸟十分友好。而且关于branch和更新与合并功能也讲的比较清楚。</p>
-<p>本地仓库由git维护的“三棵树”组成。第一个是工作目录，使用<code>$ git status</code>可以查看，列出了当前目录下所有还未被git管理的文件，以及被git管理了且被修改过但还未添加（add）的文件，也即所有改动文件，用红色字体标出。如下所示，当我在本地仓库demo-qixi用<code>$ git status</code>命令查看后，可以看到红色文件均为未提交的。</p>
-<p><img src="/images/demo-qixi/2.png" alt="2"></p>
-<p>第二个是暂存区（Index），它类似一个缓存区，临时保存你的改动。通过<code>$ git add .</code>命令添加当前目录下的所有文件和子目录到暂存区。注意<code>.</code>表示当前目录下的所有文件和子目录。也可以指定文件添加到暂存区，使用<code>$ git add &lt;filename&gt;</code>。如下使用<code>$ git add .</code>添加文件到暂存区：</p>
-<p><img src="/images/demo-qixi/3.png" alt="3"></p>
-<p>此时我们再使用<code>$ git status</code>命令查看下工作目录，你会发现所有的文件都变绿了，这就表示这些文件已被添加到暂存区准备好被提交（commit）了。</p>
-<p><img src="/images/demo-qixi/4.png" alt="4"></p>
-<p>第三个是HEAD，它指向你最后一次提交的结果。使用<code>$ git commit -m &quot;代码提交说明信息&quot;</code>命令，将暂存区最后一次添加更改情况提交到HEAD。如下所示。</p>
-<p><img src="/images/demo-qixi/5.png" alt="5"></p>
-<p>上述“三棵树”的工作流程如下所示。</p>
-<p><img src="/images/demo-qixi/6.png" alt="6"></p>
-<p>此时改动虽然已经提交到了HEAD，但是还没到远端仓库。使用<code>$ git push</code>命令将这些改动提交到远端仓库的default master分支。也可以使用<code>$ git push origin master</code>命令，把改动提交到master分支。可以把master换成自己想要推送的任何分支。</p>
-<h1 id="动画demo展示"><a href="#动画demo展示" class="headerlink" title="动画demo展示"></a>动画demo展示</h1><p>demo网页展示链接<a href="https://shirley5li.github.io/demo-qixi/index.html" target="_blank" rel="external">慕课七夕主题网页展示</a>。</p>
-<p>该动画demo在github上的代码仓库<a href="https://github.com/shirley5li/demo-qixi" target="_blank" rel="external">demo-qixi</a>。</p>
-<p>tips:在打开demo页面展示链接时，浏览器链接窗口出现提示“此页面上部分内容不安全，例如图像”，并且网页内容不能完整显示，我使用的firefox浏览器。如下所示，</p>
-<p><img src="/images/demo-qixi/7.png" alt="7"></p>
-<p>原因是我们用来展示demo的github pages站点是使用https协议的安全站点，而demo中的一些图片链接是使用的http协议，浏览器不会渲染混合内容（即来自安全站点的不安全数据）。如果我们浏览https网页，浏览器会拒绝加载不安全的内容（例如这里的demo-qixi中图片使用的http协议），浏览器将向用户发出“此页面上部分内容不安全”的警告。可以参考这篇讲web安全的文章，<a href="https://paper.seebug.org/112/" target="_blank" rel="external">绕过混合内容警告 - 在安全的页面加载不安全的内容</a>。</p>
-<p>解决办法：我用的火狐浏览器，点浏览器链接窗口左侧的黄色警告三角形-&gt;点右侧箭头显示连接细节-&gt;点暂时解除保护，就可以看到完整的动画demo了。</p>
-<p>然后点击 Go!开始动画啦。。。。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这段时间照着慕课网上的一个动画案例-&lt;a href=&quot;http://www.imooc.com/learn/453&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;H5+JS+CSS3实现七夕言情&lt;/a&gt;学习，&lt;br&gt;
-    
-    </summary>
-    
-      <category term="github" scheme="http://yoursite.com/categories/github/"/>
-    
-    
-      <category term="animation" scheme="http://yoursite.com/tags/animation/"/>
-    
-      <category term="github pages" scheme="http://yoursite.com/tags/github-pages/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>匆匆拉萨之行</title>
-    <link href="http://yoursite.com/2017/09/13/tour-lahsa/"/>
-    <id>http://yoursite.com/2017/09/13/tour-lahsa/</id>
-    <published>2017-09-13T12:34:02.000Z</published>
-    <updated>2017-09-14T14:01:26.245Z</updated>
-    
-    <content type="html"><![CDATA[<p>第一次尝试写游记，嗯，是在周老师的文艺熏陶之下，试着记录一哈，但愿最后读起来不是一篇作文的感觉 T T ~~真的太久没动手写点儿文字了，想当年语文也是考过140分的人呐 = = 哈哈哈哈哈哈哈哈哈<br><a id="more"></a></p>
-<p>嗯，这一定会是一本气质爆炸的流水账，如此鼓励自己，就像拉萨的阳光和色彩，希望经得起时间，淡化模糊了的时候再来强化一遍，反正又不是背英语词汇书，不用每次拾起都abandon 哈哈哈</p>
-<p>在被林子放鸽子（为了她的大好前程，以及许诺将来可以赚很多钱养我的情况下，对于她的这种抛弃我的行为予以了包容，哈哈哈，我就是这么体贴大方聪明美丽可爱。。。。。。然而，在她晓得我自己去耍，她却在加班以后，果断从内疚的心态转为了说我抛弃了她==），又不想回家监督老弟学习，团队的小伙伴接连回家只剩我自己的情况下，突然萌生了想去远一点的地方这个想法，其实之前也有想过去趟拉萨，但是纠结于各种原因，一直没有付出行动。</p>
-<p>从打算去拉萨，到最后决定并买票只花了一天时间，这是第一次去一个远一点的地方没有攻略过就这么仓促决定了。去的火车票没有，只好买机票，回程的也没有直达的火车票了，机票略贵不舍，只好坐着火车出拉萨到西宁再转车，真是一次相当难忘的硬座经历。虽然匆匆忙忙腿脚肿胀，但遇到些有趣的人始终是种新鲜。</p>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h1><p><img src="/images/tour_lahsa/1.JPG" alt="1"></p>
-<p>贡嘎机场外连绵的山，云彩触手可及的感觉，很凉爽，不过光秃秃的山还是有点荒凉，阳光很炫</p>
-<p><img src="/images/tour_lahsa/2.JPG" alt="2"></p>
-<p>停放机场大巴的车站，一出门就被这片云吸引到了，坐在旁边的叔叔说拉萨比这漂亮的云很多，这个太一般了，他们已经习惯了这片土地的蓝天和云，而我这个刚刚落地的游客真的十分激动哇，嘤嘤嘤，超爱高原上的感觉，怎么形容呢，就是会心情变得超级好，好心情养成地啊</p>
-<p>来之前准备了红景天，由于时间仓促只提前喝了一天，然而下飞机之后感觉自己一点高原反应都没有，默默地瞎激动，以为自己会是逃脱高反的那个例外，就像当初觉得自己也是那个会逃过警告的人，but，瞎激动的幸运之后高反是说来就来的，晚上头疼的睡不着。</p>
-<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>红景天真特么不管用，第二天头疼头晕还是躺了大半天，还不如连喝几壶热水管用，必须要赞一下的是，本来带的防感冒的药吃了一片居然有治头疼的奇效，在感冒药的助攻下，晕晕乎乎吃了一顿串串。夏天拉萨夜晚的街头很是凉快，于是决定去布宫广场转转。夜晚吃饱了坐在电瓶车上吹着凉风浪荡在一座陌生城市的感觉，贼爽。</p>
-<p><img src="/images/tour_lahsa/3.JPG" alt="3"></p>
-<p>傍晚酒店对面的拉萨河，高山和低垂的白云环抱一整座城市。</p>
-<p><img src="/images/tour_lahsa/4.JPG" alt="4"></p>
-<p>布宫广场上一对拍婚纱照的恋人。想起回程的火车上遇到的一个妹子，她说起登珠峰途中遇到的一对六十多岁的爷爷奶奶，爷爷说，只有去过珠峰的爱情才是真的爱情。这种高调的秀恩爱的方式，真的很动人。在高海拔缺氧的环境下，我与你一起经历头晕和窒息，一起经受岁月无情的摧残。</p>
-<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><p><img src="/images/tour_lahsa/5.JPG" alt="5"></p>
-<p>从这顿早饭开始体验到拉萨的物价之高，这样的包子在我高反胃口不好的情况下，吃了六个还不饱，一块五一个。原来我也可以是一个早饭能吃十几块钱包子的人= =</p>
-<p><img src="/images/tour_lahsa/6.JPG" alt="6"></p>
-<p>去的时候正好赶上拉萨的雪顿节，雪顿节又叫酸奶节，他们告诉我说是专门喝酸奶的节日，我觉得是在糊弄我，但我对西藏节日文化也没甚了解，不甚感兴趣，也没去深究。但雪顿节的林卡气氛我是感受到了，比我们春节似乎还要热闹。整个就是全家集体公园春游的感觉。</p>
-<p><img src="/images/tour_lahsa/7.JPG" alt="7"></p>
-<p>罗布林卡草地上到处都是来过林卡的藏民，一家人围坐在坐席上，带上酸奶，带上酥油茶，带上不远赶来的美好愿景。</p>
-<p><img src="/images/tour_lahsa/8.JPG" alt="8"></p>
-<p>喜欢拉萨的色彩，尤其这种对比强烈的红色和黄色，蓝天，白云，一切都很美丽。</p>
-<h1 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h1><p><img src="/images/tour_lahsa/9.JPG" alt="9"></p>
-<p>波林卡路措姆凉粉店的菜单，排队的人超级多。字很秀气。</p>
-<p><img src="/images/tour_lahsa/10.JPG" alt="10"></p>
-<p>点了酸奶，土豆，凉粉。酸奶超级喜欢，加了一勺白砂糖，还有点酸。</p>
-<p><img src="/images/tour_lahsa/11.JPG" alt="11"></p>
-<p>布宫的一角，就像童话里的一座宫殿。能想象到历史上权利曾在此集中过。宫殿上方的阳光，明亮刺眼，你只能仰视它，它离你那么近那么远。</p>
-<p><img src="/images/tour_lahsa/12.JPG" alt="12"></p>
-<p>龙王潭公园的树荫下看到的布宫背面。布宫真的是360度无死角的美丽。不知道为什么，就是感觉阳光映照下，这片绿很可口的样子，看起来真的很好吃的样子啊。</p>
-<p><img src="/images/tour_lahsa/13.JPG" alt="13"></p>
-<p>阳光穿过树隙。这株柳树目测应该几百年历史了，在高原长这么粗壮，它一定经历和见证了很多。</p>
-<h1 id="Day-5"><a href="#Day-5" class="headerlink" title="Day 5"></a>Day 5</h1><p>布宫的门票真的太抢手，200块的门票听说被黄牛炒到了一千多，在一番折腾排队下，终于被放进这个大宫殿。不过在参观过程中，除了游客对各种精致奢华的惊叹，还有那些朝拜者的认真和虔诚。可以看到一家人把坐在轮椅上的老人从山脚下一级级石阶往上抬，也可以看到七旬的两个老奶奶大概是姐妹吧，相互搀扶一起双手合十，一起磕长头，一起留着长长的辫子。不羡慕这虔诚的信仰，但羡慕这种跨越时间温暖的陪伴。不管你去哪儿，都和你一起。</p>
-<p><img src="/images/tour_lahsa/14.JPG" alt="14"></p>
-<p>布宫的一角，红色的墙壁里面是一种高原上的草。惊叹于古人的建筑智慧和手艺。</p>
-<p><img src="/images/tour_lahsa/15.JPG" alt="15"></p>
-<p>进入主要的宫殿参观文物前最后能拍照的地方。</p>
-<p><img src="/images/tour_lahsa/16.JPG" alt="16"></p>
-<p>同行的一个小妹妹，红墙的映衬下，宛若一只仙女。</p>
-<p><img src="/images/tour_lahsa/17.JPG" alt="17"></p>
-<p>出布宫后在山上俯瞰整个拉萨，布宫就是整个拉萨的观景台。</p>
-<p><img src="/images/tour_lahsa/18.JPG" alt="18"></p>
-<p>格桑花盛开的山坡，此时山顶上的布宫十分安静。</p>
-<p><img src="/images/tour_lahsa/19.JPG" alt="19"></p>
-<p>大昭寺门前磕长头的朝拜者。我是看客，无法理解信仰的力量，但激动于世界上还有这样一群人。</p>
-<p><img src="/images/tour_lahsa/20.JPG" alt="20"></p>
-<p>八廓街的一角，蓝天，云朵，建筑，一切都温柔和谐。</p>
-<p><img src="/images/tour_lahsa/21.JPG" alt="21"></p>
-<p>八廓街上一家叫南卡的冷饮店。名字很美丽。</p>
-<p><img src="/images/tour_lahsa/22.JPG" alt="22"></p>
-<p>一对环绕大昭寺磕长头的姐妹，她们还很小，但我好像看到了在布宫那一对磕头相扶的老奶奶。</p>
-<p><img src="/images/tour_lahsa/23.JPG" alt="23"></p>
-<p>阴影里的长椅上坐了一排在转经的老爷爷。朋友调侃道，我那么帅你不拍我，去拍老头子。但是，一排老爷爷排排坐真的很可爱啊。</p>
-<h1 id="Day-6"><a href="#Day-6" class="headerlink" title="Day 6"></a>Day 6</h1><p>早晨七点就坐车去纳木错，七点的拉萨还有些黑，尽管穿了外套街头还是很冷。但天微微亮的时候，拉萨的街头十分美丽。</p>
-<p><img src="/images/tour_lahsa/24.JPG" alt="24"></p>
-<p>圣湖就是圣湖，远远的就被迷住了。蓝天，云彩，雪山，清水。天空就像是湖水的倒影。坐在湖边发呆，感觉都很美好。</p>
-<p><img src="/images/tour_lahsa/25.JPG" alt="25"></p>
-<p>阳光倾泻而下。此处该有个美丽的仙仙的背影= =</p>
-<p><img src="/images/tour_lahsa/26.JPG" alt="26"></p>
-<p>再来一张透明的湖水。</p>
-<p><img src="/images/tour_lahsa/27.JPG" alt="27"></p>
-<p>一个仙仙的小姐姐的背影，超美，嘤嘤嘤</p>
-<p><img src="/images/tour_lahsa/28.JPG" alt="28"></p>
-<p>湖边一个浅滩，云朵和人群的倒影。</p>
-<p><img src="/images/tour_lahsa/29.JPG" alt="29"></p>
-<p>海拔5190米，那拉根山口飘舞的经幡。途中总有那么一抹颜色吸引了你，总有那么一个人惊艳于你。</p>
-<p><img src="/images/tour_lahsa/30.JPG" alt="30"></p>
-<p>青藏线上的黄昏。安静，美丽。</p>
-<p>The End</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;第一次尝试写游记，嗯，是在周老师的文艺熏陶之下，试着记录一哈，但愿最后读起来不是一篇作文的感觉 T T ~~真的太久没动手写点儿文字了，想当年语文也是考过140分的人呐 = = 哈哈哈哈哈哈哈哈哈&lt;br&gt;
-    
-    </summary>
-    
-      <category term="游记" scheme="http://yoursite.com/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-      <category term="tour" scheme="http://yoursite.com/tags/tour/"/>
-    
-      <category term="lahsa" scheme="http://yoursite.com/tags/lahsa/"/>
     
   </entry>
   
