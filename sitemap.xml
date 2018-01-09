@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/09/introduction-about-HTTP/</loc>
+    
+    <lastmod>2018-01-09T02:32:55.380Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/07/maintain%20github%20blog%20on%20two%20computer/</loc>
+    
+    <lastmod>2018-01-08T09:16:35.887Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/</loc>
+    
+    <lastmod>2018-01-08T09:04:49.675Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/06/hello-world/</loc>
     
     <lastmod>2018-01-06T10:21:48.664Z</lastmod>
