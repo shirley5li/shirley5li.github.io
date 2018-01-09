@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-09T02:32:55.380Z</updated>
+  <updated>2018-01-09T02:47:03.156Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/01/09/introduction-about-HTTP/"/>
     <id>http://yoursite.com/2018/01/09/introduction-about-HTTP/</id>
     <published>2018-01-08T16:15:58.000Z</published>
-    <updated>2018-01-09T02:32:55.380Z</updated>
+    <updated>2018-01-09T02:47:03.156Z</updated>
     
     <content type="html"><![CDATA[<p>关于HTTP协议相关知识的学习总结。</p>
 <a id="more"></a>
@@ -103,11 +103,11 @@
     <link href="http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/"/>
     <id>http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/</id>
     <published>2018-01-08T07:16:53.000Z</published>
-    <updated>2018-01-08T09:04:49.675Z</updated>
+    <updated>2018-01-09T14:15:14.942Z</updated>
     
     <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/review-frontend?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="external">前端面试常考知识点 HTML+CSS</a> 篇学习总结。<br><a id="more"></a></p>
 <h3 id="浏览器页面有哪三层构成"><a href="#浏览器页面有哪三层构成" class="headerlink" title="浏览器页面有哪三层构成"></a>浏览器页面有哪三层构成</h3><p><strong>浏览器页面有哪三层构成，分别是什么，作用是什么?</strong><br>浏览器页面有结构层、表示层、行为层，三层构成，分别是HTML、CSS、JavaScript，作用是HTML实现页面结构(骨架)，CSS完成页面的表现与风格(肌肤)，JavaScript实现一些客户端的功能与业务(动作)，对用户事件作出反应。<br>不过，在这三种技术之间存在着一些潜在的<strong>重叠区域</strong>，如DOM技术可以用来改变网页的结构；CSS诸如<code>:hover</code>和<code>:focus</code>之类的class伪类，使我们可以根据用户触发事件来改变呈现效果。<br>改变元素的呈现效果当然是表示层的“势力范围”，但对用户触发事件做出反应却是行为层的领地。表示层和行为层的这种重叠形成了一个灰色地带。class伪类是 CSS 正在深入DOM领地证据，但 DOM在这方面也不是毫无作为，完全可以利用 DOM 技术把样式信息施加在HTML元素身上。<br>分离的效果要做到即使去掉表示层和行为层，文档的内容也依然可以访问，因为“内容才是一切”。而且网页的行为层(javascript)与其结构(HTML)是彼此互不干扰的，不能混杂在一起。还要给行为层“预留退路”，要考虑到如果你的用户禁用了Javascript会怎样？网页是否还可以正常运作。做到<strong>平稳退化，渐进增强</strong>。</p>
-<h3 id="HTML5的优点与缺点"><a href="#HTML5的优点与缺点" class="headerlink" title="HTML5的优点与缺点"></a>HTML5的优点与缺点</h3><p><strong>优点：</strong></p>
+<h3 id="HTML5的优点与缺点"><a href="#HTML5的优点与缺点" class="headerlink" title="HTML5的优点与缺点"></a>HTML5的优点与缺点</h3><p><strong>HTML5是什么:</strong>  HTML5指的是包括HTML、CSS和JavaScript在内的一套技术组合。它希望能够减少网页浏览器对于需要插件的丰富性网络应用服务（ Plug-in-Based Rich Internet Application ，RIA），例如：AdobeFlash 、Microsoft Silverlight与Oracle JavaFX的需求，并且提供更多能有效加强网络应用的标准集。 HTML5 HTML 最新版本，2014 年10月由万维网联盟（ W3C ）完成标准制定。目标是替换 1999 年所制定的 HTML 4.01和XHTML 1.0标准，以期能在互联网应用迅速发展的时候，使网络标准达到匹配当代的网络需求。<br><strong>为什么有HTML5的出现：</strong> HTML4陈旧不能满足日益发展的互联网需要，特别是移动互联网。为了增强浏览器功能 Flash 被广泛使用，但安全与稳定堪忧，不适合在移动端使用（耗电、触摸、不开放）。HTML5增强了浏览器的原生功能，符合HTML5规范的浏览器功能将更加强大，减少了 Web应用对插件的依赖，让用户体验更好，让开发更加方便，另外W3C 从推出 HTML4.0到5.0之间共经历了17年，HTML的变化很小，这并不符合一个好产品的演进规则。<br><strong>优点：</strong></p>
 <ul>
 <li>网络标准统一<br>HTML5本身是由W3C推荐出来的，它的开发是通过谷歌、苹果，诺基亚、中国移动等几百家公司一起酝酿的技术，这个技术最大的好处在于它是一个公开的技术。换句话说，每一个公开的标准都可以根据W3C的资料库找寻根源。另一方面，W3C通过的HTML5标准也就意味着每一个浏览器或每一个平台都会去实现。</li>
 <li>多设备跨平台，可移植性好<br>HTML5的优点主要在于，这个技术可以进行跨平台的使用。比如你开发了一款HTML5的游戏，你可以很轻易地移植到UC的开放平台、Opera的游戏中心、Facebook应用平台,甚至可以通过封装的技术发放到AppStore或GooglePlay上，所以它的跨平台性非常强大，这也是大多数人对HTML5有兴趣的主要原因。</li>
@@ -133,7 +133,38 @@
 <p><strong>行内语义性元素</strong>主要完成web页面具体内容的引用和描述，是丰富内容展示的基础。<br><code>meter</code>：表示特定范围内的数值，可用于工资、数量、百分比等。<br><code>time</code>：表示时间值。<br><code>progress</code>：用来表示进度条，可通过对其 max 、min 、step 等属性进行控制，完成对进度的表示和监事。<br><code>video</code>：视频元素，用于支持和实现视频文件的直接播放，支持缓冲预载和多种视频媒体格式。<br><code>audio</code>：音频元素，用于支持和实现音频文件的直接播放，支持缓冲预载和多种音频媒体格式。</p>
 <p><strong>交互性元素</strong>主要用于功能性的内容表达，会有一定的内容和数据的关联，是各种事件的基础。<br><code>details</code>：用来表示一段具体的内容，但是内容默认可能不显示，通过某种手段（如单击）与 legend 交互才会显示出来。<br><code>datagrid</code>：用来控制客户端数据与显示，可以由动态脚本及时更新。<br><code>menu</code>：主要用于交互菜单（曾被废弃又被重新启用的元素）。<br><code>command</code>：用来处理命令按钮。 </p>
 <p><strong>移除的元素</strong><br>纯表现的元素：<code>&lt;basefont&gt;</code> 默认字体，不设置字体，以此渲染; <code>&lt;font&gt;</code> 字体标签; <code>&lt;center&gt;</code>水平居中; <code>&lt;u&gt;</code>下划线; <code>&lt;big&gt;</code> 大字体; <code>&lt;strike&gt;</code>中横线; <code>&lt;tt&gt;</code>文本等宽;<br>框架集：<code>&lt;frameset&gt;</code> <code>&lt;noframes&gt;</code> <code>&lt;frame&gt;</code> </p>
+<h3 id="HTML5行内元素、块级元素、空元素"><a href="#HTML5行内元素、块级元素、空元素" class="headerlink" title="HTML5行内元素、块级元素、空元素"></a>HTML5行内元素、块级元素、空元素</h3><p><strong>行内元素</strong><br><code>a</code> - 锚点<br><code>abbr</code> - 缩写<br><code>br</code> - 换行<br><code>em</code> - 强调<br><code>strong</code> - 粗体强调<br><code>i</code> - 斜体<br><code>cite</code> - 引用<br><code>code</code> - 计算机代码 ( 在引用源码的时候需要 )<br><code>img</code> - 图片<br><code>span</code> - 常用内联容器，定义文本内区块<br><code>input</code> - 输入框<br><code>textarea</code> - 多行文本输入框<br><code>label</code> - 表格标签<br><strong>块级元素</strong><br><code>div</code> - 常用块级容易，也是 css layout 的主要标签<br><code>p</code> - 段落<br><code>h1~h6</code> - 大标题<br><code>form</code> - 交互表单<br><code>table</code> - 表格<br><code>ol</code> - 排序表单<br><code>ul</code> - 非排序列表<br><code>address</code> - 地址<br><code>blockquote</code> - 块引用<br><strong>空元素</strong><br><code>&lt;br/&gt;</code> //换行<br><code>&lt;hr&gt;</code> //分隔线<br><code>&lt;input&gt;</code> //文本框等<br><code>&lt;img&gt; &lt;link&gt; &lt;meta&gt;</code></p>
 <h3 id="浏览器的内核分类"><a href="#浏览器的内核分类" class="headerlink" title="浏览器的内核分类"></a>浏览器的内核分类</h3><p>IE: Trident 内核<br>Firefox： Gecko 内核(开源)<br>Safari: Webkit 内核(开源)<br>Chrome: Webkit<br>Opera: 以前是Presto内核，现已改用Blink内核(基于Webkit, Google与Opera Software共同开发)</p>
+<h3 id="对WEB标准以及W3C的理解与认识"><a href="#对WEB标准以及W3C的理解与认识" class="headerlink" title="对WEB标准以及W3C的理解与认识"></a>对WEB标准以及W3C的理解与认识</h3><p>WEB标准 不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主要包括XHTML和XML，表现标准语言主要包括CSS，行为标准主要包括对象模型（如W3C DOM）、ECMAScript等。这些标准大部分由 万维网联盟 （W3C）起草和发布，也有一些是其他标准组织制订的标准，比如ECMA（European Computer Manufacturers Association）的ECMAScript标准。<br>标签闭合、标签小写、不乱嵌套—》XHTML；<br>提高搜索机器人搜索几率–》DOM；<br>使用外 链css和 js 脚本—》结构行为表现的分离；<br>文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问；<br>容易维护、改版方便；<br>提高网站易用性。</p>
+<h3 id="什么是WebGL-它有什么优点"><a href="#什么是WebGL-它有什么优点" class="headerlink" title="什么是WebGL,它有什么优点"></a>什么是WebGL,它有什么优点</h3><p>WebGL(Web Graphics Library) 是一种 3D 绘图标准，这种绘图技术标准允许把 JavaScript 和 OpenGL ES 2.0 结合在一起，通过增加 OpenGL ES 2.0 的一个 JavaScript 绑定，WebGL 可以为 HTML5 Canvas 提供硬件 3D 加速渲染，这样 Web 开发人员就可以借助系统显卡来在浏览器里更流畅地展示3D场景和模型了，还能创建复杂的导航和数据视觉化。<br>WebGL 技术标准免去了开发网页专用渲染插件的麻烦，可被用于创建具有复杂 3D 结构的网站页面，甚至可以用来设计 3D 网页游戏等等。<br>WebGL完美地解决了现有的 Web 交互式三维动画的两个问题：第一，它通过HTML脚本本身实现Web交互式三维动画的制作，无需任何浏览器插件支持;第二，它利用底层的图形硬件加速功能进行的图形渲染，是通过统一的、标准的、跨平台的OpenGL接口实现的。<br>通俗的说WebGL是canvas绘图中的3D版本。因为原生的WebGL很复杂，我们经常会使用一些三方的库，如 three.js 等，这些库多数用于 HTML5 游戏开发。 </p>
+<h3 id="cookie，sessionStorage-和-localStorage-的区别"><a href="#cookie，sessionStorage-和-localStorage-的区别" class="headerlink" title="cookie，sessionStorage 和 localStorage 的区别"></a>cookie，sessionStorage 和 localStorage 的区别</h3><p>共同点：都是保存在浏览器端，且同源的。</p>
+<p>区别：</p>
+<ul>
+<li>cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。</li>
+<li>cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。</li>
+<li>存储大小限制也不同。cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。</li>
+<li>数据有效期不同。sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。</li>
+<li>作用域不同。sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。</li>
+<li>WebStorage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。<br>sessionStorage 和 localStorage 是 HTML5 Web Storage API 提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。<br>sessionStorage、 localStorage 、 cookie 都是在浏览器端存储的数据，其中 sessionStorage 的概念很特别，引入了一个“浏览器窗口”的概念。 sessionStorage 是在同源的同窗口（或 tab ）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面， sessionStorage 对象也是不同的。<br>cookies 会发送到服务器端。其余两个不会。<br>Cookie 每个域名存储量比较小（各浏览器不同，大致 4K ）；所有域名的存储量有限制（各浏览器不同，大致 4K ）； 有个数限制（各浏览器不同）；会随请求发送到服务器。<br>LocalStorage 永久存储；单个域名存储量比较大（推荐 5MB ，各浏览器不同）；总体数量无限制。<br>SessionStorage 只在 Session 内有效；存储量更大（推荐没有限制，但是实际上各浏览器也不同）。</li>
+</ul>
+<h3 id="对HTML语义化的理解"><a href="#对HTML语义化的理解" class="headerlink" title="对HTML语义化的理解"></a>对HTML语义化的理解</h3><ul>
+<li>什么是 HTML 语义化<br>&lt;基本上都是围绕着几个主要的标签，像标题（ H1~H6 ）、列表（ li ）、强调（ strong em ）等等 &gt;<br>根据<strong>内容的结构化</strong>（内容语义化），选择<strong>合适的标签</strong>（代码语义化）便于<strong>开发者阅读</strong>和写出更优雅的代码的同时<strong>让浏览器的爬虫和机器很好地解析</strong>。</li>
+<li>为什么要语义化<br>为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构 : 为了裸奔时好看；<br>用户体验：例如title、 alt 用于解释名词或解释图片信息、 label 标签的活用；<br>有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息，爬虫依赖于标签来确定上下文和各个关键字的权重；<br>方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；<br>便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。 </li>
+<li>语义化标签<br><code>&lt;header&gt;&lt;/header&gt;</code> <code>&lt;footer&gt;&lt;/footer&gt;</code> <code>&lt;nav&gt;&lt;/nav&gt;</code> <code>&lt;section&gt;&lt;/section&gt;</code><br><code>&lt;article&gt;&lt;/article&gt;</code> 用来在页面中表示一套结构完整且独立的内容部分<br><code>&lt;aside&gt;&lt;/aside&gt;</code> 主题的附属信息 ( 用途很广，主要就是一个附属内容 ) ，如果 article 里面为一篇文章的话，那么文章的作者以及信息内容就是这篇文章的附属内容了<br><code>&lt;figure&gt;&lt;/figure&gt;</code> 媒体元素，比如一些视频，图片等等<br><code>&lt;datalist&gt;&lt;/datalist&gt;</code> 选项列表，与 input 元素配合使用，来定义 input 可能的值<br><code>&lt;details&gt;&lt;/details&gt;</code> 用于描述文档或者文档某个部分的细节</li>
+</ul>
+<h3 id="link和-import的区别"><a href="#link和-import的区别" class="headerlink" title="link和@import的区别"></a>link和@import的区别</h3><p>HTML代码link:<br><code>&lt;link rel=&#39;stylesheet&#39; rev=&#39;stylesheet&#39; href=&#39;CSS文件 &#39; type=&#39;text/css&#39; media=&#39;all&#39; /&gt;</code></p>
+<p>HTML代码@import:</p>
+<pre><code>&lt;style type=&apos;text/css&apos; media=&apos;screen&apos;&gt;
+@import url(&apos;CSS文件 &apos;);
+&lt;/style&gt; 
+</code></pre><ul>
+<li>首先link和import语法结构不同，前者<link>是html标签，只能放入html源代码中使用，后者可看作为css样式，作用是引入css样式功能。</li>
+<li>import在html使用时候需要<code>&lt;style type=&quot;text/css&quot;&gt;</code>标签，同时可以直接<code>@import url(CSS文件路径地址)</code>放入css文件或css代码里引入其它css文件。</li>
+<li>本质上两者使用选择区别不大，但为了软件中编辑布局网页html代码，一般使用link较多，也推荐使用link。</li>
+</ul>
+<p>两者都是外部引用CSS的方式，但是存在一定的<strong>区别：</strong><br> 区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。<br>区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。<br>区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。<br>区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。</p>
+<h3 id="对SVG的理解"><a href="#对SVG的理解" class="headerlink" title="对SVG的理解"></a>对SVG的理解</h3><p>SVG可缩放矢量图形（ Scalable Vector Graphics ）是基于可扩展标记语言（ XML ），用于描述二维矢量图形的一种图形格式。 SVG 是 W3C 在 2000 年 8 月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。 SVG 严格遵从 XML 语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。 SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准。<br>特点：<br> (1)任意放缩：用户可以任意缩放图像显示，而不会破坏图像的清晰度、细节等。<br> (2)文本独立：SVG图像中的文字独立于图像，文字保留可编辑和可搜寻的状态。也不会再有字体的限制，用户系统即使没有安装某一字体，也会看到和他们制作时完全相同的画面。<br> (3)较小文件： 总体来讲，SVG文件比那些 GIF 和 JPEG 格式的文件要小很多，因而下载也很快。<br> (4)超强显示效果：SVG图像在屏幕上总是边缘清晰，它的清晰度适合任何屏幕分辨率和打印分辨率。<br> (5)超级颜色控制：SVG图像提供一个 1600 万种颜色的调色板，支持 ICC 颜色描述文件标准、 RGB 、线 X 填充、渐变和蒙版。<br> (6)交互 X 和智能化：SVG面临的主要问题一个是如何和已经占有重要市场份额的矢量图形格式 Flash 竞争的问题，另一个问题就是 SVG 的本地运行环境下的厂家支持程度。<br>  Internet Explorer9，火狐，谷歌 Chrome ， Opera 和 Safari 都支持 SVG 。IE8和早期版本都需要一个插件 - 如 Adobe SVG 浏览器，这是免费提供的</p>
+<h3 id="HTML全局属性-global-attribute-有哪些"><a href="#HTML全局属性-global-attribute-有哪些" class="headerlink" title="HTML全局属性(global attribute)有哪些"></a>HTML全局属性(global attribute)有哪些</h3><p>参考<a href="http://www.w3school.com.cn/tags/html_ref_standardattributes.asp" target="_blank" rel="external">HTML 全局属性</a>。例如<code>class</code>, <code>id</code>, <code>style</code>, <code>title</code>, <code>lang</code>等等。</p>
 ]]></content>
     
     <summary type="html">
@@ -154,7 +185,7 @@
     <link href="http://yoursite.com/2018/01/07/maintain%20github%20blog%20on%20two%20computer/"/>
     <id>http://yoursite.com/2018/01/07/maintain github blog on two computer/</id>
     <published>2018-01-07T13:10:12.000Z</published>
-    <updated>2018-01-08T09:16:35.887Z</updated>
+    <updated>2018-01-09T02:47:03.126Z</updated>
     
     <content type="html"><![CDATA[<p>之前在台式机上通过GitHub pages 和Hexo搭建了静态博客，一直用台式机写文章更新博客，这几天想着是不是也可以用笔记本写文章维护下博客，毕竟笔记本带着方便啊。于是就看了一些博客，尝试着在笔记本上实现跟台式机一样的发博客过程，也遇到了一些问题，特将过程总结下来。这篇文章即在笔记本上完成的。</p>
 <a id="more"></a>
@@ -217,7 +248,7 @@
     <link href="http://yoursite.com/2018/01/03/CSS%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/"/>
     <id>http://yoursite.com/2018/01/03/CSS动画简介/</id>
     <published>2018-01-03T01:53:24.000Z</published>
-    <updated>2018-01-03T03:47:30.958Z</updated>
+    <updated>2018-01-09T02:47:02.933Z</updated>
     
     <content type="html"><![CDATA[<p>来自于NEXT十天训练营CSS篇关于动画的笔记。<br><a id="more"></a></p>
 <h2 id="CSS动画分类"><a href="#CSS动画分类" class="headerlink" title="CSS动画分类"></a>CSS动画分类</h2><p>CSS动画主要有两类，即<strong>补间动画和帧动画</strong>。</p>
@@ -325,7 +356,7 @@
     <link href="http://yoursite.com/2018/01/02/CSS-layout/"/>
     <id>http://yoursite.com/2018/01/02/CSS-layout/</id>
     <published>2018-01-02T06:05:23.000Z</published>
-    <updated>2018-01-02T09:08:49.662Z</updated>
+    <updated>2018-01-09T02:47:02.933Z</updated>
     
     <content type="html"><![CDATA[<p>学习一段时间了，但对于CSS布局方法的掌握一直比较混乱，于是再来学习总结一遍。文章参考自<a href="http://www.sohu.com/a/168143624_274163" target="_blank" rel="external">CSS 常见布局方式 </a>。<br><a id="more"></a><br>CSS几种常见的布局方式如下图总结。</p>
 <p><img src="/images/CSS-layout/1.jpeg" alt="1"></p>
@@ -406,7 +437,7 @@
     <link href="http://yoursite.com/2017/12/29/github-pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
     <id>http://yoursite.com/2017/12/29/github-pages绑定域名/</id>
     <published>2017-12-29T06:49:39.000Z</published>
-    <updated>2017-12-29T13:18:03.764Z</updated>
+    <updated>2018-01-09T02:47:02.939Z</updated>
     
     <content type="html"><![CDATA[<p>在帆锅的启示下，试着给github pages买个域名，毕竟github.io还是有点长哦。以下域名购买、绑定设置，以及DNS的相关知识得益于帆锅给自己博客绑定域名的笔记以及各位大佬的博客，感谢！<br><a id="more"></a></p>
 <h2 id="域名相关知识"><a href="#域名相关知识" class="headerlink" title="域名相关知识"></a>域名相关知识</h2><h3 id="域名是什么"><a href="#域名是什么" class="headerlink" title="域名是什么"></a>域名是什么</h3><p>根据百度百科，域名（Domain Name），是由一串用“点”分隔的字符组成的Internet上某一台计算机或计算机组的名称。用于在数据传输时标识计算机的电子方位。</p>
@@ -487,7 +518,7 @@
     <link href="http://yoursite.com/2017/12/27/good-blog-post/"/>
     <id>http://yoursite.com/2017/12/27/good-blog-post/</id>
     <published>2017-12-27T02:58:05.000Z</published>
-    <updated>2018-01-03T09:20:41.985Z</updated>
+    <updated>2018-01-09T02:47:02.939Z</updated>
     
     <content type="html"><![CDATA[<p>以下是一些关于WEB开发比较好的技术文章集锦，收集以待后面再看一遍。<br><a id="more"></a></p>
 <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p><a href="https://www.cnblogs.com/rainy-shurun/p/5603686.html" target="_blank" rel="external">浏览器内部工作原理</a></p>
@@ -512,7 +543,7 @@
     <link href="http://yoursite.com/2017/12/25/JS%E9%AB%98%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ing/"/>
     <id>http://yoursite.com/2017/12/25/JS高程学习笔记-ing/</id>
     <published>2017-12-25T09:17:54.000Z</published>
-    <updated>2017-12-26T08:41:37.868Z</updated>
+    <updated>2018-01-09T02:47:02.934Z</updated>
     
     <content type="html"><![CDATA[<p>JavaScript学习笔记。<br><a id="more"></a></p>
 <h2 id="模仿块级作用域"><a href="#模仿块级作用域" class="headerlink" title="模仿块级作用域"></a>模仿块级作用域</h2><p>JS没有块级作用域，即在块语句中定义的变量，实际是在包含函数中创建的，而非在块语句中创建的。如下：</p>
@@ -623,7 +654,7 @@ window.sayAge();     //29
     <link href="http://yoursite.com/2017/12/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-ing/"/>
     <id>http://yoursite.com/2017/12/08/AngularJS学习笔记01-ing/</id>
     <published>2017-12-08T08:41:16.000Z</published>
-    <updated>2017-12-09T07:40:20.510Z</updated>
+    <updated>2018-01-09T02:47:02.932Z</updated>
     
     <content type="html"><![CDATA[<p> AngularJS是Google开源的一款JavaScript MVC的前端框架，弥补了HTML在构建应用方面的不足，其通过使用指令（directives）结构来扩展HTML词汇，且通过表达式绑定数据到 HTML，使开发者可以使用HTML来声明动态内容，从而使得Web开发和测试工作变得更加容易。<br><a id="more"></a><br> AngularJS 是一个为动态WEB应用设计的结构框架，提供给大家一种新的开发应用方式，这种方式可以让你扩展HTML的语法，以弥补在构建动态WEB应用时静态文本的不足，从而在web应用程序中使用HTML声明动态内容。Angular可以帮助你组织JavaScript代码，可以创建响应式网站（会对用户的请求产生快速的反应），Angular可以和JQuery很好的协调、方便测试（搭建可维护的应用）。</p>
 <p>简单的解释Angular就是一个可以给HTML加上互动性的客户端JS框架。</p>
@@ -716,7 +747,7 @@ ng-repeat 指令对于集合中（数组中）的每个项会 克隆一次 HTML 
     <link href="http://yoursite.com/2017/11/26/freeCodeCamp-%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/26/freeCodeCamp-高级算法编程/</id>
     <published>2017-11-26T03:07:43.000Z</published>
-    <updated>2017-12-06T02:52:35.069Z</updated>
+    <updated>2018-01-09T02:47:02.938Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS高级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Validate-US-Telephone-Numbers"><a href="#Validate-US-Telephone-Numbers" class="headerlink" title="Validate US Telephone Numbers"></a>Validate US Telephone Numbers</h2><p><strong>题目：</strong>如果传入字符串是一个有效的美国电话号码，则返回 true.</p>
@@ -1097,7 +1128,7 @@ pairwise([1, 3, 2, 4], 4);//返回1
     <link href="http://yoursite.com/2017/11/20/react-demos%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2017/11/20/react-demos学习笔记/</id>
     <published>2017-11-20T02:35:43.000Z</published>
-    <updated>2017-11-20T09:09:30.060Z</updated>
+    <updated>2018-01-09T02:47:02.942Z</updated>
     
     <content type="html"><![CDATA[<p>来自阮一峰的博客<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程</a>学习。<br><a id="more"></a></p>
 <h2 id="JSX语法简介"><a href="#JSX语法简介" class="headerlink" title="JSX语法简介"></a>JSX语法简介</h2><p>React的核心机制之一就是可以在内存中创建虚拟的DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。</p>
@@ -1505,7 +1536,7 @@ ReactDOM.render(
     <link href="http://yoursite.com/2017/11/16/freeCodeCamp-%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/11/16/freeCodeCamp-中级算法编程/</id>
     <published>2017-11-16T13:49:52.000Z</published>
-    <updated>2017-11-27T01:58:57.131Z</updated>
+    <updated>2018-01-09T02:47:02.938Z</updated>
     
     <content type="html"><![CDATA[<p>几个 freeCodeCamp JS中级算法编程例题的学习总结。<br><a id="more"></a></p>
 <h2 id="Sum-All-Numbers-in-a-Range"><a href="#Sum-All-Numbers-in-a-Range" class="headerlink" title="Sum All Numbers in a Range"></a>Sum All Numbers in a Range</h2><p><strong>题目：</strong>传递给一个包含两个数字的数组。返回这两个数字和它们之间所有数字的和。（最小的数字并非总在最前面。）</p>
@@ -2201,7 +2232,7 @@ add(&quot;http://bit.ly/IqT6zt&quot;);//返回undefined
     <link href="http://yoursite.com/2017/11/15/JSONP%E7%AE%80%E8%A6%81%E4%BA%86%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/11/15/JSONP简要了解/</id>
     <published>2017-11-15T13:08:22.000Z</published>
-    <updated>2018-01-03T12:39:34.332Z</updated>
+    <updated>2018-01-09T02:47:02.934Z</updated>
     
     <content type="html"><![CDATA[<p>在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用<code>$.getJSON(()</code>方法会因为跨域资源共享(CORS)问题发生错误信息。<a href="https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541" target="_blank" rel="external"> freeCodeCamp Challenge Guide: How to Use the TwitchTV API </a>中建议使用jQuery的JSONP方法来解决CORS问题。<br><a id="more"></a></p>
 <h2 id="JSONP的诞生"><a href="#JSONP的诞生" class="headerlink" title="JSONP的诞生"></a>JSONP的诞生</h2><p>传统ajax无法跨域，而<script\>标签的src属性是可以跨域的,可以通过把跨域服务器写成<strong>调用本地的函数</strong> ，回调数据回来。</script\></p>
@@ -2287,7 +2318,7 @@ echo $callback . &quot;(&quot; . json_encode($data) . &quot;)&quot;;
     <link href="http://yoursite.com/2017/11/06/ajax-imooc/"/>
     <id>http://yoursite.com/2017/11/06/ajax-imooc/</id>
     <published>2017-11-06T08:13:39.000Z</published>
-    <updated>2017-11-06T12:49:49.936Z</updated>
+    <updated>2018-01-09T02:47:02.936Z</updated>
     
     <content type="html"><![CDATA[<p>ajax,即异步JavaScript和XML，通过在后台和服务器少量的数据交换实现页面的异步局部加载更新。<br>ajax中一个关键的对象 <strong>XMLHttpRequest</strong>对象，作为网页和服务器之间交换数据的桥梁，来实现网页的异步请求、局部刷新。<br><a id="more"></a></p>
 <h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><p>在现代浏览器中创建XMLHttpRequest对象</p>
@@ -2356,7 +2387,7 @@ request.onreadystatechange = function() {
     <link href="http://yoursite.com/2017/10/30/planeGameQuestion/"/>
     <id>http://yoursite.com/2017/10/30/planeGameQuestion/</id>
     <published>2017-10-30T08:31:25.000Z</published>
-    <updated>2017-10-30T11:23:37.102Z</updated>
+    <updated>2018-01-09T02:47:02.941Z</updated>
     
     <content type="html"><![CDATA[<p>H5 Canvas打飞机游戏中未完成以及存在疑惑的地方。<br><a id="more"></a></p>
 <h2 id="未完成内容"><a href="#未完成内容" class="headerlink" title="未完成内容"></a>未完成内容</h2><h3 id="游戏设置部分"><a href="#游戏设置部分" class="headerlink" title="游戏设置部分"></a>游戏设置部分</h3><p>音乐设置（HTML5 audio相关的学习，包括设置游戏背景音乐以及各种子弹、爆炸等声音，以及切换声音的开启和关闭）</p>
@@ -2391,7 +2422,7 @@ request.onreadystatechange = function() {
     <link href="http://yoursite.com/2017/10/20/next-js2/"/>
     <id>http://yoursite.com/2017/10/20/next-js2/</id>
     <published>2017-10-20T12:21:29.000Z</published>
-    <updated>2017-10-21T05:57:32.996Z</updated>
+    <updated>2018-01-09T02:47:02.941Z</updated>
     
     <content type="html"><![CDATA[<p>JS调用DOM接口修改样式。<br><a id="more"></a></p>
 <h2 id="DOM简介"><a href="#DOM简介" class="headerlink" title="DOM简介"></a>DOM简介</h2><p><img src="/images/next-js2/1.png" alt="1"></p>
@@ -2556,7 +2587,7 @@ event.stopPropagation();//阻止事件冒泡，当点击h1元素时，不会触�
     <link href="http://yoursite.com/2017/10/20/next-js/"/>
     <id>http://yoursite.com/2017/10/20/next-js/</id>
     <published>2017-10-20T01:21:29.000Z</published>
-    <updated>2017-10-20T12:27:04.046Z</updated>
+    <updated>2018-01-09T02:47:02.940Z</updated>
     
     <content type="html"><![CDATA[<p>NEXT十天训练营有关JS学习的笔记。<br><a id="more"></a></p>
 <h2 id="认识JavaScript"><a href="#认识JavaScript" class="headerlink" title="认识JavaScript"></a>认识JavaScript</h2><p>JS是目前主流浏览器唯一支持的脚本语言，由以下三部分组成：</p>
@@ -2762,7 +2793,7 @@ convertToCamelCase(&quot;-ni-hao-a&quot;);
     <link href="http://yoursite.com/2017/10/18/PS%E5%88%87%E5%9B%BE%E7%AC%94%E8%AE%B0-ing/"/>
     <id>http://yoursite.com/2017/10/18/PS切图笔记-ing/</id>
     <published>2017-10-18T08:19:00.000Z</published>
-    <updated>2017-10-19T14:31:00.721Z</updated>
+    <updated>2018-01-09T02:47:02.935Z</updated>
     
     <content type="html"><![CDATA[<p>在慕课网学习的简单的关于PS切图的基本使用。下面是慕课网的视频学习链接<a href="http://www.imooc.com/learn/506" target="_blank" rel="external">前端工程师必备的PS技能——切图篇</a>。<br><a id="more"></a></p>
 <h2 id="Photoshop界面设置"><a href="#Photoshop界面设置" class="headerlink" title="Photoshop界面设置"></a>Photoshop界面设置</h2><p>使用的photoshop版本为photoshop cc 2015。</p>
@@ -2802,7 +2833,7 @@ convertToCamelCase(&quot;-ni-hao-a&quot;);
     <link href="http://yoursite.com/2017/10/18/%E9%BB%98%E8%AE%A4margin%E5%80%BC%E5%85%83%E7%B4%A0/"/>
     <id>http://yoursite.com/2017/10/18/默认margin值元素/</id>
     <published>2017-10-18T05:00:44.000Z</published>
-    <updated>2017-10-18T05:20:44.081Z</updated>
+    <updated>2018-01-09T02:47:02.943Z</updated>
     
     <content type="html"><![CDATA[<p>总结一下那些有默认margin及padding值的html标签，在CSS reset时，最好将这些元素的padding和margin值初始化为0，以实现不同浏览器下的样式兼容，避免后期团队开发过程因不同浏览器下默认样式不同而造成混乱。<br><a id="more"></a></p>
 <h2 id="h1-h6标签"><a href="#h1-h6标签" class="headerlink" title="h1~h6标签"></a>h1~h6标签</h2><p>有默认margin（top,bottom且相同）值，没有默认padding值。</p>
@@ -2875,7 +2906,7 @@ a{text-decoration:none;}
     <link href="http://yoursite.com/2017/10/17/clearfix/"/>
     <id>http://yoursite.com/2017/10/17/clearfix/</id>
     <published>2017-10-17T08:09:35.000Z</published>
-    <updated>2018-01-02T06:03:09.054Z</updated>
+    <updated>2018-01-09T02:47:02.937Z</updated>
     
     <content type="html"><![CDATA[<p>几种定位方式，以及CSS清除浮动的几种方法。<br><a id="more"></a></p>
 <h1 id="几种定位方式"><a href="#几种定位方式" class="headerlink" title="几种定位方式"></a>几种定位方式</h1><h2 id="普通流定位-static"><a href="#普通流定位-static" class="headerlink" title="普通流定位 static"></a>普通流定位 static</h2><p>普通流定位即文档流定位，是页面元素的默认定位方式。按照元素在文档流中的出现顺序以默认形式呈现元素。</p>
