@@ -13,6 +13,8 @@ categories: interview questions
 改变元素的呈现效果当然是表示层的“势力范围”，但对用户触发事件做出反应却是行为层的领地。表示层和行为层的这种重叠形成了一个灰色地带。class伪类是 CSS 正在深入DOM领地证据，但 DOM在这方面也不是毫无作为，完全可以利用 DOM 技术把样式信息施加在HTML元素身上。
 分离的效果要做到即使去掉表示层和行为层，文档的内容也依然可以访问，因为“内容才是一切”。而且网页的行为层(javascript)与其结构(HTML)是彼此互不干扰的，不能混杂在一起。还要给行为层“预留退路”，要考虑到如果你的用户禁用了Javascript会怎样？网页是否还可以正常运作。做到**平稳退化，渐进增强**。
 ### HTML5的优点与缺点 ###
+**HTML5是什么:**  HTML5指的是包括HTML、CSS和JavaScript在内的一套技术组合。它希望能够减少网页浏览器对于需要插件的丰富性网络应用服务（ Plug-in-Based Rich Internet Application ，RIA），例如：AdobeFlash 、Microsoft Silverlight与Oracle JavaFX的需求，并且提供更多能有效加强网络应用的标准集。 HTML5 HTML 最新版本，2014 年10月由万维网联盟（ W3C ）完成标准制定。目标是替换 1999 年所制定的 HTML 4.01和XHTML 1.0标准，以期能在互联网应用迅速发展的时候，使网络标准达到匹配当代的网络需求。
+**为什么有HTML5的出现：** HTML4陈旧不能满足日益发展的互联网需要，特别是移动互联网。为了增强浏览器功能 Flash 被广泛使用，但安全与稳定堪忧，不适合在移动端使用（耗电、触摸、不开放）。HTML5增强了浏览器的原生功能，符合HTML5规范的浏览器功能将更加强大，减少了 Web应用对插件的依赖，让用户体验更好，让开发更加方便，另外W3C 从推出 HTML4.0到5.0之间共经历了17年，HTML的变化很小，这并不符合一个好产品的演进规则。
 **优点：**
 
 - 网络标准统一
@@ -79,9 +81,120 @@ HTML5新增了27个元素，废弃了16个元素，根据现有的标准规范�
 **移除的元素**
 纯表现的元素：`<basefont>` 默认字体，不设置字体，以此渲染; `<font>` 字体标签; `<center>`水平居中; `<u>`下划线; `<big>` 大字体; `<strike>`中横线; `<tt>`文本等宽;
 框架集：`<frameset>` `<noframes>` `<frame>` 
+### HTML5行内元素、块级元素、空元素 ###
+**行内元素**
+`a ` - 锚点
+`abbr` - 缩写 
+`br` - 换行
+`em` - 强调
+`strong` - 粗体强调
+`i` - 斜体
+`cite` - 引用
+`code` - 计算机代码 ( 在引用源码的时候需要 )
+`img` - 图片
+`span` - 常用内联容器，定义文本内区块
+`input` - 输入框
+`textarea` - 多行文本输入框
+`label` - 表格标签
+**块级元素**
+`div` - 常用块级容易，也是 css layout 的主要标签
+`p` - 段落
+`h1~h6` - 大标题
+`form` - 交互表单
+`table` - 表格
+`ol` - 排序表单
+`ul` - 非排序列表
+`address` - 地址
+`blockquote` - 块引用
+**空元素**
+`<br/>` //换行
+`<hr>` //分隔线
+`<input>` //文本框等
+`<img> <link> <meta>`
 ### 浏览器的内核分类 ###
 IE: Trident 内核
 Firefox： Gecko 内核(开源)
 Safari: Webkit 内核(开源)
 Chrome: Webkit 
 Opera: 以前是Presto内核，现已改用Blink内核(基于Webkit, Google与Opera Software共同开发)
+### 对WEB标准以及W3C的理解与认识 ###
+WEB标准 不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主要包括XHTML和XML，表现标准语言主要包括CSS，行为标准主要包括对象模型（如W3C DOM）、ECMAScript等。这些标准大部分由 万维网联盟 （W3C）起草和发布，也有一些是其他标准组织制订的标准，比如ECMA（European Computer Manufacturers Association）的ECMAScript标准。
+标签闭合、标签小写、不乱嵌套---》XHTML；
+提高搜索机器人搜索几率--》DOM；
+使用外 链css和 js 脚本---》结构行为表现的分离；
+文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问；
+容易维护、改版方便；
+提高网站易用性。
+### 什么是WebGL,它有什么优点 ###
+WebGL(Web Graphics Library) 是一种 3D 绘图标准，这种绘图技术标准允许把 JavaScript 和 OpenGL ES 2.0 结合在一起，通过增加 OpenGL ES 2.0 的一个 JavaScript 绑定，WebGL 可以为 HTML5 Canvas 提供硬件 3D 加速渲染，这样 Web 开发人员就可以借助系统显卡来在浏览器里更流畅地展示3D场景和模型了，还能创建复杂的导航和数据视觉化。
+WebGL 技术标准免去了开发网页专用渲染插件的麻烦，可被用于创建具有复杂 3D 结构的网站页面，甚至可以用来设计 3D 网页游戏等等。
+WebGL完美地解决了现有的 Web 交互式三维动画的两个问题：第一，它通过HTML脚本本身实现Web交互式三维动画的制作，无需任何浏览器插件支持;第二，它利用底层的图形硬件加速功能进行的图形渲染，是通过统一的、标准的、跨平台的OpenGL接口实现的。
+通俗的说WebGL是canvas绘图中的3D版本。因为原生的WebGL很复杂，我们经常会使用一些三方的库，如 three.js 等，这些库多数用于 HTML5 游戏开发。 
+### cookie，sessionStorage 和 localStorage 的区别 ###
+共同点：都是保存在浏览器端，且同源的。
+
+区别：
+
+ - cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+ - cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。
+ - 存储大小限制也不同。cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+ - 数据有效期不同。sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
+ - 作用域不同。sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。
+ - WebStorage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。
+sessionStorage 和 localStorage 是 HTML5 Web Storage API 提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。
+sessionStorage、 localStorage 、 cookie 都是在浏览器端存储的数据，其中 sessionStorage 的概念很特别，引入了一个“浏览器窗口”的概念。 sessionStorage 是在同源的同窗口（或 tab ）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面， sessionStorage 对象也是不同的。
+cookies 会发送到服务器端。其余两个不会。
+Cookie 每个域名存储量比较小（各浏览器不同，大致 4K ）；所有域名的存储量有限制（各浏览器不同，大致 4K ）； 有个数限制（各浏览器不同）；会随请求发送到服务器。
+LocalStorage 永久存储；单个域名存储量比较大（推荐 5MB ，各浏览器不同）；总体数量无限制。
+SessionStorage 只在 Session 内有效；存储量更大（推荐没有限制，但是实际上各浏览器也不同）。
+
+### 对HTML语义化的理解 ###
+- 什么是 HTML 语义化
+<基本上都是围绕着几个主要的标签，像标题（ H1~H6 ）、列表（ li ）、强调（ strong em ）等等 >
+根据**内容的结构化**（内容语义化），选择**合适的标签**（代码语义化）便于**开发者阅读**和写出更优雅的代码的同时**让浏览器的爬虫和机器很好地解析**。
+- 为什么要语义化
+ 为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构 : 为了裸奔时好看； 
+ 用户体验：例如title、 alt 用于解释名词或解释图片信息、 label 标签的活用；
+ 有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息，爬虫依赖于标签来确定上下文和各个关键字的权重；
+方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
+ 便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。 
+- 语义化标签
+`<header></header>` `<footer></footer>` `<nav></nav>` `<section></section>` 
+`<article></article>` 用来在页面中表示一套结构完整且独立的内容部分
+`<aside></aside>` 主题的附属信息 ( 用途很广，主要就是一个附属内容 ) ，如果 article 里面为一篇文章的话，那么文章的作者以及信息内容就是这篇文章的附属内容了
+`<figure></figure>` 媒体元素，比如一些视频，图片等等
+`<datalist></datalist>` 选项列表，与 input 元素配合使用，来定义 input 可能的值
+`<details></details>` 用于描述文档或者文档某个部分的细节
+
+### link和@import的区别 ###
+HTML代码link:
+`<link rel='stylesheet' rev='stylesheet' href='CSS文件 ' type='text/css' media='all' />`
+
+HTML代码@import:
+
+    <style type='text/css' media='screen'>
+    @import url('CSS文件 ');
+    </style> 
+    
+- 首先link和import语法结构不同，前者<link>是html标签，只能放入html源代码中使用，后者可看作为css样式，作用是引入css样式功能。
+- import在html使用时候需要`<style type="text/css">`标签，同时可以直接`@import url(CSS文件路径地址)`放入css文件或css代码里引入其它css文件。
+- 本质上两者使用选择区别不大，但为了软件中编辑布局网页html代码，一般使用link较多，也推荐使用link。
+
+两者都是外部引用CSS的方式，但是存在一定的**区别：**
+ 区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。
+区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。
+区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。
+区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。
+### 对SVG的理解 ###
+SVG可缩放矢量图形（ Scalable Vector Graphics ）是基于可扩展标记语言（ XML ），用于描述二维矢量图形的一种图形格式。 SVG 是 W3C 在 2000 年 8 月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。 SVG 严格遵从 XML 语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。 SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准。
+特点：
+ (1)任意放缩：用户可以任意缩放图像显示，而不会破坏图像的清晰度、细节等。
+ (2)文本独立：SVG图像中的文字独立于图像，文字保留可编辑和可搜寻的状态。也不会再有字体的限制，用户系统即使没有安装某一字体，也会看到和他们制作时完全相同的画面。
+ (3)较小文件： 总体来讲，SVG文件比那些 GIF 和 JPEG 格式的文件要小很多，因而下载也很快。
+ (4)超强显示效果：SVG图像在屏幕上总是边缘清晰，它的清晰度适合任何屏幕分辨率和打印分辨率。
+ (5)超级颜色控制：SVG图像提供一个 1600 万种颜色的调色板，支持 ICC 颜色描述文件标准、 RGB 、线 X 填充、渐变和蒙版。
+ (6)交互 X 和智能化：SVG面临的主要问题一个是如何和已经占有重要市场份额的矢量图形格式 Flash 竞争的问题，另一个问题就是 SVG 的本地运行环境下的厂家支持程度。
+  Internet Explorer9，火狐，谷歌 Chrome ， Opera 和 Safari 都支持 SVG 。IE8和早期版本都需要一个插件 - 如 Adobe SVG 浏览器，这是免费提供的
+
+### HTML全局属性(global attribute)有哪些 ###
+参考[HTML 全局属性](http://www.w3school.com.cn/tags/html_ref_standardattributes.asp)。例如`class`, `id`, `style`, `title`, `lang`等等。
