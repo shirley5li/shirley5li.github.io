@@ -103,7 +103,7 @@
     <link href="http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/"/>
     <id>http://yoursite.com/2018/01/08/interview-questions-about-HTML-CSS/</id>
     <published>2018-01-08T07:16:53.000Z</published>
-    <updated>2018-01-09T14:15:14.942Z</updated>
+    <updated>2018-01-10T09:42:49.958Z</updated>
     
     <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/review-frontend?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="external">前端面试常考知识点 HTML+CSS</a> 篇学习总结。<br><a id="more"></a></p>
 <h3 id="浏览器页面有哪三层构成"><a href="#浏览器页面有哪三层构成" class="headerlink" title="浏览器页面有哪三层构成"></a>浏览器页面有哪三层构成</h3><p><strong>浏览器页面有哪三层构成，分别是什么，作用是什么?</strong><br>浏览器页面有结构层、表示层、行为层，三层构成，分别是HTML、CSS、JavaScript，作用是HTML实现页面结构(骨架)，CSS完成页面的表现与风格(肌肤)，JavaScript实现一些客户端的功能与业务(动作)，对用户事件作出反应。<br>不过，在这三种技术之间存在着一些潜在的<strong>重叠区域</strong>，如DOM技术可以用来改变网页的结构；CSS诸如<code>:hover</code>和<code>:focus</code>之类的class伪类，使我们可以根据用户触发事件来改变呈现效果。<br>改变元素的呈现效果当然是表示层的“势力范围”，但对用户触发事件做出反应却是行为层的领地。表示层和行为层的这种重叠形成了一个灰色地带。class伪类是 CSS 正在深入DOM领地证据，但 DOM在这方面也不是毫无作为，完全可以利用 DOM 技术把样式信息施加在HTML元素身上。<br>分离的效果要做到即使去掉表示层和行为层，文档的内容也依然可以访问，因为“内容才是一切”。而且网页的行为层(javascript)与其结构(HTML)是彼此互不干扰的，不能混杂在一起。还要给行为层“预留退路”，要考虑到如果你的用户禁用了Javascript会怎样？网页是否还可以正常运作。做到<strong>平稳退化，渐进增强</strong>。</p>
@@ -165,6 +165,24 @@
 <p>两者都是外部引用CSS的方式，但是存在一定的<strong>区别：</strong><br> 区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。<br>区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。<br>区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。<br>区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。</p>
 <h3 id="对SVG的理解"><a href="#对SVG的理解" class="headerlink" title="对SVG的理解"></a>对SVG的理解</h3><p>SVG可缩放矢量图形（ Scalable Vector Graphics ）是基于可扩展标记语言（ XML ），用于描述二维矢量图形的一种图形格式。 SVG 是 W3C 在 2000 年 8 月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。 SVG 严格遵从 XML 语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。 SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准。<br>特点：<br> (1)任意放缩：用户可以任意缩放图像显示，而不会破坏图像的清晰度、细节等。<br> (2)文本独立：SVG图像中的文字独立于图像，文字保留可编辑和可搜寻的状态。也不会再有字体的限制，用户系统即使没有安装某一字体，也会看到和他们制作时完全相同的画面。<br> (3)较小文件： 总体来讲，SVG文件比那些 GIF 和 JPEG 格式的文件要小很多，因而下载也很快。<br> (4)超强显示效果：SVG图像在屏幕上总是边缘清晰，它的清晰度适合任何屏幕分辨率和打印分辨率。<br> (5)超级颜色控制：SVG图像提供一个 1600 万种颜色的调色板，支持 ICC 颜色描述文件标准、 RGB 、线 X 填充、渐变和蒙版。<br> (6)交互 X 和智能化：SVG面临的主要问题一个是如何和已经占有重要市场份额的矢量图形格式 Flash 竞争的问题，另一个问题就是 SVG 的本地运行环境下的厂家支持程度。<br>  Internet Explorer9，火狐，谷歌 Chrome ， Opera 和 Safari 都支持 SVG 。IE8和早期版本都需要一个插件 - 如 Adobe SVG 浏览器，这是免费提供的</p>
 <h3 id="HTML全局属性-global-attribute-有哪些"><a href="#HTML全局属性-global-attribute-有哪些" class="headerlink" title="HTML全局属性(global attribute)有哪些"></a>HTML全局属性(global attribute)有哪些</h3><p>参考<a href="http://www.w3school.com.cn/tags/html_ref_standardattributes.asp" target="_blank" rel="external">HTML 全局属性</a>。例如<code>class</code>, <code>id</code>, <code>style</code>, <code>title</code>, <code>lang</code>等等。</p>
+<h3 id="超链接target属性的取值和作用"><a href="#超链接target属性的取值和作用" class="headerlink" title="超链接target属性的取值和作用"></a>超链接target属性的取值和作用</h3><p>target属性指定所链接的页面在浏览器窗口中的打开方式。<br>参数值主要有：<br>_blank ：浏览器总在一个新打开、未命名的窗口中载入目标文档。<br>_parent ：在父框架集中打开被链接文档。如果含有该链接的框架不是嵌套的，则在浏览器全屏窗口中载入链接的文件，就象 _self 参数一。<br>_self ：默认。在相同的框架中打开被链接文档。<br>_top ： 在整个窗口中打开被链接文档。这个目标使得文档载入包含这个超链接的窗口，用 _top 目标将会清除所有被包含的框架并将文档载入整个浏览器窗口。<br>framename：在指定的框架中打开被链接文档。</p>
+<h3 id="data-属性的作用"><a href="#data-属性的作用" class="headerlink" title="data- 属性的作用"></a>data- 属性的作用</h3><p>data-<em> 属性赋予我们在所有 HTML 元素上嵌入自定义 data 属性的能力。<br>data-</em> 属性用于存储页面或应用程序的私有自定义数据。<br>存储的（自定义）数据能够被页面的 JavaScript利用，以创建更好的用户体验（不进行 Ajax 调用或服务器端数据库查询）。</p>
+<p><code>data-</code>为HTML5新增的为前端开发者提供自定义的属性，这些属性集可以通过对象的 <code>dataset</code> 属性获取，不支持该属性的浏览器可以通过 <code>getAttribute</code> 方法获取：<br>需要注意的是：<code>data-</code>之后的以连字符分割的多个单词组成的属性，获取的时候使用驼峰风格。 所有主流浏览器都支持 data-* 属性。即：当没有合适的属性和元素时，自定义的 data 属性是能够存储页面或 App 的私有的自定义数据。 </p>
+<h3 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h3><p>主要分成两部分：渲染引擎(layout engineer或 Rendering Engine) 和 JS 引擎。<br><strong>渲染引擎：</strong>负责取得网页的内容（HTML、 XML 、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后会输出至显示器或打印机。<br>浏览器内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。<br><strong>JS引擎：</strong> 解析和执行 javascript 来实现网页的动态效果。<br>最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h3 id="iframe的缺点"><a href="#iframe的缺点" class="headerlink" title="iframe的缺点"></a>iframe的缺点</h3><ul>
+<li>iframe会阻塞主页面的 Onload 事件</li>
+<li>搜索引擎的检索程序无法解读这种页面，不利于 SEO;</li>
+<li>iframe和主页面共享<a href="https://baike.baidu.com/item/%E8%BF%9E%E6%8E%A5%E6%B1%A0/1699713?fr=aladdin" target="_blank" rel="external">连接池</a>，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</li>
+</ul>
+<p>如果需要使用 iframe ，最好是通过 javascript动态给iframe添加 src 属性值，这样可以绕开以上两个问题。 </p>
+<p>历史上，iframe 常被用于复用部分界面，但是多数情况下并不合适。<br>现在，应该使用 iframe 的例子如：</p>
+<ol>
+<li>沙箱隔离。参考<a href="https://www.imooc.com/article/17353" target="_blank" rel="external">写js沙箱原来如此简单</a></li>
+<li>引用第三方内容。</li>
+<li>独立的带有交互的内容，比如幻灯片。</li>
+<li>需要保持独立焦点和历史管理的子窗口，如复杂的Web应用。</li>
+</ol>
+<p>使用 iframe 是不是一个好的用法（good practice），不能一概而论，但是可以肯定是，现在的大部分网站避免采用这种方式的。<br>比较早期的网站使用iframe，主要是用于导航栏（navigator）。因为一个网站很多页面的导航栏部分是相同的，在避免切换页面的时候重复下载，将导航栏和正文分开在 iframe 中，是一个方便的做法。同时带来的不利是，默认情况下，使用了 iframe 的网站的URL不会随着页面的变化而变化。这就意味着一旦刷新，网站可能又回到首页。那么现在的网站是如何解决不同页面使用相同的 navigator 而避免重复编码呢？不同后台技术都有自己的方法，比如 ASP 有 SSI，PHP 有 require、require_once 或 include 函数，JSP 也有 include 指令。<br>iframe 一直是浏览器标准规范之一，只有很早期的浏览器不支持 iframe，现在几乎已绝迹。所以从兼容性上来说，iframe 是没问题的。<br>那么现在什么时候会用到 iframe 呢？<br>因为 iframe 的页面和父页面（parent）是分开的，所以它意味着，这是一个独立的区域，不受 parent 的 CSS 或者全局的 JavaScript 的影响。<br>典型的，比如所见即所得的网页编辑器（WYSIWYG Online HTML Editor），因为它们需要 reset 自己的 CSS 到自己的标准，而不被 parent CSS 的 override。 顺便说一下，知乎的这个编辑器不是用 iframe，它使用了一种叫 contentEditable 的属性，用来启用页面元素的编辑，在早期版本 IE 下不支持的。<br>正是因为刚刚提到的 iframe 等于新建了一个全新的，不受 parent 影响的页面上下文，所以在一定程度上，类似于沙箱隔离（sandbox）。除此之外，如果有可以不用 iframe 来解决的问题，还是避免使用 iframe。替代方案一般就是动态语言的 include 机制、ajax 动态填充内容，以及以后会普及的 contentEditable。</p>
 ]]></content>
     
     <summary type="html">
