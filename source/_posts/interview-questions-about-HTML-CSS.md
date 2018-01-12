@@ -240,4 +240,202 @@ iframe 一直是浏览器标准规范之一，只有很早期的浏览器不支�
 那么现在什么时候会用到 iframe 呢？
 因为 iframe 的页面和父页面（parent）是分开的，所以它意味着，这是一个独立的区域，不受 parent 的 CSS 或者全局的 JavaScript 的影响。
 典型的，比如所见即所得的网页编辑器（WYSIWYG Online HTML Editor），因为它们需要 reset 自己的 CSS 到自己的标准，而不被 parent CSS 的 override。 顺便说一下，知乎的这个编辑器不是用 iframe，它使用了一种叫 contentEditable 的属性，用来启用页面元素的编辑，在早期版本 IE 下不支持的。
-正是因为刚刚提到的 iframe 等于新建了一个全新的，不受 parent 影响的页面上下文，所以在一定程度上，类似于沙箱隔离（sandbox）。除此之外，如果有可以不用 iframe 来解决的问题，还是避免使用 iframe。替代方案一般就是动态语言的 include 机制、ajax 动态填充内容，以及以后会普及的 contentEditable。
+正是因为刚刚提到的 iframe 等于新建了一个全新的，不受 parent 影响的页面上下文，所以在一定程度上，类似于沙箱隔离（sandbox）。除此之外，如果有可以不用 iframe 来解决的问题，还是避免使用 iframe。替代方案一般就是动态语言的 include 机制、ajax 动态填充内容，以及以后会普及的 [contentEditable](http://www.w3school.com.cn/html5/att_global_contenteditable.asp)。
+### label标签的作用 ###
+对鼠标用户而言增进了可用性。
+label标签用来定义表单控制间的关系 , 当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
+
+    <label for='Name'>Number:</label>
+    <input type="text" name="Name" id="Name"/>
+注意:label的for属性值要与后面对应的input标签id属性值相同。
+### 浏览器内多个标签页之间的通信 ###
+调用localstorge、cookies等本地存储方式。
+方法一：localstorge在一个标签页里被添加、修改或删除时，都会触发一个storage事件，通过在另一个标签页里监听storage事件，即可得到localstorge存储的值，实现不同标签页之间的通信。例如
+标签页1：
+
+    <input id="name">  
+    <input type="button" id="btn" value="提交">  
+    <script type="text/javascript">  
+        $(function(){    
+            $("#btn").click(function(){    
+                var name=$("#name").val();    
+                localStorage.setItem("name", name);   
+            });    
+        });    
+    </script>  
+标签页2：
+
+    <input id="name">  
+    <input type="button" id="btn" value="提交">  
+    <script type="text/javascript">  
+        $(function(){    
+            $("#btn").click(function(){    
+                var name=$("#name").val();    
+                localStorage.setItem("name", name);   
+            });    
+        });    
+    </script>  
+    
+方法二：使用cookie+setInterval，将要传递的信息存储在cookie中，每隔一定时间读取cookie信息，即可随时获取要传递的信息。
+标签页1：
+
+    <input id="name">  
+    <input type="button" id="btn" value="提交">  
+    <script type="text/javascript">  
+        $(function(){    
+            $("#btn").click(function(){    
+                var name=$("#name").val();    
+             document.cookie="name="+name;    
+            });    
+        });    
+    </script>
+标签页2：
+
+    <script type="text/javascript">  
+        $(function(){   
+            function getCookie(key) {    
+                return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];    
+            }     
+            setInterval(function(){    
+                console.log("name=" + getCookie("name"));    
+            }, 10000);    
+        });  
+    </script> 
+### 在页面上实现一个圆形的可点击区域 ###
+第一种 使用image map
+
+    <img id="blue" class="click-area" src="blue.gif" usemap="#Map" /> 
+    <map name="Map" id="Map" class="click-area">
+        <area shape="circle" coords="50,50,50"/>
+    </map>
+    #blue{
+        cursor:pointer;
+        width:100px;
+        height:100px;
+}
+第二种 使用CSS border-radius
+
+    <div id="red" class="click-area" ></div>
+    #red{  
+     cursor:pointer;
+     background:red;  
+     width:100px;  
+     height:100px;  
+     border-radius:50%;  
+    } 
+第三种 使用js检测鼠标位置,获取鼠标点击位置坐标，判断其到圆点的距离是否不大于圆的半径，来判断点击位置是否在圆内。
+
+    <div id="yellow" class="click-area" ></div>
+    $("#yellow").on('click',function(e) {    
+      var r = 50; 
+      var x1 = $(this).offset().left+$(this).width()/2;            
+      var y1 = $(this).offset().top+$(this).height()/2;   
+      var x2= e.clientX;  
+      var y2= e.clientY;    
+      var distance = Math.abs(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));    
+      if (distance <= 50)  
+        alert("Yes!");    
+    }); 
+### title与h3、b与strong、及i与em的区别 ###
+`<strong>` 表示html页面上的强调（emphasized text）， `<em>` 表示句子中的强调（即强调语义）
+**1.b和strong的区别**
+盲人朋友使用阅读设备阅读网络时：`<strong>`会重读，`<b>`不会。两者虽然在网页中显示效果一样，但实际目的不同。
+`<b>`这个标签对应 bold，即文本加粗，其目的仅仅是为了加粗显示文本，是一种样式／风格需求；`<strong>`这个标签意思是加强字符的语气，表示该文本比较重要，提醒读者／终端注意。为了达到这个目的，浏览器等终端将其加粗显示；
+总结：`<b>`为了加粗而加粗，`<strong>`为了标明重点而加粗，也可以用其它方式来强调，比如下划线，比如字体加大，比如红色，等等，可以通过css来改变strong的具体表现。
+**2.i和em的区别**
+同样，I是Italic(斜体)，而em是emphasize(强调)。
+**3.title与h1的联系与区别：**
+从网站角度看，title更重于网站信息。title可以直接告诉搜索引擎和用户这个网站是关于什么主题和内容的。
+从文章角度看，h1则是用于概括文章主题。用户进入内容页，想看到的当然就是文章的内容，h1文章标题就是最重要的。文章标题最好只有一个，多个h1会导致搜索引擎不知道这个页面哪个标题内容最重要，导致淡化这个页面的标题和关键词，起不到突出主题的效果。
+区别：
+h1突出文章主题，面对用户，更突出其视觉效果，突出网站标题或关键字用title。一篇文章，一个页面最好只用一个h1，多个h1会稀释主题。一个网站可以有多个title,最好一个单页用一个title，以便突出网站页面主体信息，从seo看，title权重比h1高，适用性比h1广。标记了h1的文字页面给予的权重会比页面内其他权重高很多。一个好的网站是h1和title并存，既突出h1文章主题，又突出网站主题和关键字。达到双重优化网站的效果。
+### 不使用border画出1px高的线，考虑兼容性 ###
+实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？ 
+
+    <div style="width:100%;height:1px;background-color:black"></div>
+### src属性与href属性的区别 ###
+src用于替换当前元素， href 用于在当前文档和引用资源之间确立联系。
+src是 source 的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求 src 资源时会将其指向的资源下载并应用到文档内，例如 js 脚本， img 图片和 frame 等元素。
+`<script src ='js.js'></script>`，当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。 
+ href是 Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的连接，如果我们在文档中添加`<link href='common.css' rel='stylesheet'/>`，那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式来加载 css ，而不是使用 @import 方式。 
+### 对canvas的理解 ###
+canvas是HTML5中新增一个HTML5标签与操作canvas的javascript API，它可以实现在网页中完成动态的2D与3D图像技术。canvas标记和 SVG以及 VML 之间的一个重要的不同是，有一个基于 JavaScript 的绘图 API，而 SVG 和 VML 使用一个 XML 文档来描述绘图。SVG 绘图很容易编辑与生成，但功能明显要弱一些。 canvas可以完成动画、游戏、图表、图像处理等原来需要Flash完成的一些功能。
+### WebSocket与消息推送 ###
+B/S架构的系统多使用HTTP协议。 
+**HTTP协议的特点：** 1 无状态协议； 2 用于通过 Internet 发送请求消息和响应消息； 3 使用端口接收和发送消息，默认为80端口； 4 底层通信还是使用Socket。
+
+![HTTP协议请求响应](https://uploadfiles.nowcoder.com/images/20170112/826546_1484203855304_198713B681803E835F62D3D3E22D5BBB)
+
+HTTP协议决定了服务器与客户端之间的连接方式，无法直接实现消息推送（ F5 已坏） , 一些变相的解决办法实现 双向通信与消息推送 ：
+**轮询：** 客户端定时向服务器发送Ajax请求，服务器接到请求后马上返回响应信息并关闭连接。
+优点：后端程序编写比较容易。
+缺点：请求中有大半是无用，浪费带宽和服务器资源。
+实例：适于小型应用
+**长轮询：** 客户端向服务器发送Ajax请求，服务器接到请求后 hold 住连接，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。
+优点：在无消息的情况下不会频繁的请求，耗费资小。
+缺点：服务器hold连接会消耗资源，返回数据顺序无保证，难于管理维护。 Comet 异步的 ashx ，
+实例：WebQQ、 Hi 网页版、 Facebook IM 
+**长连接：** 在页面里嵌入一个隐蔵iframe，将这个隐蔵 iframe 的 src 属性设为对一个长连接的请求或是采用xhr请求，服务器端就能源源不断地往客户端输入数据。
+优点：消息即时到达，不发无用请求；管理起来也相对便。
+缺点：服务器维护一个长连接会增加开销。
+实例：Gmail聊天
+**Flash Socket：** 在页面中内嵌入一个使用了 Socket 类的 Flash 程序， JavaScript 通过调用此 Flash 程序提供的 Socket 接口与服务器端的 Socket 接口进行通信， JavaScript 在收到服务器端传送的信息后控制页面的显示。
+优点：实现真正的即时通信，而不是伪即时。
+缺点：客户端必须安装Flash插件；非 HTTP 协议，无法自动穿越防火墙。
+实例：网络互动游戏。 
+**Websocket:**
+WebSocket是 HTML5 开始提供的一种浏览器与服务器间进行全双工通讯的网络技术。依靠这种技术可以实现客户端和服务器端的长连接，双向实时通信。
+特点:事件驱动；异步；使用 ws 或者 wss 协议的客户端 socket；能够实现真正意义上的推送功能
+缺点：少部分浏览器不支持，浏览器支持的程度与方式有区别
+**参考文章：**
+[WebSocket 教程-阮一峰](http://www.ruanyifeng.com/blog/2017/05/websocket.html)
+[html5-websocket初探](https://www.cnblogs.com/myzhibie/p/4470065.html)
+### img的title和alt的区别 ###
+alt 是给搜索引擎识别，在图像无法显示时的替代文本； alt属性有利于SEO，是搜索引擎搜录时判断图片与文字是否相关的重要依据。
+title 是关于元素的注释信息，主要是给用户解读。当鼠标放到文字或是图片上时有title文字显示。
+参考文章：[img图片标签alt和title属性的区别](http://blog.csdn.net/playkid123/article/details/44562235)
+### 表单的基本组成 ###
+组成：表单标签、表单域、表单按钮。
+ a、表单标签：这里面包含了处理表单数据所用 CGI 程序的 URL, 以及数据提交到服务器的方法。
+b、表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框、和文件上传框等。
+c、表单按钮：包括提交按钮，复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作。
+主要用途：表单在网页中主要负责数据采集的功能，和向服务器传送数据。 
+
+    <form action="#" method="post" id="regForm">  
+        <fieldset>  
+            <legend>个人基本信息</legend>  
+            <div>  
+                <label for="userName">名称：</label>  
+                <input id="useName" type="text" />  
+            </div>  
+            <div>  
+                <label for="passWord">密码：</label>  
+                <input id="passWord" type="password" />  
+            </div>  
+            <div>  
+                <label for="msg">详细信息：</label>  
+                <textarea id="msg"></textarea>  
+             </div>  
+        </fieldset>  
+    </form> 
+**form标签：** `<form action="表单提交的地址"   method="表单提交的方法"   id=""  class="">`
+**fieldset标签：**作用是将表单内相关元素分组；将表单内容的一部分打包，生成一组表单的字段;在一个form表单中，可以有一个或者多个fielset标签。
+**legend标签：** 作用是为fieldset标签定义标题。
+**label标签：** 该标签在页面中使用不会为用户呈现任何特殊效果，但是却可以很好地为鼠标用户改进了可用性。其作用是为input元素定义标注，要注意的是label中的for属性应与input中的id属性一致，如上述代码所示。
+**input标签：** 输入框，其中可以根据type的属性值改变输入框的作用。例如：`<input  type="text"/>` 是文本框，还可以是密码输入框、复选框、单选框等等。
+### 表单提交中Get和Post方式的区别 ###
+**原理性区别：**
+1. Http 定义的与服务器交互的四种基本方法，增删改查（ put delete post get ）；从定义而言 get 用于信息获取（状态不做迁移），而且是安全幂等的（不修改信息、同一 url 多次请求结果一致），但有时候并不严格遵循规定，比如腾讯新闻的刷新操作，因为从 server端来讲，数据状态并没有发生任何改变 ，所以也可以算成是幂等； post 可以修改服务器上的资源请求（资源的状态迁移），比如新闻评论的提交，提交前后资源被修改了。
+2. 关于幂等与否只是 http 的规定，实际中要看服务器端怎么写。
+**表象上的区别：**
+1. 提交的安全性不同： Get 将表单中的数据按照 variable=value 的形式，添加到 action 所指向的 URL 后面，并且两者使用"? "连接，而各个变量之间使用"&"连接（明文提交）； Post 是将表单中的数据放在 form 的数据体中，按照变量和值相对应的方式，传递到 action 所指向 URL （依照表单提交）。
+2. Get 传输的数据量小（ 1024 字节），这主要是因为受 URL 长度限制； URL 长度在 http 协议中没有限制，只是 IE 对 URL 有长度限制，其他浏览器取决于操作系统，理论上没有限制。 Post 可以传输大量的数据（ 2M ），理论上 http 没有限制数据量长度，服务器处理程序的处理能力限制了表单域长度，而有限制
+3. Get 限制 Form 表单的数据集的值必须为 ASCII 字符；而 Post 支持整个 ISO10646 字符集。
+4. 传输信息所在 http 中的位置不同： Post 的信息作为 http 请求的内容，而 Get 是在 Http 头部传输的， get 请求可以有 body 但大多数服务器不会解析 get 请求的 body 。
+
+(1)、 get 是从服务器上获取数据， post 是向服务器传送数据。
+(2)、 get 是把参数数据队列加到提交表单的 ACTION 属性所指的 URL 中，值和表单内各个字段一一对应，在 URL 中可以看到。 post 是通过 HTTP post 机制，将表单内各个字段与其内容放置在 HTML HEADER 内一起传送到 ACTION 属性所指的 URL 地址 , 用户看不到这个过程。
+(3)、对于 get 方式，服务器端用 Request.QueryString 获取变量的值，对于 post 方式，服务器端用 Request.Form 获取提交的数据。
+(4)、 get 传送的数据量较小，不能大于 2KB 。 post 传送的数据量较大，一般被默认为不受限制。但理论上， IIS4 中最大量为 80KB ， IIS5 中为 100KB 。
+(5)、 get 安全性低， post 安全性较高。
+
