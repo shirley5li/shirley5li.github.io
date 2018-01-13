@@ -1,5 +1,5 @@
 ---
-title: 【interview questions about HTML/CSS】 from牛客网
+title: 【interview questions about HTML】 from牛客网
 date: 2018-01-08 15:16:53
 tags: [interview questions]
 categories: interview questions
@@ -18,33 +18,33 @@ categories: interview questions
 **优点：**
 
 - 网络标准统一
-  HTML5本身是由W3C推荐出来的，它的开发是通过谷歌、苹果，诺基亚、中国移动等几百家公司一起酝酿的技术，这个技术最大的好处在于它是一个公开的技术。换句话说，每一个公开的标准都可以根据W3C的资料库找寻根源。另一方面，W3C通过的HTML5标准也就意味着每一个浏览器或每一个平台都会去实现。
+HTML5本身是由W3C推荐出来的，它的开发是通过谷歌、苹果，诺基亚、中国移动等几百家公司一起酝酿的技术，这个技术最大的好处在于它是一个公开的技术。换句话说，每一个公开的标准都可以根据W3C的资料库找寻根源。另一方面，W3C通过的HTML5标准也就意味着每一个浏览器或每一个平台都会去实现。
 - 多设备跨平台，可移植性好
-  HTML5的优点主要在于，这个技术可以进行跨平台的使用。比如你开发了一款HTML5的游戏，你可以很轻易地移植到UC的开放平台、Opera的游戏中心、Facebook应用平台,甚至可以通过封装的技术发放到AppStore或GooglePlay上，所以它的跨平台性非常强大，这也是大多数人对HTML5有兴趣的主要原因。
+HTML5的优点主要在于，这个技术可以进行跨平台的使用。比如你开发了一款HTML5的游戏，你可以很轻易地移植到UC的开放平台、Opera的游戏中心、Facebook应用平台,甚至可以通过封装的技术发放到AppStore或GooglePlay上，所以它的跨平台性非常强大，这也是大多数人对HTML5有兴趣的主要原因。
 - 自适应网页设计
-  即“一次设计，普遍适用”，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局(layout)。
+即“一次设计，普遍适用”，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局(layout)。
 - 即时更新
-  游戏客户端每次都要更新，很麻烦。可是更新HTML5游戏就好像更新页面一样，是马上的、即时的更新。
+游戏客户端每次都要更新，很麻烦。可是更新HTML5游戏就好像更新页面一样，是马上的、即时的更新。
 - 提高可用性和改进用户的友好体验
 - 增加几个新的标签，这将有助于开发人员定义重要的内容
 - 可以给站点带来更多的多媒体元素(视频和音频)
 - 可以很好的替代FLASH和Silverlight
-  Silverlight是一个跨浏览器、跨平台的插件，为网络带来下一代基于.NET媒体体验，和丰富的交互式应用程序。
+Silverlight是一个跨浏览器、跨平台的插件，为网络带来下一代基于.NET媒体体验，和丰富的交互式应用程序。
 - 当涉及到网站的抓取和索引的时候，对于SEO很友好
-  SEO，即搜索引擎优化是一种利用搜索引擎的搜索规则来提高目前网站在有关搜索引擎内的自然排名的方式。
+SEO，即搜索引擎优化是一种利用搜索引擎的搜索规则来提高目前网站在有关搜索引擎内的自然排名的方式。
 - 将被大量应用于移动应用程序和游戏
-  **缺点：**
+**缺点：**
 
 - 安全方面
-  像之前Firefox4的web socket和透明代理的实现存在严重的安全问题，同时web storage、web socket这样的功能很容易被黑客利用，来盗取用户的信息和资料。
+像之前Firefox4的web socket和透明代理的实现存在严重的安全问题，同时web storage、web socket这样的功能很容易被黑客利用，来盗取用户的信息和资料。
 - 完善性方面
-  许多特性各浏览器的支持程度也不一样。
+许多特性各浏览器的支持程度也不一样。
 - 技术门槛方面
-  HTML5技术开发者工作的同时，有许多新的属性和API需要开发者学习，像[web worker、web socket、web storage](http://blog.csdn.net/leledexixi/article/details/55210717)等新特性，甚至后台及浏览器原理的知识。这是机遇的同时也是巨大的挑战。
+HTML5技术开发者工作的同时，有许多新的属性和API需要开发者学习，像[web worker、web socket、web storage](http://blog.csdn.net/leledexixi/article/details/55210717)等新特性，甚至后台及浏览器原理的知识。这是机遇的同时也是巨大的挑战。
 - 性能方面
-  某些平台上的引擎问题导致HTML5性能低下.
+某些平台上的引擎问题导致HTML5性能低下.
 - 浏览器兼容性方面
-  IE9以下浏览器几乎不支持。
+IE9以下浏览器几乎不支持。
 
 ### Doctype作用 ###
 **Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?**
@@ -111,52 +111,6 @@ HTML5新增了27个元素，废弃了16个元素，根据现有的标准规范�
 `<hr>` //分隔线
 `<input>` //文本框等
 `<img> <link> <meta>`
-
-在CSS中，html中的标签元素大体被分为三种不同的类型： 块状元素、内联元素(又叫行内元素)和内联块状元素。
-
-**常用的块状元素有：**
-
- <div>、<p>、<h1>…<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote>
- 、<form> 
-**什么是块级元素？**
-在html中<div>、<p>、<h1>、<form>、<ul>和<li>就是块级元素。设置display:block就是将元素显示为块级元素。如下代码就是将内联元素a转换为块状元素，从而使a元素具有块状元素特点。 a{display:block;} 
-
-**块级元素特点：** 
-
- 1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（真霸道，一个块级元素独占一行）; 
-
- 2、元素的高度、宽度、行高以及顶和底边距都可设置。 
-
- 3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。  
-
-**常用的内联元素有:**
-
-<a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code> 在html中，<span>、<a>、<label>、<strong> 和<em>就是典型的内联元素（行内元素）（inline）元素。 
-
-当然块状元素也可以通过代码display:inline将元素设置为内联元素。如下代码就是将块状元素div转换为内联元素，从而使div 元素具有内联元素特点。 
-
- div{ display:inline; } ...... <div>我要变成内联元素</div>  
-
- **内联元素特点:**
-
-1、和其他元素都在一行上；  
-
-2、元素的高度、宽度及顶部和底部边距不可设置； **\*（这是答案^-^）*** 
-
-3、元素的宽度就是它包含的文字或图片的宽度，不可改变。  
-
-**常用的内联块状元素有：** 
-
- <img>、<input> 
-
-内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点，代码display:inline-block就是将元素设置为内联块状元素。 
-
- **inline-block 元素特点:**
-
-1、和其他元素都在一行上；  
-
-2、元素的高度、宽度、行高以及顶和底边距都可设置。  
-
 ### 浏览器的内核分类 ###
 IE: Trident 内核
 Firefox： Gecko 内核(开源)
@@ -181,36 +135,36 @@ WebGL完美地解决了现有的 Web 交互式三维动画的两个问题：第�
 
 区别：
 
-- cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
-- cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。
-- 存储大小限制也不同。cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
-- 数据有效期不同。sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
-- 作用域不同。sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。
-- WebStorage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。
-   sessionStorage 和 localStorage 是 HTML5 Web Storage API 提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。
-   sessionStorage、 localStorage 、 cookie 都是在浏览器端存储的数据，其中 sessionStorage 的概念很特别，引入了一个“浏览器窗口”的概念。 sessionStorage 是在同源的同窗口（或 tab ）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面， sessionStorage 对象也是不同的。
-   cookies 会发送到服务器端。其余两个不会。
-   Cookie 每个域名存储量比较小（各浏览器不同，大致 4K ）；所有域名的存储量有限制（各浏览器不同，大致 4K ）； 有个数限制（各浏览器不同）；会随请求发送到服务器。
-   LocalStorage 永久存储；单个域名存储量比较大（推荐 5MB ，各浏览器不同）；总体数量无限制。
-   SessionStorage 只在 Session 内有效；存储量更大（推荐没有限制，但是实际上各浏览器也不同）。
+ - cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+ - cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。
+ - 存储大小限制也不同。cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+ - 数据有效期不同。sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
+ - 作用域不同。sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。
+ - WebStorage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。
+sessionStorage 和 localStorage 是 HTML5 Web Storage API 提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。
+sessionStorage、 localStorage 、 cookie 都是在浏览器端存储的数据，其中 sessionStorage 的概念很特别，引入了一个“浏览器窗口”的概念。 sessionStorage 是在同源的同窗口（或 tab ）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面， sessionStorage 对象也是不同的。
+cookies 会发送到服务器端。其余两个不会。
+Cookie 每个域名存储量比较小（各浏览器不同，大致 4K ）；所有域名的存储量有限制（各浏览器不同，大致 4K ）； 有个数限制（各浏览器不同）；会随请求发送到服务器。
+LocalStorage 永久存储；单个域名存储量比较大（推荐 5MB ，各浏览器不同）；总体数量无限制。
+SessionStorage 只在 Session 内有效；存储量更大（推荐没有限制，但是实际上各浏览器也不同）。
 
 ### 对HTML语义化的理解 ###
 - 什么是 HTML 语义化
-  <基本上都是围绕着几个主要的标签，像标题（ H1~H6 ）、列表（ li ）、强调（ strong em ）等等 >
-  根据**内容的结构化**（内容语义化），选择**合适的标签**（代码语义化）便于**开发者阅读**和写出更优雅的代码的同时**让浏览器的爬虫和机器很好地解析**。
+<基本上都是围绕着几个主要的标签，像标题（ H1~H6 ）、列表（ li ）、强调（ strong em ）等等 >
+根据**内容的结构化**（内容语义化），选择**合适的标签**（代码语义化）便于**开发者阅读**和写出更优雅的代码的同时**让浏览器的爬虫和机器很好地解析**。
 - 为什么要语义化
-   为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构 : 为了裸奔时好看； 
-   用户体验：例如title、 alt 用于解释名词或解释图片信息、 label 标签的活用；
-   有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息，爬虫依赖于标签来确定上下文和各个关键字的权重；
-  方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
-   便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。 
+ 为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构 : 为了裸奔时好看； 
+ 用户体验：例如title、 alt 用于解释名词或解释图片信息、 label 标签的活用；
+ 有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息，爬虫依赖于标签来确定上下文和各个关键字的权重；
+方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
+ 便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。 
 - 语义化标签
-  `<header></header>` `<footer></footer>` `<nav></nav>` `<section></section>` 
-  `<article></article>` 用来在页面中表示一套结构完整且独立的内容部分
-  `<aside></aside>` 主题的附属信息 ( 用途很广，主要就是一个附属内容 ) ，如果 article 里面为一篇文章的话，那么文章的作者以及信息内容就是这篇文章的附属内容了
-  `<figure></figure>` 媒体元素，比如一些视频，图片等等
-  `<datalist></datalist>` 选项列表，与 input 元素配合使用，来定义 input 可能的值
-  `<details></details>` 用于描述文档或者文档某个部分的细节
+`<header></header>` `<footer></footer>` `<nav></nav>` `<section></section>` 
+`<article></article>` 用来在页面中表示一套结构完整且独立的内容部分
+`<aside></aside>` 主题的附属信息 ( 用途很广，主要就是一个附属内容 ) ，如果 article 里面为一篇文章的话，那么文章的作者以及信息内容就是这篇文章的附属内容了
+`<figure></figure>` 媒体元素，比如一些视频，图片等等
+`<datalist></datalist>` 选项列表，与 input 元素配合使用，来定义 input 可能的值
+`<details></details>` 用于描述文档或者文档某个部分的细节
 
 ### link和@import的区别 ###
 HTML代码link:
@@ -221,7 +175,7 @@ HTML代码@import:
     <style type='text/css' media='screen'>
     @import url('CSS文件 ');
     </style> 
-
+    
 - 首先link和import语法结构不同，前者<link>是html标签，只能放入html源代码中使用，后者可看作为css样式，作用是引入css样式功能。
 - import在html使用时候需要`<style type="text/css">`标签，同时可以直接`@import url(CSS文件路径地址)`放入css文件或css代码里引入其它css文件。
 - 本质上两者使用选择区别不大，但为了软件中编辑布局网页html代码，一般使用link较多，也推荐使用link。
@@ -268,14 +222,14 @@ data-* 属性用于存储页面或应用程序的私有自定义数据。
 ### iframe的缺点 ###
 * iframe会阻塞主页面的 Onload 事件
 * 搜索引擎的检索程序无法解读这种页面，不利于 SEO;
-* iframe和主页面共享[连接池](https://baike.baidu.com/item/%E8%BF%9E%E6%8E%A5%E6%B1%A0/1699713?fr=aladdin)，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
+* iframe和主页面共享[连接池](blog.csdn.net/u012152619/article/details/46287419)，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
 
 如果需要使用 iframe ，最好是通过 javascript动态给iframe添加 src 属性值，这样可以绕开以上两个问题。 
 
 
 历史上，iframe 常被用于复用部分界面，但是多数情况下并不合适。
 现在，应该使用 iframe 的例子如：
-1. 沙箱隔离。参考[写js沙箱原来如此简单](https://www.imooc.com/article/17353)
+1. 沙箱隔离。参考 [写js沙箱原来如此简单](https://www.imooc.com/article/17353)
 2. 引用第三方内容。
 3. 独立的带有交互的内容，比如幻灯片。
 4. 需要保持独立焦点和历史管理的子窗口，如复杂的Web应用。
@@ -286,7 +240,6 @@ iframe 一直是浏览器标准规范之一，只有很早期的浏览器不支�
 那么现在什么时候会用到 iframe 呢？
 因为 iframe 的页面和父页面（parent）是分开的，所以它意味着，这是一个独立的区域，不受 parent 的 CSS 或者全局的 JavaScript 的影响。
 典型的，比如所见即所得的网页编辑器（WYSIWYG Online HTML Editor），因为它们需要 reset 自己的 CSS 到自己的标准，而不被 parent CSS 的 override。 顺便说一下，知乎的这个编辑器不是用 iframe，它使用了一种叫 contentEditable 的属性，用来启用页面元素的编辑，在早期版本 IE 下不支持的。
-<<<<<<< HEAD
 正是因为刚刚提到的 iframe 等于新建了一个全新的，不受 parent 影响的页面上下文，所以在一定程度上，类似于沙箱隔离（sandbox）。除此之外，如果有可以不用 iframe 来解决的问题，还是避免使用 iframe。替代方案一般就是动态语言的 include 机制、ajax 动态填充内容，以及以后会普及的 [contentEditable](http://www.w3school.com.cn/html5/att_global_contenteditable.asp)。
 ### label标签的作用 ###
 对鼠标用户而言增进了可用性。
@@ -409,10 +362,8 @@ src是 source 的缩写，指向外部资源的位置，指向的内容将会嵌
 canvas是HTML5中新增一个HTML5标签与操作canvas的javascript API，它可以实现在网页中完成动态的2D与3D图像技术。canvas标记和 SVG以及 VML 之间的一个重要的不同是，有一个基于 JavaScript 的绘图 API，而 SVG 和 VML 使用一个 XML 文档来描述绘图。SVG 绘图很容易编辑与生成，但功能明显要弱一些。 canvas可以完成动画、游戏、图表、图像处理等原来需要Flash完成的一些功能。
 ### WebSocket与消息推送 ###
 B/S架构的系统多使用HTTP协议。 
-**HTTP协议的特点：** 1 无状态协议； 2 用于通过 Internet 发送请求消息和响应消息； 3 使用端口接收和发送消息，默认为80端口； 4 底层通信还是使用Socket。
-
+**HTTP协议的特点：** 1 无状态协议； 2 用于通过 Internet 发送请求消息和响应消息； 3 使用端口接收和发送消息，默认为80端口； 4 底层通信还是使用Socket
 ![HTTP协议请求响应](https://uploadfiles.nowcoder.com/images/20170112/826546_1484203855304_198713B681803E835F62D3D3E22D5BBB)
-
 HTTP协议决定了服务器与客户端之间的连接方式，无法直接实现消息推送（ F5 已坏） , 一些变相的解决办法实现 双向通信与消息推送 ：
 **轮询：** 客户端定时向服务器发送Ajax请求，服务器接到请求后马上返回响应信息并关闭连接。
 优点：后端程序编写比较容易。
@@ -485,20 +436,107 @@ c、表单按钮：包括提交按钮，复位按钮和一般按钮；用于将�
 (3)、对于 get 方式，服务器端用 Request.QueryString 获取变量的值，对于 post 方式，服务器端用 Request.Form 获取提交的数据。
 (4)、 get 传送的数据量较小，不能大于 2KB 。 post 传送的数据量较大，一般被默认为不受限制。但理论上， IIS4 中最大量为 80KB ， IIS5 中为 100KB 。
 (5)、 get 安全性低， post 安全性较高。
+### 关于HTML5标签的几个知识点 ###
+**[HTML5新增的表单元素：](http://www.w3school.com.cn/html5/html_5_form_elements.asp)**
+`datalist` 元素：
+datalist 元素规定输入域的选项列表；
+列表是通过 datalist 内的 option 元素创建的,option 元素永远都要设置 value 属性；
+如需把 datalist 绑定到输入域，请用输入域的 list 属性引用 datalist 的 id。
+`keygen` 元素:
+keygen 元素的作用是提供一种验证用户的可靠方法;
+keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键，一个是私钥，一个公钥。私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。
+目前，浏览器对此元素的糟糕的支持度不足以使其成为一种有用的安全标准。
+`output` 元素:
+output 元素用于不同类型的输出，比如计算或脚本输出。
+**[HTML5废弃的标签：](http://yanue.net/post-106.html)**
+第一类：表现性元素
+`basefont` `big` `center` `font` `s` `strike` `tt` `u`等。
+建议用语义正确的元素代替他们，并使用CSS来确保渲染后的效果
+第二类：框架类元素
+因框架有很多可用性及可访问性问题，HTML5规范将以下元素移除:
+`frame` `frameset` `noframes`
+但html5支持iframe。
+第三类：属性类
+很多表现性的属性也被新规范移除，如下：
+align
+body标签上的link、vlink、alink、text属性
+bgcolor
+height和width
+iframe元素上的scrolling属性
+valign
+hspace和vspace
+table标签上的cellpadding、cellspacing和border属性
+header标签上的profile属性
+img和iframe元素的longdesc属性
+第四类：其他
+abbr取代acronym（用于表示缩写）
+object取代了applet
+ul取代了dir
+**[HTML5 标准提供的新API](https://www.cnblogs.com/oneplace/p/5616197.html)**
+Media API：例如video audio,Using the Camera API
+Text Track API: textTracks属性;返回代表可用文本字幕的TextTrackList对象
+Application Cache API： 应用程序缓存
+User Interaction ：新增的语义化元素，output元素等
+Data Transfer API ：webSocket
+Command API
+Constraint Validation API
+History API : session localStorage cookie
+**HTML5 存储类型有什么区别**
+HTML5 能够本地存储数据，在之前都是使用 cookie。 HTML5  提供了下面两种本地存储方案：
+localStorage  用于持久化的本地存储，数据永远不会过期，关闭浏览器也不会丢失。
+ sessionStorage  同一个会话中的页面才能访问并且当会话结束后数据也随之销毁，因此它不是一种持久化的本地存储，仅仅是会话级别的存储
+ 
+cookies,seesionStorage,localStorage区别：
+共同点：都是保存到浏览器端，都是同源。
+区别：cookies会发给服务器。其他两个不会，只在本地保存，而且比cookie存储空间要大。seesionStroage,在窗口关闭前有效，不在不同浏览器窗口共享。 localStroage,始终有效，永久数据，所有同源窗口共享。 cookie:在过期前有效，所有同源窗口共享 。
+**[HTML5 应用程序缓存和浏览器缓存的区别](https://www.cnblogs.com/xjchenhao/p/4032224.html)**
+使用 HTML5，通过创建 cache manifest 文件，可以轻松地创建 web 应用的离线版本。
+HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。
+应用程序缓存为应用带来三个优势：离线浏览 - 用户可在应用离线时使用它们；
+速度 - 已缓存资源加载得更快；减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。
 
-=======
-正是因为刚刚提到的 iframe 等于新建了一个全新的，不受 parent 影响的页面上下文，所以在一定程度上，类似于沙箱隔离（sandbox）。除此之外，如果有可以不用 iframe 来解决的问题，还是避免使用 iframe。替代方案一般就是动态语言的 include 机制、ajax 动态填充内容，以及以后会普及的 contentEditable。
 
-### 盒模型 ###
 
-![盒模型](https://uploadfiles.nowcoder.com/images/20170311/5834344_1489241868799_CB57753C27A573C87E41633C4F69E331)
+应用程序缓存是 HTML5  的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，例如 HTML 、 CSS 、图片以及 JavaScript 。这个特性可以提高网站性能，它的实现借助于 manifest 文件，如下：
 
-标准盒子模型 ＝ margin + border + padding +content （content =  width | height）
+    <!doctype html>
+    <html manifest=”example.appcache”>
+    …..
+    </html>
+与传统浏览器缓存相比，它不强制用户访问的网站内容被缓存。
+**除了 audio 和 video，HTML5 还有哪些媒体标签**
+`<embed>` 标签，定义嵌入的内容，比如插件。
 
-IE盒子模型 ＝ margin + content （content = border + padding + width | height） 
+    <embed type=” video/quicktime ” src= ” Fishing.mov ” >
+`<source>` 标签，对于定义多个数据源很有用。
 
-```
-标准盒子模型中：盒子的总宽度 ＝ 左右margin + 左右border + 左右padding + width 
-IE盒子模型中：盒子总宽度 ＝ 左右margin +  width
-```
->>>>>>> fb8e510c243f214c487054465fd5199ff4ae8ba9
+     <video width=” 450 ″ height= ” 340 ″ controls>
+         <source src=” jamshed.mp4 ″ type= ” video/mp4 ″ >
+         <source src=” jamshed.ogg ” type= ” video/ogg ” >
+    </video>
+`<track>`标签，为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。
+
+     <video width=” 450 ″ height= ” 340 ″ controls>
+         <source src=” jamshed.mp4 ″ type= ” video/mp4 ″ >
+         <source src=” jamshed.ogg ” type= ” video/ogg ” >
+         <track kind=” subtitles ” label= ” English ” src= ” jamshed_en.vtt ” srclang= ” en ” default></track>
+          <track kind=” subtitles ” label= ” Arabic ” src= ” jamshed_ar.vtt ” srclang= ” ar ” ></track>
+    </video> 
+**HTML5 中如何嵌入视频**
+和音频类似，HTML5 支持 MP4 、WebM 和 Ogg 格式的视频，通过video标签嵌入视频，下面是简单示例：
+
+    <video width=” 450 ″ height= ” 340 ″ controls>
+      <source src=” jamshed.mp4 ″ type= ” video/mp4 ″ >
+       Your browser does’ nt support video embedding feature.
+    </video>
+**HTML5 中如何嵌入音频**
+HTML5 支持 MP3 、Wav 和 Ogg 格式的音频，通过audio标签嵌入音频，示例如下：
+
+    <audio controls>
+        <source src=” jamshed.mp3 ″ type= ” audio/mpeg ” >
+        Your browser does’ nt support audio embedding feature.
+    </audio>
+**新的 HTML5 文档类型和字符集是什么**
+HTML5 文档类型：`<!doctype html>`
+HTML5 使用 UTF-8 编码: `<meta charset="UTF-8" >` 
+
