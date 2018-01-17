@@ -37,8 +37,9 @@ width(content) = content + padding-left + padding-right + border-left + border-r
   外部样式表：单独存在一个css文件中，通过link引入或import导入的样式
 有个例外的情况，就是如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。
 (6) !important 权重最高，比 inline style 还要高 
+
 **选择器的优先权-计算特殊性值**
-![选择器优先权](http://images.cnblogs.com/cnblogs_com/xugang/WindowsLiveWriter/CSS_148B3/jc6_002_2.png)
+![选择器优先权](http://ou3oh86t1.bkt.clouddn.com/blog/interview-questions-about-CSS/selecter%20weight.png)
 1.  内联样式表的权值最高 1000；
 2.  ID 选择器的权值为 100
 3.  Class 类选择器的权值为 10
