@@ -43,7 +43,7 @@ width(content) = content + padding-left + padding-right + border-left + border-r
 2.  ID 选择器的权值为 100
 3.  Class 类选择器的权值为 10
 4.  HTML 标签选择器的权值为 1 
-![css selector priority](/images/interview-questions-about-CSS/1.png)
+![css selector priority](http://ou3oh86t1.bkt.clouddn.com/blog/interview-questions-about-CSS/css%20selector%20priority.png)
 CSS 优先级法则：
 A  选择器都有一个权值，权值越大越优先；
 B  当权值相等时，后出现的样式表设置要优于先出现的样式表设置；
