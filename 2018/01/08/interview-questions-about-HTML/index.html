@@ -105,7 +105,7 @@
 <meta property="og:description" content="来自牛客网前端面试常考知识点 HTML+CSS 篇学习总结。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20170112/826546_1484203855304_198713B681803E835F62D3D3E22D5BBB">
-<meta property="og:updated_time" content="2018-01-13T06:45:50.930Z">
+<meta property="og:updated_time" content="2018-01-17T08:25:20.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【interview questions about HTML】 from牛客网">
 <meta name="twitter:description" content="来自牛客网前端面试常考知识点 HTML+CSS 篇学习总结。">
@@ -492,7 +492,7 @@
 <li>import在html使用时候需要<code>&lt;style type=&quot;text/css&quot;&gt;</code>标签，同时可以直接<code>@import url(CSS文件路径地址)</code>放入css文件或css代码里引入其它css文件。</li>
 <li>本质上两者使用选择区别不大，但为了软件中编辑布局网页html代码，一般使用link较多，也推荐使用link。</li>
 </ul>
-<p>两者都是外部引用CSS的方式，但是存在一定的<strong>区别：</strong><br> 区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。<br>区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。<br>区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。<br>区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。</p>
+<p>两者都是外部引用CSS的方式，但是存在一定的<strong>区别：</strong><br>区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。<br>区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。<br>区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。<br>区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。<br>区别5： link方式的样式权重 高于 @import的权重。 </p>
 <h3 id="对SVG的理解"><a href="#对SVG的理解" class="headerlink" title="对SVG的理解"></a>对SVG的理解</h3><p>SVG可缩放矢量图形（ Scalable Vector Graphics ）是基于可扩展标记语言（ XML ），用于描述二维矢量图形的一种图形格式。 SVG 是 W3C 在 2000 年 8 月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。 SVG 严格遵从 XML 语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。 SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准。<br>特点：<br> (1)任意放缩：用户可以任意缩放图像显示，而不会破坏图像的清晰度、细节等。<br> (2)文本独立：SVG图像中的文字独立于图像，文字保留可编辑和可搜寻的状态。也不会再有字体的限制，用户系统即使没有安装某一字体，也会看到和他们制作时完全相同的画面。<br> (3)较小文件： 总体来讲，SVG文件比那些 GIF 和 JPEG 格式的文件要小很多，因而下载也很快。<br> (4)超强显示效果：SVG图像在屏幕上总是边缘清晰，它的清晰度适合任何屏幕分辨率和打印分辨率。<br> (5)超级颜色控制：SVG图像提供一个 1600 万种颜色的调色板，支持 ICC 颜色描述文件标准、 RGB 、线 X 填充、渐变和蒙版。<br> (6)交互 X 和智能化：SVG面临的主要问题一个是如何和已经占有重要市场份额的矢量图形格式 Flash 竞争的问题，另一个问题就是 SVG 的本地运行环境下的厂家支持程度。<br>  Internet Explorer9，火狐，谷歌 Chrome ， Opera 和 Safari 都支持 SVG 。IE8和早期版本都需要一个插件 - 如 Adobe SVG 浏览器，这是免费提供的</p>
 <h3 id="HTML全局属性-global-attribute-有哪些"><a href="#HTML全局属性-global-attribute-有哪些" class="headerlink" title="HTML全局属性(global attribute)有哪些"></a>HTML全局属性(global attribute)有哪些</h3><p>参考<a href="http://www.w3school.com.cn/tags/html_ref_standardattributes.asp" target="_blank" rel="external">HTML 全局属性</a>。例如<code>class</code>, <code>id</code>, <code>style</code>, <code>title</code>, <code>lang</code>等等。</p>
 <h3 id="超链接target属性的取值和作用"><a href="#超链接target属性的取值和作用" class="headerlink" title="超链接target属性的取值和作用"></a>超链接target属性的取值和作用</h3><p>target属性指定所链接的页面在浏览器窗口中的打开方式。<br>参数值主要有：<br>_blank ：浏览器总在一个新打开、未命名的窗口中载入目标文档。<br>_parent ：在父框架集中打开被链接文档。如果含有该链接的框架不是嵌套的，则在浏览器全屏窗口中载入链接的文件，就象 _self 参数一。<br>_self ：默认。在相同的框架中打开被链接文档。<br>_top ： 在整个窗口中打开被链接文档。这个目标使得文档载入包含这个超链接的窗口，用 _top 目标将会清除所有被包含的框架并将文档载入整个浏览器窗口。<br>framename：在指定的框架中打开被链接文档。</p>
@@ -854,7 +854,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
