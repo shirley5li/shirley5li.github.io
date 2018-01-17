@@ -37,7 +37,6 @@ width(content) = content + padding-left + padding-right + border-left + border-r
   外部样式表：单独存在一个css文件中，通过link引入或import导入的样式
 有个例外的情况，就是如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。
 (6) !important 权重最高，比 inline style 还要高 
-
 **选择器的优先权-计算特殊性值**
 ![选择器优先权](http://ou3oh86t1.bkt.clouddn.com/blog/interview-questions-about-CSS/selecter%20weight.png)
 1.  内联样式表的权值最高 1000；
@@ -96,24 +95,24 @@ display： none | inline | block | list-item | inline-block | table | inline-tab
 **inline：** 指定对象为内联元素。 
 **block：** 指定对象为块元素。 
 list-item： 指定对象为列表项目。 
-**inline-block：** 指定对象为内联块元素。（CSS2） 
-**table：** 指定对象作为块元素级的表格。类同于html标签<table>（CSS2） 
-inline-table： 指定对象作为内联元素级的表格。类同于html标签<table>（CSS2） 
-table-caption： 指定对象作为表格标题。类同于html标签<caption>（CSS2） 
-table-cell： 指定对象作为表格单元格。类同于html标签<td>（CSS2） 
-table-row： 指定对象作为表格行。类同于html标签<tr>（CSS2） 
-table-row-group： 指定对象作为表格行组。类同于html标签<tbody>（CSS2） 
-table-column： 指定对象作为表格列。类同于html标签<col>（CSS2） 
-table-column-group： 指定对象作为表格列组显示。类同于html标签<colgroup>（CSS2） 
-table-header-group： 指定对象作为表格标题组。类同于html标签<thead>（CSS2） 
-table-footer-group： 指定对象作为表格脚注组。类同于html标签<tfoot>（CSS2） 
-run-in： 根据上下文决定对象是内联对象还是块级对象。（CSS3） 
-box： 将对象作为弹性伸缩盒显示。（伸缩盒最老版本）（CSS3） 
-inline-box： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒最老版本）（CSS3） 
-**flexbox：** 将对象作为弹性伸缩盒显示。（伸缩盒过渡版本）（CSS3） 
-inline-flexbox： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒过渡版本）（CSS3） 
-flex： 将对象作为弹性伸缩盒显示。（伸缩盒最新版本）（CSS3） 
-inline-flex： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒最新版本）（CSS3）
+**inline-block：** 指定对象为内联块元素。(CSS2)
+**table：** 指定对象作为块元素级的表格。类同于html标签`<table>`(CSS2) 
+inline-table： 指定对象作为内联元素级的表格。类同于html标签`<table>`(CSS2)
+table-caption： 指定对象作为表格标题。类同于html标签`<caption>`(CSS2)
+table-cell： 指定对象作为表格单元格。类同于html标签`<td>`(CSS2) 
+table-row： 指定对象作为表格行。类同于html标签`<tr>`(CSS2) 
+table-row-group： 指定对象作为表格行组。类同于html标签`<tbody>`(CSS2) 
+table-column： 指定对象作为表格列。类同于html标签`<col>`(CSS2)
+table-column-group：指定对象作为表格列组显示。类同于html标签`<colgroup>`(CSS2) 
+table-header-group： 指定对象作为表格标题组。类同于html标签`<thead>`(CSS2)
+table-footer-group：指定对象作为表格脚注组。类同于html标签`<tfoot>`(CSS2) 
+run-in： 根据上下文决定对象是内联对象还是块级对象。(CSS3) 
+box： 将对象作为弹性伸缩盒显示。（伸缩盒最老版本）(CSS3)  
+inline-box： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒最老版本）(CSS3) 
+**flexbox：** 将对象作为弹性伸缩盒显示。（伸缩盒过渡版本）(CSS3) 
+inline-flexbox： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒过渡版本）(CSS3) 
+flex： 将对象作为弹性伸缩盒显示。（伸缩盒最新版本）(CSS3)  
+inline-flex： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒最新版本）(CSS3) 
 参考[display的32种写法](https://segmentfault.com/a/1190000012833458)。
 ### 居中div，居中一个浮动元素 ###
 (1)非浮动元素居中：div为块级元素，居中块级元素首先要设置宽度,然后` margin:0 auto;`就居中了；还可以通过定位 方式；父级元素设置`text-align:center;`的方式等等。
@@ -197,4 +196,3 @@ a、简单来说就是将对象呈现为inline对象，但是对象的内容作�
 **补充说明**
 a、一般我们会用display:block，display:inline或者display:inline-block来调整元素的布局级别，其实display的参数远远不止这三种，仅仅是比较常用而已。
 b、IE（低版本IE）本来是不支持inline-block的，所以在IE中对内联元素使用display:inline-block，理论上IE是不识别的，但使用display:inline-block在IE下会触发layout，从而使内联元素拥有了display:inline-block属性的表象。 
-
