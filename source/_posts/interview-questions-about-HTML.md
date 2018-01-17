@@ -181,10 +181,11 @@ HTML代码@import:
 - 本质上两者使用选择区别不大，但为了软件中编辑布局网页html代码，一般使用link较多，也推荐使用link。
 
 两者都是外部引用CSS的方式，但是存在一定的**区别：**
- 区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。
+区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。
 区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。
 区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。
 区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。
+区别5： link方式的样式权重 高于 @import的权重。 
 ### 对SVG的理解 ###
 SVG可缩放矢量图形（ Scalable Vector Graphics ）是基于可扩展标记语言（ XML ），用于描述二维矢量图形的一种图形格式。 SVG 是 W3C 在 2000 年 8 月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。 SVG 严格遵从 XML 语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。 SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准。
 特点：
