@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-17T09:26:06.597Z</updated>
+  <updated>2018-01-19T09:10:46.392Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/01/13/interview-questions-about-CSS/"/>
     <id>http://yoursite.com/2018/01/13/interview-questions-about-CSS/</id>
     <published>2018-01-13T07:02:40.000Z</published>
-    <updated>2018-01-17T09:26:06.597Z</updated>
+    <updated>2018-01-19T09:10:46.392Z</updated>
     
     <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/review-frontend?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="external">前端面试常考知识点 HTML+CSS</a> 篇学习总结。<br><a id="more"></a></p>
 <h3 id="CSS-盒子模型"><a href="#CSS-盒子模型" class="headerlink" title="CSS 盒子模型"></a>CSS 盒子模型</h3><p>CSS盒子模型组成：外边距（margin）、边框（border）、内边距（padding）、内容（content）。<br>CSS盒子模型有两种，分别是标准 W3C 盒子模型和 IE 盒子模型。<br><strong>W3C标准盒子模型:</strong><br><img src="http://img.blog.csdn.net/20140124141001609?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvenl1eml4aWFv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="标准盒子模型示意图"><br>标准W3C 盒子模型的范围包括 margin、border、padding、content， content 部分不包含其他部分。<br>width(content) = content<br>盒子模型占据的宽度= width + padding + border + margin<br>盒子的实际宽度大小=  width + padding + border<br><strong>IE盒子模型:</strong><br><img src="http://img.blog.csdn.net/20140124141131218?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvenl1eml4aWFv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="IE盒子模型示意图"><br>IE 盒子模型的范围也包括 margin、border、padding、content，和标准 W3C 盒子模型不同的是：IE 盒子模型的 content 部分包含了 border 和 pading。<br>width(content) = content + padding-left + padding-right + border-left + border-right<br>盒子模型占据的宽度= width + margin<br>盒子的实际宽度大小=  width<br>参考<a href="http://blog.csdn.net/zyuzixiao/article/details/18733463" target="_blank" rel="external">标准盒子模型和IE盒子模型</a>。</p>
@@ -64,7 +64,26 @@
 <h3 id="block，inline和inlinke-block细节对比"><a href="#block，inline和inlinke-block细节对比" class="headerlink" title="block，inline和inlinke-block细节对比"></a>block，inline和inlinke-block细节对比</h3><ul>
 <li>display:block<br>a、block元素会独占一行，多个block元素会各自新起一行。默认情况下，block元素宽度自动填满其父元素宽度。<br>b、block元素可以设置width,height属性。块级元素即使设置了宽度,仍然是独占一行。<br>c、block元素可以设置margin和padding属性。</li>
 <li>display:inline<br>a、inline元素不会独占一行，多个相邻的行内元素会排列在同一行里，直到一行排列不下，才会新换一行，其宽度随元素的内容而变化。<br>b、inline元素设置width,height属性无效。<br>c、inline元素的margin和padding属性，水平方向的padding-left, padding-right, margin-left, margin-right都产生边距效果；但竖直方向的padding-top, padding-bottom, margin-top, margin-bottom不会产生边距效果。</li>
-<li>display:inline-block<br>a、简单来说就是将对象呈现为inline对象，但是对象的内容作为block对象呈现。之后的内联对象会被排列在同一行内。比如我们可以给一个链接（a元素）inline-block属性值，使其既具有block的宽度高度特性又具有inline的同行特性。<br><strong>补充说明</strong><br>a、一般我们会用display:block，display:inline或者display:inline-block来调整元素的布局级别，其实display的参数远远不止这三种，仅仅是比较常用而已。<br>b、IE（低版本IE）本来是不支持inline-block的，所以在IE中对内联元素使用display:inline-block，理论上IE是不识别的，但使用display:inline-block在IE下会触发layout，从而使内联元素拥有了display:inline-block属性的表象。 </li>
+<li><p>display:inline-block<br>a、简单来说就是将对象呈现为inline对象，但是对象的内容作为block对象呈现。之后的内联对象会被排列在同一行内。比如我们可以给一个链接（a元素）inline-block属性值，使其既具有block的宽度高度特性又具有inline的同行特性。<br><strong>补充说明</strong><br>a、一般我们会用display:block，display:inline或者display:inline-block来调整元素的布局级别，其实display的参数远远不止这三种，仅仅是比较常用而已。<br>b、IE（低版本IE）本来是不支持inline-block的，所以在IE中对内联元素使用display:inline-block，理论上IE是不识别的，但使用display:inline-block在IE下会触发layout，从而使内联元素拥有了display:inline-block属性的表象。 </p>
+<h3 id="优雅降级和渐进增强的含义"><a href="#优雅降级和渐进增强的含义" class="headerlink" title="优雅降级和渐进增强的含义"></a>优雅降级和渐进增强的含义</h3><p><strong>优雅降级：</strong> Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。<br><strong>渐进增强：</strong> 从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。 </p>
+<h3 id="浮动元素引起的问题及相应解决办法"><a href="#浮动元素引起的问题及相应解决办法" class="headerlink" title="浮动元素引起的问题及相应解决办法"></a>浮动元素引起的问题及相应解决办法</h3><p><strong>浮动的工作原理：</strong> 浮动元素脱离文档流，不占据空间。浮动元素碰到包含它的边框或者浮动元素的边框停留。<br><strong>问题：</strong><br>（1）父元素的高度无法被撑开，影响与父元素同级的元素<br>（2）与浮动元素同级的非浮动元素会跟随其后<br>（3）若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构<br><strong>解决方法：</strong><br>使用CSS中的clear:both;属性来清除元素的浮动可解决问题(2)、(3)，对于问题(1)，添加如下样式，给父元素添加clearfix样式：</p>
+<p>  .clearfix:after {</p>
+<pre><code>content: &quot;.&quot;;
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+</code></pre><p>  }<br>  .clearfix {</p>
+<pre><code>display: inline-block; /* for IE/Mac */
+</code></pre><p>  }<br><strong>清除浮动的几种方法：</strong><br>(1)、额外标签法(使用空标签清除浮动)<br><code>&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</code>（缺点：会增加额外的标签，使HTML结构看起来不够简洁。）<br>(2)、使用after伪类</p>
+<p>  #parent:after{<br>    content:” “;<br>    height:0;<br>    visibility:hidden;<br>    display:block;<br>    clear:both;<br>  }<br>(3)、浮动外部元素<br>(4)、设置<code>overflow</code>为<code>hidden</code>或者<code>auto</code> </p>
+<h3 id="性能优化的方法"><a href="#性能优化的方法" class="headerlink" title="性能优化的方法"></a>性能优化的方法</h3><p><strong>总结一：</strong><br>（1）、减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。<br>（2）、前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数。<br>（3）、用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。<br>（4）、当需要设置的样式很多时设置className而不是直接操作style。<br>（5）、少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。<br>（6）、避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。<br>（7）、图片预加载，将样式表放在顶部，将脚本放在底部 加上时间戳。<br><strong>回答二：</strong><br>(1)、减少HTTP请求次数<br>(2)、使用CDN<br>(3)、避免空的src和href<br>(4)、为文件头指定Expires<br>(5)、使用gzip压缩内容<br>(6)、把CSS放到顶部<br>(7)、把JS放到底部<br>(8)、避 免使用CSS表达式<br>(9)、将CSS和JS放到外部文件中<br>(10)、避免跳转<br>(11)、可缓存的AJAX<br>(12)、使用GET来完成AJAX请求</p>
+<h3 id="初始化CSS样式的意义"><a href="#初始化CSS样式的意义" class="headerlink" title="初始化CSS样式的意义"></a>初始化CSS样式的意义</h3><p>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的(比如标签默认的margin、padding值不同等情况)，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。<br>当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，力求影响最小的情况下初始化。<br>最简单的初始化方法就是： <code>* {padding: 0; margin: 0;}</code> （不建议）</p>
+<h3 id="CSS中的刻度"><a href="#CSS中的刻度" class="headerlink" title="CSS中的刻度"></a>CSS中的刻度</h3><p>在CSS中刻度是用于设置元素尺寸的单位。<br>a、特殊值<strong>0</strong>可以省略单位。例如：<code>margin:0px;</code>可以写成<code>margin:0;</code><br>b、一些属性可能允许有<strong>负长度</strong>值，或者有一定的范围限制。如果不支持负长度值，那应该变换到能够被支持的最近的一个长度值。<br>c、<strong>长度单位</strong>包括：<strong>相对单位</strong>和<strong>绝对单位</strong>。<br>相对长度单位有： em, ex, ch, rem, vw, vh, vmax, vmin<br>绝对长度单位有： cm, mm, q, in, pt, pc, px<br>绝对长度单位：1in = 2.54cm = 25.4 mm = 72pt = 6pc = 96px<br><strong>文本相对长度单位：em</strong><br>相对长度单位是相对于当前对象内文本的字体尺寸，如果当前行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。(<strong>相对父元素的字体大小倍数</strong>)</p>
+<p>  body { font-size: 14px; }<br>  h1 { font-size: 16px; }<br>  .size1 p { font-size: 1em; }<br>  .size2 p { font-size: 2em; }<br>  .size3 p { font-size: 3em; }<br><strong>文本相对长度单位：rem</strong><br>rem是CSS3新增的一个相对单位（root em，根em），相对于根元素(即html元素)font-size计算值的倍数。只<strong>相对于根元素(html元素)</strong>的大小。<br>浏览器的默认字体大小为16像素，浏览器默认样式也称为user agent stylesheet，就是所有浏览器内置的默认样式，多数是可以被修改的，但chrome不能直接修改，可以被用户样式覆盖。<br>作用：利用rem可以实现简单的响应式布局，可以利用html元素中字体的大小与屏幕间的比值设置font-size的值实现当屏幕分辨率变化时让元素也变化，以前的天猫tmall就使用这种办法。<br>em与rem的重要区别：它们计算的规则一个是依赖父元素另一个是依赖根元素计算。</p>
+<h3 id="box-sizing属性的用法"><a href="#box-sizing属性的用法" class="headerlink" title="box-sizing属性的用法"></a>box-sizing属性的用法</h3><p>a、<code>box-sizing:content-box</code><br>padding和border不被包含在定义的width和height之内。<br>对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding，但占有页面位置还要加上margin )。<br>此属性表现为标准模式下的盒模型。<br>b、<code>box-sizing:border-box</code><br>padding和border被包含在定义的width和height之内。<br>对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width )。 此属性表现为怪异模式下的盒模型。 </p>
+<h3 id="浏览器标准模式和怪异模式之间的区别"><a href="#浏览器标准模式和怪异模式之间的区别" class="headerlink" title="浏览器标准模式和怪异模式之间的区别"></a>浏览器标准模式和怪异模式之间的区别</h3><p>所谓的标准模式是指，浏览器按W3C标准解析执行代码；<br>怪异模式则是使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以我们称之为怪异模式。<br>浏览器解析时到底使用标准模式还是怪异模式，与你网页中的DTD声明直接相关，DTD声明定义了标准文档的类型(标准模式解析)，会使浏览器使用相应的方式加载网页并显示，忽略DTD声明,将使网页进入怪异模式(quirks mode)。</p>
+</li>
 </ul>
 ]]></content>
     
