@@ -196,3 +196,99 @@ a、简单来说就是将对象呈现为inline对象，但是对象的内容作�
 **补充说明**
 a、一般我们会用display:block，display:inline或者display:inline-block来调整元素的布局级别，其实display的参数远远不止这三种，仅仅是比较常用而已。
 b、IE（低版本IE）本来是不支持inline-block的，所以在IE中对内联元素使用display:inline-block，理论上IE是不识别的，但使用display:inline-block在IE下会触发layout，从而使内联元素拥有了display:inline-block属性的表象。 
+### 优雅降级和渐进增强的含义 ###
+**优雅降级：** Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。
+**渐进增强：** 从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。 
+### 浮动元素引起的问题及相应解决办法 ###
+**浮动的工作原理：** 浮动元素脱离文档流，不占据空间。浮动元素碰到包含它的边框或者浮动元素的边框停留。
+ **问题：**
+（1）父元素的高度无法被撑开，影响与父元素同级的元素
+（2）与浮动元素同级的非浮动元素会跟随其后
+（3）若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构
+**解决方法：**
+使用CSS中的clear:both;属性来清除元素的浮动可解决问题(2)、(3)，对于问题(1)，添加如下样式，给父元素添加clearfix样式：
+
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    .clearfix {
+        display: inline-block; /* for IE/Mac */
+    }
+**清除浮动的几种方法：**
+(1)、额外标签法(使用空标签清除浮动)
+`<div style="clear:both;"></div>`（缺点：会增加额外的标签，使HTML结构看起来不够简洁。）
+(2)、使用after伪类
+
+    #parent:after{
+      content:" ";
+      height:0;
+      visibility:hidden;
+      display:block;
+      clear:both;
+    }
+(3)、浮动外部元素
+(4)、设置`overflow`为`hidden`或者`auto` 
+### 性能优化的方法 ###
+**总结一：**
+（1）、减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。
+（2）、前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数。
+（3）、用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。
+（4）、当需要设置的样式很多时设置className而不是直接操作style。
+（5）、少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。
+（6）、避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。
+（7）、图片预加载，将样式表放在顶部，将脚本放在底部 加上时间戳。
+**回答二：**
+(1)、减少HTTP请求次数 
+(2)、使用CDN
+(3)、避免空的src和href
+(4)、为文件头指定Expires
+(5)、使用gzip压缩内容
+(6)、把CSS放到顶部
+(7)、把JS放到底部
+(8)、避 免使用CSS表达式 
+(9)、将CSS和JS放到外部文件中 
+(10)、避免跳转 
+(11)、可缓存的AJAX 
+(12)、使用GET来完成AJAX请求
+### 初始化CSS样式的意义 ###
+因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的(比如标签默认的margin、padding值不同等情况)，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。
+当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，力求影响最小的情况下初始化。
+最简单的初始化方法就是： `* {padding: 0; margin: 0;}` （不建议）
+### CSS中的刻度 ###
+在CSS中刻度是用于设置元素尺寸的单位。
+a、特殊值**0**可以省略单位。例如：`margin:0px;`可以写成`margin:0;` 
+b、一些属性可能允许有**负长度**值，或者有一定的范围限制。如果不支持负长度值，那应该变换到能够被支持的最近的一个长度值。
+c、**长度单位**包括：**相对单位**和**绝对单位**。 
+相对长度单位有： em, ex, ch, rem, vw, vh, vmax, vmin 
+绝对长度单位有： cm, mm, q, in, pt, pc, px
+绝对长度单位：1in = 2.54cm = 25.4 mm = 72pt = 6pc = 96px
+**文本相对长度单位：em**
+相对长度单位是相对于当前对象内文本的字体尺寸，如果当前行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。(**相对父元素的字体大小倍数**)
+
+    body { font-size: 14px; }
+    h1 { font-size: 16px; }
+    .size1 p { font-size: 1em; }
+    .size2 p { font-size: 2em; }
+    .size3 p { font-size: 3em; }
+**文本相对长度单位：rem**
+rem是CSS3新增的一个相对单位（root em，根em），相对于根元素(即html元素)font-size计算值的倍数。只**相对于根元素(html元素)**的大小。
+浏览器的默认字体大小为16像素，浏览器默认样式也称为user agent stylesheet，就是所有浏览器内置的默认样式，多数是可以被修改的，但chrome不能直接修改，可以被用户样式覆盖。
+作用：利用rem可以实现简单的响应式布局，可以利用html元素中字体的大小与屏幕间的比值设置font-size的值实现当屏幕分辨率变化时让元素也变化，以前的天猫tmall就使用这种办法。
+em与rem的重要区别：它们计算的规则一个是依赖父元素另一个是依赖根元素计算。
+### box-sizing属性的用法 ###
+a、`box-sizing:content-box`
+padding和border不被包含在定义的width和height之内。
+对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding，但占有页面位置还要加上margin )。
+此属性表现为标准模式下的盒模型。
+b、`box-sizing:border-box`
+padding和border被包含在定义的width和height之内。
+对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width )。 此属性表现为怪异模式下的盒模型。 
+### 浏览器标准模式和怪异模式之间的区别 ###
+所谓的标准模式是指，浏览器按W3C标准解析执行代码；
+怪异模式则是使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以我们称之为怪异模式。
+浏览器解析时到底使用标准模式还是怪异模式，与你网页中的DTD声明直接相关，DTD声明定义了标准文档的类型(标准模式解析)，会使浏览器使用相应的方式加载网页并显示，忽略DTD声明,将使网页进入怪异模式(quirks mode)。
+
