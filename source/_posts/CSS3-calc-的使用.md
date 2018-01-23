@@ -212,6 +212,6 @@ calc()使用通用的数学运算规则，但是也提供更智能的功能：
 	    width: calc(25% - 10px * 2 - 8px * 2 - 20px);
 	}
 
-完整代码见[github](https://github.com/shirley5li/someDemosForExercise/tree/master/demo-css3-calc())。
+完整代码见[github](https://github.com/shirley5li/someDemosForExercise)。
 
 另附一篇[移动端页面布局](https://www.cnblogs.com/mracale/p/7170385.html)，讲得比较好。
