@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-23T13:02:20.503Z</updated>
+  <updated>2018-01-23T13:08:16.985Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/01/23/CSS3-calc-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2018/01/23/CSS3-calc-的使用/</id>
     <published>2018-01-23T12:15:51.000Z</published>
-    <updated>2018-01-23T13:02:20.503Z</updated>
+    <updated>2018-01-23T13:08:16.985Z</updated>
     
     <content type="html"><![CDATA[<p>参考转自博客<a href="https://www.w3cplus.com/css3/how-to-use-css3-calc-function.html" target="_blank" rel="external">CSS3的calc()使用</a>。<br><a id="more"></a></p>
 <h3 id="为什么使用calc"><a href="#为什么使用calc" class="headerlink" title="为什么使用calc()"></a>为什么使用calc()</h3><p>平时在制作页面的时候，总会碰到有的元素是100%的宽度。众所周知，如果元素宽度(这里的宽度是盒模型content的宽度)为100%时，其自身不带其他盒模型属性设置还好，要是有别的（比如添加了padding和border），那将导致盒子撑破。</p>
@@ -185,7 +185,7 @@ width: 90%;/*写给不支持calc()的浏览器*/
     width: -webkit-calc(25% - 10px * 2 - 8px * 2 - 20px);
     width: calc(25% - 10px * 2 - 8px * 2 - 20px);
 }
-</code></pre><p>完整代码见<a href="https://github.com/shirley5li/someDemosForExercise/tree/master/demo-css3-calc(" target="_blank" rel="external">github</a>)。</p>
+</code></pre><p>完整代码见<a href="https://github.com/shirley5li/someDemosForExercise" target="_blank" rel="external">github</a>。</p>
 <p>另附一篇<a href="https://www.cnblogs.com/mracale/p/7170385.html" target="_blank" rel="external">移动端页面布局</a>，讲得比较好。</p>
 ]]></content>
     
