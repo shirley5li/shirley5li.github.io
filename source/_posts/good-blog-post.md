@@ -12,3 +12,5 @@ categories: bolgPost
 [当在浏览器地址栏输入一个网址的时候，究竟发生了什么?](http://blog.csdn.net/zll0927/article/details/11885239)
 
 [html5-websocket初探](https://www.cnblogs.com/myzhibie/p/4470065.html)
+
+[移动端页面布局](https://www.cnblogs.com/mracale/p/7170385.html)
