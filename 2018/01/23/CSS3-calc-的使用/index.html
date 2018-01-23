@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="CSS3," />
 
 
 
@@ -96,26 +96,22 @@
 
 
 
-<meta name="description" content="NEXT十天训练营有关JS学习的笔记。">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="参考转自博客CSS3的calc()使用。">
+<meta name="keywords" content="CSS3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS笔记(一)--from next十天训练营">
-<meta property="og:url" content="http://yoursite.com/2017/10/20/next-js/index.html">
+<meta property="og:title" content="CSS3 calc()的使用">
+<meta property="og:url" content="http://yoursite.com/2018/01/23/CSS3-calc-的使用/index.html">
 <meta property="og:site_name" content="Shirley">
-<meta property="og:description" content="NEXT十天训练营有关JS学习的笔记。">
+<meta property="og:description" content="参考转自博客CSS3的calc()使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/next-js/1.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/2.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/3.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/4.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/5.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/6.png">
-<meta property="og:image" content="http://yoursite.com/images/next-js/7.png">
-<meta property="og:updated_time" content="2018-01-09T02:47:02.940Z">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step1.jpg">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step2.jpg">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step3.jpg">
+<meta property="og:updated_time" content="2018-01-23T13:02:20.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS笔记(一)--from next十天训练营">
-<meta name="twitter:description" content="NEXT十天训练营有关JS学习的笔记。">
-<meta name="twitter:image" content="http://yoursite.com/images/next-js/1.png">
+<meta name="twitter:title" content="CSS3 calc()的使用">
+<meta name="twitter:description" content="参考转自博客CSS3的calc()使用。">
+<meta name="twitter:image" content="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step1.jpg">
 
 
 
@@ -144,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/20/next-js/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/23/CSS3-calc-的使用/"/>
 
 
 
 
 
-  <title>JS笔记(一)--from next十天训练营 | Shirley</title>
+  <title>CSS3 calc()的使用 | Shirley</title>
   
 
 
@@ -347,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/next-js/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/CSS3-calc-的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShirleyLi">
@@ -364,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS笔记(一)--from next十天训练营</h1>
+          <h1 class="post-title" itemprop="name headline">CSS3 calc()的使用</h1>
         
 
         <div class="post-meta">
@@ -376,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T09:21:29+08:00">
-                2017-10-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T20:15:51+08:00">
+                2018-01-23
               </time>
             
 
@@ -399,8 +395,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/CSS3/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS3</span>
                   </a>
                 </span>
 
@@ -441,191 +437,172 @@
       
 
       
-        <p>NEXT十天训练营有关JS学习的笔记。<br><a id="more"></a></p>
-<h2 id="认识JavaScript"><a href="#认识JavaScript" class="headerlink" title="认识JavaScript"></a>认识JavaScript</h2><p>JS是目前主流浏览器唯一支持的脚本语言，由以下三部分组成：</p>
-<p>（1）ECMAScript:语言基础（核心）。</p>
-<p>ECMA-262标准规定了ECMAScript这门语言的组成部分，例如语法、类型、语句、关键字、保留字、操作符、对象。</p>
-<p>Web浏览器只是ECMAScript实现可能的宿主环境之一，其他宿主环境还包括Node(一种服务端JavaScript平台)和Adobe Flash。</p>
-<p>（2）DOM（Document Object Model,文档对象模型）</p>
-<p>通过DOM可以操作HTML元素，包括删除、添加、替换、修改节点等。DOM将整个HTML文档映射为一个多层节点结构，即DOM树。</p>
-<p>（3）BOM（Browser Object Model,浏览器对象模型）</p>
-<p>通过BOM获取一些浏览器的信息，以及控制浏览器的一些行为。</p>
-<h2 id="引入JavaScript"><a href="#引入JavaScript" class="headerlink" title="引入JavaScript"></a>引入JavaScript</h2><p>有三种方式可以在HTML文档里引入JavaScript。</p>
-<p>（1）行内方式。即直接在HTML元素的属性上应用js代码。</p>
-<p>例如以下代码中button元素的onclick属性，点击button就会弹出消息框并显示“hello”。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot; onclick=&quot;alert(&apos;hello&apos;);&quot;&gt;点击弹出消息框&lt;/button&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>但这种方式不建议使用。一是因为这种方式针对一些用户的事件触发js执行，局限性较大。二是html文档中掺杂js代码会显得文档很乱，背离了结构应与样式、行为相分离的原则。</p>
-<p>（2）内嵌方式。即通过一对<script></script>标签在html文档中插入js代码。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot; &gt;点击弹出消息框&lt;/button&gt;
-    &lt;sript&gt;
-        var helloBtn = documnet.getElementById(&quot;helloBtn&quot;);
-        helloBtn.onclick = function() {
-            alert(&quot;hello&quot;);
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>此种方式也有缺点。例如在不同页面使用上述<script></script>标签之间这段js代码时，即在不同页面使用同一段js代码会有冗余。根据场景判断是否使用该方式。</p>
-<p>（3）外链方式。即将js代码从html文档中提取出来单独形成一个.js文件，并在html文档中引入这个.js文件。</p>
-<p>例如将方法（2）中<script></script>标签之间这段js代码提取出来，保存在一个hello.js文件中，并在html文件中引入。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot;&gt;点击弹出消息框&lt;/button&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;hello.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>根据场景判断是否使用该方式。</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>（1）语法:</p>
-<pre><code>var 变量名
-</code></pre><p>变量名区分大小写，首字母必须是字母、下划线或者$，非关键字和保留字。<br>例如，<code>var name = &quot;bottle&quot;;</code></p>
-<p>（2）全局变量和局部变量：</p>
-<p>使用var定义的变量可能是全局变量也可能是局部变量，取决于是否在一个function中。如在function中使用var定义一个变量message，此变量即为一个局部变量。局部变量在function外面访问不到。若在function内不使用var定义变量message，则在函数外可以访问到该变量。</p>
-<p>使用var定义</p>
-<pre><code>function test() {
-    var message = &quot;hi&quot;;//定义一个局部变量
+        <p>参考转自博客<a href="https://www.w3cplus.com/css3/how-to-use-css3-calc-function.html" target="_blank" rel="external">CSS3的calc()使用</a>。<br><a id="more"></a></p>
+<h3 id="为什么使用calc"><a href="#为什么使用calc" class="headerlink" title="为什么使用calc()"></a>为什么使用calc()</h3><p>平时在制作页面的时候，总会碰到有的元素是100%的宽度。众所周知，如果元素宽度(这里的宽度是盒模型content的宽度)为100%时，其自身不带其他盒模型属性设置还好，要是有别的（比如添加了padding和border），那将导致盒子撑破。</p>
+<p>比如说，有一个边框，或者说有margin和padding，这些都会让你的盒子撑破。我们换句话来说，如果你的元素宽度是100%时，只要你在元素中添加了border,padding,margin任何一值，都将会把元素盒子撑破（标准模式下，除IE怪异模式）。这样一来就会相当的麻烦，平时我们碰到这样的现象时，也是相当的谨慎，有时甚至无法解决，只能通过改变结构来实现。就算你通过繁琐的方法实现了，但有于浏览器的兼容性而导致最终效果不一致。虽然前面介绍的CSS3属性中的box-sizing在一定程度上解决这样的问题，其实今天的calc()函数功能实现上面的效果来得更简单。</p>
+<h3 id="什么是calc"><a href="#什么是calc" class="headerlink" title="什么是calc()"></a>什么是calc()</h3><p>calc()是css3的一个新增的功能，用来指定元素的长度。比如说，你可以使用calc()给元素的border、margin、pading、font-size和width等属性设置动态值。为何说是动态值呢?因为我们使用的表达式来得到的值。不过calc()最大的好处就是用在流体布局上，可以通过calc()计算得到元素的宽度。</p>
+<h3 id="calc-能做什么"><a href="#calc-能做什么" class="headerlink" title="calc() 能做什么"></a>calc() 能做什么</h3><p>calc()能让你给元素的做计算，你可以给一个div元素，使用百分比、em、px和rem单位值计算出其宽度或者高度，比如说 <code>width: calc(50% + 2em);</code>，这样一来你就不用考虑元素DIV的宽度值到底是多少，而把这个烦人的任务交由浏览器去计算。</p>
+<h3 id="calc-语法"><a href="#calc-语法" class="headerlink" title="calc()语法"></a>calc()语法</h3><pre><code>.element {
+  width: calc(expression);
 }
-test();
-alert(message);//错误，找不到变量message
-</code></pre><p>不使用var定义</p>
-<pre><code>function test() {
-    message = &quot;hi&quot;;//定义一个全局变量
-}
-test();
-alert(message);//hi
-</code></pre><p>使用控制台console来调试js代码。alert()弹出一个提示框。console.log()打印。</p>
-<p>利用sources里面的snippets来观察变量。如下所示。</p>
-<p><img src="/images/next-js/1.png" alt="1"></p>
-<p>局部变量测试结果如下所示。</p>
-<p><img src="/images/next-js/2.png" alt="2"></p>
-<p><img src="/images/next-js/3.png" alt="3"></p>
-<p>全局变量测试结果如下所示。</p>
-<p><img src="/images/next-js/4.png" alt="4"></p>
-<p><img src="/images/next-js/5.png" alt="5"></p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>1、基本数据类型</p>
-<p>（1）字符串类型String</p>
-<p>（2）数字类型Number</p>
-<p>（3）布尔类型Boolean ,取值true或false</p>
-<p>（4）Null</p>
-<p>（5）Undefined</p>
-<p>2、复杂数据类型/引用数据类型 Object</p>
-<p><strong>怎样判断数据类型</strong></p>
-<p>在浏览器控制台可使用type of 操作符来判断以下数据类型。</p>
-<pre><code>typeof 1//&quot;number&quot;
-typeof &apos;a&apos;//&quot;string&quot;
-typeof true//&quot;boolean&quot;
-typeof undefined//&quot;undefined&quot;
-typeof null//&quot;object&quot; (这个比较特殊)
-typeof {}//&quot;object&quot;
-typeof function(){};//&quot;function&quot;
-</code></pre><p>判断数据类型的几个例子如下。</p>
-<p><img src="/images/next-js/6.png" alt="6"></p>
-<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><p>1、创建对象</p>
-<p>（1）使用对象字面量{}创建杯子对象。（推荐，简洁明了）</p>
-<pre><code>var bottle = {
-    name: &quot;bottle&quot;, //key: value
-    price: 49, 
-    isKeepWarm: true 
-}
-</code></pre><p>对象的每一个属性都可以用对应的键值对(key: value)来描述，其中key为任一合法字符，value为任意数据类型。如果属性名包含多个中间含空格的字符，要用引号包含起来。</p>
-<p>（2）使用Object构造函数创建杯子对象。</p>
-<pre><code>var bottle = new Object();
-bottle.name = &quot;bottle&quot;;
-bottle.price = 49;
-bottle.isKeepWarm = true;
-</code></pre><p>2、对象属性读操作</p>
-<p>（1）使用点操作符 <code>console.log(bottle.name);//&quot;bottle&quot;</code>（推荐）</p>
-<p>（2）使用中括号操作符 <code>console.log(bottle[&quot;name&quot;]);//&quot;bottle&quot;</code>（如果对象属性名即key包含空格时，必须使用中括号操作符）</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>1、函数的定义</p>
-<p>（1）函数声明</p>
-<pre><code>function 函数名（参数1，参数2，...）{
-    函数体
-    return ;
-}
-</code></pre><p>函数声明的特点，在相同作用域下，不管在何处声明都可以调用的到。即使声明在调用之后。</p>
-<p>（2）函数表达式</p>
-<pre><code>var 变量 = function(参数1，参数2，...){
-    函数体
-    return ;
-}
-</code></pre><p>函数表达式的调用必须在函数表达式声明之后。这是区别于函数声明的地方。</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><img src="/images/next-js/7.png" alt="7"></p>
-<p>如上图所示，bottles是在函数之外声明的，是全局作用域的一个变量，所以在函数内部可以访问到bottles。而函数内部（函数作用域）声明的num为局部变量，只可以在函数内部被访问到，在函数外部无法获取。</p>
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>（1）if语句</p>
-<pre><code>if(条件) {
-    执行语句1;
-}
-else{
-    执行语句2;
-}
-</code></pre><p>（2）switch语句</p>
-<pre><code>swith(n){
-    case 0: 执行语句1；
-    case 1: 执行语句2;
-    ...
-
-}
-</code></pre><h2 id="字符串的有关操作"><a href="#字符串的有关操作" class="headerlink" title="字符串的有关操作"></a>字符串的有关操作</h2><h3 id="分割字符串-split"><a href="#分割字符串-split" class="headerlink" title="分割字符串 split"></a>分割字符串 split</h3><p>split()方法可以把字符串分割为字符串数组。</p>
-<pre><code>&quot;2:3:4:5&quot;.split(&quot;:&quot;)    // 将返回 [&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]
-
-&quot;|a|b|c&quot;.split(&quot;|&quot;)    // 将返回 [&quot;&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-</code></pre><h3 id="截取字符串-substring"><a href="#截取字符串-substring" class="headerlink" title="截取字符串 substring"></a>截取字符串 substring</h3><p>substring() 方法用于提取字符串中介于两个指定下标之间的字符。语法：<code>str.substring(indexStart, [indexEnd])</code></p>
-<pre><code>var str = &apos;Hello World!&apos;;
-console.log(str.substring(3)); // 将返回 lo world!
-</code></pre><h3 id="字符串转换大写-toUpperCase"><a href="#字符串转换大写-toUpperCase" class="headerlink" title="字符串转换大写 toUpperCase()"></a>字符串转换大写 toUpperCase()</h3><p>toUpperCase() 方法用于把字符串转换为大写。</p>
-<pre><code>var str = &apos;Hello World!&apos;;
-console.log(str.toUpperCase()); // 将返回 HELLO WORLD!
-</code></pre><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>完善函数 convertToCamelCase 的功能。函数 convertToCamelCase 会转换传入的字符串参数 string 为驼峰格式，并返回转换后的字符串。具体要求如下：</p>
+</code></pre><p>其中”expression”是一个表达式，用来计算长度的表达式。</p>
+<h3 id="calc-运算规则"><a href="#calc-运算规则" class="headerlink" title="calc()运算规则"></a>calc()运算规则</h3><p>calc()使用通用的数学运算规则，但是也提供更智能的功能：</p>
 <ul>
-<li><p>参数 string 是以中划线（-）连接单词的字符串，需将第二个起的非空单词首字母转为大写，如 -webkit-border-radius 转换后的结果为 webkitBorderRadius。</p>
-</li>
-<li><p>返回转换后的字符串</p>
+<li>使用“+”、“-”、“*” 和 “/”四则运算；</li>
+<li>可以使用百分比、px、em、rem等单位；</li>
+<li>可以混合使用各种单位进行计算；</li>
+<li>表达式中有“+”和“-”时，其前后必须要有空格，如<code>widht: calc(12%+5em);</code>这种没有空格的写法是错误的；</li>
+<li><p>表达式中有“*”和“/”时，其前后可以没有空格，但建议留有空格。</p>
+<h3 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h3><p>浏览器对calc()的兼容性还算不错，在IE9+、FF4.0+、Chrome19+、Safari6+都得到较好支持，同样需要在其前面加上各浏览器厂商的识别符，不过可惜的是，移动端的浏览器还没仅有“firefox for android 14.0”支持，其他的全军覆没。<br>大家在实际使用时，同样需要添加浏览器的前缀</p>
+<p>   .element {</p>
+<pre><code>/*Firefox*/
+-moz-calc(expression);
+/*chrome safari*/
+-webkit-calc(expression);
+/*Standard */
+calc();
+</code></pre><p>   }</p>
 </li>
 </ul>
-<p>解决方法：</p>
-<pre><code>function convertToCamelCase(str){
-    var strSplit = str.split(&quot;-&quot;);//转换为字符串数组
-    if(strSplit[0] === &quot;&quot;){ //如果第一个字符串为空的话，左移删掉，否则的话不变
-        strSplit.shift();
-    }
-    for(var i = 1; i &lt; strSplit.length; i++){
-            var letter = strSplit[i].charAt(0);//取得字符串数组中每个字符串的首字母
-            //使用replace方法将每个字符串的首写字母大写
-            strSplit[i] = strSplit[i].replace(letter, function replace(letter){
-                return letter.toUpperCase();
-            });
+<p>通过上面的了解，大家对calc()不在那么陌生，但对于实际的运用可能还是不太了解，那么大家就接下来跟我一起动手，通过实例来了解他吧。首先我们来看一个最常用的实例：</p>
+<pre><code>&lt;div class=&quot;demo&quot;&gt;
+     &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;    
+</code></pre><p>上面的结构很简单，就是一个div.demo的元素中包含了一个div.box的元素，接下来我们一步一步来看其中的变化。<br><strong>第一步：添加普通样式：</strong></p>
+<pre><code>.demo {
+    width: 300px;
+    background: #60f;
+}
+.box {
+  width: 100%;
+    background: #f60;
+    height: 50px;
+}
+</code></pre><p>此时的效果很简单，就是div.box完全遮盖了div.demo，如下图所示：</p>
+<p><img src="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step1.jpg" alt="calc-step1"></p>
+<p><strong>第二步，在div.box上添加border和padding</strong></p>
+<p>这一步很棘手的事情来了，在div.box上添加10px的内距padding，同时添加5px的border：</p>
+<pre><code>.demo {
+    width: 300px;
+    background: #60f;
+}
+.box {
+  width: 100%;
+  background: #f60;
+  height: 50px;
+  padding: 10px;
+  border: 5px solid green;
+}
+</code></pre><p>为了更好的说明问题，我在div.demo上添加了一个 <code>padding：3px 0;</code></p>
+<pre><code>.demo {
+    width: 300px;
+    background: #60f;
+padding: 3px 0;    
+}
+.box {
+  width: 100%;
+  background: #f60;
+  height: 50px;
+  padding: 10px;
+  border: 5px solid green;
+}
+</code></pre><p>这个时候大家不知道能否想到问题会发生在哪？其实很简单，这个时候div.box的宽度大于了其容器div.demo的总宽度，从而撑破容器伸出来了，如图所示：</p>
+<p><img src="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step2.jpg" alt="calc-step2"></p>
+<p><strong>第三步，calc()的运用</strong></p>
+<p>为了解决撑破容器的问题，以前我们只能去计算div.box的宽度，用容器宽度减去padding和border的值，但有时候，我们苦于不知道元素的总宽度，比如说是自适应的布局，只知道一个百分值，但其他的值又是px之类的值，这就是难点，死卡住了。随着CSS3的出现，其中利用box-sizing来改变元素的盒模型类型实使实现效果，但今天我们学习的calc()方法更是方便。</p>
+<p>知道总宽度是100%，在这个基础上减去boder的宽度（5px <em> 2 = 10px）,在减去padding的宽度（10px </em> 2 = 20px），即”100% - (10px + 5px) * 2 = 30px” ，最终得到的值就是div.box的width值：</p>
+<pre><code>.demo {
+    width: 300px;
+    background: #60f;
+    padding: 3px 0;
+}
+.box {
+    background: #f60;
+    height: 50px;
+    padding: 10px;
+    border: 5px solid green;
+width: 90%;/*写给不支持calc()的浏览器*/
+    width:-moz-calc(100% - (10px + 5px) * 2);
+    width:-webkit-calc(100% - (10px + 5px) * 2);
+    width: calc(100% - (10px + 5px) * 2);
+}
+</code></pre><p>这样一来，通过calc()计算后，div.box不在会超出其容器div.demo的宽度，如图所示：</p>
+<p><img src="http://www.w3cplus.com/sites/default/files/201202/css3-calc-step3.jpg" alt="calc-step3"></p>
+<h3 id="采用calc-方法的自适应布局demo"><a href="#采用calc-方法的自适应布局demo" class="headerlink" title="采用calc()方法的自适应布局demo"></a>采用calc()方法的自适应布局demo</h3><p>在这个布局中，采用了自适应布局。整个布局包含了“头部”、“主内容”、“边栏”和“脚部”，并且“主内容”居左，“边栏”靠右。html结构如下：</p>
+<pre><code>&lt;!-- 头部 --&gt;
+&lt;div id=&quot;header&quot;&gt;我是头部&lt;/div&gt;
+&lt;!-- 内容区容器 --&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;!-- 主内容 --&gt;
+    &lt;div id=&quot;main&quot;&gt;我是主内容区&lt;/div&gt;
+    &lt;!-- 右边栏 --&gt;
+    &lt;div id=&quot;accessory&quot;&gt;我是右边栏&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 脚部 --&gt;
+&lt;div id=&quot;footer&quot;&gt;我是脚部&lt;/div&gt;
+</code></pre><p><strong>1、在body中设置一个内距，并附上一些基本的样式</strong></p>
+<pre><code>body {
+    background: #E8EADD;
+    color: #3C323A;
+    padding: 20px; 
+}
+</code></pre><p><strong>2、设置主容器“wrapper”的样式</strong></p>
+<p>主容器的宽度是“100% - 20px * 2”,并且水平居中：</p>
+<pre><code>    .wrapper {
+    width: 1024px; /* Fallback for browsers that don&apos;t support the calc() function */
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+    margin: auto; 
+}
+</code></pre><p>给不支持calc()的浏览器设置了一个固定宽度值“1024px”。</p>
+<p><strong>3、给header和footer设置样式</strong></p>
+<p>这个例子中的header和footer很简单，给他们添加了一个内距为20px，其他就是一些基本的样式设置，那么其对应的宽度应该是<code>100% - 20px * 2</code></p>
+<pre><code>#header {
+    background: #f60;
+    padding: 20px;
+    width: 984px;/*Fallback for browsers that don&apos;t support the calc() function*/
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+}
+#footer {
+    clear:both;
+    background: #000;
+    padding: 20px;
+    color: #fff;
+    width: 984px;/* Fallback for browsers that don&apos;t support the calc() function */
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+}
+</code></pre><p><strong>4、给主内容设置样式</strong></p>
+<p>给主内容设置了一个8px的边框，20px的内距，并且向左浮动，同时设置了一个向右的外边距“20”px，关键之处，我们主内容占容器宽度的75%，这样一来，主内容的宽度应该是<code>75% - 8px * 2 - 20px * 2</code></p>
+<pre><code>#main {
+    border: 8px solid #B8C172;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    width: 704px; /* Fallback for browsers that don&apos;t support the calc() function */
+    width: -moz-calc(75% - 20px * 2 - 8px * 2);
+    width: -webkit-calc(75% - 20px * 2 - 8px * 2);
+    width: calc(75% - 20px * 2 - 8px * 2); 
+}
+</code></pre><p><strong>5、设置右边栏样式</strong></p>
+<p>给边栏设置了一个25%的宽度，其除了包含8px的边框，10px的内距外，还有主内容外距20px也要去掉，不然整个宽度与容器会相差20px,换句话说就会撑破容器掉下来。因此边栏的实际宽度应该是<code>25% - 10px * 2 - 8px * 2 -20px</code></p>
+<pre><code>#accessory {
+    border: 8px solid #B8C172;
+    float: right;
+    padding: 10px;
+    width: 208px; /* Fallback for browsers that don&apos;t support the calc() function */
+    width: -moz-calc(25% - 10px * 2 - 8px * 2 - 20px);
+    width: -webkit-calc(25% - 10px * 2 - 8px * 2 - 20px);
+    width: calc(25% - 10px * 2 - 8px * 2 - 20px);
+}
+</code></pre><p>完整代码见<a href="https://github.com/shirley5li/someDemosForExercise/tree/master/demo-css3-calc(" target="_blank" rel="external">github</a>)。</p>
+<p>另附一篇<a href="https://www.cnblogs.com/mracale/p/7170385.html" target="_blank" rel="external">移动端页面布局</a>，讲得比较好。</p>
 
-    }  
-    return strSplit.join(&quot;&quot;);//join方法串接起字符串
-}
-convertToCamelCase(&quot;-ni-hao-a&quot;);
-</code></pre><p>还可以使用<strong>正则表达式</strong>的方法。</p>
-<pre><code>function convertToCamelCase(str) {
-  return str.replace(/\-[a-z]/g , function(a, b){
-      return b == 0 ? a.replace(&apos;-&apos;,&apos;&apos;) : a.replace(&apos;-&apos;,&apos;&apos;).toUpperCase();
-  });
-}
-</code></pre>
       
     </div>
     
@@ -678,7 +655,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+            <a href="/tags/CSS3/" rel="tag"><i class="fa fa-tag"></i> CSS3</a>
           
         </div>
       
@@ -691,8 +668,8 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/18/PS切图笔记-ing/" rel="next" title="PS切图笔记from慕课网">
-                <i class="fa fa-chevron-left"></i> PS切图笔记from慕课网
+              <a href="/2018/01/13/interview-questions-about-CSS/" rel="next" title="【interview questions about CSS】 from牛客网">
+                <i class="fa fa-chevron-left"></i> 【interview questions about CSS】 from牛客网
               </a>
             
           </div>
@@ -700,10 +677,6 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/20/next-js2/" rel="prev" title="JS笔记(二)DOM操作--from next十天训练营">
-                JS笔记(二)DOM操作--from next十天训练营 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -954,7 +927,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#认识JavaScript"><span class="nav-number">1.</span> <span class="nav-text">认识JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入JavaScript"><span class="nav-number">2.</span> <span class="nav-text">引入JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">3.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">4.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object对象"><span class="nav-number">5.</span> <span class="nav-text">Object对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">6.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">7.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">8.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的有关操作"><span class="nav-number">9.</span> <span class="nav-text">字符串的有关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分割字符串-split"><span class="nav-number">9.1.</span> <span class="nav-text">分割字符串 split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截取字符串-substring"><span class="nav-number">9.2.</span> <span class="nav-text">截取字符串 substring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串转换大写-toUpperCase"><span class="nav-number">9.3.</span> <span class="nav-text">字符串转换大写 toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">9.4.</span> <span class="nav-text">题目</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用calc"><span class="nav-number">1.</span> <span class="nav-text">为什么使用calc()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是calc"><span class="nav-number">2.</span> <span class="nav-text">什么是calc()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#calc-能做什么"><span class="nav-number">3.</span> <span class="nav-text">calc() 能做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#calc-语法"><span class="nav-number">4.</span> <span class="nav-text">calc()语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#calc-运算规则"><span class="nav-number">5.</span> <span class="nav-text">calc()运算规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器兼容性"><span class="nav-number">6.</span> <span class="nav-text">浏览器兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#采用calc-方法的自适应布局demo"><span class="nav-number">7.</span> <span class="nav-text">采用calc()方法的自适应布局demo</span></a></li></ol></div>
             
 
           </div>
