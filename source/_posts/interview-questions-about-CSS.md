@@ -291,4 +291,97 @@ padding和border被包含在定义的width和height之内。
 所谓的标准模式是指，浏览器按W3C标准解析执行代码；
 怪异模式则是使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以我们称之为怪异模式。
 浏览器解析时到底使用标准模式还是怪异模式，与你网页中的DTD声明直接相关，DTD声明定义了标准文档的类型(标准模式解析)，会使浏览器使用相应的方式加载网页并显示，忽略DTD声明,将使网页进入怪异模式(quirks mode)。
+### 怪异Quirks模式是什么，它和标准Standards模式有什么区别 ###
+从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。
+在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？
+在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。 **区别：**总体会有布局、样式解析和脚本执行三个方面的区别。
+**盒模型：** 在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks模式下，IE的宽度和高度还包含了padding和border。
+**设置行内元素的高宽：**在Standards模式下，给`<span>`等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。
+**设置百分比的高度：**在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的。
+**用margin:0 auto设置水平居中：**使`用margin:0 auto;`在standards模式下可以使元素水平居中，但在quirks模式下却会失效。
+（还有很多，答出什么不重要，关键是看他答出的这些是不是自己经验遇到的，还是说都是看文章看的，甚至完全不知道。） 
+### 边距折叠 ###
+**外边距折叠：** 相邻的两个或多个外边距 (margin) 在垂直方向会合并成一个外边距（margin）
+**相邻：** 没有被非空内容、padding、border 或 clear 分隔开的margin特性. 非空内容就是说这元素之间要么是兄弟关系或者父子关系
+**垂直方向外边距合并计算:**
+a、参加折叠的margin都是正值：取其中 margin 较大的值为最终 margin 值。
+b、参与折叠的 margin 都是负值：取的是其中绝对值较大的，然后，从 0 位置，负向位移。
+c、参与折叠的 margin 中有正值，有负值：先取出负 margin 中绝对值中最大的，然后，和正 margin 值中最大的 margin 相加。
+### 隐藏元素的方式 ###
+a、使用CSS的display:none，不会占有原来的位置
+b、使用CSS的visibility:hidden，会占有原来的位置
+c、使用HTML5中的新增属性hidden="hidden"，不会占有原来的位置 
+### 为什么重置浏览器默认样式，如何重置默浏览器认样式 ###
+每种浏览器都有一套默认的样式表，即user agent stylesheet，网页在没有指定的样式时，按浏览器内置的样式表来渲染。这是合理的，像word中也有一些预留样式，可以让我们的排版更美观整齐。不同浏览器甚至同一浏览器不同版本的默认样式是不同的。但这样会有很多兼容问题。
+a、最简单的办法：（不推荐使用）`*{margin: 0;padding: 0;}`。
+b、使用CSSReset可以将所有浏览器默认样式设置成一样。
+c、normalize：也许有些cssreset过于简单粗暴，有点伤及无辜，normalize是另一个选择。bootstrap已经引用该css来重置浏览器默认样式，比普通的cssreset要精细一些，保留浏览器有用的默认样式，支持包括手机浏览器在内的超多浏览器，同时对HTML5元素、排版、列表、嵌入的内容、表单和表格都进行了一般化。
+天猫 使用的css reset重置浏览器默认样式：
+
+    body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {margin: 0;padding: 0}
+    body, button, input, select, textarea {font: 12px "microsoft yahei";line-height: 1.5;-ms-overflow-style: scrollbar}
+    h1, h2, h3, h4, h5, h6 {font-size: 100%}
+    ul, ol {list-style: none}a {text-decoration: none;cursor:pointer}
+    a:hover {text-decoration: underline}
+    img {border: 0}
+    button, input, select, textarea {font-size: 100%}
+    table {border-collapse: collapse;border-spacing: 0}
+    .clear {clear:both}
+    .fr {float:right}
+    .fl {float:left}
+    .block {display:block;text-indent:-999em}
+
+### 对BFC与IFC的理解？(是什么，如何产生，作用) ###
+**(1)、什么是BFC与IFC**
+a、BFC（Block Formatting Context）即"块级格式化上下文"， IFC（Inline Formatting Context）即"行内格式化上下文"。常规流（也称标准流、普通流）是一个文档在被显示时最常见的布局形态。一个框在常规流中必须属于一个格式化上下文，你可以把BFC想象成一个大箱子，箱子外边的元素将不与箱子内的元素产生作用。
+b、BFC是W3C CSS 2.1规范中的一个概念，它决定了元素如何对其内容进行定位，以及与其他元素的关系和相互作用。当涉及到可视化布局的时候，Block Formatting Context提供了一个环境，HTML元素在这个环境中按照一定规则进行布局。一个环境中的元素不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素主要受该浮动元素影响，两个浮动元素之间是互不影响的。也可以说BFC就是一个作用范围。
+c、在普通流中的 Box(框) 属于一种 formatting context(格式化上下文) ，类型可以是 block ，或者是 inline ，但不能同时属于这两者。并且， Block boxes(块框) 在 block formatting context(块格式化上下文) 里格式化， Inline boxes(块内框) 则在 Inline Formatting Context(行内格式化上下文) 里格式化。
+**(2)、如何产生BFC**
+当一个HTML元素满足下面条件的任何一点，都可以产生Block Formatting Context：
+a、float的值不为none
+b、overflow的值不为visible
+c、display的值为table-cell, table-caption, inline-block中的任何一个
+d、position的值不为relative和static
+CSS3触发BFC方式则可以简单描述为：在元素定位非static，relative的情况下触发，float也是一种定位方式。
+
+**(3)、BFC的作用与特点**
+a、不和浮动元素重叠，清除外部浮动，阻止浮动元素覆盖。
+如果一个浮动元素后面跟着一个非浮动的元素，那么就会产生一个重叠的现象。常规流（也称标准流、普通流）是一个文档在被显示时最常见的布局形态，当float不为none时，position为absolute、fixed时元素将脱离标准流。
+### 对页面中使用定位(position)的理解 ###
+osition：static | relative | absolute | fixed | center | page | sticky
+默认值：static，center、page、sticky是CSS3中新增加的值。
+**(1)、static**
+可以认为静态的，默认元素都是静态的定位，对象遵循常规流。此时4个定位偏移属性不会被应用，也就是使用left，right，bottom，top将不会生效。
+**(2)、relative**
+相对定位，对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left这4个定位偏移属性进行偏移时不会影响常规流中的任何元素。
+**(3)、absolute**
+a、绝对定位，对象脱离常规流，此时偏移属性参照的是离自身最近的定位祖先元素，如果没有定位的祖先元素，则一直回溯到body元素。盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。
+b、元素定位参考的是离自身最近的定位祖先元素，要满足两个条件，第一个是自己的祖先元素，可以是父元素也可以是父元素的父元素，一直找，如果没有则选择body为对照对象。第二个条件是要求祖先元素必须定位，通俗说就是position的属性值为非static都行。
+**(4)、fixed**
+固定定位，与absolute一致，但偏移定位是以窗口为参考。当出现滚动条时，对象不会随着滚动。
+**(5)、center**
+与absolute一致，但偏移定位是以定位祖先元素的中心点为参考。盒子在其包含容器垂直水平居中。（CSS3）
+**(6)、page**
+与absolute一致。元素在分页媒体或者区域块内，元素的包含块始终是初始包含块，否则取决于每个absolute模式。（CSS3）
+**(7)、sticky**
+对象在常态时遵循常规流。它就像是relative和fixed的合体，当在屏幕中时按常规流排版，当卷动到屏幕外时则表现如fixed。该属性的表现是现实中你见到的吸附效果。（CSS3） 
+### 如何解决多个元素重叠问题 ###
+使用z-index属性可以设置元素的层叠顺序。
+z-index属性
+语法：`z-index: auto | <integer>`
+默认值：auto
+适用于：定位元素。即定义了position为非static的元素
+**取值：**
+auto： 元素在当前层叠上下文中的层叠级别是0。元素不会创建新的局部层叠上下文，除非它是根元素。 
+整数： 用整数值来定义堆叠级别。可以为负值。 说明：检索或设置对象的层叠顺序。 
+z-index用于确定元素在当前层叠上下文中的层叠级别，并确定该元素是否创建新的局部层叠上下文。 
+当多个元素层叠在一起时，数字大者将显示在上面。
+### 页面布局的方式 ###
+[页面布局方式](https://www.nowcoder.com/ta/review-frontend/review?query=&asc=true&order=&page=71)。
+### overflow :hidden是否形成新的块级格式化上下文 ###
+会形成，触发BFC的条件有：
+float的值不为none。
+overflow的值不为visible。
+display的值为table-cell, table-caption, inline-block 中的任何一个。
+position的值不为relative 和static。 
 
