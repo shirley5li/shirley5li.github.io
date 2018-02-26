@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-23T13:08:16.985Z</updated>
+  <updated>2018-02-26T05:43:23.973Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscodeKeyboardShortcuts</title>
+    <link href="http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/"/>
+    <id>http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/</id>
+    <published>2018-02-26T05:35:19.000Z</published>
+    <updated>2018-02-26T05:43:23.973Z</updated>
+    
+    <content type="html"><![CDATA[<p>vscode中常用的快捷键功能。<br><a id="more"></a></p>
+<h3 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h3><p>alt+up/down    向上/下移动单行</p>
+<p>shift+alt+up/down    向上/下复制单行</p>
+<p>shift+alt+f    格式化文本</p>
+<p>command + +/-  增大/减小文本字体</p>
+<p>Ctrl+Enter   在当前行下边插入一行</p>
+<p>Ctrl+Shift+Enter  在当前行上方插入一行</p>
+<p>代码行缩进：  向左缩进 Ctrl+[ &nbsp;&nbsp; 向右缩进 Ctrl+]</p>
+<h3 id="光标相关"><a href="#光标相关" class="headerlink" title="光标相关"></a>光标相关</h3><p>移动到行首：Home</p>
+<p>移动到行尾：End</p>
+<p>移动到文件结尾：Ctrl+End</p>
+<p>移动到文件开头：Ctrl+Home</p>
+<p>移动到后半个括号： Ctrl+Shift+]</p>
+<p>选中当前行   Ctrl+i</p>
+<p>选择从光标到行尾   Shift+End</p>
+<p>选择从行首到光标处   Shift+Home</p>
+<p>删除光标右侧的所有字： Ctrl+Delete</p>
+<p>删除光标所在行:    Ctrl+Shift+K </p>
+<p>扩展/缩小选取范围： Shift+Alt+Left/Right</p>
+<p>多行编辑(列编辑)：Alt+Shift+鼠标左键，Ctrl+Alt+Down/Up</p>
+<p>同时选中所有匹配： Ctrl+Shift+L</p>
+<p>回退上一个光标操作： Ctrl+U</p>
+<h3 id="重构代码"><a href="#重构代码" class="headerlink" title="重构代码"></a>重构代码</h3><p>移动到定义处： F12</p>
+<p>定义处缩略图：只看一眼而不跳转过去 Alt+F12</p>
+<p>列出所有引用： Shift+F12</p>
+<p>同时修改本文件中所有匹配的： Ctrl+F12</p>
+<p>重命名：比如要修改一个方法名，可以选中后按 F2，输入新的名字，回车，会发现所有的文件都修改了</p>
+<p>跳转到下一个 Error 或 Warning：当有多个错误时可以按 F8 逐个跳转</p>
+<p>查看 diff： 在 explorer 里选择文件右键 Set file to compare，然后需要对比的文件上右键选择 Compare with file_name_you_chose</p>
+<h3 id="左侧边栏及显示相关"><a href="#左侧边栏及显示相关" class="headerlink" title="左侧边栏及显示相关"></a>左侧边栏及显示相关</h3><p>打开资源  ctrl+shift+E</p>
+<p>打开搜索  ctrl+shift+F</p>
+<p>打开git    ctrl+shift+G</p>
+<p>打开调试 ctrl+shift+D</p>
+<p>打开扩展 ctrl+shift+X</p>
+<p>全屏：F11</p>
+<p>侧边栏显/隐：Ctrl+B</p>
+<p>输出Show Output：  Ctrl+Shift+U</p>
+<p>预览markdown：  Ctrl+Shift+V</p>
+<h3 id="编辑器与窗口管理"><a href="#编辑器与窗口管理" class="headerlink" title="编辑器与窗口管理"></a>编辑器与窗口管理</h3><p>打开一个新窗口： Ctrl+Shift+N</p>
+<p>关闭窗口： Ctrl+Shift+W</p>
+<p>新建文件：   Ctrl+N</p>
+<p>文件之间切换：   Ctrl+Tab</p>
+<p>切出一个新的编辑器： Ctrl+\  (也可以按住 Ctrl 鼠标点击 Explorer 里的文件名。左中右 3 个编辑器的快捷键分别为 Ctrl+1 Ctrl+2 Ctrl+3)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vscode中常用的快捷键功能。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="vscode" scheme="http://yoursite.com/categories/vscode/"/>
+    
+    
+      <category term="vscode" scheme="http://yoursite.com/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS3 calc()的使用</title>
@@ -3234,46 +3299,6 @@ convertToCamelCase(&quot;-ni-hao-a&quot;);
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PS切图笔记from慕课网</title>
-    <link href="http://yoursite.com/2017/10/18/PS%E5%88%87%E5%9B%BE%E7%AC%94%E8%AE%B0-ing/"/>
-    <id>http://yoursite.com/2017/10/18/PS切图笔记-ing/</id>
-    <published>2017-10-18T08:19:00.000Z</published>
-    <updated>2018-01-09T02:47:02.935Z</updated>
-    
-    <content type="html"><![CDATA[<p>在慕课网学习的简单的关于PS切图的基本使用。下面是慕课网的视频学习链接<a href="http://www.imooc.com/learn/506" target="_blank" rel="external">前端工程师必备的PS技能——切图篇</a>。<br><a id="more"></a></p>
-<h2 id="Photoshop界面设置"><a href="#Photoshop界面设置" class="headerlink" title="Photoshop界面设置"></a>Photoshop界面设置</h2><p>使用的photoshop版本为photoshop cc 2015。</p>
-<h3 id="新建设置"><a href="#新建设置" class="headerlink" title="新建设置"></a>新建设置</h3><p>文件–&gt;新建–&gt;文档类型（自定）–&gt;宽度一般固定（1920像素）–&gt;高度一般不定(此时设为2000像素)–&gt;分辨率72像素/英寸–&gt;背景内容(透明)。</p>
-<p>再点击“确定”即可生成一张新的界面。此时还可点击“存储预设为”将本次自定义设置预设，留作以后使用该设置参数时使用。参数设置即生成图片分别为下列两图所示。</p>
-<p><img src="/images/PS切图笔记/1.png" alt="1"></p>
-<p><img src="/images/PS切图笔记/2.png" alt="2"></p>
-<p>不知道是不是我下载的破解版的原因，键盘在中文输入法状态下时，左侧导航栏的工具图标不显示提示名称，切换到英文输入状态时就会显示。。</p>
-<h3 id="移动工具设置"><a href="#移动工具设置" class="headerlink" title="移动工具设置"></a>移动工具设置</h3><p>第一个工具图标为：移动工具，快捷键V。 如下图所示。</p>
-<p><img src="/images/PS切图笔记/3.png" alt="3"></p>
-<p>选择移动工具–不勾选自动选择–选择图层–按住ctrl+鼠标左键可以自由选择想要的图层，会在右侧图层显示信息栏为你筛选出当前鼠标左键选择的图层。如下图所示。</p>
-<p><img src="/images/PS切图笔记/4.png" alt="4"></p>
-<h3 id="视图设置"><a href="#视图设置" class="headerlink" title="视图设置"></a>视图设置</h3><p>勾选两个功能：（1）视图–&gt;显示–&gt;智能参考线  （2）视图–&gt;标尺<br>可以在窗口–&gt;库，颜色，路径，通道， 把这几个功能关掉。</p>
-<p>窗口–&gt;历史记录，信息，图层，三个功能模块打开。</p>
-<p>最后在右侧区域一共用到四个功能，即信息，字符，图层，历史纪录。见下图。</p>
-<p><img src="/images/PS切图笔记/5.png" alt="5"></p>
-<p>信息面板设置如下：</p>
-<p><img src="/images/PS切图笔记/6.png" alt="6"></p>
-<p>在编辑–&gt;首选项–&gt;单位与标尺，将单位改为像素。</p>
-<h2 id="Photoshop基本操作"><a href="#Photoshop基本操作" class="headerlink" title="Photoshop基本操作"></a>Photoshop基本操作</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在慕课网学习的简单的关于PS切图的基本使用。下面是慕课网的视频学习链接&lt;a href=&quot;http://www.imooc.com/learn/506&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;前端工程师必备的PS技能——切图篇&lt;/a&gt;。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="PS" scheme="http://yoursite.com/categories/PS/"/>
-    
-    
-      <category term="PS" scheme="http://yoursite.com/tags/PS/"/>
     
   </entry>
   
