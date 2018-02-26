@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-26T05:43:23.973Z</updated>
+  <updated>2018-02-26T06:06:33.651Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>vscodeKeyboardShortcuts</title>
+    <title>vscode快捷键</title>
     <link href="http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/"/>
     <id>http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/</id>
     <published>2018-02-26T05:35:19.000Z</published>
-    <updated>2018-02-26T05:43:23.973Z</updated>
+    <updated>2018-02-26T06:06:33.651Z</updated>
     
     <content type="html"><![CDATA[<p>vscode中常用的快捷键功能。<br><a id="more"></a></p>
 <h3 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h3><p>alt+up/down    向上/下移动单行</p>
