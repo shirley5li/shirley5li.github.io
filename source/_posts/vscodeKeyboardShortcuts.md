@@ -1,5 +1,5 @@
 ---
-title: vscodeKeyboardShortcuts
+title: vscode快捷键
 date: 2018-02-26 13:35:19
 tags: [vscode]
 categories: vscode

@@ -90,7 +90,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/shirley5li/shirley5li.github.io
+  repo: git@github.com:shirley5li/shirley5li.github.io.git
   branch: master
 #baidu share
 baidushare: true #百度分享功能
