@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-26T06:06:33.651Z</updated>
+  <updated>2018-02-27T06:58:33.812Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,321 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端面试常见算法题总结</title>
+    <link href="http://yoursite.com/2018/02/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/02/26/前端面试常见算法题/</id>
+    <published>2018-02-26T06:24:48.000Z</published>
+    <updated>2018-02-27T06:58:33.812Z</updated>
+    
+    <content type="html"><![CDATA[<p>十道前端面试常见算法题。<br><a id="more"></a></p>
+<h3 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h3><p>思路：将字符串转换为数组，利用数组方法reverse()比较翻转后的字符串是否与源字符串一致。</p>
+<p>实现：</p>
+<pre><code>function checkPalindrome(str) {
+    return str == str.split(&apos;&apos;).reverse().join(&apos;&apos;);
+}
+</code></pre><h3 id="去掉一组整型数组重复的值"><a href="#去掉一组整型数组重复的值" class="headerlink" title="去掉一组整型数组重复的值"></a>去掉一组整型数组重复的值</h3><pre><code>function uniqueArr(arr) {
+    var result = [];
+    for(var i = 0; i &lt; arr.length; i++) {
+        if(arr.indexOf(arr[i]) === i) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+uniqueArr([1,13,24,11,11,14,1,2]);//返回 [1, 13, 24, 11, 14, 2]
+</code></pre><h3 id="统计一个字符串出现最多的字母"><a href="#统计一个字符串出现最多的字母" class="headerlink" title="统计一个字符串出现最多的字母"></a>统计一个字符串出现最多的字母</h3><pre><code>function maxDuplicateLetter(str) {
+    //如果字符串仅有一个字符，即为该字符
+    if(str.length === 1) {
+        return str;
+    }
+    var letterObj = {};
+    for(var i = 0; i &lt; str.length; i++) {
+        if(!letterObj[str[i]]) {//存放字母的对象中还未记录过该字母出现的次数
+            letterObj[str[i]] = 1;
+        }
+        letterObj[str[i]] += 1;
+    }
+    //接下来寻找存放字母的对象中最大的value所对应的key
+    var maxValue = 1;
+    var maxKey = &apos;&apos;;
+    for(var key in letterObj) {
+        if(letterObj[key] &gt; maxValue) {
+            maxValue = letterObj[key];
+            maxKey = key;
+        }
+    }
+    return maxKey;
+}
+maxDuplicateLetter(&quot;abcdddbb&quot;);//返回 &quot;a&quot;
+</code></pre><h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><p><strong>（1）冒泡排序</strong><br>依次比较相邻两个数的大小，进行位置上的交换，若按由小到大排序，第一轮可以将最大的排在最右边。<br>平均时间复杂度：O(n^2)  &nbsp;&nbsp;最好情况：O(n) &nbsp;&nbsp;  最坏情况：O(n^2)<br>空间复杂度：O(1)<br>排序方式:In-place<br>稳定性:稳定</p>
+<pre><code>function bubbleSort(arr) {
+    for(var i = 0; i &lt; arr.length; i++) {
+        for(var j = 0; j &lt; arr.length - i -1; j ++) {
+            // 由小到大排序
+            if(arr[j] &gt; arr[j + 1]){
+                var swap = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = swap;
+            }
+        }
+    }
+    return arr;
+}
+bubbleSort([3, 2, 4, 1, 7]);//返回 [1, 2, 3, 4, 7]
+</code></pre><p><strong>(2)快速排序</strong><br>参考某个元素值，将小于它的值，放到左数组中，大于它的值的元素就放到右数组中，然后递归进行上一次左右数组的操作，返回合并的数组就是已经排好顺序的数组。<br>平均时间复杂度: O(n log n)  &nbsp;&nbsp;最好情况：O(n log n) &nbsp;&nbsp;  最坏情况：O(n^2)<br>空间复杂度：O(1)<br>排序方式:In-place<br>稳定性:不稳定</p>
+<pre><code>function quickSort(arr) {
+    if(arr.length &lt;= 1) {
+        return arr;
+    }
+    var referValue = arr[0];
+    var leftArr = [];
+    var rightArr = [];
+    // 由小到大排序
+    for(var i = 1; i &lt; arr.length; i++) {
+        if(arr[i] &lt; referValue) {
+            leftArr.push(arr[i]);
+        } else {
+            rightArr.push(arr[i]);
+        }
+    }
+    return quickSort(leftArr).concat([referValue], quickSort(rightArr));
+}
+quickSort([3, 2, 4, 1, 7]);//返回 [1, 2, 3, 4, 7]
+</code></pre><p>另外还有 <strong>选择排序、插入排序、希尔排序、归并排序、堆排序、计数排序、桶排序等</strong>，见博客<a href="https://www.cnblogs.com/beli/p/6297741.html" target="_blank" rel="external">js十大排序算法</a>。</p>
+<h3 id="不借助临时变量，进行两个整数的交换"><a href="#不借助临时变量，进行两个整数的交换" class="headerlink" title="不借助临时变量，进行两个整数的交换"></a>不借助临时变量，进行两个整数的交换</h3><p>利用 + – 去进行运算，类似 a = a + ( b – a) 实际上等同于最后 的 a = b;</p>
+<pre><code>function swap([a, b]) {
+    var b = b - a;
+    var a = a + b;
+    var b = a - b;
+    return [a, b];
+}
+swap([2, 5]);//返回 [5, 2]
+</code></pre><h3 id="使用canvas-绘制一个有限度的斐波那契数列的曲线"><a href="#使用canvas-绘制一个有限度的斐波那契数列的曲线" class="headerlink" title="使用canvas 绘制一个有限度的斐波那契数列的曲线"></a>使用canvas 绘制一个有限度的斐波那契数列的曲线</h3><p><img src="http://img1.vued.vanthink.cn/vued90edf7b944ec479ee8b4203cf56e158d.png" alt="斐波那契数列曲线"><br>数列长度限定在9时的图像。<br>斐波那契数列，又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……<br><code>fibo[i] = fibo[i-1]+fibo[i-2];</code><br>即生成斐波那契数列，然后再将该数列值作为半径，利用canvas arc方法绘制曲线。</p>
+<pre><code>function generateFibo(n) {
+    var fiboArr = [];
+    var i = 0;
+    while(i &lt; n) {
+        if (i &lt;= 1) {
+            fiboArr.push(i);
+        } else {
+            fiboArr[i] = fiboArr[i - 1] + fiboArr[i - 2];
+        }
+        i++;
+    }
+    return fiboArr;
+}
+generateFibo(6);//返回 [0, 1, 1, 2, 3, 5]
+</code></pre><h3 id="找出正数组的最大差值"><a href="#找出正数组的最大差值" class="headerlink" title="找出正数组的最大差值"></a>找出正数组的最大差值</h3><p>相当于找到一个数组中的最大值与最小值，最大差值即为两者之差。</p>
+<pre><code>function maxDifference(arr) {
+    var minValue = arr[0];
+    var maxDiffer = 0;
+    for(var i = 0; i &lt; arr.length; i++) {
+        minValue = Math.min(minValue, arr[i]);
+        currentDiffer = arr[i] - minValue;
+        maxDiffer = Math.max(maxDiffer, currentDiffer);
+    }
+    return maxDiffer;
+}
+maxDifference([10,5,11,7,8,9]);//返回 6
+</code></pre><h3 id="随机生成指定长度的字符串"><a href="#随机生成指定长度的字符串" class="headerlink" title="随机生成指定长度的字符串"></a>随机生成指定长度的字符串</h3><pre><code>function randomString(n) {
+    var rangeStr = &apos;abcdefghijklmnopqrstuvwxyz0123456789&apos;;
+    var l = rangeStr.length;
+    var randomStr = &apos;&apos;;
+    for(var i = 0; i &lt; n; i++) {
+        randomStr += rangeStr.charAt(Math.floor(Math.random() * l));
+    }
+    return randomStr;
+}
+randomString(10);//返回 &quot;itfjah8rte&quot;
+</code></pre><h3 id="实现类似getElementsByClassName-的功能"><a href="#实现类似getElementsByClassName-的功能" class="headerlink" title="实现类似getElementsByClassName 的功能"></a>实现类似getElementsByClassName 的功能</h3><p>查找某个DOM节点下面的包含某个class的所有DOM节点？不允许使用原生提供的 getElementsByClassName、 querySelectorAll 等原生提供DOM查找的函数。</p>
+<pre><code>function queryClassName(node, name) {
+    var starts = &apos;(^|[ \n\r\t\f])&apos;,
+        ends = &apos;([ \n\r\t\f]|$)&apos;;
+    var resultArr = [],
+        reg = new RegExp(starts + name + ends),
+        elements = node.getElementsByTagName(&quot;*&quot;);
+        length = elements.length,
+        i = 0;
+    while(i &lt; length) {
+        var element = elements[i];
+        if(reg.test(element.className)) {
+            resultArr.push(element);
+        }
+        i++;
+    }
+    return resultArr;
+}
+// 方法2
+function queryClassName2(node, name) {
+    var elements = node.getElementsByTagName(&quot;*&quot;),
+        length = elements.length,
+        resultArr = [];
+    for(var i = 0; i &lt; length; i ++) {
+        if(elements[i].className) {
+            var classNames = elements[i].className.split(&quot; &quot;);/*这里其实还要考虑类名间隔大于一个空格的情况*/
+            if(classNames.indexOf(name) !== -1) {
+                resultArr.push(elements[i]);
+            }
+        }
+    }
+    return resultArr;
+}
+//HTML结构
+&lt;ul id=&quot;ull&quot;&gt;  
+    &lt;li&gt;0&lt;/li&gt;  
+    &lt;li class=&apos;box box2&apos;&gt;1&lt;/li&gt;  
+    &lt;li&gt;2&lt;/li&gt;  
+    &lt;li class=&apos;box1&apos;&gt;3&lt;/li&gt;  
+    &lt;li class=&apos;box1&apos;&gt;4&lt;/li&gt;  
+    &lt;li class=&apos;box box1&apos;&gt;5&lt;/li&gt;   
+&lt;/ul&gt;
+//测试结果
+ window.onload = function() {
+    node = document.getElementById(&quot;ull&quot;);
+    queryClassName(node, &quot;box&quot;);//返回 (2) [li.box.box2, li.box.box1]
+    queryClassName2(node, &quot;box&quot;);// 返回 (2) [li.box.box2, li.box.box1]
+};
+</code></pre><h3 id="JS-实现二叉查找树-Binary-Search-Tree"><a href="#JS-实现二叉查找树-Binary-Search-Tree" class="headerlink" title="JS 实现二叉查找树(Binary Search Tree)"></a>JS 实现二叉查找树(Binary Search Tree)</h3><p>在实际使用时会根据链表和有序数组等数据结构的不同优势进行选择。有序数组的优势在于二分查找，链表的优势在于数据项的插入和数据项的删除。但是在有序数组中插入数据就会很慢，同样在链表中查找数据项效率就很低。综合以上情况，二叉树可以利用链表和有序数组的优势，同时可以合并有序数组和链表的优势，二叉树也是一种常用的数据结构。<br>二叉查找树，也称二叉搜索树、有序二叉树（英语：ordered binary tree）是指一棵空树或者具有下列性质的二叉树：</p>
+<pre><code>任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；
+任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；
+任意节点的左、右子树也分别为二叉查找树；
+没有键值相等的节点。二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低。为O(log n)。二叉查找树是基础性数据结构，用于构建更为抽象的数据结构，如集合、multiset、关联数组等。
+</code></pre><p><strong>二叉树相关概念：</strong><br>凡是每个节点都最多有两个叉的树，都叫二叉树。<br>查找树和排序树是一个东西。特点是中序遍历一遍的结果是单调的。这种树建出来可以用来做二分搜索。<br>平衡树一般是排序树的一种，并且加点条件，就是任意一个节点的两个叉的深度差不多（比如差值的绝对值小于某个常数，或者一个不能比另一个深出去一倍之类的）。<br>这样的树可以保证二分搜索任意元素都是O(log n)的，一般还附带带有插入或者删除某个元素也是O(log n)的的性质。<br>二叉树由节点（node）和边组成。节点分为根节点、父节点、子节点。如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160919221509693" alt="二叉树示意图"><br>红色是根节点（root）。蓝色是子节点也是父节点，绿色的是子节点。其余的线是边。节点和链表中的节点一样都可以存放数据信息。树中的边可以用自引用表示，这种引用就是C/C++里面的指针。通常来说树是顶部小，底部大，且树呈分层结构。root节点时第0层，以此类推。二叉树最多有两个节点。<br>二叉树搜索： 二叉树一个节点左子节点的关键字小于这个节点，右子节点关键字大于或等于这个父节点。<br>创建一个树节点。<br><strong>BST创建过程：</strong><br>(1)创建一个树节点包括左节点引用和右节点引用。<br>(2)创建一个树结构。 创建一个树结构首先是向一个树种插入数据节点。当一棵树为null时，数据项是从树的root节点处开始插入，之后的插入顺序是根据搜索节点顺序规则进行插入。具体规则是：如果数据项比父节点的数据项要小，则插在父节点的左节点（leftNode），如果比父节点的数据项要大，则将新的node插入在父节点的右节点处（rightNode）。<br>插入数据节点过程如下所示：<br><img src="http://img.blog.csdn.net/20160919230148150" alt="BST插入数据节点示意图"><br>插入节点的过程中其实也就是对tree遍历的过程，最终根据条件遍历到左右节点为null时进行添加新的节点。<br><strong>查找关键字</strong><br>查找关键字是数据结构一项重要操作项，在有序数组中通过二分排序效率非常高。在二叉树中的查找效率也比较高。因为二叉树的添加node的过程就是根据数据项的大小进行有序添加的，并不是毫无秩序的插入数据项。在有序的基础上进行查找关键字效率就会快很多。<br>树的最值查找在树中查找是比较容易的，因为从root开始查找，最小值只会出现所有父节点的左节点处，同样最大值只会出现在所有父节点的沿着右节点搜索的最底层右节点处。<br><a href="http://blog.csdn.net/cai2016/article/details/52589952" target="_blank" rel="external">参考自博客</a>。<br><strong>删除节点</strong><br>给出如下二叉查找树</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png" alt="二叉查找树"><br>删除节点3之后，可以返回</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png" alt="新的BST1"><br>或者</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png" alt="新的BST2"><br>思路:<br>若要删除一个BST的一个结点，需要考虑如下三种情况：</p>
+<pre><code>需要删除的节点下并没有其他子节点
+需要删除的节点下有一个子节点（左或右）
+需要删除的节点下有两个子节点（既左右节点都存在）
+</code></pre><p>对这三种情况分别采取的措施是：<br>    直接删除此结点<br>    删除此结点，将此结点父节点连接到此结点左（右）子树<br>    找出此结点右子树中的最小结点，用以代替要删除的结点，然后删除此最小结点</p>
+<p><strong>设定每个节点的数据结构：</strong></p>
+<pre><code>class Node {
+    constructor(data, left, right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+</code></pre><p>树由节点构成，由根节点逐渐延生到各个子节点，因此它基本的结构就是具备一个根节点，具备添加，查找和删除节点的方法。</p>
+<pre><code>// 构建BST，具备一个根节点、以及添加、查找、删除节点的方法
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+    // 插入节点的方法
+    insert(data) {
+        let n = new Node(data, null, null);
+        if (!this.root) { //如果此二叉树为空，则数据项从树的root节点处开始插入
+            return this.root = n;
+        }
+        let currentNode = this.root;
+        let parent = null;
+        while (true) {
+            parent = currentNode; //保存当current变为null之前的那一个父节点
+            if (data &lt; currentNode.data) { //插在父节点的左节点
+                currentNode = currentNode.left;
+                if (currentNode === null) { //不断向左node寻找是否为null
+                    parent.left = n;
+                    break;
+                }
+            } else { //插在父节点的右节点
+                currentNode = currentNode.right;
+                if (currentNode === null) {
+                    parent.right = n;
+                    break;
+                }
+            }
+        }
+    }
+    // 删除数据项
+    remove(data) {
+        this.root = this.removeNode(this.root, data);
+    }
+    // 删除节点
+    // 删除树中与给定值相同的节点，如果树中没有相同值的节点，则不做处理，应该保证处理之后的树仍是二叉查找树。
+    removeNode(node, data) {
+        if (node === null) { // 如果根节点为空
+            return null;
+        }
+        if (data === node.data) {
+            // 没有子节点，即node为叶子节点
+            if (node.left === null &amp;&amp; node.right === null) {
+                return null;
+            }
+            // 要删除的节点下只有右节点
+            if (node.left === null) {
+                return node.right;
+            }
+            // 要删除的节点下只有左节点
+            if (node.right === null) {
+                return node.left;
+            }
+            // 要删除的节点下有两个子节点的情况
+            // getSmallest用于找到该节点右子树中的最小节点，用以替代要删除的节点，然后删除此最小节点
+            let getSmallest = function (node) {
+                if (node.left === null &amp;&amp; node.right === null) {
+                    return node;
+                }
+                if (node.left !== null) {
+                    return node.left;
+                }
+                if (node.right !== null) {
+                    return getSmallest(node.right);
+                }
+            }
+            let temNode = getSmallest(node.right);
+            node.data = temNode.data;
+            node.right = this.removeNode(temNode.right, temNode.data);
+            return node;
+        } else if (data &lt; node.data) {
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        }
+    }
+    // 查找方法
+    find(data) {
+        let currentNode = this.root;
+        while (currentNode !== null) {
+            if (data === currentNode.data) {
+                return true;
+            }
+            if (data &lt; currentNode.data) {
+                if (currentNode.left !== null) {
+                    currentNode = currentNode.left;
+                } else {
+                    return false;
+                }
+            } else {// data &gt; currentNode.data
+                if (currentNode.right !== null) {
+                    currentNode = currentNode.right;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+}
+</code></pre><p>有关数组的一些操作见博客后半部分<a href="https://www.cnblogs.com/libin-1/p/5998870.html" target="_blank" rel="external">前端面试中的常见的算法问题</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;十道前端面试常见算法题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="js算法题" scheme="http://yoursite.com/categories/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="js算法题" scheme="http://yoursite.com/tags/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>vscode快捷键</title>
@@ -3086,212 +3401,6 @@ event.stopPropagation();//阻止事件冒泡，当点击h1元素时，不会触�
     <summary type="html">
     
       &lt;p&gt;JS调用DOM接口修改样式。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记(一)--from next十天训练营</title>
-    <link href="http://yoursite.com/2017/10/20/next-js/"/>
-    <id>http://yoursite.com/2017/10/20/next-js/</id>
-    <published>2017-10-20T01:21:29.000Z</published>
-    <updated>2018-01-09T02:47:02.940Z</updated>
-    
-    <content type="html"><![CDATA[<p>NEXT十天训练营有关JS学习的笔记。<br><a id="more"></a></p>
-<h2 id="认识JavaScript"><a href="#认识JavaScript" class="headerlink" title="认识JavaScript"></a>认识JavaScript</h2><p>JS是目前主流浏览器唯一支持的脚本语言，由以下三部分组成：</p>
-<p>（1）ECMAScript:语言基础（核心）。</p>
-<p>ECMA-262标准规定了ECMAScript这门语言的组成部分，例如语法、类型、语句、关键字、保留字、操作符、对象。</p>
-<p>Web浏览器只是ECMAScript实现可能的宿主环境之一，其他宿主环境还包括Node(一种服务端JavaScript平台)和Adobe Flash。</p>
-<p>（2）DOM（Document Object Model,文档对象模型）</p>
-<p>通过DOM可以操作HTML元素，包括删除、添加、替换、修改节点等。DOM将整个HTML文档映射为一个多层节点结构，即DOM树。</p>
-<p>（3）BOM（Browser Object Model,浏览器对象模型）</p>
-<p>通过BOM获取一些浏览器的信息，以及控制浏览器的一些行为。</p>
-<h2 id="引入JavaScript"><a href="#引入JavaScript" class="headerlink" title="引入JavaScript"></a>引入JavaScript</h2><p>有三种方式可以在HTML文档里引入JavaScript。</p>
-<p>（1）行内方式。即直接在HTML元素的属性上应用js代码。</p>
-<p>例如以下代码中button元素的onclick属性，点击button就会弹出消息框并显示“hello”。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot; onclick=&quot;alert(&apos;hello&apos;);&quot;&gt;点击弹出消息框&lt;/button&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>但这种方式不建议使用。一是因为这种方式针对一些用户的事件触发js执行，局限性较大。二是html文档中掺杂js代码会显得文档很乱，背离了结构应与样式、行为相分离的原则。</p>
-<p>（2）内嵌方式。即通过一对<script></script>标签在html文档中插入js代码。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot; &gt;点击弹出消息框&lt;/button&gt;
-    &lt;sript&gt;
-        var helloBtn = documnet.getElementById(&quot;helloBtn&quot;);
-        helloBtn.onclick = function() {
-            alert(&quot;hello&quot;);
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>此种方式也有缺点。例如在不同页面使用上述<script></script>标签之间这段js代码时，即在不同页面使用同一段js代码会有冗余。根据场景判断是否使用该方式。</p>
-<p>（3）外链方式。即将js代码从html文档中提取出来单独形成一个.js文件，并在html文档中引入这个.js文件。</p>
-<p>例如将方法（2）中<script></script>标签之间这段js代码提取出来，保存在一个hello.js文件中，并在html文件中引入。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;/&gt;
-    &lt;title&gt;JavaScript引入&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button id=&quot;helloBtn&quot;&gt;点击弹出消息框&lt;/button&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;hello.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>根据场景判断是否使用该方式。</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>（1）语法:</p>
-<pre><code>var 变量名
-</code></pre><p>变量名区分大小写，首字母必须是字母、下划线或者$，非关键字和保留字。<br>例如，<code>var name = &quot;bottle&quot;;</code></p>
-<p>（2）全局变量和局部变量：</p>
-<p>使用var定义的变量可能是全局变量也可能是局部变量，取决于是否在一个function中。如在function中使用var定义一个变量message，此变量即为一个局部变量。局部变量在function外面访问不到。若在function内不使用var定义变量message，则在函数外可以访问到该变量。</p>
-<p>使用var定义</p>
-<pre><code>function test() {
-    var message = &quot;hi&quot;;//定义一个局部变量
-}
-test();
-alert(message);//错误，找不到变量message
-</code></pre><p>不使用var定义</p>
-<pre><code>function test() {
-    message = &quot;hi&quot;;//定义一个全局变量
-}
-test();
-alert(message);//hi
-</code></pre><p>使用控制台console来调试js代码。alert()弹出一个提示框。console.log()打印。</p>
-<p>利用sources里面的snippets来观察变量。如下所示。</p>
-<p><img src="/images/next-js/1.png" alt="1"></p>
-<p>局部变量测试结果如下所示。</p>
-<p><img src="/images/next-js/2.png" alt="2"></p>
-<p><img src="/images/next-js/3.png" alt="3"></p>
-<p>全局变量测试结果如下所示。</p>
-<p><img src="/images/next-js/4.png" alt="4"></p>
-<p><img src="/images/next-js/5.png" alt="5"></p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>1、基本数据类型</p>
-<p>（1）字符串类型String</p>
-<p>（2）数字类型Number</p>
-<p>（3）布尔类型Boolean ,取值true或false</p>
-<p>（4）Null</p>
-<p>（5）Undefined</p>
-<p>2、复杂数据类型/引用数据类型 Object</p>
-<p><strong>怎样判断数据类型</strong></p>
-<p>在浏览器控制台可使用type of 操作符来判断以下数据类型。</p>
-<pre><code>typeof 1//&quot;number&quot;
-typeof &apos;a&apos;//&quot;string&quot;
-typeof true//&quot;boolean&quot;
-typeof undefined//&quot;undefined&quot;
-typeof null//&quot;object&quot; (这个比较特殊)
-typeof {}//&quot;object&quot;
-typeof function(){};//&quot;function&quot;
-</code></pre><p>判断数据类型的几个例子如下。</p>
-<p><img src="/images/next-js/6.png" alt="6"></p>
-<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><p>1、创建对象</p>
-<p>（1）使用对象字面量{}创建杯子对象。（推荐，简洁明了）</p>
-<pre><code>var bottle = {
-    name: &quot;bottle&quot;, //key: value
-    price: 49, 
-    isKeepWarm: true 
-}
-</code></pre><p>对象的每一个属性都可以用对应的键值对(key: value)来描述，其中key为任一合法字符，value为任意数据类型。如果属性名包含多个中间含空格的字符，要用引号包含起来。</p>
-<p>（2）使用Object构造函数创建杯子对象。</p>
-<pre><code>var bottle = new Object();
-bottle.name = &quot;bottle&quot;;
-bottle.price = 49;
-bottle.isKeepWarm = true;
-</code></pre><p>2、对象属性读操作</p>
-<p>（1）使用点操作符 <code>console.log(bottle.name);//&quot;bottle&quot;</code>（推荐）</p>
-<p>（2）使用中括号操作符 <code>console.log(bottle[&quot;name&quot;]);//&quot;bottle&quot;</code>（如果对象属性名即key包含空格时，必须使用中括号操作符）</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>1、函数的定义</p>
-<p>（1）函数声明</p>
-<pre><code>function 函数名（参数1，参数2，...）{
-    函数体
-    return ;
-}
-</code></pre><p>函数声明的特点，在相同作用域下，不管在何处声明都可以调用的到。即使声明在调用之后。</p>
-<p>（2）函数表达式</p>
-<pre><code>var 变量 = function(参数1，参数2，...){
-    函数体
-    return ;
-}
-</code></pre><p>函数表达式的调用必须在函数表达式声明之后。这是区别于函数声明的地方。</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><img src="/images/next-js/7.png" alt="7"></p>
-<p>如上图所示，bottles是在函数之外声明的，是全局作用域的一个变量，所以在函数内部可以访问到bottles。而函数内部（函数作用域）声明的num为局部变量，只可以在函数内部被访问到，在函数外部无法获取。</p>
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>（1）if语句</p>
-<pre><code>if(条件) {
-    执行语句1;
-}
-else{
-    执行语句2;
-}
-</code></pre><p>（2）switch语句</p>
-<pre><code>swith(n){
-    case 0: 执行语句1；
-    case 1: 执行语句2;
-    ...
-
-}
-</code></pre><h2 id="字符串的有关操作"><a href="#字符串的有关操作" class="headerlink" title="字符串的有关操作"></a>字符串的有关操作</h2><h3 id="分割字符串-split"><a href="#分割字符串-split" class="headerlink" title="分割字符串 split"></a>分割字符串 split</h3><p>split()方法可以把字符串分割为字符串数组。</p>
-<pre><code>&quot;2:3:4:5&quot;.split(&quot;:&quot;)    // 将返回 [&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]
-
-&quot;|a|b|c&quot;.split(&quot;|&quot;)    // 将返回 [&quot;&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-</code></pre><h3 id="截取字符串-substring"><a href="#截取字符串-substring" class="headerlink" title="截取字符串 substring"></a>截取字符串 substring</h3><p>substring() 方法用于提取字符串中介于两个指定下标之间的字符。语法：<code>str.substring(indexStart, [indexEnd])</code></p>
-<pre><code>var str = &apos;Hello World!&apos;;
-console.log(str.substring(3)); // 将返回 lo world!
-</code></pre><h3 id="字符串转换大写-toUpperCase"><a href="#字符串转换大写-toUpperCase" class="headerlink" title="字符串转换大写 toUpperCase()"></a>字符串转换大写 toUpperCase()</h3><p>toUpperCase() 方法用于把字符串转换为大写。</p>
-<pre><code>var str = &apos;Hello World!&apos;;
-console.log(str.toUpperCase()); // 将返回 HELLO WORLD!
-</code></pre><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>完善函数 convertToCamelCase 的功能。函数 convertToCamelCase 会转换传入的字符串参数 string 为驼峰格式，并返回转换后的字符串。具体要求如下：</p>
-<ul>
-<li><p>参数 string 是以中划线（-）连接单词的字符串，需将第二个起的非空单词首字母转为大写，如 -webkit-border-radius 转换后的结果为 webkitBorderRadius。</p>
-</li>
-<li><p>返回转换后的字符串</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<pre><code>function convertToCamelCase(str){
-    var strSplit = str.split(&quot;-&quot;);//转换为字符串数组
-    if(strSplit[0] === &quot;&quot;){ //如果第一个字符串为空的话，左移删掉，否则的话不变
-        strSplit.shift();
-    }
-    for(var i = 1; i &lt; strSplit.length; i++){
-            var letter = strSplit[i].charAt(0);//取得字符串数组中每个字符串的首字母
-            //使用replace方法将每个字符串的首写字母大写
-            strSplit[i] = strSplit[i].replace(letter, function replace(letter){
-                return letter.toUpperCase();
-            });
-
-    }  
-    return strSplit.join(&quot;&quot;);//join方法串接起字符串
-}
-convertToCamelCase(&quot;-ni-hao-a&quot;);
-</code></pre><p>还可以使用<strong>正则表达式</strong>的方法。</p>
-<pre><code>function convertToCamelCase(str) {
-  return str.replace(/\-[a-z]/g , function(a, b){
-      return b == 0 ? a.replace(&apos;-&apos;,&apos;&apos;) : a.replace(&apos;-&apos;,&apos;&apos;).toUpperCase();
-  });
-}
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NEXT十天训练营有关JS学习的笔记。&lt;br&gt;
     
     </summary>
     
