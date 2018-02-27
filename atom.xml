@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-27T06:58:33.812Z</updated>
+  <updated>2018-02-27T08:30:03.041Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/02/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/"/>
     <id>http://yoursite.com/2018/02/26/前端面试常见算法题/</id>
     <published>2018-02-26T06:24:48.000Z</published>
-    <updated>2018-02-27T06:58:33.812Z</updated>
+    <updated>2018-02-27T08:30:03.041Z</updated>
     
     <content type="html"><![CDATA[<p>十道前端面试常见算法题。<br><a id="more"></a></p>
 <h3 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h3><p>思路：将字符串转换为数组，利用数组方法reverse()比较翻转后的字符串是否与源字符串一致。</p>
@@ -315,6 +315,7 @@ class BinarySearchTree {
     }
 }
 </code></pre><p>有关数组的一些操作见博客后半部分<a href="https://www.cnblogs.com/libin-1/p/5998870.html" target="_blank" rel="external">前端面试中的常见的算法问题</a>。</p>
+<p>下面是一篇总结常见数据结构的javascript实现的文章：<br><strong><a href="http://blog.csdn.net/haoshidai/article/details/52263191" target="_blank" rel="external">常见数据结构的javascript实现</a></strong>。</p>
 ]]></content>
     
     <summary type="html">
