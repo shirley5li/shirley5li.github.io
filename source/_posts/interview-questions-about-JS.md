@@ -1,5 +1,5 @@
 ---
-title: 【interview questions about JS 1】 from牛客网
+title: 【interview questions about JS】 from牛客网
 date: 2018-02-27 16:35:38
 tags: [interview questions]
 categories: interview questions
