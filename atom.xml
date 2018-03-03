@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-02T14:39:19.989Z</updated>
+  <updated>2018-03-03T02:48:47.858Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【interview questions about JS 1】 from牛客网</title>
+    <title>【interview questions about JS】 from牛客网</title>
     <link href="http://yoursite.com/2018/02/27/interview-questions-about-JS/"/>
     <id>http://yoursite.com/2018/02/27/interview-questions-about-JS/</id>
     <published>2018-02-27T08:35:38.000Z</published>
-    <updated>2018-03-02T14:39:19.989Z</updated>
+    <updated>2018-03-03T02:48:47.858Z</updated>
     
     <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/front-end-interview?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="external">前端面试经典题目合集</a> 篇学习总结。<br><a id="more"></a></p>
 <h3 id="Cookie的弊端"><a href="#Cookie的弊端" class="headerlink" title="Cookie的弊端"></a>Cookie的弊端</h3><p>cookie虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。<br><strong>优点：</strong><br>1) 数据持久性。<br>2) 不需要任何服务器资源。 Cookie 存储在客户端并在发送后由服务器读取。<br>3) 可配置到期规则。 控制 cookie 的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的 cookie 。<br>4) 简单性。 基于文本的轻量结构。<br>5) 通过良好的编程，控制保存在 cookie 中的 session 对象的大小。<br>6) 通过加密和安全传输技术（ SSL ），减少 cookie 被破解的可能性。<br>7) 只在 cookie 中存放不敏感数据，即使被盗也不会有重大损失。<br><strong>缺点：</strong><br>1) Cookie 数量和长度的限制 。<br>数量：每个域的 cookie 总数有限。</p>
