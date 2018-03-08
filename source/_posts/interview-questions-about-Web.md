@@ -61,3 +61,36 @@ Hybrid模式中,底层功能API均由原生容器通过某种方式提供,然后
 webview用来展示网页的view组件，该组件是你运行自己的浏览器或者在你的线程中展示线上内容的基础。使用webkit渲染引擎来展示，并且支持前进后退等基于浏览历史，放大缩小，等更多功能。
 简单来说WebView是手机中内置了一款高性能 webkit 内核浏览器,在 SDK 中封装的一个组件。不给过没有提供地址栏和导航栏，只是单纯的展示一个网页界面。
 参考文章[前端解读Webview](https://www.cnblogs.com/pqjwyn/p/7120342.html)、[WebView JavascriptBridge机制解析](https://www.jianshu.com/p/8bd6aeb719ff)、[JS交互与WebView的工作原理浅析](http://blog.csdn.net/rookie_small/article/details/68488335)。
+
+### 软件开发模式之“快速迭代”开发 ###
+几种常见的软件开发模式对比参考博客[软件开发模式对比(瀑布、迭代、螺旋、敏捷)](https://www.cnblogs.com/tianguook/p/4004726.html)。
+迭代成本比较低，一般采用敏捷开发的模式，产品快速的推动上线，上线后会通过用户反馈和用户行为分析不断的进行产品改进，并且每次改进的周期比较短，如果把“快速迭代”理解为快速并持续的更新和改进产品。
+
+[敏捷开发-快速迭代](http://blog.csdn.net/xiaoxian8023/article/details/8883791)
+
+### 线程和进程的区别 ###
+[线程和进程的区别是什么？--知乎](https://www.zhihu.com/question/25532384)
+进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同。
+进程就是包换上下文切换的程序执行时间总和 = CPU加载上下文+CPU执行+CPU保存上下文。
+线程是共享了进程的上下文环境的更为细小的CPU时间段。
+[进程和线程的区别](https://www.cnblogs.com/lgk8023/p/6430592.html)
+[进程与线程的一个简单解释--阮一峰](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+
+**[浅谈js运行机制(线程）](http://blog.csdn.net/w2765006513/article/details/53743051)**
+js运作在浏览器中,是单线程的，即js代码始终在一个线程上执行，这个线程称为js引擎线程。
+浏览器是多线程的，除了js引擎线程，它还有：
+
+ 	UI渲染线程
+    浏览器事件触发线程
+    http请求线程
+    EventLoop轮询的处理线程
+	....
+
+单线程的含义是js只能在一个线程上运行，也就说，js同时只能执行一个js任务，其它的任务则会排队等待执行。
+js是单线程的,并不代表js引擎线程只有一个。js引擎有多个线程，一个主线程，其它的后台配合主线程。
+多线程之间会共享运行资源，浏览器端的js会操作dom，多个线程必然会带来同步的问题，所有js核心选择了单线程来避免处理这个麻烦。js可以操作dom，影响渲染，所以js引擎线程和UI线程是互斥的。这也就解释了js执行时会阻塞页面的渲染。
+
+**[JavaScript 运行机制详解：再谈Event Loop--阮一峰](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)**
+**[Javascript异步编程的4种方法--阮一峰](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)**
+**[关于javascript的单线程和异步的一些问题](https://www.cnblogs.com/nidaye/p/4604147.html)**
+[Node.js的线程和进程](https://www.cnblogs.com/chris-oil/p/5339305.html)
