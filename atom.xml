@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-08T12:43:00.374Z</updated>
+  <updated>2018-03-09T03:42:19.221Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL数据库的安装及基本的使用方法</title>
+    <link href="http://yoursite.com/2018/03/09/MySQL-install-and-usage/"/>
+    <id>http://yoursite.com/2018/03/09/MySQL-install-and-usage/</id>
+    <published>2018-03-09T02:37:30.000Z</published>
+    <updated>2018-03-09T03:42:19.221Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于MySQL数据库基本的安装和操作方法。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装步骤可参考博客<a href="http://blog.csdn.net/pansanday/article/details/51321178" target="_blank" rel="external">mysql数据库下载、安装、使用</a>前部分，我选择安装的是MySQL Server组件，其他基本照着默认方式就好了。</p>
+<h2 id="基本的使用方法"><a href="#基本的使用方法" class="headerlink" title="基本的使用方法"></a>基本的使用方法</h2><p>参考博客<a href="http://blog.csdn.net/whq19890827/article/details/48752517" target="_blank" rel="external"> MySql基本使用方法 </a>。<br>1．显示当前数据库服务器中的数据库列表: <code>mysql&gt; SHOW DATABASES;</code></p>
+<pre><code>mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+</code></pre><p>2.显示某个数据库中的数据表: </p>
+<pre><code>mysql&gt; USE 库名；//使用某个库
+mysql&gt; SHOW TABLES；//列出库中所有的表
+</code></pre><p>3.显示数据表的结构:</p>
+<pre><code>mysql&gt; DESCRIBE 表名；
+</code></pre><p>4.<strong>建立数据库</strong>: <code>mysql&gt; CREATE DATABASE 库名；</code> 例如新建一个名为test的数据库，再查看下数据库列表，多了个新的test数据库</p>
+<pre><code>mysql&gt; CREATE DATABASE test;
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+</code></pre><p>5.<strong>建立数据表</strong>:</p>
+<pre><code>mysql&gt; USE 库名;
+mysql&gt; CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1))；
+//CREATE TABLE table_name (column_name column_type);
+</code></pre><p>新建一个名为Websites的数据表，字段值分别为id, name, url, alexa, country。关于MySQL建表字段的类型参考博客<a href="http://blog.sina.com.cn/s/blog_80613dc40100s0c8.html" target="_blank" rel="external">MySQL建表字段类型</a>。</p>
+<pre><code>mysql&gt; CREATE TABLE Websites(id int,name varchar(18),url varchar(100),alexa int,country varchar(18));
+Query OK, 0 rows affected (0.04 sec)
+</code></pre><p>6.删除数据库: <code>mysql&gt; DROP DATABASE 库名；</code></p>
+<p>7.删除数据表：<code>mysql&gt; DROP TABLE 表名;</code></p>
+<p>8.将表中记录清空： <code>mysql&gt; DELETE FROM 表名;</code></p>
+<p>9.显示表中的所有记录： <code>mysql&gt; SELECT * FROM 表名;</code></p>
+<p>10.往表中插入记录： <code>mysql&gt; INSERT INTO 表名 VALUES (&quot;hyq&quot;,&quot;M&quot;);</code><br>往名为Websites的表中插入第一条记录，各字段值分别为：<code>id=1,name=&quot;Google&quot;,url=&quot;https://www.google.com/&quot;, alexa=1,country=&quot;USA&quot;</code>。然后查看添加记录后表中的记录显示如下所示：</p>
+<pre><code>mysql&gt; INSERT INTO Websites VALUES (1,&quot;Google&quot;,&quot;https://www.google.com/&quot;,1,&quot;USA&quot;);
+Query OK, 1 row affected (0.02 sec)
+
+mysql&gt; SELECT * FROM Websites;
++------+--------+-------------------------+-------+---------+
+| id   | name   | url                     | alexa | country |
++------+--------+-------------------------+-------+---------+
+|    1 | Google | https://www.google.com/ |     1 | USA     |
++------+--------+-------------------------+-------+---------+
+</code></pre><p>添加完菜鸟教程中SQL示例代码数据表中的5条示例记录后，Websites数据表显示如下：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites;
++------+--------------+--------------------------+-------+---------+
+| id   | name         | url                      | alexa | country |
++------+--------------+--------------------------+-------+---------+
+|    1 | Google       | https://www.google.com/  |     1 | USA     |
+|    2 | 淘宝         | https://www.taobao.com/  |    13 | CN      |
+|    3 | 菜鸟教程     | http://www.runoob.com     |  4689 | CN      |
+|    4 | 微博         | http://weibo.com         |    20 | CN      |
+|    5 | Facebook     | http://www.facebook.com/ |     3 | USA     |
++------+--------------+--------------------------+-------+---------+
+</code></pre><p>11.更新表中数据： <code>mysql-&gt; UPDATE 表名 SET 字段名1=&#39;a&#39;,字段名2=&#39;b&#39; WHERE 字段名3=&#39;c&#39;；</code></p>
+<p>12.用文本方式将数据装入数据表中: <code>mysql&gt; LOAD DATA LOCAL INFILE &quot;D:/mysql.txt&quot; INTO TABLE 表名;</code></p>
+<p>13.导入.sql文件命令:</p>
+<pre><code>mysql&gt; USE 数据库名;
+mysql&gt; SOURCE d:/mysql.sql;
+</code></pre><p>14.显示正在use的数据库名: <code>mysql&gt; SELECT DATABASE();</code><br>如下所示，在新建的test数据库中建立的Websites数据表，因此正在使用的数据库是test。</p>
+<pre><code>mysql&gt; SELECT DATABASE();
++------------+
+| DATABASE() |
++------------+
+| test       |
++------------+
+</code></pre><p>15.显示当前的user： <code>mysql&gt; SELECT USER();</code></p>
+<pre><code>mysql&gt; SELECT USER();
++----------------+
+| USER()         |
++----------------+
+| root@localhost |
++----------------+
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于MySQL数据库基本的安装和操作方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>【interview questions about Web】</title>
@@ -3544,75 +3648,6 @@ echo $callback . &quot;(&quot; . json_encode($data) . &quot;)&quot;;
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
       <category term="json" scheme="http://yoursite.com/tags/json/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ajax-imooc</title>
-    <link href="http://yoursite.com/2017/11/06/ajax-imooc/"/>
-    <id>http://yoursite.com/2017/11/06/ajax-imooc/</id>
-    <published>2017-11-06T08:13:39.000Z</published>
-    <updated>2018-01-09T02:47:02.936Z</updated>
-    
-    <content type="html"><![CDATA[<p>ajax,即异步JavaScript和XML，通过在后台和服务器少量的数据交换实现页面的异步局部加载更新。<br>ajax中一个关键的对象 <strong>XMLHttpRequest</strong>对象，作为网页和服务器之间交换数据的桥梁，来实现网页的异步请求、局部刷新。<br><a id="more"></a></p>
-<h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><p>在现代浏览器中创建XMLHttpRequest对象</p>
-<pre><code>var request = new XMLHttpRequest();//现代浏览器
-</code></pre><p>若在早期老版本浏览器中，考虑兼容性，创建XMLHttpRequest对象方式如下：</p>
-<pre><code>var request;
-if(window.XMLHttpRequest) {
-request = new XMLHttpRequest();
-} else {
-request = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);//IE6,IE5
-}
-</code></pre><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>HTTP是一种无状态协议。一个HTTP请求包括以下7个步骤：</p>
-<ul>
-<li>建立TCP连接</li>
-<li>WEB浏览器向WEB服务器发送请求命令</li>
-<li>WEB浏览器发送请求头信息</li>
-<li>WEB服务器应答</li>
-<li>WEB服务器发送应答头信息</li>
-<li>WEB服务器向浏览器发送数据</li>
-<li>WEB服务器关闭TCP连接</li>
-</ul>
-<p><strong>HTTP请求</strong><br>一个HTTP请求一般由四部分组成：</p>
-<ul>
-<li>HTTP请求的方法和动作，比如GET或POST请求</li>
-<li>正在请求的URL</li>
-<li>请求头，包含一些客户端环境信息、身份验证信息等</li>
-<li>请求体，即请求正文，包含客户提交的查询字符串信息、表单信息等<br>一般来说请求头和请求正文之间有一个空行，表示请求头结束。<br><a href="http://blog.csdn.net/findsafety/article/details/47129021" target="_blank" rel="external">一篇关于GET、POST请求的博文详解</a><br><strong>GET:</strong>一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符。(用于查询，一般不用于新建和修改。默认为GET提交)<br><strong>POST:</strong>一般用于修改服务器上的资源，对所发送信息的数量无限制。<br><strong>HTTP响应</strong><br>一个HTTP响应一般由三部分组成：</li>
-<li>一个数字和文字组成的状态码，表示请求成功还是失败</li>
-<li>响应头，包含服务器类型、日期时间、内容类型、长度等</li>
-<li>响应体，即响应正文<br>HTTP状态码的类型：<br><img src="/images/ajax-imooc/1.png" alt="1"></li>
-</ul>
-<h2 id="XMLHttpRequest发送请求"><a href="#XMLHttpRequest发送请求" class="headerlink" title="XMLHttpRequest发送请求"></a>XMLHttpRequest发送请求</h2><p>两个方法，open和send</p>
-<ul>
-<li>open(method, url, async)</li>
-<li><p>send(string)<br>open方法用于设置请求，第一个参数method表示请求的类型，即GET或POST；第二个参数url即请求的地址，绝对地址或相对地址；第三个参数表示是否异步请求，默认为true。<br>send方法用于发送请求，当使用get请求时，send可不给出参数，而使用post请求时必须有参数。<br>例如：</p>
-<p> request.open(“POST”,”create.php”,true);<br> request.setRequestHeader(“Content-type”,”application/x-www-form-urlencoded “)//设置HTTP头信息，一定要写在open()和send()之间<br> request.send(“name=xxxx&amp;sex=xxx”);</p>
-</li>
-</ul>
-<h2 id="XMLHttpRequest取得响应"><a href="#XMLHttpRequest取得响应" class="headerlink" title="XMLHttpRequest取得响应"></a>XMLHttpRequest取得响应</h2><p><img src="/images/ajax-imooc/2.png" alt="2"><br>通过监听XMLHttpRequest对象readyState属性的变化，判断服务器的状态变化信息。<br><img src="/images/ajax-imooc/3.png" alt="3"><br>通过.onreadystatechange()方法监听readyState属性的变化，当readyState为4（响应完成）并且status为200(请求成功)时，再对响应数据做处理：</p>
-<pre><code>var request = new XMLHttpRequest();
-request.open(&quot;POST&quot;,&quot;get.php&quot;,true);
-request.send();
-request.onreadystatechange = function() {
-  if(request.readyState == 4 &amp;&amp; request.status == 200) {
-  //做一些处理，例如request.responseText
- }
-}
-</code></pre><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><p><img src="/images/ajax-imooc/4.png" alt="4"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ajax,即异步JavaScript和XML，通过在后台和服务器少量的数据交换实现页面的异步局部加载更新。&lt;br&gt;ajax中一个关键的对象 &lt;strong&gt;XMLHttpRequest&lt;/strong&gt;对象，作为网页和服务器之间交换数据的桥梁，来实现网页的异步请求、局部刷新。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="ajax" scheme="http://yoursite.com/categories/ajax/"/>
-    
-    
-      <category term="ajax" scheme="http://yoursite.com/tags/ajax/"/>
     
   </entry>
   
