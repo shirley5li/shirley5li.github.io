@@ -96,18 +96,22 @@
 
 
 
-<meta name="description" content="关于MySQL数据库基本的安装和操作方法。">
+<meta name="description" content="关于MySQL数据库基本的安装和操作方法。MySQL教程–菜鸟。">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL数据库的安装及基本的使用方法">
 <meta property="og:url" content="http://yoursite.com/2018/03/09/MySQL-install-and-usage/index.html">
 <meta property="og:site_name" content="Shirley">
-<meta property="og:description" content="关于MySQL数据库基本的安装和操作方法。">
+<meta property="og:description" content="关于MySQL数据库基本的安装和操作方法。MySQL教程–菜鸟。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-09T03:42:19.221Z">
+<meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/09/img_innerjoin.gif">
+<meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/09/img_leftjoin.gif">
+<meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/09/img_fulljoin.gif">
+<meta property="og:updated_time" content="2018-03-10T03:32:39.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库的安装及基本的使用方法">
-<meta name="twitter:description" content="关于MySQL数据库基本的安装和操作方法。">
+<meta name="twitter:description" content="关于MySQL数据库基本的安装和操作方法。MySQL教程–菜鸟。">
+<meta name="twitter:image" content="http://www.runoob.com/wp-content/uploads/2013/09/img_innerjoin.gif">
 
 
 
@@ -433,9 +437,10 @@
       
 
       
-        <p>关于MySQL数据库基本的安装和操作方法。<br><a id="more"></a></p>
+        <p>关于MySQL数据库基本的安装和操作方法。<a href="http://www.runoob.com/mysql/mysql-tutorial.html" target="_blank" rel="external">MySQL教程–菜鸟</a>。<br><a id="more"></a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装步骤可参考博客<a href="http://blog.csdn.net/pansanday/article/details/51321178" target="_blank" rel="external">mysql数据库下载、安装、使用</a>前部分，我选择安装的是MySQL Server组件，其他基本照着默认方式就好了。</p>
-<h2 id="基本的使用方法"><a href="#基本的使用方法" class="headerlink" title="基本的使用方法"></a>基本的使用方法</h2><p>参考博客<a href="http://blog.csdn.net/whq19890827/article/details/48752517" target="_blank" rel="external"> MySql基本使用方法 </a>。<br>1．显示当前数据库服务器中的数据库列表: <code>mysql&gt; SHOW DATABASES;</code></p>
+<h2 id="基本的使用方法"><a href="#基本的使用方法" class="headerlink" title="基本的使用方法"></a>基本的使用方法</h2><p>参考博客<a href="http://blog.csdn.net/whq19890827/article/details/48752517" target="_blank" rel="external"> MySql基本使用方法 </a>。</p>
+<h3 id="1．显示当前数据库服务器中的数据库列表"><a href="#1．显示当前数据库服务器中的数据库列表" class="headerlink" title="1．显示当前数据库服务器中的数据库列表"></a>1．显示当前数据库服务器中的数据库列表</h3><p><code>mysql&gt; SHOW DATABASES;</code></p>
 <pre><code>mysql&gt; show databases;
 +--------------------+
 | Database           |
@@ -445,12 +450,10 @@
 | performance_schema |
 | sys                |
 +--------------------+
-</code></pre><p>2.显示某个数据库中的数据表: </p>
-<pre><code>mysql&gt; USE 库名；//使用某个库
+</code></pre><h3 id="2-显示某个数据库中的数据"><a href="#2-显示某个数据库中的数据" class="headerlink" title="2.显示某个数据库中的数据"></a>2.显示某个数据库中的数据</h3><pre><code>mysql&gt; USE 库名；//使用某个库
 mysql&gt; SHOW TABLES；//列出库中所有的表
-</code></pre><p>3.显示数据表的结构:</p>
-<pre><code>mysql&gt; DESCRIBE 表名；
-</code></pre><p>4.<strong>建立数据库</strong>: <code>mysql&gt; CREATE DATABASE 库名；</code> 例如新建一个名为test的数据库，再查看下数据库列表，多了个新的test数据库</p>
+</code></pre><h3 id="3-显示数据表的结构"><a href="#3-显示数据表的结构" class="headerlink" title="3.显示数据表的结构"></a>3.显示数据表的结构</h3><pre><code>mysql&gt; DESCRIBE 表名；
+</code></pre><h3 id="4-建立数据库"><a href="#4-建立数据库" class="headerlink" title="4.建立数据库"></a>4.建立数据库</h3><p> <code>mysql&gt; CREATE DATABASE 库名；</code> 例如新建一个名为test的数据库，再查看下数据库列表，多了个新的test数据库</p>
 <pre><code>mysql&gt; CREATE DATABASE test;
 Query OK, 1 row affected (0.01 sec)
 
@@ -464,18 +467,17 @@ mysql&gt; show databases;
 | sys                |
 | test               |
 +--------------------+
-</code></pre><p>5.<strong>建立数据表</strong>:</p>
-<pre><code>mysql&gt; USE 库名;
+</code></pre><h3 id="5-建立数据表"><a href="#5-建立数据表" class="headerlink" title="5.建立数据表"></a>5.建立数据表</h3><pre><code>mysql&gt; USE 库名;
 mysql&gt; CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1))；
 //CREATE TABLE table_name (column_name column_type);
 </code></pre><p>新建一个名为Websites的数据表，字段值分别为id, name, url, alexa, country。关于MySQL建表字段的类型参考博客<a href="http://blog.sina.com.cn/s/blog_80613dc40100s0c8.html" target="_blank" rel="external">MySQL建表字段类型</a>。</p>
 <pre><code>mysql&gt; CREATE TABLE Websites(id int,name varchar(18),url varchar(100),alexa int,country varchar(18));
 Query OK, 0 rows affected (0.04 sec)
-</code></pre><p>6.删除数据库: <code>mysql&gt; DROP DATABASE 库名；</code></p>
-<p>7.删除数据表：<code>mysql&gt; DROP TABLE 表名;</code></p>
-<p>8.将表中记录清空： <code>mysql&gt; DELETE FROM 表名;</code></p>
-<p>9.显示表中的所有记录： <code>mysql&gt; SELECT * FROM 表名;</code></p>
-<p>10.往表中插入记录： <code>mysql&gt; INSERT INTO 表名 VALUES (&quot;hyq&quot;,&quot;M&quot;);</code><br>往名为Websites的表中插入第一条记录，各字段值分别为：<code>id=1,name=&quot;Google&quot;,url=&quot;https://www.google.com/&quot;, alexa=1,country=&quot;USA&quot;</code>。然后查看添加记录后表中的记录显示如下所示：</p>
+</code></pre><h3 id="6-删除数据库"><a href="#6-删除数据库" class="headerlink" title="6.删除数据库"></a>6.删除数据库</h3><p> <code>mysql&gt; DROP DATABASE 库名；</code></p>
+<h3 id="7-删除数据表"><a href="#7-删除数据表" class="headerlink" title="7.删除数据表"></a>7.删除数据表</h3><p><code>mysql&gt; DROP TABLE 表名;</code></p>
+<h3 id="8-将表中记录清空"><a href="#8-将表中记录清空" class="headerlink" title="8.将表中记录清空"></a>8.将表中记录清空</h3><p> <code>mysql&gt; DELETE FROM 表名;</code></p>
+<h3 id="9-显示表中的所有记录"><a href="#9-显示表中的所有记录" class="headerlink" title="9.显示表中的所有记录"></a>9.显示表中的所有记录</h3><p> <code>mysql&gt; SELECT * FROM 表名;</code></p>
+<h3 id="10-往表中插入记录"><a href="#10-往表中插入记录" class="headerlink" title="10.往表中插入记录"></a>10.往表中插入记录</h3><p> <code>mysql&gt; INSERT INTO 表名 VALUES (&quot;hyq&quot;,&quot;M&quot;);</code><br>往名为Websites的表中插入第一条记录，各字段值分别为：<code>id=1,name=&quot;Google&quot;,url=&quot;https://www.google.com/&quot;, alexa=1,country=&quot;USA&quot;</code>。然后查看添加记录后表中的记录显示如下所示：</p>
 <pre><code>mysql&gt; INSERT INTO Websites VALUES (1,&quot;Google&quot;,&quot;https://www.google.com/&quot;,1,&quot;USA&quot;);
 Query OK, 1 row affected (0.02 sec)
 
@@ -496,26 +498,483 @@ mysql&gt; SELECT * FROM Websites;
 |    4 | 微博         | http://weibo.com         |    20 | CN      |
 |    5 | Facebook     | http://www.facebook.com/ |     3 | USA     |
 +------+--------------+--------------------------+-------+---------+
-</code></pre><p>11.更新表中数据： <code>mysql-&gt; UPDATE 表名 SET 字段名1=&#39;a&#39;,字段名2=&#39;b&#39; WHERE 字段名3=&#39;c&#39;；</code></p>
-<p>12.用文本方式将数据装入数据表中: <code>mysql&gt; LOAD DATA LOCAL INFILE &quot;D:/mysql.txt&quot; INTO TABLE 表名;</code></p>
-<p>13.导入.sql文件命令:</p>
+</code></pre><h3 id="11-更新表中数据"><a href="#11-更新表中数据" class="headerlink" title="11.更新表中数据"></a>11.更新表中数据</h3><p> <code>mysql-&gt; UPDATE 表名 SET 字段名1=&#39;a&#39;,字段名2=&#39;b&#39; WHERE 字段名3=&#39;c&#39;；</code></p>
+<h3 id="12-用文本方式将数据装入数据表中"><a href="#12-用文本方式将数据装入数据表中" class="headerlink" title="12.用文本方式将数据装入数据表中"></a>12.用文本方式将数据装入数据表中</h3><p> <code>mysql&gt; LOAD DATA LOCAL INFILE &quot;D:/mysql.txt&quot; INTO TABLE 表名;</code></p>
+<p>###13.导入.sql文件命令 ###</p>
 <pre><code>mysql&gt; USE 数据库名;
 mysql&gt; SOURCE d:/mysql.sql;
-</code></pre><p>14.显示正在use的数据库名: <code>mysql&gt; SELECT DATABASE();</code><br>如下所示，在新建的test数据库中建立的Websites数据表，因此正在使用的数据库是test。</p>
+</code></pre><h3 id="14-显示正在use的数据库名"><a href="#14-显示正在use的数据库名" class="headerlink" title="14.显示正在use的数据库名"></a>14.显示正在use的数据库名</h3><p> <code>mysql&gt; SELECT DATABASE();</code><br>如下所示，在新建的test数据库中建立的Websites数据表，因此正在使用的数据库是test。</p>
 <pre><code>mysql&gt; SELECT DATABASE();
 +------------+
 | DATABASE() |
 +------------+
 | test       |
 +------------+
-</code></pre><p>15.显示当前的user： <code>mysql&gt; SELECT USER();</code></p>
+</code></pre><h3 id="15-显示当前的user"><a href="#15-显示当前的user" class="headerlink" title="15.显示当前的user"></a>15.显示当前的user</h3><p> <code>mysql&gt; SELECT USER();</code></p>
 <pre><code>mysql&gt; SELECT USER();
 +----------------+
 | USER()         |
 +----------------+
 | root@localhost |
 +----------------+
-</code></pre>
+</code></pre><h3 id="16-SELECT-TOP-子句"><a href="#16-SELECT-TOP-子句" class="headerlink" title="16.SELECT TOP 子句"></a>16.SELECT TOP 子句</h3><p>返回规定的记录数目。MySQL语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table_name
+LIMIT number;
+</code></pre><p>从 “Websites” 表中选取头两条记录如下：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; LIMIT 2;
++------+--------+-------------------------+-------+---------+
+| id   | name   | url                     | alexa | country |
++------+--------+-------------------------+-------+---------+
+|    1 | Google | https://www.google.com/ |     1 | USA     |
+|    2 | 淘宝   | https://www.taobao.com/ |    13 | CN      |
++------+--------+-------------------------+-------+---------+
+</code></pre><h3 id="17-LIKE-操作符"><a href="#17-LIKE-操作符" class="headerlink" title="17.LIKE 操作符"></a>17.LIKE 操作符</h3><p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table_name
+WHERE column_name LIKE pattern;
+</code></pre><p>以下示例选取 name 以字母 “G” 开始的所有记录：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE name LIKE &quot;G%&quot;;
++------+--------+-------------------------+-------+---------+
+| id   | name   | url                     | alexa | country |
++------+--------+-------------------------+-------+---------+
+|    1 | Google | https://www.google.com/ |     1 | USA     |
+</code></pre><p>以下示例选取 name 以字母 “k” 结尾的所有客户：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE name LIKE &quot;%k&quot;;
++------+----------+--------------------------+-------+---------+
+| id   | name     | url                      | alexa | country |
++------+----------+--------------------------+-------+---------+
+|    5 | Facebook | http://www.facebook.com/ |     3 | USA     |
++------+----------+--------------------------+-------+---------+
+</code></pre><p>以下示例选取 name 包含模式 “oo” 的所有记录：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE name LIKE &quot;%oo%&quot;;
++------+----------+--------------------------+-------+---------+
+| id   | name     | url                      | alexa | country |
++------+----------+--------------------------+-------+---------+
+|    1 | Google   | https://www.google.com/  |     1 | USA     |
+|    5 | Facebook | http://www.facebook.com/ |     3 | USA     |
++------+----------+--------------------------+-------+---------+
+</code></pre><p>注意：”%” 符号用于在模式的前后定义通配符（缺省字母），通配符可用于替代字符串中的任何其他字符。 通配符与 SQL LIKE 操作符一起使用。</p>
+<pre><code>%                          替代 0 个或多个字符
+_                          替代一个字符
+[charlist]                 字符列中的任何单一字符
+[^charlist]或[!charlist]   不在字符列中的任何单一字符
+</code></pre><p>搭配以上通配符可以让LIKE命令实现多种技巧：</p>
+<pre><code>1、LIKE&apos;Mc%&apos; 将搜索以字母 Mc 开头的所有字符串（如 McBadden）。
+2、LIKE&apos;%inger&apos; 将搜索以字母 inger 结尾的所有字符串（如 Ringer、Stringer）。
+3、LIKE&apos;%en%&apos; 将搜索在任何位置包含字母 en 的所有字符串（如 Bennet、Green、McBadden）。
+4、LIKE&apos;_heryl&apos; 将搜索以字母 heryl 结尾的所有六个字母的名称（如 Cheryl、Sheryl）。
+5、LIKE&apos;[CK]ars[eo]n&apos; 将搜索下列字符串：Carsen、Karsen、Carson 和 Karson（如 Carson）。
+6、LIKE&apos;[M-Z]inger&apos; 将搜索以字符串 inger 结尾、以从 M 到 Z 的任何单个字母开头的所有名称（如 Ringer）。
+7、LIKE&apos;M[^c]%&apos; 将搜索以字母 M 开头，并且第二个字母不是 c 的所有名称（如MacFeather）。
+</code></pre><h3 id="18-charlist-通配符"><a href="#18-charlist-通配符" class="headerlink" title="18.[charlist] 通配符"></a>18.[charlist] 通配符</h3><p>MySQL 中使用 REGEXP 或 NOT REGEXP 运算符 (或 RLIKE 和 NOT RLIKE) 来操作正则表达式。<br>下面的 SQL 语句选取 name 以 “G”、”F” 或 “s” 开始的所有网站：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE name REGEXP &quot;^[GFs]&quot;;
++------+---------------+----------------------------+-------+---------+
+| id   | name          | url                        | alexa | country |
++------+---------------+----------------------------+-------+---------+
+|    1 | Google        | https://www.google.com/    |     1 | USA     |
+|    5 | Facebook      | http://www.facebook.com/   |     3 | USA     |
+|    6 | stackoverflow | https://stackoverflow.com/ |     0 | IND     |
++------+---------------+----------------------------+-------+---------+
+</code></pre><h3 id="19-IN-操作符"><a href="#19-IN-操作符" class="headerlink" title="19.IN 操作符"></a>19.IN 操作符</h3><p>IN 操作符允许在 WHERE 子句中规定多个值，然后返回规定相应的记录。语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1,value2,...);
+</code></pre><p>以下语句选取 name 为 “Google” 或 “菜鸟教程” 的所有记录：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE name IN (&quot;Google&quot;,&quot;菜鸟教程&quot;);
++------+--------------+-------------------------+-------+---------+
+| id   | name         | url                     | alexa | country |
++------+--------------+-------------------------+-------+---------+
+|    1 | Google       | https://www.google.com/ |     1 | USA     |
+|    3 | 菜鸟教程     | http://www.runoob.com   |  4689 | CN      |
++------+--------------+-------------------------+-------+---------+
+</code></pre><p><strong>IN 与 = 的异同</strong>：<br>    相同点：均在WHERE中使用作为筛选条件之一、均是等于的含义<br>    不同点：IN可以规定多个值，等于规定一个值</p>
+<h3 id="20-BETWEEN-操作符"><a href="#20-BETWEEN-操作符" class="headerlink" title="20.BETWEEN 操作符"></a>20.BETWEEN 操作符</h3><p>用于选取介于两个值之间的数据范围内的值。这些值可以是数值、文本或者日期。 语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+</code></pre><p>以下语句选取 alexa 介于 1 和 20 之间的所有记录：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE alexa BETWEEN 1 AND 20;
++------+----------+--------------------------+-------+---------+
+| id   | name     | url                      | alexa | country |
++------+----------+--------------------------+-------+---------+
+|    1 | Google   | https://www.google.com/  |     1 | USA     |
+|    2 | 淘宝     | https://www.taobao.com/  |    13 | CN      |
+|    4 | 微博     | http://weibo.com         |    20 | CN      |
+|    5 | Facebook | http://www.facebook.com/ |     3 | USA     |
++------+----------+--------------------------+-------+---------+
+</code></pre><p>NOT BETWEEN 显示不在范围内的所有记录。<br>以下语句语句选取alexa介于 1 和 20 之间但 country 不为 USA 和 IND 的所有记录：</p>
+<pre><code>mysql&gt; SELECT * FROM Websites
+    -&gt; WHERE alexa BETWEEN 1 AND 20
+    -&gt; AND NOT country IN (&quot;USA&quot;,&quot;IND&quot;);
++------+--------+-------------------------+-------+---------+
+| id   | name   | url                     | alexa | country |
++------+--------+-------------------------+-------+---------+
+|    2 | 淘宝   | https://www.taobao.com/ |    13 | CN      |
+|    4 | 微博   | http://weibo.com        |    20 | CN      |
++------+--------+-------------------------+-------+---------+
+</code></pre><h3 id="21-连接-JOIN"><a href="#21-连接-JOIN" class="headerlink" title="21.连接(JOIN)"></a>21.连接(JOIN)</h3><p>参考<a href="http://www.runoob.com/sql/sql-join.html" target="_blank" rel="external">SQL 连接(JOIN)</a>。<br>用于把来自两个或多个表的行结合起来。基于这些表之间的共同字段。<br>最常见的 JOIN 类型：SQL <strong>INNER JOIN</strong>（简单的 JOIN）。<br>SQL INNER JOIN 从多个表中返回满足 JOIN 条件的所有行。<br>“Websites” 表中的 “id” 列指向 “<code>access_log</code>“ 表中的字段 “<code>site_id</code>“。将这两个表是通过 “<code>site_id</code>“ 列联系起来的。</p>
+<pre><code>mysql&gt; SELECT Websites.id, Websites.name, access_log.count, access_log.date
+    -&gt; FROM Websites
+    -&gt; INNER JOIN access_log
+    -&gt; ON Websites.id=access_log.site_id;
++------+--------------+-------+------------+
+| id   | name         | count | date       |
++------+--------------+-------+------------+
+|    1 | Google       |    45 | 2016-05-10 |
+|    3 | 菜鸟教程     |   100 | 2016-05-13 |
+|    1 | Google       |   230 | 2016-05-14 |
+|    2 | 淘宝         |    10 | 2016-05-14 |
+|    5 | Facebook     |   205 | 2016-05-14 |
+|    4 | 微博         |    13 | 2016-05-15 |
+|    3 | 菜鸟教程     |   220 | 2016-05-15 |
+|    5 | Facebook     |   545 | 2016-05-16 |
+|    3 | 菜鸟教程     |   201 | 2016-05-17 |
++------+--------------+-------+------------+
+</code></pre><p>不同的 SQL JOIN：</p>
+<pre><code>INNER JOIN：如果表中有至少一个匹配，则返回行
+LEFT JOIN：即使右表中没有匹配，也从左表返回所有的行
+RIGHT JOIN：即使左表中没有匹配，也从右表返回所有的行
+FULL JOIN：只要其中一个表中存在匹配，则返回行
+</code></pre><p>首先，连接的结果可以在逻辑上看作是由SELECT语句指定的列组成的新表。<br>左连接与右连接的左右指的是以两张表中的哪一张为基准，它们都是外连接。<br>外连接就好像是为非基准表添加了一行全为空值的万能行，用来与基准表中找不到匹配的行进行匹配。假设两个没有空值的表进行左连接，左表是基准表，左表的所有行都出现在结果中，右表则可能因为无法与基准表匹配而出现是空值的字段。</p>
+<h3 id="22-INNER-JOIN"><a href="#22-INNER-JOIN" class="headerlink" title="22.INNER JOIN"></a>22.INNER JOIN</h3><p>在表中存在至少一个匹配时返回行。语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name=table2.column_name;
+</code></pre><p>或：</p>
+<pre><code>SELECT column_name(s)
+FROM table1
+JOIN table2
+ON table1.column_name=table2.column_name;
+</code></pre><p><img src="http://www.runoob.com/wp-content/uploads/2013/09/img_innerjoin.gif" alt="inner join"><br>具体例子如21所示。<br>注释：INNER JOIN 与 JOIN 是相同的<br>注释：INNER JOIN 关键字在表中存在至少一个匹配时返回行。如果 “Websites” 表中的行在 “<code>access_log</code>“ 中没有匹配，则不会列出这些行。</p>
+<h3 id="23-LEFT-JOIN"><a href="#23-LEFT-JOIN" class="headerlink" title="23.LEFT JOIN"></a>23.LEFT JOIN</h3><p>从左表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为 NULL。语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name=table2.column_name;
+</code></pre><p>或：</p>
+<pre><code>SELECT column_name(s)
+FROM table1
+LEFT OUTER JOIN table2
+ON table1.column_name=table2.column_name;
+// 在某些数据库中，LEFT JOIN 称为 LEFT OUTER JOIN。
+</code></pre><p><img src="http://www.runoob.com/wp-content/uploads/2013/09/img_leftjoin.gif" alt="left join"></p>
+<p>以下示例语句将返回所有网站及他们的访问量（如果有的话）。把 Websites 作为左表，<code>access_log</code> 作为右表：</p>
+<pre><code>mysql&gt; SELECT Websites.id, Websites.name, access_log.count, access_log.date
+    -&gt; FROM Websites
+    -&gt; LEFT JOIN access_log
+    -&gt; ON Websites.id=access_log.site_id
+    -&gt; ORDER BY access_log.count DESC;
++------+---------------+-------+------------+
+| id   | name          | count | date       |
++------+---------------+-------+------------+
+|    5 | Facebook      |   545 | 2016-05-16 |
+|    1 | Google        |   230 | 2016-05-14 |
+|    3 | 菜鸟教程      |   220 | 2016-05-15 |
+|    5 | Facebook      |   205 | 2016-05-14 |
+|    3 | 菜鸟教程      |   201 | 2016-05-17 |
+|    3 | 菜鸟教程      |   100 | 2016-05-13 |
+|    1 | Google        |    45 | 2016-05-10 |
+|    4 | 微博          |    13 | 2016-05-15 |
+|    2 | 淘宝          |    10 | 2016-05-14 |
+|    6 | stackoverflow |  NULL | NULL       |
++------+---------------+-------+------------+
+</code></pre><h3 id="24-FULL-OUTER-JOIN"><a href="#24-FULL-OUTER-JOIN" class="headerlink" title="24.FULL OUTER JOIN"></a>24.FULL OUTER JOIN</h3><p>FULL OUTER JOIN 关键字只要左表（table1）和右表（table2）其中一个表中存在匹配，则返回行。<br>FULL OUTER JOIN 关键字结合了 LEFT JOIN 和 RIGHT JOIN 的结果。<br>FULL OUTER JOIN 关键字返回左表（Websites）和右表（<code>access_log</code>）中所有的行。如果 “Websites” 表中的行在 “<code>access_log</code>“ 中没有匹配或者 “<code>access_log</code>“ 表中的行在 “Websites” 表中没有匹配，也会列出这些行。<br>语法如下：</p>
+<pre><code>SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name=table2.column_name;
+</code></pre><p><img src="http://www.runoob.com/wp-content/uploads/2013/09/img_fulljoin.gif" alt="full outer join"></p>
+<p><strong>注意：</strong> MySQL中不支持 FULL OUTER JOIN，可以在 SQL Server 测试实例。</p>
+<h3 id="25-UNION"><a href="#25-UNION" class="headerlink" title="25.UNION"></a>25.UNION</h3><p>用于合并两个或多个 SELECT 语句的结果。<br>注意： UNION 内部的每个 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每个 SELECT 语句中的列的顺序必须相同。<br>语法如下：<br>    SELECT column_name(s) FROM table1<br>    UNION<br>    SELECT column_name(s) FROM table2;<br>注释：(1) 默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。<br>(2) UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。</p>
+<pre><code>mysql&gt;  SELECT country FROM Websites
+    -&gt; UNION
+    -&gt; SELECT country FROM apps
+    -&gt; ORDER BY country;
++---------+
+| country |
++---------+
+| CN      |
+| IND     |
+| USA     |
++---------+
+</code></pre><p>注释：UNION 不能用于列出两个表中所有的country。如果一些网站和APP来自同一个国家，每个国家只会列出一次。UNION 只会选取不同的值。请使用 UNION ALL 来选取重复的值！<br>使用UNION命令时需要注意，只能在最后使用一个ORDER BY命令，是将两个查询结果合在一起之后，再进行排序！绝对不能写两个ORDER BY命令。</p>
+<h3 id="26-INSERT-INTO-SELECT-SELECT-INTO"><a href="#26-INSERT-INTO-SELECT-SELECT-INTO" class="headerlink" title="26.INSERT INTO SELECT / SELECT INTO"></a>26.INSERT INTO SELECT / SELECT INTO</h3><p>从一个表复制信息插入到另一个已存在的表，目标表中任何已存在的行都不会受影响。。<br><strong>注意：</strong>MySQL 数据库不支持 SELECT … INTO 语句，但支持 INSERT INTO … SELECT 。<br>以使用以下语句来拷贝表结构及数据：<code>CREATE TABLE 新表 SELECT * FROM 旧表;</code><br>语法如下：</p>
+<pre><code>INSERT INTO table2
+SELECT * FROM table1;
+</code></pre><p>或者只复制希望的列插入到另一个已存在的表中：</p>
+<pre><code>INSERT INTO table2
+(column_name(s))
+SELECT column_name(s)
+FROM table1;
+</code></pre><p>以下语句复制 “apps” 中的数据插入到 “Websites” 中：</p>
+<pre><code>mysql&gt; INSERT INTO Websites(name,country)
+    -&gt; SELECT app_name,country FROM apps
+    -&gt; WHERE id=1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; SELECT * FROM Websites;
++------+---------------+----------------------------+-------+---------+
+| id   | name          | url                        | alexa | country |
++------+---------------+----------------------------+-------+---------+
+|    1 | Google        | https://www.google.com/    |     1 | USA     |
+|    2 | 淘宝          | https://www.taobao.com/    |    13 | CN      |
+|    3 | 菜鸟教程      | http://www.runoob.com      |  4689 | CN      |
+|    4 | 微博          | http://weibo.com           |    20 | CN      |
+|    5 | Facebook      | http://www.facebook.com/   |     3 | USA     |
+|    6 | stackoverflow | https://stackoverflow.com/ |     0 | IND     |
+| NULL | QQ APP        | NULL                       |  NULL | CN      |
++------+---------------+----------------------------+-------+---------+
+</code></pre><p>表apps中的数据如下：</p>
+<pre><code>mysql&gt; SELECT * FROM apps;
++------+------------+------------------------+---------+
+| id   | app_name   | url                    | country |
++------+------------+------------------------+---------+
+|    1 | QQ APP     | http://im.qq.com/      | CN      |
+|    2 | 微博 APP   | http://weibo.com/      | CN      |
+|    3 | 淘宝 APP   | http://www.taobao.com/ | CN      |
++------+------------+------------------------+---------+
+</code></pre><h3 id="27-约束（Constraints）"><a href="#27-约束（Constraints）" class="headerlink" title="27.约束（Constraints）"></a>27.约束（Constraints）</h3><p>SQL 约束用于规定表中的数据规则。<br>如果存在违反约束的数据行为，行为会被约束终止。<br>约束可以在创建表时规定（通过 CREATE TABLE 语句），或者在表创建之后规定（通过 ALTER TABLE 语句）。语法如下：</p>
+<pre><code>CREATE TABLE table_name
+(
+column_name1 data_type(size) constraint_name,
+column_name2 data_type(size) constraint_name,
+column_name3 data_type(size) constraint_name,
+....
+);
+</code></pre><p>在 SQL 中，有如下约束：</p>
+<pre><code>NOT NULL - 指示某列不能存储 NULL 值。
+UNIQUE - 保证某列的每行必须有唯一的值。
+PRIMARY KEY - NOT NULL 和 UNIQUE 的结合。确保某列（或两个列多个列的结合）有唯一标识，有助于更容易更快速地找到表中的一个特定的记录。
+FOREIGN KEY - 保证一个表中的数据匹配另一个表中的值的参照完整性。
+CHECK - 保证列中的值符合指定的条件。
+DEFAULT - 规定没有给列赋值时的默认值。
+</code></pre><p>(1) NOT NULL 约束<br>强制列不接受 NULL 值, 强制字段始终包含值。这意味着，如果不向字段添加值，就无法插入新记录或者更新记录。<br>(2)  UNIQUE 约束<br>唯一标识数据库表中的每条记录。<br>UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。<br>PRIMARY KEY 约束拥有自动定义的 UNIQUE 约束。<br>注意，每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束。<br>下面的 SQL 在 “Persons” 表创建时在 “<code>P_Id</code>“ 列上创建 UNIQUE 约束：</p>
+<pre><code>CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+UNIQUE (P_Id)
+);
+</code></pre><p>如需命名 UNIQUE 约束，并定义多个列的 UNIQUE 约束，使用下面的 SQL 语法：</p>
+<pre><code>CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
+);
+</code></pre><p><strong>当表已被创建时</strong>，如需在 “<code>P_Id</code>“ 列创建 UNIQUE 约束，使用下面的 SQL：</p>
+<pre><code>ALTER TABLE Persons
+ADD UNIQUE (P_Id);
+</code></pre><p>如需命名 UNIQUE 约束，并定义多个列的 UNIQUE 约束，使用下面的 SQL 语法：</p>
+<pre><code>ALTER TABLE Persons
+ADD CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName);
+</code></pre><p><strong>撤销 UNIQUE 约束:</strong></p>
+<pre><code>ALTER TABLE Persons
+DROP INDEX uc_PersonID
+</code></pre><p>(3) PRIMARY KEY 约束<br>唯一标识数据库表中的每条记录。<br>主键必须包含唯一的值，主键列不能包含 NULL 值。<br>每个表都应该有一个主键，并且每个表只能有一个主键。<br>下面的 SQL 在 “Persons” 表创建时在 “<code>P_Id</code>“ 列上创建 PRIMARY KEY 约束：</p>
+<pre><code>CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+PRIMARY KEY (P_Id)
+);
+</code></pre><p>如需命名 PRIMARY KEY 约束，并定义多个列的 PRIMARY KEY 约束，使用下面的 SQL 语法：</p>
+<pre><code>CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT pk_PersonID PRIMARY KEY (P_Id,LastName)
+);
+</code></pre><p>注释：在上面的实例中，只有一个主键 PRIMARY KEY（<code>pk_PersonID</code>）。然而，pk_PersonID 的值是由两个列（<code>P_Id</code> 和 <code>LastName</code>）组成的。<br><strong>当表已被创建时</strong>，如需在 “<code>P_Id</code>“ 列创建 PRIMARY KEY 约束，使用下面的 SQL：</p>
+<pre><code>ALTER TABLE Persons
+ADD PRIMARY KEY (P_Id);
+</code></pre><p>如需命名 PRIMARY KEY 约束，并定义多个列的 PRIMARY KEY 约束，使用下面的 SQL 语法：</p>
+<pre><code>ALTER TABLE Persons
+ADD CONSTRAINT pk_PersonID PRIMARY KEY (P_Id,LastName);
+</code></pre><p><strong>撤销 PRIMARY KEY 约束:</strong></p>
+<pre><code>ALTER TABLE Persons
+DROP PRIMARY KEY
+</code></pre><p>撤销PRIMARY KEY约束时，不论约束条件为一列还是多列，对于MySQL，撤销都是如上的语句。<br>(4)  FOREIGN KEY 约束<br>一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY。<br>FOREIGN KEY 约束用于预防破坏表之间连接的行为。<br>FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。<a href="http://www.runoob.com/sql/sql-foreignkey.html" target="_blank" rel="external">参考菜鸟教程</a>。<br>(5) CHECK 约束<br>用于限制列中的值的范围。<br>如果对单个列定义 CHECK 约束，那么该列只允许特定的值。<br>如果对一个表定义 CHECK 约束，那么此约束会基于行中其他列的值在特定的列中对值进行限制。<a href="http://www.runoob.com/sql/sql-check.html" target="_blank" rel="external">参考菜鸟教程</a>。<br>(6) DEFAULT 约束<br>用于向列中插入默认值。如果没有规定其他的值，那么会将默认值添加到所有的新记录。<br>下面的 SQL 在 “Persons” 表创建时在 “City” 列上创建 DEFAULT 约束：</p>
+<pre><code>CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255) DEFAULT &apos;Sandnes&apos;
+);
+</code></pre><p>通过使用类似 GETDATE() 这样的函数，DEFAULT 约束也可以用于插入系统值：</p>
+<pre><code>CREATE TABLE Orders
+(
+O_Id int NOT NULL,
+OrderNo int NOT NULL,
+P_Id int,
+OrderDate date DEFAULT GETDATE()
+);
+</code></pre><p>当表已被创建时，如需在 “City” 列创建 DEFAULT 约束，使用下面的 SQL:</p>
+<pre><code>ALTER TABLE Persons
+ALTER City SET DEFAULT &apos;SANDNES&apos;;
+</code></pre><p>撤销 DEFAULT 约束:</p>
+<pre><code>ALTER TABLE Persons
+ALTER City DROP DEFAULT;
+</code></pre><h3 id="28-CREATE-INDEX"><a href="#28-CREATE-INDEX" class="headerlink" title="28.CREATE INDEX"></a>28.CREATE INDEX</h3><p>用于在表中创建索引。在不读取整个表的情况下，索引使数据库应用程序可以更快地查找数据。<br>用户无法看到索引，它们只能被用来加速搜索/查询。<br><strong>注释：</strong>更新一个包含索引的表需要比更新一个没有索引的表花费更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引。<br>在表上创建一个简单的索引。允许使用重复的值：</p>
+<pre><code>CREATE INDEX index_name
+ON table_name (column_name1, column_name2);
+</code></pre><p>在表上创建一个唯一的索引。不允许使用重复的值(唯一的索引意味着两个行不能拥有相同的索引值)：</p>
+<pre><code>CREATE UNIQUE INDEX index_name
+ON table_name (column_name);
+</code></pre><h3 id="29-DROP"><a href="#29-DROP" class="headerlink" title="29.DROP"></a>29.DROP</h3><p>使用 DROP 语句，可以轻松地删除索引、表和数据库。<br>DROP INDEX 语句用于删除表中的索引。MySQL 的 DROP INDEX 语法：<code>ALTER TABLE table_name DROP INDEX index_name;</code></p>
+<p>DROP TABLE 语句用于删除表: <code>DROP TABLE table_name;</code></p>
+<p>DROP DATABASE 语句用于删除数据库: <code>DROP DATABASE database_name;</code></p>
+<p>仅仅删除表内的数据，但并不删除表本身时： <code>TRUNCATE TABLE table_name;</code></p>
+<h3 id="30-ALTER"><a href="#30-ALTER" class="headerlink" title="30.ALTER"></a>30.ALTER</h3><p>ALTER TABLE 语句用于在已有的表中添加、删除或修改列。<br><strong>在表中添加列:</strong></p>
+<pre><code>ALTER TABLE table_name
+ADD column_name datatype;
+</code></pre><p><strong>删除表中的列:</strong></p>
+<pre><code>ALTER TABLE table_name
+DROP COLUMN column_name;
+</code></pre><p><strong>改变表中列的数据类型:</strong></p>
+<pre><code>ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+</code></pre><h3 id="31-AUTO-INCREMENT"><a href="#31-AUTO-INCREMENT" class="headerlink" title="31.AUTO INCREMENT"></a>31.AUTO INCREMENT</h3><p><code>AUTO_INCREMENT</code> 会在新记录插入表中时生成一个唯一的数字。可用于在每次插入新记录时，自动地创建主键字段的值。<br>下面的 SQL 语句把 “Persons” 表中的 “ID” 列定义为 <code>AUTO_INCREMENT</code> 主键字段：</p>
+<pre><code>CREATE TABLE Persons
+(
+ID int NOT NULL AUTO_INCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+PRIMARY KEY (ID)
+);
+</code></pre><p>默认地，<code>AUTO_INCREMENT</code> 的开始值是 1，每条新记录递增 1。<br>要让 <code>AUTO_INCREMENT</code> 序列以其他的值起始，请使用下面的 SQL 语法： <code>ALTER TABLE Persons AUTO_INCREMENT=100;</code><br>要在 “Persons” 表中插入新记录，我们不必为 “ID” 列规定值（会自动添加一个唯一的值）：</p>
+<pre><code>INSERT INTO Persons (FirstName,LastName)
+VALUES (&apos;Lars&apos;,&apos;Monsen&apos;);
+</code></pre><h3 id="32-视图（Views）"><a href="#32-视图（Views）" class="headerlink" title="32.视图（Views）"></a>32.视图（Views）</h3><p>视图是基于 SQL 语句的结果集的可视化的表。<br>视图包含行和列，就像一个真实的表。视图中的字段就是来自一个或多个数据库中的真实的表中的字段。<br>可以向视图添加 SQL 函数、WHERE 以及 JOIN 语句，也可以呈现数据，就像这些数据来自于某个单一的表一样。<br>CREATE VIEW 语法:</p>
+<pre><code>CREATE VIEW view_name AS
+SELECT column_name(s)
+FROM table_name
+WHERE condition;
+</code></pre><p>注释：视图总是显示最新的数据！每当用户查询视图时，数据库引擎通过使用视图的 SQL 语句重建数据。</p>
+<h3 id="33-日期（Dates）"><a href="#33-日期（Dates）" class="headerlink" title="33.日期（Dates）"></a>33.日期（Dates）</h3><p>确保所插入的日期的格式，与数据库中日期列的格式相匹配。<a href="http://www.runoob.com/sql/sql-dates.html" target="_blank" rel="external">MySQL Date 函数</a>。</p>
+<h3 id="34-NULL-值"><a href="#34-NULL-值" class="headerlink" title="34.NULL 值"></a>34.NULL 值</h3><p>如果表中的某个列是可选的，那么我们可以在不向该列添加值的情况下插入新记录或更新已有的记录。这意味着该字段将以 NULL 值保存。<br>NULL 值的处理方式与其他值不同。<br>NULL 用作未知的或不适用的值的占位符。<br>无法使用比较运算符来测试 NULL 值，比如<code>=、&lt; 或 &lt;&gt;</code>。必须使用 IS NULL 和 IS NOT NULL 操作符。</p>
+<pre><code>SELECT LastName,FirstName,Address FROM Persons
+WHERE Address IS NULL;
+</code></pre><h3 id="35-NULL-函数"><a href="#35-NULL-函数" class="headerlink" title="35.NULL 函数"></a>35.NULL 函数</h3><p>可以使用 IFNULL() 函数</p>
+<pre><code>SELECT ProductName,UnitPrice*(UnitsInStock+IFNULL(UnitsOnOrder,0))
+FROM Products;
+</code></pre><p>或者：</p>
+<pre><code>SELECT ProductName,UnitPrice*(UnitsInStock+COALESCE(UnitsOnOrder,0))
+FROM Products;
+</code></pre><p>示例：</p>
+<pre><code>//如果alexa列为null值，则赋予0，否则，取原值
+select id,name,url,ifnull(alexa,0)from websites;
+select id,name,url,COALESCE(alexa,0) from websites;
+</code></pre><h3 id="36-数据类型"><a href="#36-数据类型" class="headerlink" title="36.数据类型"></a>36.数据类型</h3><p>数据类型定义列中存放的值的种类。<a href="http://www.runoob.com/sql/sql-datatypes.html" target="_blank" rel="external">SQL 通用数据类型</a>。</p>
+<h3 id="37-SQL-函数"><a href="#37-SQL-函数" class="headerlink" title="37.SQL 函数"></a>37.SQL 函数</h3><p>(1) SQL Aggregate 函数<br>SQL Aggregate 函数计算从列中取得的值，返回一个单一的值。常用的如下：</p>
+<pre><code>AVG() - 返回平均值            SELECT AVG(column_name) FROM table_name;
+COUNT() - 返回行数            SELECT COUNT(column_name) FROM table_name;
+FIRST() - 返回第一个记录的值   //只有 MS Access 支持 FIRST() 函数。 MySQL语法实现此函数如：SELECT name AS FirstSite FROM Websites LIMIT 1; 
+LAST() - 返回最后一个记录的值   //只有 MS Access 支持 LAST() 函数。
+MAX() - 返回最大值            SELECT MAX(column_name) FROM table_name;
+MIN() - 返回最小值
+SUM() - 返回总和
+</code></pre><p>(2) SQL Scalar 函数<br>SQL Scalar 函数基于输入值，返回一个单一的值。常用的如下：</p>
+<pre><code>UCASE() - 将某个字段转换为大写                     SELECT UCASE(column_name) FROM table_name;
+LCASE() - 将某个字段转换为小写
+MID() - 从某个文本字段提取字符，MySql 中使用        SELECT MID(column_name,start[,length]) FROM table_name;
+SubString(字段，1，end) - 从某个文本字段提取字符
+LEN() - 返回某个文本字段的长度                     //MySQL中使用方法： SELECT LENGTH(column_name) FROM table_name;
+ROUND() - 对某个数值字段进行指定小数位数的四舍五入   SELECT ROUND(column_name,decimals) FROM table_name;
+NOW() - 返回当前的系统日期和时间                   SELECT NOW() FROM table_name;
+FORMAT() - 格式化某个字段的显示方式                SELECT FORMAT(column_name,format) FROM table_name;
+</code></pre><p>(3) <strong>GROUP BY 语句</strong><br>用于结合聚合函数，根据一个或多个列对结果集进行分组。</p>
+<pre><code>SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name; 
+</code></pre><p>如下统计 <code>access_log</code> 各个 <code>site_id</code> 的访问量：</p>
+<pre><code>mysql&gt; SELECT site_id,SUM(access_log.count)
+    -&gt; FROM access_log
+    -&gt; GROUP BY site_id;
++---------+-----------------------+
+| site_id | SUM(access_log.count) |
++---------+-----------------------+
+|       1 |                   275 |
+|       2 |                    10 |
+|       3 |                   521 |
+|       4 |                    13 |
+|       5 |                   750 |
++---------+-----------------------+
+</code></pre><p>GROUP BY 多表连接时，以下语句统计所有网站的访问的记录数：</p>
+<pre><code>mysql&gt; SELECT Websites.name,COUNT(access_log.aid) AS nums FROM access_log
+    -&gt; LEFT JOIN Websites
+    -&gt; ON access_log.site_id=Websites.id
+    -&gt; GROUP BY Websites.name;
++--------------+------+
+| name         | nums |
++--------------+------+
+| Facebook     |    2 |
+| Google       |    2 |
+| 微博         |    1 |
+| 淘宝         |    1 |
+| 菜鸟教程     |    3 |
++--------------+------+
+</code></pre><p>以上示例中，<code>access_log</code>作为左表，<code>Websites</code>作为右表，通过 GROUP BY 对 COUNT得到的结果按<code>site_id</code>分组。</p>
+<p>(4) <strong>HAVING 子句</strong><br>增加 HAVING 子句原因是，WHERE 关键字无法与聚合函数一起使用。<br>HAVING 子句可以让我们筛选分组后的各组数据。语法如下：</p>
+<pre><code>SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name
+HAVING aggregate_function(column_name) operator value; 
+</code></pre><p>以下语句用于查找总访问量大于 200 的网站：</p>
+<pre><code>mysql&gt; SELECT Websites.name,Websites.url,SUM(access_log.count) AS nums FROM access_log
+    -&gt; INNER JOIN Websites
+    -&gt; ON access_log.site_id=Websites.id
+    -&gt; GROUP BY Websites.name
+    -&gt; HAVING SUM(access_log.count) &gt; 200;
++--------------+--------------------------+------+
+| name         | url                      | nums |
++--------------+--------------------------+------+
+| Facebook     | http://www.facebook.com/ |  750 |
+| Google       | https://www.google.com/  |  275 |
+| 菜鸟教程     | http://www.runoob.com    |  521 |
++--------------+--------------------------+------+
+</code></pre><p>以下语句用于查找总访问量大于 200 的网站，并且 alexa 排名小于 200：</p>
+<pre><code>mysql&gt; SELECT Websites.name,Websites.alexa,SUM(access_log.count) AS nums FROM access_log
+    -&gt; INNER JOIN Websites
+    -&gt; ON Websites.id=access_log.site_id
+    -&gt; WHERE Websites.alexa &lt; 200
+    -&gt; GROUP BY Websites.name
+    -&gt; HAVING SUM(access_log.count) &gt; 200;
++----------+-------+------+
+| name     | alexa | nums |
++----------+-------+------+
+| Facebook |     3 |  750 |
+| Google   |     1 |  275 |
++----------+-------+------+
+</code></pre><p>具体的使用方法参见<a href="http://www.runoob.com/sql/sql-function.html" target="_blank" rel="external">菜鸟教程SQL 函数</a>。</p>
+
       
     </div>
     
@@ -840,7 +1299,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的使用方法"><span class="nav-number">2.</span> <span class="nav-text">基本的使用方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的使用方法"><span class="nav-number">2.</span> <span class="nav-text">基本的使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1．显示当前数据库服务器中的数据库列表"><span class="nav-number">2.1.</span> <span class="nav-text">1．显示当前数据库服务器中的数据库列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-显示某个数据库中的数据"><span class="nav-number">2.2.</span> <span class="nav-text">2.显示某个数据库中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-显示数据表的结构"><span class="nav-number">2.3.</span> <span class="nav-text">3.显示数据表的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-建立数据库"><span class="nav-number">2.4.</span> <span class="nav-text">4.建立数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-建立数据表"><span class="nav-number">2.5.</span> <span class="nav-text">5.建立数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-删除数据库"><span class="nav-number">2.6.</span> <span class="nav-text">6.删除数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-删除数据表"><span class="nav-number">2.7.</span> <span class="nav-text">7.删除数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-将表中记录清空"><span class="nav-number">2.8.</span> <span class="nav-text">8.将表中记录清空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-显示表中的所有记录"><span class="nav-number">2.9.</span> <span class="nav-text">9.显示表中的所有记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-往表中插入记录"><span class="nav-number">2.10.</span> <span class="nav-text">10.往表中插入记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-更新表中数据"><span class="nav-number">2.11.</span> <span class="nav-text">11.更新表中数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-用文本方式将数据装入数据表中"><span class="nav-number">2.12.</span> <span class="nav-text">12.用文本方式将数据装入数据表中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-显示正在use的数据库名"><span class="nav-number">2.13.</span> <span class="nav-text">14.显示正在use的数据库名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-显示当前的user"><span class="nav-number">2.14.</span> <span class="nav-text">15.显示当前的user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-SELECT-TOP-子句"><span class="nav-number">2.15.</span> <span class="nav-text">16.SELECT TOP 子句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-LIKE-操作符"><span class="nav-number">2.16.</span> <span class="nav-text">17.LIKE 操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-charlist-通配符"><span class="nav-number">2.17.</span> <span class="nav-text">18.[charlist] 通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-IN-操作符"><span class="nav-number">2.18.</span> <span class="nav-text">19.IN 操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-BETWEEN-操作符"><span class="nav-number">2.19.</span> <span class="nav-text">20.BETWEEN 操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-连接-JOIN"><span class="nav-number">2.20.</span> <span class="nav-text">21.连接(JOIN)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-INNER-JOIN"><span class="nav-number">2.21.</span> <span class="nav-text">22.INNER JOIN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-LEFT-JOIN"><span class="nav-number">2.22.</span> <span class="nav-text">23.LEFT JOIN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-FULL-OUTER-JOIN"><span class="nav-number">2.23.</span> <span class="nav-text">24.FULL OUTER JOIN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-UNION"><span class="nav-number">2.24.</span> <span class="nav-text">25.UNION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-INSERT-INTO-SELECT-SELECT-INTO"><span class="nav-number">2.25.</span> <span class="nav-text">26.INSERT INTO SELECT / SELECT INTO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-约束（Constraints）"><span class="nav-number">2.26.</span> <span class="nav-text">27.约束（Constraints）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28-CREATE-INDEX"><span class="nav-number">2.27.</span> <span class="nav-text">28.CREATE INDEX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29-DROP"><span class="nav-number">2.28.</span> <span class="nav-text">29.DROP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#30-ALTER"><span class="nav-number">2.29.</span> <span class="nav-text">30.ALTER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#31-AUTO-INCREMENT"><span class="nav-number">2.30.</span> <span class="nav-text">31.AUTO INCREMENT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-视图（Views）"><span class="nav-number">2.31.</span> <span class="nav-text">32.视图（Views）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-日期（Dates）"><span class="nav-number">2.32.</span> <span class="nav-text">33.日期（Dates）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34-NULL-值"><span class="nav-number">2.33.</span> <span class="nav-text">34.NULL 值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35-NULL-函数"><span class="nav-number">2.34.</span> <span class="nav-text">35.NULL 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#36-数据类型"><span class="nav-number">2.35.</span> <span class="nav-text">36.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#37-SQL-函数"><span class="nav-number">2.36.</span> <span class="nav-text">37.SQL 函数</span></a></li></ol></li></ol></div>
             
 
           </div>
