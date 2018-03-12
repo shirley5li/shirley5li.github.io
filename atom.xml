@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-10T03:32:39.183Z</updated>
+  <updated>2018-03-12T07:31:14.101Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,104 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB学习from菜鸟教程</title>
+    <link href="http://yoursite.com/2018/03/12/MongoDB%E5%AD%A6%E4%B9%A0from%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/03/12/MongoDB学习from菜鸟教程/</id>
+    <published>2018-03-12T05:12:29.000Z</published>
+    <updated>2018-03-12T07:31:14.101Z</updated>
+    
+    <content type="html"><![CDATA[<p>在学习<a href="https://github.com/nswbmw/N-blog" target="_blank" rel="external">《一起学 Node.js》</a>中，需要使用 Express + MongoDB 搭建多人博客，因此在<a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="external">菜鸟MongoDB 教程</a>上学习总结MongoDB的基本用法。<br><a id="more"></a><br>MongoDB是一个基于分布式文件存储的开源数据库系统。 在高负载的情况下，添加更多的节点，可以保证服务器性能, 为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。 MongoDB 文档类似于 JSON 对象。 字段值可以包含其他文档，数组及文档数组。<br>mongodb中基本的概念是文档、集合、数据库。一个mongodb中可以建立多个数据库。MongoDB的默认数据库为”db”，该数据库存储在data目录中。</p>
+<p>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>先cd到bin文件夹下，执行”mongo”启动客户端。<br>(1)<code>show dbs</code> 命令可以显示所有数据的列表。</p>
+<pre><code>&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+</code></pre><p>(2)<code>db</code> 命令可以显示当前数据库对象或集合。</p>
+<pre><code>&gt; db
+test
+</code></pre><p>(3)<code>use database_name</code>命令，可以连接到一个指定的数据库。</p>
+<pre><code>&gt; use local
+switched to db local
+&gt; db
+local
+</code></pre><p>(4)<strong>数据库名命名规则：</strong>可以是满足以下条件的任意UTF-8字符串。</p>
+<pre><code>不能是空字符串（&quot;&quot;)。
+不得含有&apos; &apos;（空格)、.、$、/、\和\0 (空字符)。
+应全部小写。
+最多64字节
+</code></pre><p>有一些数据库名是保留的，可以直接访问这些有特殊作用的数据库。</p>
+<pre><code>admin： 从权限的角度来看，这是&quot;root&quot;数据库。要是将一个用户添加到这个数据库，这个用户自动继承所有数据库的权限。一些特定的服务器端命令也只能从这个数据库运行，比如列出所有的数据库或者关闭服务器。
+local: 这个数据永远不会被复制，可以用来存储限于本地单台服务器的任意集合
+config: 当Mongo用于分片设置时，config数据库在内部使用，用于保存分片的相关信息。
+</code></pre><p><strong>(5)文档</strong><br>文档是一组键值(key-value)对(即BSON)。MongoDB 的文档不需要设置相同的字段，并且相同的字段不需要相同的数据类型，这与关系型数据库有很大的区别，也是 MongoDB 非常突出的特点。一个简单的文档如下所示：</p>
+<pre><code>{&quot;site&quot;:&quot;www.runoob.com&quot;, &quot;name&quot;:&quot;菜鸟教程&quot;}
+
+文档中的键/值对是有序的。
+文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。
+MongoDB区分类型和大小写。
+MongoDB的文档不能有重复的键。
+文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。
+</code></pre><p>文档键命名规范：</p>
+<pre><code>键不能含有\0 (空字符)。这个字符用来表示键的结尾。
+.和$有特别的意义，只有在特定环境下才能使用。
+以下划线&quot;_&quot;开头的键是保留的(不是严格要求的)。
+</code></pre><p><strong>(6)集合</strong><br>集合就是 MongoDB 文档组，类似于 RDBMS （关系数据库管理系统：Relational Database Management System)中的表格。<br>集合存在于数据库中，集合没有固定的结构，这意味着你在对集合可以插入不同格式和类型的数据，但通常情况下我们插入集合的数据都会有一定的关联性。<br>可以将以下不同数据结构的文档插入到集合中：</p>
+<pre><code>{&quot;site&quot;:&quot;www.baidu.com&quot;}
+{&quot;site&quot;:&quot;www.google.com&quot;,&quot;name&quot;:&quot;Google&quot;}
+{&quot;site&quot;:&quot;www.runoob.com&quot;,&quot;name&quot;:&quot;菜鸟教程&quot;,&quot;num&quot;:5}
+</code></pre><p>集合名命名规范：</p>
+<pre><code>集合名不能是空字符串&quot;&quot;。
+集合名不能含有\0字符（空字符)，这个字符表示集合名的结尾。
+集合名不能以&quot;system.&quot;开头，这是为系统集合保留的前缀。
+用户创建的集合名字不能含有保留字符。有些驱动程序的确支持在集合名里面包含，这是因为某些系统生成的集合中包含该字符。除非你要访问这种系统创建的集合，否则千万不要在名字里出现$。
+</code></pre><p>Capped collections 就是固定大小的collection。<br><strong>(7)元数据</strong><br>数据库的信息是存储在集合中。它们使用了系统的命名空间：<code>dbname.system.*</code></p>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p><code>use DATABASE_NAME</code> 如果数据库不存在，则创建数据库，否则切换到指定数据库。</p>
+<pre><code>&gt; use test
+switched to db test
+&gt; db
+test
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+</code></pre><p>刚创建的test数据库不在数据库列表中，要显示它，必须插入一些数据。</p>
+<pre><code>&gt; db.test.insert({&quot;name&quot;:&quot;hello&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+</code></pre><p>MongoDB 中默认的数据库为 test，如果你没有创建新的数据库，集合将存放在 test 数据库中。</p>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><p>先切换到要删除的数据库，再执行<code>db.dropDatabase()</code></p>
+<pre><code>&gt; use test
+switched to db test
+&gt; db
+test
+&gt; db.dropDatabase()
+{ &quot;dropped&quot; : &quot;test&quot;, &quot;ok&quot; : 1 }
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+</code></pre><p>关于MongoDB更详细的操作命令见菜鸟教程。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在学习&lt;a href=&quot;https://github.com/nswbmw/N-blog&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《一起学 Node.js》&lt;/a&gt;中，需要使用 Express + MongoDB 搭建多人博客，因此在&lt;a href=&quot;http://www.runoob.com/mongodb/mongodb-tutorial.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;菜鸟MongoDB 教程&lt;/a&gt;上学习总结MongoDB的基本用法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="MongoDB" scheme="http://yoursite.com/categories/MongoDB/"/>
+    
+    
+      <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL数据库的安装及基本的使用方法</title>
@@ -4017,92 +4115,6 @@ add(&quot;http://bit.ly/IqT6zt&quot;);//返回undefined
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSONP简要了解</title>
-    <link href="http://yoursite.com/2017/11/15/JSONP%E7%AE%80%E8%A6%81%E4%BA%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2017/11/15/JSONP简要了解/</id>
-    <published>2017-11-15T13:08:22.000Z</published>
-    <updated>2018-01-09T02:47:02.934Z</updated>
-    
-    <content type="html"><![CDATA[<p>在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用<code>$.getJSON(()</code>方法会因为跨域资源共享(CORS)问题发生错误信息。<a href="https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541" target="_blank" rel="external"> freeCodeCamp Challenge Guide: How to Use the TwitchTV API </a>中建议使用jQuery的JSONP方法来解决CORS问题。<br><a id="more"></a></p>
-<h2 id="JSONP的诞生"><a href="#JSONP的诞生" class="headerlink" title="JSONP的诞生"></a>JSONP的诞生</h2><p>传统ajax无法跨域，而<script\>标签的src属性是可以跨域的,可以通过把跨域服务器写成<strong>调用本地的函数</strong> ，回调数据回来。</script\></p>
-<p>json刚好被js支持（<strong>object</strong>）</p>
-<p>调用跨域服务器上动态生成的js格式文件（<strong>不管是什么类型的地址，最终生成的返回值都是一段js代码</strong>）</p>
-<p>这种获取远程数据的方式看起来非常像ajax，但其实并不一样，便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作<strong>JSONP</strong>。</p>
-<p>传递一个<strong>callback参数</strong>给跨域服务端，然后跨域服务端返回数据时会将这个callback参数作为函数名来包裹住json数据即可。</p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>（1）<strong>跨域服务器</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件：<strong>remote.js</strong></p>
-<pre><code>alert(&quot;我是远程文件&quot;);
-</code></pre><p><strong>本地</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;跨域服务器/remote.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>在本地<script\>标签直接引入一个js文件，页面将会弹出警告框。</script\></p>
-<p>（2）<strong>跨域服务器</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件：<strong>remote.js</strong></p>
-<pre><code>localHandler({&quot;result&quot;:&quot;我是远程js带来的数据&quot;});
-</code></pre><p><strong>本地</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
-    var localHandler = function(data){
-        alert(&apos;我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：&apos; + data.result); 
-    }; 
-&lt;/script&gt; 
-&lt;script type=&quot;text/javascript&quot; src=&quot;跨域服务器/remote.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>该例子中在本地定义了一个函数<code>localHandler</code>，在本地通过<script\>标签的<code>src</code>属性引入了跨域服务器上的一个js文件<code>remote.js</code>，在引入的js文件里调用了本地定义的函数<code>localHandler</code>。</script\></p>
-<p><strong>问题</strong>：如何让远程js文件知道它应该调用的本地函数的名字呢？毕竟jsonp的服务者都要面对很多服务对象，而这些服务对象各自的本地函数都不相同。</p>
-<p>（3）<strong>跨域服务器</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件：<strong>flightResult.php</strong></p>
-<pre><code>flightHandler({
-    &quot;code&quot;:&quot;CA1998&quot;,
-    &quot;price&quot;: 1780,
-    &quot;tickets&quot;: 5
-});
-</code></pre><p><strong>本地</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
-    // 得到航班信息查询结果后的回调函数 
-    var flightHandler = function(data){
-        alert(&apos;你查询的航班结果是：票价 &apos; + data.price + &apos; 元，&apos; + &apos;余票 &apos; + data.tickets + &apos; 张。&apos;);
-    }; 
-    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码） 
-    var url = &quot;跨域服务器/flightResult.php?code=CA1998&amp;callback=flightHandler&quot;;
-    // 创建script标签，设置其属性 
-    var script = document.createElement(&apos;script&apos;); 
-    script.setAttribute(&apos;src&apos;, url); 
-    // 把script标签加入head，此时调用开始 
-    document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script); 
-&lt;/script&gt;
-</code></pre><p>在该例中动态创建<script\>标签（动态创建脚本）； url中传递了一个code参数，服务器去做查询CA1998次航班的信息，callback参数告诉服务器，我的本地回调函数叫做flightHandler； 跨域服务端调用这个函数flightHandler，页面将会弹出一个提示窗体，显示出票价和余票。</script\></p>
-<h2 id="JSONP方法中服务器做的事情"><a href="#JSONP方法中服务器做的事情" class="headerlink" title="JSONP方法中服务器做的事情"></a>JSONP方法中服务器做的事情</h2><pre><code>// 数据
-$data = [
-    &quot;name&quot;:&quot;anonymous66&quot;,
-    &quot;age&quot;:&quot;18&quot;,
-    &quot;like&quot;:&quot;jianshu&quot;
-];
-// 接收callback函数名称
-$callback = $_GET[&apos;callback&apos;];
-// 输出
-echo $callback . &quot;(&quot; . json_encode($data) . &quot;)&quot;;
-</code></pre><p>服务器端做的就是获取url中的callback参数，并将callback参数作为函数名来包裹json数据，动态生成js文件，再返回给客户端。</p>
-<h2 id="JSONP与AJAX的区别"><a href="#JSONP与AJAX的区别" class="headerlink" title="JSONP与AJAX的区别"></a>JSONP与AJAX的区别</h2><p>ajax的核心是通过XMLHttpRequest获取非本页内容。</p>
-<p>jsonp的核心则是动态添加<script\>标签来调用服务器提供的js脚本。</script\></p>
-<h2 id="JSONP优缺点"><a href="#JSONP优缺点" class="headerlink" title="JSONP优缺点"></a>JSONP优缺点</h2><p>优点：它不像XMLHttpRequest对象实现的Ajax请求那样受到同源策略的限制；它的兼容性更好，在更加古老的浏览器中都 可以运行，不需要XMLHttpRequest或ActiveX的支持；并且在请求完毕后可以通过调用callback的方式回传结果。</p>
-<p>缺点：它只支持GET请求而不支持POST等其它类型的HTTP请求；它只支持跨域HTTP请求这种情况，不能解决不同域的两个页面之间如何进行JavaScript调用的问题。JSONP是一种脚本注入(Script Injection)行为，所以有一定的安全隐患。</p>
-<p>转自：segmentfault专栏<a href="https://segmentfault.com/a/1190000007935557" target="_blank" rel="external">JSONP是什么</a></p>
-<p>参考：<a href="http://blog.csdn.net/z69183787/article/details/19191385" target="_blank" rel="external">JSONP原理优缺点(只能GET不支持POST) </a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用&lt;code&gt;$.getJSON(()&lt;/code&gt;方法会因为跨域资源共享(CORS)问题发生错误信息。&lt;a href=&quot;https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; freeCodeCamp Challenge Guide: How to Use the TwitchTV API &lt;/a&gt;中建议使用jQuery的JSONP方法来解决CORS问题。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="jsonp" scheme="http://yoursite.com/categories/jsonp/"/>
-    
-    
-      <category term="jsonp" scheme="http://yoursite.com/tags/jsonp/"/>
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-      <category term="json" scheme="http://yoursite.com/tags/json/"/>
     
   </entry>
   
