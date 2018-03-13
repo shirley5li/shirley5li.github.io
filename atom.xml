@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-13T05:41:25.774Z</updated>
+  <updated>2018-03-13T06:05:45.270Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/03/13/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2018/03/13/汉诺塔递归算法JS实现/</id>
     <published>2018-03-13T03:25:25.000Z</published>
-    <updated>2018-03-13T05:41:25.774Z</updated>
+    <updated>2018-03-13T06:05:45.270Z</updated>
     
     <content type="html"><![CDATA[<p>递归把一组问题分解为一组相似的子问题，每一个问题都用一个寻常解去解决。递归函数就是会直接或者间接调用自身的一种函数，一般来说，一个递归函数调用自身去解决它的子问题。在自己这个函数里有调用自己这个函数的语句，而这个调用怎么才能调用结束呢？，这里还必须有一个结束点，或者具体的说是在调用到某一次后函数能返回一个确定的值，接着倒数第二个就能返回一个确定的值，一直到第一次调用的这个函数能返回一个确定的值。<br><a id="more"></a></p>
 <h2 id="“汉诺塔问题”描述"><a href="#“汉诺塔问题”描述" class="headerlink" title="“汉诺塔问题”描述"></a>“汉诺塔问题”描述</h2><p>塔上有三根柱子和一套直径各不相同的空心圆盘，开始时源柱子上的所有圆盘都按从大到小的顺序排列。目标是通过每一次移动一个圆盘到另一根柱子上，最终把一堆圆盘移动到目标柱子上，过程中不允许把较大的圆盘放置在较小的圆盘上；</p>
@@ -32,25 +32,8 @@
 <p>(3) 当n=3时<br>第一次： 1号 A -&gt; C<br>第二次： 2号 A -&gt; B<br>第三次： 1号 C -&gt; B<br>第四次： 3号 A -&gt; C<br>第五次： 1号 B -&gt; A<br>第六次： 2号 B -&gt; C<br>第七次： 1号 A -&gt; C</p>
 <p>可发现移动次数与n的关系为：2^n - 1</p>
 <h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>实现这个算法可以简单分为三个步骤：<br>(1)把A上的 n-1 个圆盘借助辅助塔(C塔)由A移到B;<br>(2)把 n号(即最大的那个)由A移到C；<br>(3)把B上的 n-1 个圆盘借助辅助塔(A塔)由B移到C；</p>
-<h2 id="javascript实现"><a href="#javascript实现" class="headerlink" title="javascript实现"></a>javascript实现</h2><pre><code>// js语言精粹 4.8递归 汉诺塔问题
-var times = 0;
-function hanoi(n, src, aux, dist) {
-    if (n &gt; 0) {
-        hanoi(n - 1, src, dist, aux); //递归，把A(src)塔上编号1~n-1的圆盘移到B(aux)上，以C(dist)为辅助塔
-        console.log(&quot;第&quot; + (++times) + &quot;次移动：&quot; + n + &quot;号盘从&quot; + src + &quot;移到&quot; + dist); //把A塔上编号为n的圆盘移到C上
-        hanoi(n - 1, aux, src, dist); //递归，把B塔上编号1~n-1的圆盘移到C上，以A为辅助塔
-    }
-}
-hanoi(3, &apos;A&apos;, &apos;B&apos;, &apos;C&apos;);
-//运行结果
-第1次移动：1号盘从A移到C
-第2次移动：2号盘从A移到B
-第3次移动：1号盘从C移到B
-第4次移动：3号盘从A移到C
-第5次移动：1号盘从B移到A
-第6次移动：2号盘从B移到C
-第7次移动：1号盘从A移到C
-</code></pre><h2 id="调用方法的栈机制"><a href="#调用方法的栈机制" class="headerlink" title="调用方法的栈机制"></a>调用方法的栈机制</h2><p>从主线程开始调用方法（函数）进行不停的压栈和出栈操作，函数的调用就是将函数压如栈中，函数的结束就是函数出栈的过程，这样就保证了方法调用的顺序流，即当函数出现多层嵌套时，需要从外到内一层层把函数压入栈中，最后栈顶的函数先执行结束（最内层的函数先执行结束）后出栈，再倒数第二层的函数执行结束出栈，到最后，第一个进栈的函数调用结束后从栈中弹出回到主线程，并且结束。</p>
+<h2 id="javascript实现"><a href="#javascript实现" class="headerlink" title="javascript实现"></a>javascript实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// js语言精粹 4.8递归 汉诺塔问题</span></div><div class="line"><span class="keyword">var</span> times = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hanoi</span>(<span class="params">n, src, aux, dist</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n &gt; <span class="number">0</span>) &#123;</div><div class="line">        hanoi(n - <span class="number">1</span>, src, dist, aux); <span class="comment">//递归，把A(src)塔上编号1~n-1的圆盘移到B(aux)上，以C(dist)为辅助塔</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"第"</span> + (++times) + <span class="string">"次移动："</span> + n + <span class="string">"号盘从"</span> + src + <span class="string">"移到"</span> + dist); <span class="comment">//把A塔上编号为n的圆盘移到C上</span></div><div class="line">        hanoi(n - <span class="number">1</span>, aux, src, dist); <span class="comment">//递归，把B塔上编号1~n-1的圆盘移到C上，以A为辅助塔</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">hanoi(<span class="number">3</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);</div><div class="line"><span class="comment">//运行结果</span></div><div class="line">第<span class="number">1</span>次移动：<span class="number">1</span>号盘从A移到C</div><div class="line">第<span class="number">2</span>次移动：<span class="number">2</span>号盘从A移到B</div><div class="line">第<span class="number">3</span>次移动：<span class="number">1</span>号盘从C移到B</div><div class="line">第<span class="number">4</span>次移动：<span class="number">3</span>号盘从A移到C</div><div class="line">第<span class="number">5</span>次移动：<span class="number">1</span>号盘从B移到A</div><div class="line">第<span class="number">6</span>次移动：<span class="number">2</span>号盘从B移到C</div><div class="line">第<span class="number">7</span>次移动：<span class="number">1</span>号盘从A移到C</div></pre></td></tr></table></figure>
+<h2 id="调用方法的栈机制"><a href="#调用方法的栈机制" class="headerlink" title="调用方法的栈机制"></a>调用方法的栈机制</h2><p>从主线程开始调用方法（函数）进行不停的压栈和出栈操作，函数的调用就是将函数压如栈中，函数的结束就是函数出栈的过程，这样就保证了方法调用的顺序流，即当函数出现多层嵌套时，需要从外到内一层层把函数压入栈中，最后栈顶的函数先执行结束（最内层的函数先执行结束）后出栈，再倒数第二层的函数执行结束出栈，到最后，第一个进栈的函数调用结束后从栈中弹出回到主线程，并且结束。</p>
 <h2 id="图解程序运行流程"><a href="#图解程序运行流程" class="headerlink" title="图解程序运行流程"></a>图解程序运行流程</h2><p>(1)函数hanoi(n, A, B, C)的功能是把编号为n的圆盘借助B从A移到C上；<br>(2)函数move(n, M, N)的功能是把编号为n的圆盘从M移到N上；</p>
 <p><img src="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98n=3%E6%97%B6%E7%9A%84%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.png" alt="汉诺塔问题n=3时的运行流程"></p>
 ]]></content>
