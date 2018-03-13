@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[汉诺塔递归算法JS实现]]></title>
+    <url>%2F2018%2F03%2F13%2F%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[递归把一组问题分解为一组相似的子问题，每一个问题都用一个寻常解去解决。递归函数就是会直接或者间接调用自身的一种函数，一般来说，一个递归函数调用自身去解决它的子问题。在自己这个函数里有调用自己这个函数的语句，而这个调用怎么才能调用结束呢？，这里还必须有一个结束点，或者具体的说是在调用到某一次后函数能返回一个确定的值，接着倒数第二个就能返回一个确定的值，一直到第一次调用的这个函数能返回一个确定的值。 “汉诺塔问题”描述塔上有三根柱子和一套直径各不相同的空心圆盘，开始时源柱子上的所有圆盘都按从大到小的顺序排列。目标是通过每一次移动一个圆盘到另一根柱子上，最终把一堆圆盘移动到目标柱子上，过程中不允许把较大的圆盘放置在较小的圆盘上；当n=3时的移动如下： 把所有圆盘(n个)从A(src)移动到C(dst)。 (1) 当n=1时第一次：1号 A -&gt; C (2) 当n=2时第一次： 1号 A -&gt; B第二次: 2号 A -&gt; C第三次： 1号 B -&gt; C (3) 当n=3时第一次： 1号 A -&gt; C第二次： 2号 A -&gt; B第三次： 1号 C -&gt; B第四次： 3号 A -&gt; C第五次： 1号 B -&gt; A第六次： 2号 B -&gt; C第七次： 1号 A -&gt; C 可发现移动次数与n的关系为：2^n - 1 算法分析实现这个算法可以简单分为三个步骤：(1)把A上的 n-1 个圆盘借助辅助塔(C塔)由A移到B;(2)把 n号(即最大的那个)由A移到C；(3)把B上的 n-1 个圆盘借助辅助塔(A塔)由B移到C； javascript实现// js语言精粹 4.8递归 汉诺塔问题 var times = 0; function hanoi(n, src, aux, dist) { if (n &gt; 0) { hanoi(n - 1, src, dist, aux); //递归，把A(src)塔上编号1~n-1的圆盘移到B(aux)上，以C(dist)为辅助塔 console.log(&quot;第&quot; + (++times) + &quot;次移动：&quot; + n + &quot;号盘从&quot; + src + &quot;移到&quot; + dist); //把A塔上编号为n的圆盘移到C上 hanoi(n - 1, aux, src, dist); //递归，把B塔上编号1~n-1的圆盘移到C上，以A为辅助塔 } } hanoi(3, &apos;A&apos;, &apos;B&apos;, &apos;C&apos;); //运行结果 第1次移动：1号盘从A移到C 第2次移动：2号盘从A移到B 第3次移动：1号盘从C移到B 第4次移动：3号盘从A移到C 第5次移动：1号盘从B移到A 第6次移动：2号盘从B移到C 第7次移动：1号盘从A移到C 调用方法的栈机制从主线程开始调用方法（函数）进行不停的压栈和出栈操作，函数的调用就是将函数压如栈中，函数的结束就是函数出栈的过程，这样就保证了方法调用的顺序流，即当函数出现多层嵌套时，需要从外到内一层层把函数压入栈中，最后栈顶的函数先执行结束（最内层的函数先执行结束）后出栈，再倒数第二层的函数执行结束出栈，到最后，第一个进栈的函数调用结束后从栈中弹出回到主线程，并且结束。 图解程序运行流程(1)函数hanoi(n, A, B, C)的功能是把编号为n的圆盘借助B从A移到C上；(2)函数move(n, M, N)的功能是把编号为n的圆盘从M移到N上；]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MongoDB学习from菜鸟教程]]></title>
     <url>%2F2018%2F03%2F12%2FMongoDB%E5%AD%A6%E4%B9%A0from%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[在学习《一起学 Node.js》中，需要使用 Express + MongoDB 搭建多人博客，因此在菜鸟MongoDB 教程上学习总结MongoDB的基本用法。MongoDB是一个基于分布式文件存储的开源数据库系统。 在高负载的情况下，添加更多的节点，可以保证服务器性能, 为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。 MongoDB 文档类似于 JSON 对象。 字段值可以包含其他文档，数组及文档数组。mongodb中基本的概念是文档、集合、数据库。一个mongodb中可以建立多个数据库。MongoDB的默认数据库为”db”，该数据库存储在data目录中。 MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。 基本用法先cd到bin文件夹下，执行”mongo”启动客户端。(1)show dbs 命令可以显示所有数据的列表。 &gt; show dbs admin 0.000GB config 0.000GB local 0.000GB (2)db 命令可以显示当前数据库对象或集合。 &gt; db test (3)use database_name命令，可以连接到一个指定的数据库。 &gt; use local switched to db local &gt; db local (4)数据库名命名规则：可以是满足以下条件的任意UTF-8字符串。 不能是空字符串（&quot;&quot;)。 不得含有&apos; &apos;（空格)、.、$、/、\和\0 (空字符)。 应全部小写。 最多64字节 有一些数据库名是保留的，可以直接访问这些有特殊作用的数据库。 admin： 从权限的角度来看，这是&quot;root&quot;数据库。要是将一个用户添加到这个数据库，这个用户自动继承所有数据库的权限。一些特定的服务器端命令也只能从这个数据库运行，比如列出所有的数据库或者关闭服务器。 local: 这个数据永远不会被复制，可以用来存储限于本地单台服务器的任意集合 config: 当Mongo用于分片设置时，config数据库在内部使用，用于保存分片的相关信息。 (5)文档文档是一组键值(key-value)对(即BSON)。MongoDB 的文档不需要设置相同的字段，并且相同的字段不需要相同的数据类型，这与关系型数据库有很大的区别，也是 MongoDB 非常突出的特点。一个简单的文档如下所示： {&quot;site&quot;:&quot;www.runoob.com&quot;, &quot;name&quot;:&quot;菜鸟教程&quot;} 文档中的键/值对是有序的。 文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。 MongoDB区分类型和大小写。 MongoDB的文档不能有重复的键。 文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。 文档键命名规范： 键不能含有\0 (空字符)。这个字符用来表示键的结尾。 .和$有特别的意义，只有在特定环境下才能使用。 以下划线&quot;_&quot;开头的键是保留的(不是严格要求的)。 (6)集合集合就是 MongoDB 文档组，类似于 RDBMS （关系数据库管理系统：Relational Database Management System)中的表格。集合存在于数据库中，集合没有固定的结构，这意味着你在对集合可以插入不同格式和类型的数据，但通常情况下我们插入集合的数据都会有一定的关联性。可以将以下不同数据结构的文档插入到集合中： {&quot;site&quot;:&quot;www.baidu.com&quot;} {&quot;site&quot;:&quot;www.google.com&quot;,&quot;name&quot;:&quot;Google&quot;} {&quot;site&quot;:&quot;www.runoob.com&quot;,&quot;name&quot;:&quot;菜鸟教程&quot;,&quot;num&quot;:5} 集合名命名规范： 集合名不能是空字符串&quot;&quot;。 集合名不能含有\0字符（空字符)，这个字符表示集合名的结尾。 集合名不能以&quot;system.&quot;开头，这是为系统集合保留的前缀。 用户创建的集合名字不能含有保留字符。有些驱动程序的确支持在集合名里面包含，这是因为某些系统生成的集合中包含该字符。除非你要访问这种系统创建的集合，否则千万不要在名字里出现$。 Capped collections 就是固定大小的collection。(7)元数据数据库的信息是存储在集合中。它们使用了系统的命名空间：dbname.system.* 创建数据库use DATABASE_NAME 如果数据库不存在，则创建数据库，否则切换到指定数据库。 &gt; use test switched to db test &gt; db test &gt; show dbs admin 0.000GB config 0.000GB local 0.000GB 刚创建的test数据库不在数据库列表中，要显示它，必须插入一些数据。 &gt; db.test.insert({&quot;name&quot;:&quot;hello&quot;}) WriteResult({ &quot;nInserted&quot; : 1 }) &gt; show dbs admin 0.000GB config 0.000GB local 0.000GB test 0.000GB MongoDB 中默认的数据库为 test，如果你没有创建新的数据库，集合将存放在 test 数据库中。 删除数据库先切换到要删除的数据库，再执行db.dropDatabase() &gt; use test switched to db test &gt; db test &gt; db.dropDatabase() { &quot;dropped&quot; : &quot;test&quot;, &quot;ok&quot; : 1 } &gt; show dbs admin 0.000GB config 0.000GB local 0.000GB 关于MongoDB更详细的操作命令见菜鸟教程。]]></content>
@@ -353,8 +364,8 @@
         <category>搭建博客</category>
       </categories>
       <tags>
-        <tag>next</tag>
         <tag>hexo</tag>
+        <tag>next</tag>
       </tags>
   </entry>
   <entry>
@@ -365,10 +376,10 @@
         <category>搭建博客</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>node.js</tag>
         <tag>npm</tag>
         <tag>git</tag>
+        <tag>hexo</tag>
         <tag>github</tag>
       </tags>
   </entry>
