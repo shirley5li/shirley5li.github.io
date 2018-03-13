@@ -104,14 +104,14 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="递归把一组问题分解为一组相似的子问题，每一个问题都用一个寻常解去解决。递归函数就是会直接或者间接调用自身的一种函数，一般来说，一个递归函数调用自身去解决它的子问题。在自己这个函数里有调用自己这个函数的语句，而这个调用怎么才能调用结束呢？，这里还必须有一个结束点，或者具体的说是在调用到某一次后函数能返回一个确定的值，接着倒数第二个就能返回一个确定的值，一直到第一次调用的这个函数能返回一个确定的值。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://images2017.cnblogs.com/blog/1140602/201708/1140602-20170826161041339-1044886841.png">
-<meta property="og:image" content="http://images2017.cnblogs.com/blog/1140602/201708/1140602-20170826174129183-1188124420.gif">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/1026866/201610/1026866-20161016023307592-594782514.png">
-<meta property="og:updated_time" content="2018-03-13T05:18:00.502Z">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/n=3%E6%97%B6%E7%9A%84%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98.gif">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98n=3%E6%97%B6%E7%9A%84%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.png">
+<meta property="og:updated_time" content="2018-03-13T05:41:25.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汉诺塔递归算法JS实现">
 <meta name="twitter:description" content="递归把一组问题分解为一组相似的子问题，每一个问题都用一个寻常解去解决。递归函数就是会直接或者间接调用自身的一种函数，一般来说，一个递归函数调用自身去解决它的子问题。在自己这个函数里有调用自己这个函数的语句，而这个调用怎么才能调用结束呢？，这里还必须有一个结束点，或者具体的说是在调用到某一次后函数能返回一个确定的值，接着倒数第二个就能返回一个确定的值，一直到第一次调用的这个函数能返回一个确定的值。">
-<meta name="twitter:image" content="http://images2017.cnblogs.com/blog/1140602/201708/1140602-20170826161041339-1044886841.png">
+<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 
 
 
@@ -438,7 +438,9 @@
 
       
         <p>递归把一组问题分解为一组相似的子问题，每一个问题都用一个寻常解去解决。递归函数就是会直接或者间接调用自身的一种函数，一般来说，一个递归函数调用自身去解决它的子问题。在自己这个函数里有调用自己这个函数的语句，而这个调用怎么才能调用结束呢？，这里还必须有一个结束点，或者具体的说是在调用到某一次后函数能返回一个确定的值，接着倒数第二个就能返回一个确定的值，一直到第一次调用的这个函数能返回一个确定的值。<br><a id="more"></a></p>
-<h2 id="“汉诺塔问题”描述"><a href="#“汉诺塔问题”描述" class="headerlink" title="“汉诺塔问题”描述"></a>“汉诺塔问题”描述</h2><p>塔上有三根柱子和一套直径各不相同的空心圆盘，开始时源柱子上的所有圆盘都按从大到小的顺序排列。目标是通过每一次移动一个圆盘到另一根柱子上，最终把一堆圆盘移动到目标柱子上，过程中不允许把较大的圆盘放置在较小的圆盘上；<br><img src="http://images2017.cnblogs.com/blog/1140602/201708/1140602-20170826161041339-1044886841.png" alt="汉诺塔示意图"><br>当n=3时的移动如下：<br><img src="http://images2017.cnblogs.com/blog/1140602/201708/1140602-20170826174129183-1188124420.gif" alt="n=3时的汉诺塔问题"></p>
+<h2 id="“汉诺塔问题”描述"><a href="#“汉诺塔问题”描述" class="headerlink" title="“汉诺塔问题”描述"></a>“汉诺塔问题”描述</h2><p>塔上有三根柱子和一套直径各不相同的空心圆盘，开始时源柱子上的所有圆盘都按从大到小的顺序排列。目标是通过每一次移动一个圆盘到另一根柱子上，最终把一堆圆盘移动到目标柱子上，过程中不允许把较大的圆盘放置在较小的圆盘上；</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="汉诺塔示意图"><br>当n=3时的移动如下：</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/n=3%E6%97%B6%E7%9A%84%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98.gif" alt="n=3时的汉诺塔问题"></p>
 <p>把所有圆盘(n个)从A(src)移动到C(dst)。</p>
 <p>(1) 当n=1时<br>第一次：1号 A -&gt; C</p>
 <p>(2) 当n=2时<br>第一次： 1号 A -&gt; B<br>第二次:  2号 A -&gt; C<br>第三次： 1号 B -&gt; C</p>
@@ -465,7 +467,7 @@ hanoi(3, &apos;A&apos;, &apos;B&apos;, &apos;C&apos;);
 第7次移动：1号盘从A移到C
 </code></pre><h2 id="调用方法的栈机制"><a href="#调用方法的栈机制" class="headerlink" title="调用方法的栈机制"></a>调用方法的栈机制</h2><p>从主线程开始调用方法（函数）进行不停的压栈和出栈操作，函数的调用就是将函数压如栈中，函数的结束就是函数出栈的过程，这样就保证了方法调用的顺序流，即当函数出现多层嵌套时，需要从外到内一层层把函数压入栈中，最后栈顶的函数先执行结束（最内层的函数先执行结束）后出栈，再倒数第二层的函数执行结束出栈，到最后，第一个进栈的函数调用结束后从栈中弹出回到主线程，并且结束。</p>
 <h2 id="图解程序运行流程"><a href="#图解程序运行流程" class="headerlink" title="图解程序运行流程"></a>图解程序运行流程</h2><p>(1)函数hanoi(n, A, B, C)的功能是把编号为n的圆盘借助B从A移到C上；<br>(2)函数move(n, M, N)的功能是把编号为n的圆盘从M移到N上；</p>
-<p><img src="https://images2015.cnblogs.com/blog/1026866/201610/1026866-20161016023307592-594782514.png" alt="汉诺塔问题n=3时的运行流程"></p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98n=3%E6%97%B6%E7%9A%84%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.png" alt="汉诺塔问题n=3时的运行流程"></p>
 
       
     </div>
