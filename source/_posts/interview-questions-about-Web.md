@@ -94,3 +94,103 @@ js是单线程的,并不代表js引擎线程只有一个。js引擎有多个线�
 **[Javascript异步编程的4种方法--阮一峰](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)**
 **[关于javascript的单线程和异步的一些问题](https://www.cnblogs.com/nidaye/p/4604147.html)**
 [Node.js的线程和进程](https://www.cnblogs.com/chris-oil/p/5339305.html)
+
+### 图片加载完成之前获取图片高度 ###
+**[JS快速获取图片宽高的方法](http://www.css88.com/archives/5224)**
+
+参考自博客[图片加载完成之前获取图片高度](https://www.cnblogs.com/ztoz/p/5930277.html)。
+
+原理：利用的就是浏览器加载图片时的一个策略：当图片头部信息加载完成后，浏览器即获知了图片的大小，然后就会在页面上空出相应的区域来，然后再下载图片的剩余数据并且显示到之前空出的区域中。
+所以我们要做的就是不断的去问浏览器你得到高度信息了没有，问到之后就可以马上做相应的处理，而此时图片还没有下载完成。
+
+**补充：**[js图片img的onload事件与complete属性之间的关系](http://www.jb51.net/article/26264.htm),onload是图片加载完成执行的事件，complete属性是图片显示出来以后为true，那么在onload之前complete肯定是false的，那么我们就可以在onload事件内部判断complete属性是否为true。如果为true那么代表图片真正的加载成功，否则可以重新加载。
+
+img加载完成就会触发onload事件，src是异步加载图片的，如果在绑定事件前就已经加载完成，onload事件不会触发。img.complete是一直都有的属性，加载完成后为true。
+
+``` js
+ var imgReady = (function () {
+            var list = [],
+                intervalId = null,
+
+                // 用来执行队列    
+                tick = function () {
+                    var i = 0;
+                    for (; i < list.length; i++) {
+                        list[i].end ? list.splice(i--, 1) : list[i]();
+                    };
+                    !list.length && stop();
+                },
+
+                // 停止所有定时器队列    
+                stop = function () {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                };
+
+            return function (url, ready, load, error) {
+                var onready, width, height, newWidth, newHeight,
+                    img = new Image();
+
+                img.src = url;
+
+                // 如果图片被缓存，则直接返回缓存数据    
+                if (img.complete) {
+                    ready.call(img);
+                    load && load.call(img);
+                    return;
+                };
+
+                width = img.width;
+                height = img.height;
+
+                // 加载错误后的事件    
+                img.onerror = function () {
+                    error && error.call(img);
+                    onready.end = true;
+                    img = img.onload = img.onerror = null;
+                };
+
+                // 图片尺寸就绪    
+                onready = function () {
+                    newWidth = img.width;
+                    newHeight = img.height;
+                    if (newWidth !== width || newHeight !== height ||
+                        // 如果图片已经在其他地方加载可使用面积检测    
+                        newWidth * newHeight > 1024
+                    ) {
+                        ready.call(img);
+                        onready.end = true;
+                    };
+                };
+                onready();
+
+                // 完全加载完毕的事件    
+                img.onload = function () {
+                    // onload在定时器时间差范围内可能比onready快    
+                    // 这里进行检查并保证onready优先执行    
+                    !onready.end && onready();
+
+                    load && load.call(img);
+
+                    // IE gif动画会循环执行onload，置空onload即可    
+                    img = img.onload = img.onerror = null;
+                };
+
+                // 加入队列中定期执行    
+                if (!onready.end) {
+                    list.push(onready);
+                    // 无论何时只允许出现一个定时器，减少浏览器性能损耗    
+                    if (intervalId === null) intervalId = setInterval(tick, 40);
+                };
+            };
+        })();
+```
+代码取自腾讯图片详情页。这种做法仅适用于 img 元素的 src 属性是一个 URL 的情况，如果是 [Data URI ](http://blog.csdn.net/zdy0_2004/article/details/50370107)则不能这么做，因为浏览器是另外一套处理逻辑了。
+
+
+### 图片预加载与懒加载 ###
+[基于用户行为的图片等资源预加载--张鑫旭](http://www.zhangxinxu.com/wordpress/2016/06/image-preload-based-on-user-behavior/)
+
+预加载和懒加载的区别，懒加载当用户触发到某块内容区后才去加载，预加载是用户行为还没发生，资源已经加载完毕。
+
+[实现图片预加载的三大方法](https://www.cnblogs.com/jiekk/p/5687720.html)
