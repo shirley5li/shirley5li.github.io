@@ -13,9 +13,9 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://shirley5li.me
 root: /
-permalink: :year/:month/:day/:title/
+permalink: title.html
 permalink_defaults:
 
 # Directory
@@ -83,6 +83,8 @@ feed:
 #sitemap
 sitemap:
   path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 ## Themes: https://hexo.io/themes/
 theme: next
 
