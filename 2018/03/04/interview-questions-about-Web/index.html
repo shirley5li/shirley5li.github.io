@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="interview questions," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shirley" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Web方面的知识盲区补漏。">
+<meta name="keywords" content="interview questions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【interview questions about Web】">
+<meta property="og:url" content="http://yoursite.com/2018/03/04/interview-questions-about-Web/index.html">
+<meta property="og:site_name" content="Shirley">
+<meta property="og:description" content="Web方面的知识盲区补漏。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-24T06:55:02.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【interview questions about Web】">
+<meta name="twitter:description" content="Web方面的知识盲区补漏。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/04/interview-questions-about-Web/"/>
+
+
+
+
+
+  <title>【interview questions about Web】 | Shirley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104091693-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?06185a244e6f872c8aeab11a4e7b5db4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/shirley5li"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shirley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一只自学成菜的仙女!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/interview-questions-about-Web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShirleyLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shirley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【interview questions about Web】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-04T15:20:40+08:00">
+                2018-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview-questions/" itemprop="url" rel="index">
+                    <span itemprop="name">interview questions</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> Pageviews
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Web方面的知识盲区补漏。<br><a id="more"></a></p>
+<h3 id="匹配URL的正则表达式"><a href="#匹配URL的正则表达式" class="headerlink" title="匹配URL的正则表达式"></a>匹配URL的正则表达式</h3><p>URL由三部分组成：资源类型(协议)、存放资源的主机域名、资源文件名。<br>URL的一般语法格式为(带方括号[ ]的为可选项)：<br><code>protocol :// hostname[:port] / path / [;parameters][?query]#fragment</code><br>据说比较好用匹配较全面的是这个：<br><code>(https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</code><br>参考自博客<a href="https://www.cnblogs.com/speeding/p/5097790.html" target="_blank" rel="noopener">正确匹配URL的正则表达式</a>、<a href="http://blog.csdn.net/t_1007/article/details/52293475" target="_blank" rel="noopener">匹配URL的正则表达式解析</a>。</p>
+<h3 id="React虚拟DOM的优势，为什么虚拟DOM操作比原生方式快"><a href="#React虚拟DOM的优势，为什么虚拟DOM操作比原生方式快" class="headerlink" title="React虚拟DOM的优势，为什么虚拟DOM操作比原生方式快"></a>React虚拟DOM的优势，为什么虚拟DOM操作比原生方式快</h3><p>将数据的变化实时反映到UI上，这时需要对DOM进行操作，但复杂或频繁的DOM操作(会造成重排、重绘)通常是性能瓶颈产生的原因，为此，React引入了虚拟DOM（Virtual DOM）的机制。</p>
+<p><strong>虚拟DOM?</strong><br> 在React中，render执行的结果得到的并不是真正的DOM节点，结果仅仅是轻量级的JavaScript对象，称之为virtual DOM。(是不是跟文档片段有异曲同工之妙？<a href="https://www.cnblogs.com/sdfcbs/p/6438784.html" target="_blank" rel="noopener">dom中的文档碎片</a>)</p>
+<p>虚拟DOM是React的一大亮点，具有batching(批处理)和高效的Diff算法 (<a href="http://www.infoq.com/cn/articles/react-dom-diff/#" target="_blank" rel="noopener">深入浅出React（四）：虚拟DOM Diff算法解析</a>)。这让我们可以无需担心性能问题而”毫无顾忌”的随时“刷新”整个页面，由虚拟 DOM来确保只对界面上真正变化的部分进行实际的DOM操作。</p>
+<p><strong>虚拟DOM对比原生操作DOM</strong><br>原生操作DOM方式，使用 innerHTML。在一个大型列表所有数据都变了的情况下，还算是合理，但当只有一行数据发生变化时，它也需要重置整个 innerHTML，这时候显然就造成了大量浪费。<br>innerHTML: render html string + 重新创建所有 DOM 元素<br>Virtual DOM: render Virtual DOM + diff + 必要的 DOM 更新<br>和 DOM 操作比起来，js 计算是非常便宜的。Virtual DOM render + diff 显然比渲染 html 字符串要慢，但是，它依然是纯 js 层面的计算，比起后面的 DOM 操作来说，依然便宜了太多。</p>
+<p><strong>存疑</strong><br>React虚拟DOM的工作机制还不太理解，深入学习以后需要再回顾。<br><a href="https://www.cnblogs.com/chris-oil/p/6160985.html" target="_blank" rel="noopener">React虚拟DOM浅析</a><br><a href="https://segmentfault.com/a/1190000000606216" target="_blank" rel="noopener">React 的 diff 算法</a><br><a href="https://segmentfault.com/q/1010000000762295" target="_blank" rel="noopener">为什么 React 的 virtual DOM 比原生的DOM 渲染性能更好？</a></p>
+<h3 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h3><p>REST(Representational State Transfer)，“表述性状态转移”，是一种网络应用架构规范，目标是构建可扩展的web service。<br>REST规范可以提高架构的性能和可维护性。REST是一种更简单的<a href="https://www.cnblogs.com/leijiangtao/p/5137351.html" target="_blank" rel="noopener">SOAP协议</a>及以<a href="http://blog.csdn.net/liguocai2005/article/details/4402350" target="_blank" rel="noopener">WSDL</a>为基础的web service的替代。(SOAP暴露接口，REST暴露资源)<br>参考博客<a href="http://blog.csdn.net/zl834205311/article/details/62231545?ABstrategy=codes_snippets_optimize_v3" target="_blank" rel="noopener">WebService两种发布协议–SOAP和REST的区别</a>。<br><a href="https://blog.igevin.info/posts/restful-architecture-in-general/" target="_blank" rel="noopener">RESTful</a>（采用REST架构规范的）系统通常是通过HTTP协议，并且使用HTTP的GET,POST,PUT,DELETE等动词来收发数据。<br>W3C TAG开发了REST架构，基于HTTP 1.0。万维网代表了最大的REST架构实现，你可以认为所有的网页服务器都是采用REST架构的RESTful系统。<br>目前在三种主流的Web服务实现方案中，因为REST模式的Web服务与复杂的SOAP和XML-RPC对比来讲明显的更加简洁，越来越多的web服务开始采用REST风格设计和实现。<br><a href="https://www.cnblogs.com/bluewhale84/p/4443353.html" target="_blank" rel="noopener">常见的三种Web服务架构</a>。</p>
+<h3 id="WebView相关"><a href="#WebView相关" class="headerlink" title="WebView相关"></a>WebView相关</h3><p><a href="https://www.cnblogs.com/dailc/p/5930231.html" target="_blank" rel="noopener">先了解什么是Hybrid APP</a>。所谓Hybrid,即混合开发,意味着半原生半Web,其实在H5兴盛之前,Hybrid模式就已经比较成熟了,但是一直不愠不火(因为系统的一些现在以及html本身功能的限制)。<br>怎么样的开发模式才算是Hybrid模式呢：</p>
+<ul>
+<li>Hybrid是半Native半web开发模式<br>Hybrid模式中,底层功能API均由原生容器通过某种方式提供,然后业务逻辑由H5页面完成,最终原生容器加载H5页面,完成整个App</li>
+<li>成熟的Hybrid模式意味着业务逻辑均由H5实现<br>一款成熟的Hybrid框架,意味着各种类型的api都很完善,那么这时候几乎所有与业务相关的逻辑都是放在H5页面中的,原生只作为容器存在</li>
+<li>成熟的Hybrid模式可复用性非常高,可以跨平台开发<br>成熟的Hybrid框架,那么原生只会提供底层API,也就是说所有的业务是H5完成,不管是什么项目,业务只由H5实现,这时候就可以发现,业务代码是可以跨平台的,也就是说,开发一次,就可以和各自原生容器结合,组成两种原生安装包了,达到了跨平台开发效果</li>
+</ul>
+<p><a href="http://blog.csdn.net/qibanxuehua/article/details/69944087?locationNum=12&amp;fps=1" target="_blank" rel="noopener">APP三种开发模式–之–HybridApp解决方案</a></p>
+<p>原生APP开发中有一个webview的组件(Android中是webview,iOS7以下有UIWebview,7以上有WKWebview),这个组件可以加载Html文件。<br>在Html5没有兴盛之前,加载的Html往往只能用来做一些简单的静态资源显示,但是H5大行其道以后,Html5中有很多新增的功能,炫酷的效果,特别是iOS中H5支持一直都很良好,Android 4.4以上支持也足够,所以这时候发现可以将一些主要的逻辑都用H5页面来编写,然后原生直接用webview加载显示,这样大大提高了开发效率,而且体验也很不错。<br>webview用来展示网页的view组件，该组件是你运行自己的浏览器或者在你的线程中展示线上内容的基础。使用webkit渲染引擎来展示，并且支持前进后退等基于浏览历史，放大缩小，等更多功能。<br>简单来说WebView是手机中内置了一款高性能 webkit 内核浏览器,在 SDK 中封装的一个组件。不给过没有提供地址栏和导航栏，只是单纯的展示一个网页界面。<br>参考文章<a href="https://www.cnblogs.com/pqjwyn/p/7120342.html" target="_blank" rel="noopener">前端解读Webview</a>、<a href="https://www.jianshu.com/p/8bd6aeb719ff" target="_blank" rel="noopener">WebView JavascriptBridge机制解析</a>、<a href="http://blog.csdn.net/rookie_small/article/details/68488335" target="_blank" rel="noopener">JS交互与WebView的工作原理浅析</a>。</p>
+<h3 id="软件开发模式之“快速迭代”开发"><a href="#软件开发模式之“快速迭代”开发" class="headerlink" title="软件开发模式之“快速迭代”开发"></a>软件开发模式之“快速迭代”开发</h3><p>几种常见的软件开发模式对比参考博客<a href="https://www.cnblogs.com/tianguook/p/4004726.html" target="_blank" rel="noopener">软件开发模式对比(瀑布、迭代、螺旋、敏捷)</a>。<br>迭代成本比较低，一般采用敏捷开发的模式，产品快速的推动上线，上线后会通过用户反馈和用户行为分析不断的进行产品改进，并且每次改进的周期比较短，如果把“快速迭代”理解为快速并持续的更新和改进产品。</p>
+<p><a href="http://blog.csdn.net/xiaoxian8023/article/details/8883791" target="_blank" rel="noopener">敏捷开发-快速迭代</a></p>
+<h3 id="线程和进程的区别"><a href="#线程和进程的区别" class="headerlink" title="线程和进程的区别"></a>线程和进程的区别</h3><p><a href="https://www.zhihu.com/question/25532384" target="_blank" rel="noopener">线程和进程的区别是什么？–知乎</a><br>进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同。<br>进程就是包换上下文切换的程序执行时间总和 = CPU加载上下文+CPU执行+CPU保存上下文。<br>线程是共享了进程的上下文环境的更为细小的CPU时间段。<br><a href="https://www.cnblogs.com/lgk8023/p/6430592.html" target="_blank" rel="noopener">进程和线程的区别</a><br><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释–阮一峰</a></p>
+<p><strong><a href="http://blog.csdn.net/w2765006513/article/details/53743051" target="_blank" rel="noopener">浅谈js运行机制(线程）</a></strong><br>js运作在浏览器中,是单线程的，即js代码始终在一个线程上执行，这个线程称为js引擎线程。<br>浏览器是多线程的，除了js引擎线程，它还有：</p>
+<pre><code> UI渲染线程
+浏览器事件触发线程
+http请求线程
+EventLoop轮询的处理线程
+....
+</code></pre><p>单线程的含义是js只能在一个线程上运行，也就说，js同时只能执行一个js任务，其它的任务则会排队等待执行。<br>js是单线程的,并不代表js引擎线程只有一个。js引擎有多个线程，一个主线程，其它的后台配合主线程。<br>多线程之间会共享运行资源，浏览器端的js会操作dom，多个线程必然会带来同步的问题，所有js核心选择了单线程来避免处理这个麻烦。js可以操作dom，影响渲染，所以js引擎线程和UI线程是互斥的。这也就解释了js执行时会阻塞页面的渲染。</p>
+<p><strong><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">JavaScript 运行机制详解：再谈Event Loop–阮一峰</a></strong><br><strong><a href="http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html" target="_blank" rel="noopener">Javascript异步编程的4种方法–阮一峰</a></strong><br><strong><a href="https://www.cnblogs.com/nidaye/p/4604147.html" target="_blank" rel="noopener">关于javascript的单线程和异步的一些问题</a></strong><br><a href="https://www.cnblogs.com/chris-oil/p/5339305.html" target="_blank" rel="noopener">Node.js的线程和进程</a></p>
+<h3 id="图片加载完成之前获取图片高度"><a href="#图片加载完成之前获取图片高度" class="headerlink" title="图片加载完成之前获取图片高度"></a>图片加载完成之前获取图片高度</h3><p><strong><a href="http://www.css88.com/archives/5224" target="_blank" rel="noopener">JS快速获取图片宽高的方法</a></strong></p>
+<p>参考自博客<a href="https://www.cnblogs.com/ztoz/p/5930277.html" target="_blank" rel="noopener">图片加载完成之前获取图片高度</a>。</p>
+<p>原理：利用的就是浏览器加载图片时的一个策略：当图片头部信息加载完成后，浏览器即获知了图片的大小，然后就会在页面上空出相应的区域来，然后再下载图片的剩余数据并且显示到之前空出的区域中。<br>所以我们要做的就是不断的去问浏览器你得到高度信息了没有，问到之后就可以马上做相应的处理，而此时图片还没有下载完成。</p>
+<p><strong>补充：</strong><a href="http://www.jb51.net/article/26264.htm" target="_blank" rel="noopener">js图片img的onload事件与complete属性之间的关系</a>,onload是图片加载完成执行的事件，complete属性是图片显示出来以后为true，那么在onload之前complete肯定是false的，那么我们就可以在onload事件内部判断complete属性是否为true。如果为true那么代表图片真正的加载成功，否则可以重新加载。</p>
+<p>img加载完成就会触发onload事件，src是异步加载图片的，如果在绑定事件前就已经加载完成，onload事件不会触发。img.complete是一直都有的属性，加载完成后为true。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> imgReady = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">           <span class="keyword">var</span> list = [],</div><div class="line">               intervalId = <span class="literal">null</span>,</div><div class="line"></div><div class="line">               <span class="comment">// 用来执行队列    </span></div><div class="line">               tick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                   <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">                   <span class="keyword">for</span> (; i &lt; list.length; i++) &#123;</div><div class="line">                       list[i].end ? list.splice(i--, <span class="number">1</span>) : list[i]();</div><div class="line">                   &#125;;</div><div class="line">                   !list.length &amp;&amp; stop();</div><div class="line">               &#125;,</div><div class="line"></div><div class="line">               <span class="comment">// 停止所有定时器队列    </span></div><div class="line">               stop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                   clearInterval(intervalId);</div><div class="line">                   intervalId = <span class="literal">null</span>;</div><div class="line">               &#125;;</div><div class="line"></div><div class="line">           <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">url, ready, load, error</span>) </span>&#123;</div><div class="line">               <span class="keyword">var</span> onready, width, height, newWidth, newHeight,</div><div class="line">                   img = <span class="keyword">new</span> Image();</div><div class="line"></div><div class="line">               img.src = url;</div><div class="line"></div><div class="line">               <span class="comment">// 如果图片被缓存，则直接返回缓存数据    </span></div><div class="line">               <span class="keyword">if</span> (img.complete) &#123;</div><div class="line">                   ready.call(img);</div><div class="line">                   load &amp;&amp; load.call(img);</div><div class="line">                   <span class="keyword">return</span>;</div><div class="line">               &#125;;</div><div class="line"></div><div class="line">               width = img.width;</div><div class="line">               height = img.height;</div><div class="line"></div><div class="line">               <span class="comment">// 加载错误后的事件    </span></div><div class="line">               img.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                   error &amp;&amp; error.call(img);</div><div class="line">                   onready.end = <span class="literal">true</span>;</div><div class="line">                   img = img.onload = img.onerror = <span class="literal">null</span>;</div><div class="line">               &#125;;</div><div class="line"></div><div class="line">               <span class="comment">// 图片尺寸就绪    </span></div><div class="line">               onready = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                   newWidth = img.width;</div><div class="line">                   newHeight = img.height;</div><div class="line">                   <span class="keyword">if</span> (newWidth !== width || newHeight !== height ||</div><div class="line">                       <span class="comment">// 如果图片已经在其他地方加载可使用面积检测    </span></div><div class="line">                       newWidth * newHeight &gt; <span class="number">1024</span></div><div class="line">                   ) &#123;</div><div class="line">                       ready.call(img);</div><div class="line">                       onready.end = <span class="literal">true</span>;</div><div class="line">                   &#125;;</div><div class="line">               &#125;;</div><div class="line">               onready();</div><div class="line"></div><div class="line">               <span class="comment">// 完全加载完毕的事件    </span></div><div class="line">               img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                   <span class="comment">// onload在定时器时间差范围内可能比onready快    </span></div><div class="line">                   <span class="comment">// 这里进行检查并保证onready优先执行    </span></div><div class="line">                   !onready.end &amp;&amp; onready();</div><div class="line"></div><div class="line">                   load &amp;&amp; load.call(img);</div><div class="line"></div><div class="line">                   <span class="comment">// IE gif动画会循环执行onload，置空onload即可    </span></div><div class="line">                   img = img.onload = img.onerror = <span class="literal">null</span>;</div><div class="line">               &#125;;</div><div class="line"></div><div class="line">               <span class="comment">// 加入队列中定期执行    </span></div><div class="line">               <span class="keyword">if</span> (!onready.end) &#123;</div><div class="line">                   list.push(onready);</div><div class="line">                   <span class="comment">// 无论何时只允许出现一个定时器，减少浏览器性能损耗    </span></div><div class="line">                   <span class="keyword">if</span> (intervalId === <span class="literal">null</span>) intervalId = setInterval(tick, <span class="number">40</span>);</div><div class="line">               &#125;;</div><div class="line">           &#125;;</div><div class="line">       &#125;)();</div></pre></td></tr></table></figure>
+<p>代码取自腾讯图片详情页。这种做法仅适用于 img 元素的 src 属性是一个 URL 的情况，如果是 <a href="http://blog.csdn.net/zdy0_2004/article/details/50370107" target="_blank" rel="noopener">Data URI </a>则不能这么做，因为浏览器是另外一套处理逻辑了。</p>
+<h3 id="图片预加载与懒加载"><a href="#图片预加载与懒加载" class="headerlink" title="图片预加载与懒加载"></a>图片预加载与懒加载</h3><p><a href="http://www.zhangxinxu.com/wordpress/2016/06/image-preload-based-on-user-behavior/" target="_blank" rel="noopener">基于用户行为的图片等资源预加载–张鑫旭</a></p>
+<p>预加载和懒加载的区别，懒加载当用户触发到某块内容区后才去加载，预加载是用户行为还没发生，资源已经加载完毕。</p>
+<p><a href="https://www.cnblogs.com/jiekk/p/5687720.html" target="_blank" rel="noopener">实现图片预加载的三大方法</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+    <div>
+       <div>  <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-smile-o"></i>感谢您的阅读-------------</div>  </div>
+
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" style="width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;
+margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    打赏
+  </button>
+  <div id="QR" style="display: none; text-align: center;">
+
+    
+      <div id="wechat" style="display: inline-block;">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ShirleyLi WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block;">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ShirleyLi Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/interview-questions/" rel="tag"><i class="fa fa-tag"></i> interview questions</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/27/interview-questions-about-JS/" rel="next" title="【interview questions about JS】 from牛客网">
+                <i class="fa fa-chevron-left"></i> 【interview questions about JS】 from牛客网
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/09/MySQL-install-and-usage/" rel="prev" title="MySQL数据库的安装及基本的使用方法">
+                MySQL数据库的安装及基本的使用方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjUzMy85MDk0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ShirleyLi" />
+          <p class="site-author-name" itemprop="name">ShirleyLi</p>
+           
+              <p class="site-description motion-element" itemprop="description">Yesterday I saw a lion kiss a deer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shirley5li" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/8237409/shirley5li" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                    
+                      StackOverflow
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/shirley5li" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2940695757/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/98598367/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/shirley-39-53-43/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配URL的正则表达式"><span class="nav-number">1.</span> <span class="nav-text">匹配URL的正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React虚拟DOM的优势，为什么虚拟DOM操作比原生方式快"><span class="nav-number">2.</span> <span class="nav-text">React虚拟DOM的优势，为什么虚拟DOM操作比原生方式快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful"><span class="nav-number">3.</span> <span class="nav-text">RESTful</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView相关"><span class="nav-number">4.</span> <span class="nav-text">WebView相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件开发模式之“快速迭代”开发"><span class="nav-number">5.</span> <span class="nav-text">软件开发模式之“快速迭代”开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程和进程的区别"><span class="nav-number">6.</span> <span class="nav-text">线程和进程的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片加载完成之前获取图片高度"><span class="nav-number">7.</span> <span class="nav-text">图片加载完成之前获取图片高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片预加载与懒加载"><span class="nav-number">8.</span> <span class="nav-text">图片预加载与懒加载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShirleyLi</span>
+</div>
+
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Views
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

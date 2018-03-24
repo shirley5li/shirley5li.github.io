@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,node.js,npm,git,github," />
+  <meta name="keywords" content="react," />
 
 
 
@@ -96,24 +96,26 @@
 
 
 
-<meta name="description" content="前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）">
-<meta name="keywords" content="hexo,node.js,npm,git,github">
+<meta name="description" content="来自阮一峰的博客React 入门实例教程学习。">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于hexo和github搭建个人博客概述">
-<meta property="og:url" content="http://shirley5li.me/title.html">
+<meta property="og:title" content="react-demos学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/react-demos学习笔记/index.html">
 <meta property="og:site_name" content="Shirley">
-<meta property="og:description" content="前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）">
+<meta property="og:description" content="来自阮一峰的博客React 入门实例教程学习。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://shirley5li.me/images/blog1/b1.png">
-<meta property="og:image" content="http://shirley5li.me/images/blog1/b2.png">
-<meta property="og:image" content="http://shirley5li.me/images/blog1/b3.png">
-<meta property="og:image" content="http://shirley5li.me/images/blog1/b4.png">
-<meta property="og:image" content="http://shirley5li.me/images/blog1/b5.png">
-<meta property="og:updated_time" content="2018-01-09T02:47:02.940Z">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/1.png">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/2.png">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/3.png">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/4.png">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/5.png">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/6.png">
+<meta property="og:image" content="http://yoursite.com/images/react-demo学习/7.png">
+<meta property="og:updated_time" content="2018-01-09T02:47:02.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于hexo和github搭建个人博客概述">
-<meta name="twitter:description" content="前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）">
-<meta name="twitter:image" content="http://shirley5li.me/images/blog1/b1.png">
+<meta name="twitter:title" content="react-demos学习笔记">
+<meta name="twitter:description" content="来自阮一峰的博客React 入门实例教程学习。">
+<meta name="twitter:image" content="http://yoursite.com/images/react-demo学习/1.png">
 
 
 
@@ -142,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://shirley5li.me/title.html"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/20/react-demos学习笔记/"/>
 
 
 
 
 
-  <title>基于hexo和github搭建个人博客概述 | Shirley</title>
+  <title>react-demos学习笔记 | Shirley</title>
   
 
 
@@ -345,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shirley5li.me/title.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/react-demos学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShirleyLi">
@@ -362,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于hexo和github搭建个人博客概述</h1>
+          <h1 class="post-title" itemprop="name headline">react-demos学习笔记</h1>
         
 
         <div class="post-meta">
@@ -374,8 +376,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T00:00:00+08:00">
-                2017-08-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T10:35:43+08:00">
+                2017-11-20
               </time>
             
 
@@ -397,8 +399,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
-                    <span itemprop="name">搭建博客</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -439,146 +441,393 @@
       
 
       
-        <p>前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）<br><a id="more"></a></p>
-<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><ul>
-<li>hexo </li>
-</ul>
-<p>根据<a href="https://hexo.io/" target="_blank" rel="noopener">hexo官网</a>的介绍，hexo是一个快速简洁且高效的博客框架。hexo利用markdown等渲染引擎解析文章，快速生成静态网页。</p>
-<p>Hexo是基于node.js的, 在安装它之前需要用到npm安装工具, 这个工具是 node.js 安装包的工具, 所以需要先安装 node.js。</p>
-<p>关于hexo搭建博客原理进一步了解-<a href="https://segmentfault.com/a/1190000008784436" target="_blank" rel="noopener">hexo原理浅析</a>。</p>
-<ul>
-<li>node.js </li>
-</ul>
-<p>node.js是运行在服务端的javascript，是一个允许开发人员使用javascript语言编写服务端代码的框架。</p>
-<ul>
-<li>npm </li>
-</ul>
-<p>npm是随同node.js一起安装的包管理工具，能解决node.js代码部署上的很多问题。<br>允许用户从npm服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。<br>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</p>
-<p>新版的node.js已经集成了npm，所以下载安装node.js也一并将npm安装好了。</p>
-<ul>
-<li>git </li>
-</ul>
-<p>git是一种非常流行的分布式版本控制系统，它和其他版本控制系统的主要差别在于git只关心文件数据的整体是否发生变化，而大多数版本其他系统只关心文件内容的具体差异。</p>
-<p>我们利用git将hexo生成的静态博客页面，部署到github pages上。关于git的<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001373962845513aefd77a99f4145f0a2c7a7ca057e7570000" target="_blank" rel="noopener">更多了解</a>。</p>
-<ul>
-<li>github </li>
-</ul>
-<p>随着git迅速成为最流行的分布式版本控制系统，github网站上线了。github是一个基于git的代码托管平台，它为开源项目免费提供git存储，无数开源项目开始迁移至GitHub，包括jQuery，PHP，Ruby等等。</p>
-<p>github pages 是github提供给用户用来展示个人或者项目主页的静态网页系统。每个用户都可以使用自己的github项目创建，上传静态页面的html文件，github会帮你自动更新你的页面。</p>
-<h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><p>1.环境准备（node.js，git，github相关设置）  </p>
-<p>2.hexo下载安装  </p>
-<p>3.hexo相关配置 </p>
-<p>4.hexo与github pages链接     </p>
-<p>5.发布第一篇博文</p>
-<p>6.hexo主题介绍及配置  </p>
-<p>7.hexo第三方服务集成（disqus评论，百度分享，访客记录等）</p>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="node-js下载安装"><a href="#node-js下载安装" class="headerlink" title="node.js下载安装"></a>node.js下载安装</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">node.js下载</a></p>
-<p>下载完成后一路默认next即可。利用win+R打开命令窗口，在命令窗口中输入以下命令，可以查看node和npm的版本信息。如果可以正确显示版本信息，说明安装正确，否则检查安装过程，重新安装。</p>
-<pre><code>node -v
-npm -v
-</code></pre><p>结果如下图所示。</p>
-<p><img src="/images/blog1/b1.png" alt="node版本检查"></p>
-<h3 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h3><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git下载</a></p>
-<p>下载完成后一路默认next即可。在命令窗口中输入以下命令，可以查看git的版本信息。</p>
-<pre><code>git --version
-</code></pre><p>结果如下图所示。</p>
-<p><img src="/images/blog1/b2.png" alt="git版本检查"></p>
-<h3 id="github注册相关"><a href="#github注册相关" class="headerlink" title="github注册相关"></a>github注册相关</h3><p>若没有注册过github账号，在<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>按照步骤注册成功就好。</p>
-<p>注册登录后，在页面右上角+号选择New repository创建新的代码仓库。</p>
-<p><img src="/images/blog1/b3.png" alt="新建仓库"></p>
-<p>在Create a new repository页面下，填写Repository name框框，框框中填写yourname.github.io，其中yourname为Owner框框中的那个名字。再勾选一下Initialize this repository with a README 。</p>
-<p><img src="/images/blog1/b4.png" alt="新建仓库"></p>
-<p>正确创建代码仓库后，需要开启github pages功能。在刚刚新建的代码仓库界面点击Settings，就会打开这个库的设置页面，向下拖动，会看见GitHub Pages，点击Launch Automatic page generator，github 自动创建出一个github pages页面。然后你可以试着访问yourname.github.io这个网址。</p>
-<h2 id="hexo下载安装"><a href="#hexo下载安装" class="headerlink" title="hexo下载安装"></a>hexo下载安装</h2><p>在合适的盘，例如以E盘为例，在E盘根目录下新建hexo文件夹，然后右键点击选中hexo,选择Git Bash Here,在git命令窗口中输入以下命令：</p>
-<pre><code>$ npm install hexo-cli -g
-</code></pre><p>然后输入</p>
-<pre><code>$ npm install hexo --save
-</code></pre><p>建议将hexo以下插件一起安装了</p>
-<pre><code>$ npm install hexo-generator-index --save #索引生成器
-$ npm install hexo-generator-archive --save #归档生成器 
-$ npm install hexo-generator-category --save #分类生成器
-$ npm install hexo-generator-tag --save #标签生成器 
-$ npm install hexo-server --save #本地服务 
-$ npm install hexo-deployer-git --save #hexo通过git发布（必装） 
-$ npm install hexo-renderer-marked@0.2.7--save #渲染器 
-$ npm install hexo-renderer-stylus@0.3.0 --save #渲染器
-</code></pre><p>(或者可以执行 npm install命令，npm会自动安装部分组件，但自己试了下，用npm命令不能安装全组件，部分组件还需自己手动安装，比如最重要的用于部署功能的组件 hexo-deployer-git 用 npm install命令就没装上。可以在hexo/node_modules文件下查看已经安装了的组件。)</p>
-<p>安装完成后可查看下所安装的hexo版本信息。在hexo文件夹下右键进入git bash,输入以下命令:</p>
-<pre><code>$ hexo -v
-</code></pre><p>若看到类似如图所示版本信息说明hexo安装成功。</p>
-<p><img src="/images/blog1/b5.png" alt="hexo版本信息"></p>
-<h2 id="hexo相关配置"><a href="#hexo相关配置" class="headerlink" title="hexo相关配置"></a>hexo相关配置</h2><ul>
-<li>hexo初始化 -&gt;在hexo文件夹下右键进入git bash,输入以下初始化命令： <code>$ hexo init</code></li>
-<li>hexo生成 -&gt;输入以下命令生成静态页面: <code>$ hexo g</code></li>
-<li>本地服务 -&gt;输入以下命令建立本地hexo预览： <code>$ hexo s</code><br>(确保已经安装了hexo-server组件，否则该命令无效）</li>
-</ul>
-<p>执行完 hexo s 命令后会提示</p>
-<pre><code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
-</code></pre><p>在浏览器中打开上述链接地址，会看到hexo默认的主题页面，至此hexo本地配置完成。</p>
-<p>PS：注意！！！安装了福昕阅读器的朋友，福昕阅读器会占用4000端口，导致 hexo s 命令后出错提示4000端口被占用。你可以在hexo/_config.yml站点配置文件里修改端口号，换成自己想设置的端口即可，如下修改：</p>
-<pre><code>server:
-  port: 4001
-  compress: true
-  header: true
-</code></pre><h2 id="hexo与github-pages链接"><a href="#hexo与github-pages链接" class="headerlink" title="hexo与github pages链接"></a>hexo与github pages链接</h2><ul>
-<li><p>deployment配置  -&gt;在hexo/_config.yml站点配置文件里，修改下面的字段内容如下：</p>
-<pre><code>deploy:     
-  type: git 
-  repo: https://github.com/yourname/yourname.github.com.git #yourname即为创建仓库时的那个yourname    
-  branch: master
-</code></pre><p>PS:注意.yml格式文件冒号后面有一个空格。</p>
-</li>
-</ul>
-<h2 id="发布第一篇博文"><a href="#发布第一篇博文" class="headerlink" title="发布第一篇博文"></a>发布第一篇博文</h2><p>在hexo文件夹下右键进入git bash,输入以下命令即可生成一篇新文章：</p>
-<pre><code>hexo new post &quot;post_title&quot;   #其中post_title为你想新建文章的文件名
-</code></pre><p>此时在 E:\hexo\source\ _posts 下生成一个 post_title.md 文件（此后你可以用markdown编辑器打开该.md文件就可以编辑文章了）。</p>
-<p>然后运行下面两条命令即可将新建的文章生成-&gt;部署到github上。</p>
-<pre><code>hexo g  #生成
-hexo d  #部署
-</code></pre><p>部署完毕后，即可访问<a href="https://yourname.github.io看到刚刚生成部署到github的文章。" target="_blank" rel="noopener">https://yourname.github.io看到刚刚生成部署到github的文章。</a></p>
-<p>PS：以后每次用markdown编辑器修改post_title.md文件后，记得用 <code>hexo g -d</code> 命令来生成和部署。修改完配置后也要<code>hexo g -d</code>一下。</p>
-<p>PPS:hexo常用命令</p>
-<pre><code>hexo new post &quot;postName&quot; #新建文章 
-hexo new page &quot;pageName&quot; #新建页面 
-hexo generate #生成静态页面至public目录 
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub 
-hexo help  #查看帮助 
-hexo version #查看Hexo的版本
-</code></pre><p>简写</p>
-<pre><code>hexo n == hexo new
-hexo g == hexo generate
-hexo s == hexo server
-hexo d == hexo deploy
-</code></pre><h2 id="hexo主题介绍及配置"><a href="#hexo主题介绍及配置" class="headerlink" title="hexo主题介绍及配置"></a>hexo主题介绍及配置</h2><p>我选用的较为简洁大方的next主题。</p>
-<ul>
-<li><p>next主题下载 -&gt;在hexo文件夹下右键进入git bash,输入以下命令：</p>
-<p>  <code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
-</li>
-<li><p>启用next主题 -&gt;在hexo/_config.yml站点配置文件下，修改如下字段：</p>
-<p>   <code>theme: next</code></p>
-</li>
-<li>测试主题启用是否成功 -&gt;执行 <code>hexo s</code>命令，在浏览器访问 <a href="http://localhost:4000查看主题效果。" target="_blank" rel="noopener">http://localhost:4000查看主题效果。</a></li>
-</ul>
-<p>PS：主题的其他相关设置可以参考该博客，写的很详细<a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">手把手教你用Hexo+Github 搭建属于自己的博客</a>。</p>
-<h2 id="hexo第三方服务集成"><a href="#hexo第三方服务集成" class="headerlink" title="hexo第三方服务集成"></a>hexo第三方服务集成</h2><h3 id="添加disqus评论"><a href="#添加disqus评论" class="headerlink" title="添加disqus评论"></a>添加disqus评论</h3><p>由于以前国内使用较多的多说评论下架了，所以选用了国外较为稳定的disqus，但使用该评论功能需要“科学上网”！</p>
-<ul>
-<li>注册disqus账号<a href="https://disqus.com" target="_blank" rel="noopener">https://disqus.com</a></li>
-<li>在disqus设置页面中点 Add Disqus to your site 添加你的网站地址(即为<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a>), 和设置Choose your unique Disqus URL, 你所填写的unique Disqus URL即为hexo配置文件中需要修改的short_name字段。</li>
-<li><p>打开hexo/themes/next/_config.yml主题配置文件，修改下面字段：</p>
-<pre><code>#Disqus
-disqus:
-  enable: true
-  shortname:     #shortname即为你上面填写的唯一disqus路径，填上就好
-  count: true
-</code></pre></li>
-</ul>
-<h3 id="添加百度分享功能"><a href="#添加百度分享功能" class="headerlink" title="添加百度分享功能"></a>添加百度分享功能</h3><p>百度分享功能的添加可以参考下面这篇博客。<a href="http://blog.csdn.net/cl534854121/article/details/76121105" target="_blank" rel="noopener">Hexo+Github搭建个人博客(三)——百度分享集成</a></p>
-<h3 id="百度统计访客访问量功能"><a href="#百度统计访客访问量功能" class="headerlink" title="百度统计访客访问量功能"></a>百度统计访客访问量功能</h3><p>其他酷炫小功能参考<a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a>。</p>
-<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">手把手教你用Hexo+Github 搭建属于自己的博客 </a></p>
-<p><a href="http://www.jianshu.com/p/017e01718d41" target="_blank" rel="noopener">记录第一次搭建hexo</a></p>
-<p>嘤嘤嘤<del>~</del>~~THE END!</p>
+        <p>来自阮一峰的博客<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">React 入门实例教程</a>学习。<br><a id="more"></a></p>
+<h2 id="JSX语法简介"><a href="#JSX语法简介" class="headerlink" title="JSX语法简介"></a>JSX语法简介</h2><p>React的核心机制之一就是可以在内存中创建虚拟的DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。</p>
+<p><strong>JSX</strong> 就是Javascript和XML结合的一种格式。React发明了JSX，利用HTML语法来创建虚拟DOM。当遇到 <code>&lt;</code>，JSX就当HTML解析，遇到 <code>{</code> 就当JavaScript解析。</p>
+<p>JS语法</p>
+<pre><code>var child1 = React.createElement(&apos;li&apos;, null, &apos;First Text Content&apos;);
+var child2 = React.createElement(&apos;li&apos;, null, &apos;Second Text Content&apos;);
+var root = React.createElement(&apos;ul&apos;, { className: &apos;my-list&apos; }, child1, child2);
+</code></pre><p>JSX语法</p>
+<pre><code>var root =(
+  &lt;ul className=&quot;my-list&quot;&gt;
+    &lt;li&gt;First Text Content&lt;/li&gt;
+    &lt;li&gt;Second Text Content&lt;/li&gt;
+  &lt;/ul&gt;
+);
+</code></pre><p>JSX将XML语法直接加入JS中,通过代码而非模板来高效的定义界面。之后JSX通过翻译器转换为纯JS再由浏览器执行。在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。</p>
+<p>另外，由于JSX只是一种语法，因此JavaScript的关键字class, for等也不能出现在XML中，而要如例子中所示，使用className, htmlFor代替，这和原生DOM在JavaScript中的创建也是一致的。JSX只是创建虚拟DOM的一种语法格式而已,除了用JSX,我们也可以用JS代码来创建虚拟DOM.</p>
+<p>一篇简要介绍JSX语法的文章<a href="http://www.infoq.com/cn/articles/react-jsx-and-component" target="_blank" rel="noopener">深入浅出React（三）：理解JSX和组件</a>。</p>
+<h2 id="HTML模板"><a href="#HTML模板" class="headerlink" title="HTML模板"></a>HTML模板</h2><p>使用 React 的网页源码，结构大致如下：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;../build/react.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;../build/react-dom.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;../build/browser.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/babel&quot;&gt;
+      // starts here
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>最后一个 <script\> 标签的 type 属性为 text/babel ,因为 React 独有的 JSX 语法，跟 JavaScript 不兼容。<strong>凡是使用 JSX 的地方，都要加上 type=”text/babel”</strong>。</script\></p>
+<p>上面代码一共用了三个库： react.js 、react-dom.js 和 Browser.js ，它们必须首先加载。其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，Browser.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。</p>
+<h2 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render()"></a>ReactDOM.render()</h2><p>React最基本的方法，用于将模板转为 HTML 语言，并插入到指定的 DOM 节点。</p>
+<pre><code>ReactDOM.render(
+  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+  document.getElementById(&apos;example&apos;)
+);
+</code></pre><p>上面代码将一个 h1 标题，插入到 example 节点。代码执行结果如下：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;../build/react.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;../build/react-dom.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;../build/browser.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;example&quot;&gt;
+      &lt;h1 data-reactroot=&quot;&quot;&gt;Hello, world!&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/babel&quot;&gt;
+      ReactDOM.render(
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+        document.getElementById(&apos;example&apos;)
+      );
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h2><p>HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写。</p>
+<pre><code>&lt;body&gt;
+   &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+   &lt;script type=&quot;text/babel&quot;&gt;
+     var names = [&apos;Alice&apos;, &apos;Emily&apos;, &apos;Kate&apos;];
 
+     ReactDOM.render(
+       &lt;div&gt;
+       {
+         names.map(function (name, index) {
+           return &lt;div key={index}&gt;Hello, {name}!&lt;/div&gt;
+         })
+       }
+       &lt;/div&gt;,
+       document.getElementById(&apos;example&apos;)
+     );
+   &lt;/script&gt;
+ &lt;/body&gt;
+</code></pre><p>JSX 的基本语法规则：遇到 HTML 标签（以 <code>&lt;</code>开头），就用 HTML 规则解析；遇到代码块（以<code>{</code>开头），就用 JavaScript 规则解析。上述代码执行结果如下所示。</p>
+<p><img src="/images/react-demo学习/1.png" alt="1"></p>
+<p>JSX 允许直接在模板插入 JavaScript 变量。如果这个变量是一个数组，则会展开这个数组的所有成员。</p>
+<pre><code>var arr = [
+  &lt;h1&gt;Hello world!&lt;/h1&gt;,
+  &lt;h2&gt;React is awesome&lt;/h2&gt;,
+];
+ReactDOM.render(
+  &lt;div&gt;{arr}&lt;/div&gt;,
+  document.getElementById(&apos;example&apos;)
+);
+</code></pre><p>上面代码的arr变量是一个数组，结果 JSX 会把它的所有成员，添加到模板，结果如下。</p>
+<p><img src="/images/react-demo学习/2.png" alt="2"></p>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。<strong>React.createClass()</strong> 方法就用于生成一个组件类。</p>
+<pre><code>var HelloMessage = React.createClass({
+  render: function() {
+    return &lt;h1&gt;Hello {this.props.name}&lt;/h1&gt;;
+  }
+});
+
+ReactDOM.render(
+  &lt;HelloMessage name=&quot;John&quot; /&gt;,
+  document.getElementById(&apos;example&apos;)
+);
+</code></pre><p>上述代码中，变量 <strong>HelloMessage</strong> 就是一个组件类。模板插入 <hellomessage> 时，会自动生成 HelloMessage 的一个实例（下文的”组件”都指组件类的实例）。所有组件类都必须有自己的 render 方法，用于输出组件。执行结果如下所示。</hellomessage></p>
+<p><img src="/images/react-demo学习/3.png" alt="3"></p>
+<p><strong>组件的用法</strong>与原生的 HTML 标签完全一致，可以任意加入属性，比如 <code>&lt;HelloMessage name=&quot;John&quot;&gt;</code> ，就是 <code>HelloMessage</code> 组件加入一个 <code>name</code> 属性，值为 <code>John</code>。</p>
+<p>组件的属性可以在组件类的 <code>this.props</code> 对象上获取，比如 <code>name</code> 属性就可以通过 <code>this.props.name</code> 读取。</p>
+<p><strong>添加组件属性</strong>，需要注意，就是 class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。即在组件类中通过js获取组件的class属性时，需要使用<code>this.props.className</code>。</p>
+<p><strong>注意</strong>，组件类的<strong>第一个字母必须大写</strong>，否则会报错，比如<code>HelloMessage</code>不能写成helloMessage。另外，组件类只能包含一个顶层标签，否则也会报错。</p>
+<pre><code>var HelloMessage = React.createClass({
+  render: function() {
+    return &lt;h1&gt;
+      Hello {this.props.name}
+    &lt;/h1&gt;&lt;p&gt;   //错误，包含了两个顶层标签，h1和p
+      some text
+    &lt;/p&gt;;
+  }
+});
+</code></pre><p>上面代码会报错，因为<code>HelloMessage</code>组件包含了两个顶层标签：<code>h1</code>和<code>p</code>。</p>
+<h2 id="this-props-children"><a href="#this-props-children" class="headerlink" title="this.props.children"></a>this.props.children</h2><p>this.props 对象的属性与组件的属性一一对应，但是有一个例外，就是 <code>this.props.children</code> 属性。它表示组件的所有子节点。</p>
+<pre><code>var NotesList = React.createClass({
+  render: function() {
+    return (
+      &lt;ol&gt;
+      {
+        React.Children.map(this.props.children, function (child) {
+          return &lt;li&gt;{child}&lt;/li&gt;;
+        })
+      }
+      &lt;/ol&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;NotesList&gt;
+    &lt;span&gt;hello&lt;/span&gt;
+    &lt;span&gt;world&lt;/span&gt;
+  &lt;/NotesList&gt;,
+  document.body
+);
+</code></pre><p>上面代码的 NoteList 组件有两个 span 子节点，它们都可以通过 this.props.children 读取。执行结果如下所示。</p>
+<p><img src="/images/react-demo学习/4.png" alt="4"></p>
+<p><strong>注意</strong>， <code>this.props.children</code> 的值有三种可能：如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array 。所以，处理 this.props.children 的时候要小心。</p>
+<p>React 提供一个工具方法 <strong>React.Children</strong> 来处理 this.props.children 。我们可以用 React.Children.map 来遍历子节点，而不用担心 this.props.children 的数据类型是 undefined 还是 object。更多的 React.Children 的方法。</p>
+<h2 id="PropTypes组件属性"><a href="#PropTypes组件属性" class="headerlink" title="PropTypes组件属性"></a>PropTypes组件属性</h2><p>组件的属性可以接受任意值，字符串、对象、函数等等都可以。有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。</p>
+<p>组件类的<strong>PropTypes</strong>属性，就是用来验证组件实例的属性是否符合要求。例如：</p>
+<pre><code>var MyTitle = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string.isRequired,
+  },
+
+  render: function() {
+     return &lt;h1&gt; {this.props.title} &lt;/h1&gt;;
+   }
+});
+</code></pre><p>上述代码中，Mytitle组件类有一个title属性。PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。假如设置title属性的值是number类型就会报错，如下：</p>
+<pre><code>var data = 123;
+
+ReactDOM.render(
+  &lt;MyTitle title={data} /&gt;,
+  document.body
+);
+</code></pre><p>title属性就通不过验证了。控制台会显示一行警告信息，如下所示：</p>
+<p><img src="/images/react-demo学习/5.png" alt="5"></p>
+<p><img src="/images/react-demo学习/6.png" alt="6"></p>
+<p><strong>getDefaultProps</strong> 方法可以用来设置组件属性的默认值.</p>
+<pre><code>var MyTitle = React.createClass({
+  getDefaultProps : function () {
+    return {
+      title : &apos;Hello World&apos;
+    };
+  },
+
+  render: function() {
+     return &lt;h1&gt; {this.props.title} &lt;/h1&gt;;
+   }
+});
+
+ReactDOM.render(
+  &lt;MyTitle /&gt;,
+  document.body
+);
+</code></pre><p>上面代码会输出”Hello World”。    </p>
+<h2 id="获取真实的DOM节点"><a href="#获取真实的DOM节点" class="headerlink" title="获取真实的DOM节点"></a>获取真实的DOM节点</h2><p>组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做<strong>虚拟 DOM</strong> （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM <a href="https://calendar.perfplanet.com/2013/diff/" target="_blank" rel="noopener">diff</a> ，它可以极大提高网页的性能表现。</p>
+<p>但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 <code>ref</code> 属性。</p>
+<pre><code>var MyComponent = React.createClass({
+  handleClick: function() {
+    this.refs.myTextInput.focus();
+  },
+  render: function() {
+    return (
+      &lt;div&gt;
+        &lt;input type=&quot;text&quot; ref=&quot;myTextInput&quot; /&gt;
+        &lt;input type=&quot;button&quot; value=&quot;Focus the text input&quot; onClick={this.handleClick} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;MyComponent /&gt;,
+  document.getElementById(&apos;example&apos;)
+);
+</code></pre><p>上述代码中，组件类 <code>MyComponent</code> 的子节点有一个文本输入框，用于获取用户的输入，这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为此，文本输入框必须有一个 <code>ref</code> 属性，然后 <code>this.refs.[refName]</code> 就会返回这个真实的 DOM 节点。</p>
+<p><strong>注意</strong>，由于 <code>this.refs.[refName]</code> 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。上面代码中，通过为组件指定 Click 事件的回调函数 <code>handleClick</code>，确保了只有等到真实 DOM 发生 Click 事件之后，才会读取 <code>this.refs.[refName]</code> 属性。</p>
+<p>React 组件支持很多事件，除了 Click 事件以外，还有 KeyDown 、Copy、Scroll 等，完整的事件清单请查看<a href="https://reactjs.org/docs/events.html#supported-events" target="_blank" rel="noopener">官方文档</a>。</p>
+<h2 id="this-state"><a href="#this-state" class="headerlink" title="this.state"></a>this.state</h2><p>组件免不了要与用户互动，React 的一大创新，就是<strong>将组件看成是一个状态机</strong>，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI 。</p>
+<pre><code>var LikeButton = React.createClass({
+  getInitialState: function() {  //初始状态
+    return {liked: false};
+  },
+  handleClick: function(event) {
+    this.setState({liked: !this.state.liked});
+  },
+  render: function() {
+    var text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+    return (
+      &lt;p onClick={this.handleClick}&gt;
+        You {text} this. Click to toggle.
+      &lt;/p&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;LikeButton /&gt;,
+  document.getElementById(&apos;example&apos;)
+);
+</code></pre><p>上述组件类的 <strong>getInitialState</strong> 方法用于定义初始状态，也就是一个对象，这个对象可以通过 <code>this.state</code> 属性读取。</p>
+<p>当用户点击组件， 调用Click 事件的回调函数 <code>handleClick</code>，导致状态变化。 <code>this.setState</code> 方法用于修改状态值，每次修改以后，自动调用 <code>this.render</code> 方法，再次渲染组件。</p>
+<p>由于 <code>this.props</code> 和 <code>this.state</code> 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，<code>this.props</code> 表示那些一旦定义，就不再改变的特性，而 <code>this.state</code> 是会随着用户互动而产生变化的特性。</p>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p>用户在表单填入的内容，属于用户跟组件的互动，所以不能用 this.props 读取。</p>
+<pre><code>var Input = React.createClass({
+  getInitialState: function() {
+    return {value: &apos;Hello!&apos;};
+  },
+  handleChange: function(event) {
+    this.setState({value: event.target.value});
+  },
+  render: function () {
+    var value = this.state.value;
+    return (
+      &lt;div&gt;
+        &lt;input type=&quot;text&quot; value={value} onChange={this.handleChange} /&gt;
+        &lt;p&gt;{value}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+ReactDOM.render(&lt;Input/&gt;, document.body);
+</code></pre><p>文本输入框的值，不能用 <code>this.props.value</code> 读取，而要定义一个 <code>onChange</code> 事件的回调函数，通过 <code>event.target.value</code> 读取用户输入的值。textarea 元素、select元素、radio元素都属于这种情况。</p>
+<h2 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h2><p><a href="https://reactjs.org/docs/refs-and-the-dom.html#component-lifecycle" target="_blank" rel="noopener">组件的生命周期</a>分成三个状态：</p>
+<pre><code>Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+</code></pre><p>React 为每个状态都提供了两种处理函数，<code>will</code> 函数在进入状态之前调用，<code>did</code> 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
+<pre><code>componentWillMount()
+componentDidMount()
+componentWillUpdate(object nextProps, object nextState)
+componentDidUpdate(object prevProps, object prevState)
+componentWillUnmount()     
+</code></pre><p>此外，React 还提供两种特殊状态的处理函数。</p>
+<pre><code>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用
+shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用
+</code></pre><p>栗子:</p>
+<pre><code>var Hello = React.createClass({
+  getInitialState: function () {
+    return {
+      opacity: 1.0
+    };
+  },
+
+  componentDidMount: function () {
+    this.timer = setInterval(function () {
+      var opacity = this.state.opacity;
+      opacity -= .05;
+      if (opacity &lt; 0.1) {
+        opacity = 1.0;
+      }
+      this.setState({
+        opacity: opacity
+      });
+    }.bind(this), 100);
+  },
+
+  render: function () {
+    return (
+      &lt;div style={{opacity: this.state.opacity}}&gt;
+        Hello {this.props.name}
+      &lt;/div&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;Hello name=&quot;world&quot;/&gt;,
+  document.body
+);
+</code></pre><p>上述代码在Hello组件加载以后，通过 <code>componentDidMoun</code>t 方法设置一个定时器，每隔100毫秒，就重新设置组件的透明度，从而引发重新渲染。执行结果如下所示：</p>
+<p><img src="/images/react-demo学习/7.png" alt="7"></p>
+<p><strong>注意：</strong>组件的style属性的设置方式也值得注意，不能写成 </p>
+<pre><code>style=&quot;opacity:{this.state.opacity};&quot;
+</code></pre><p>要写成</p>
+<pre><code>style={{opacity: this.state.opacity}}
+</code></pre><p>这是因为 React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。</p>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p>组件的数据来源，通常是通过 Ajax 请求从服务器获取，可以使用 <strong>componentDidMount 方法设置 Ajax 请求</strong>，等到请求成功，再用 this.setState 方法重新渲染 UI。</p>
+<pre><code>var UserGist = React.createClass({
+  getInitialState: function() {
+    return {
+      username: &apos;&apos;,
+      lastGistUrl: &apos;&apos;
+    };
+  },
+
+  componentDidMount: function() {
+    $.get(this.props.source, function(result) {
+      var lastGist = result[0];
+      if (this.isMounted()) {
+        this.setState({
+          username: lastGist.owner.login,
+          lastGistUrl: lastGist.html_url
+        });
+      }
+    }.bind(this));
+  },
+
+  render: function() {
+    return (
+      &lt;div&gt;
+        {this.state.username}&apos;s last gist is
+        &lt;a href={this.state.lastGistUrl}&gt;here&lt;/a&gt;.
+      &lt;/div&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;UserGist source=&quot;https://api.github.com/users/octocat/gists&quot; /&gt;,
+  document.body
+);
+</code></pre><p>上面代码使用 jQuery 完成 Ajax 请求，这是为了便于说明。<strong>React 本身没有任何依赖</strong>，完全可以不用jQuery，而使用其他库。</p>
+<p>我们甚至可以把一个<code>promise</code>对象传入组件。</p>
+<pre><code>ReactDOM.render(
+  &lt;RepoList
+    promise={$.getJSON(&apos;https://api.github.com/search/repositories?q=javascript&amp;sort=stars&apos;)}
+  /&gt;,
+  document.body
+);
+</code></pre><p>上面代码从Github的API抓取数据，然后将promise对象作为属性，传给RepoList组件。</p>
+<p>如果promise对象正在抓取数据（pending状态），组件显示”正在加载”；如果promise对象报错（rejected状态），组件显示报错信息；如果promise对象抓取数据成功（fulfilled状态），组件显示获取的数据。</p>
+<pre><code>var RepoList = React.createClass({
+  getInitialState: function() {
+    return { loading: true, error: null, data: null};
+  },
+
+  componentDidMount() {
+    this.props.promise.then(
+      value =&gt; this.setState({loading: false, data: value}),
+      error =&gt; this.setState({loading: false, error: error}));
+  },
+
+  render: function() {
+    if (this.state.loading) {
+      return &lt;span&gt;Loading...&lt;/span&gt;;
+    }
+    else if (this.state.error !== null) {
+      return &lt;span&gt;Error: {this.state.error.message}&lt;/span&gt;;
+    }
+    else {
+      var repos = this.state.data.items;
+      var repoList = repos.map(function (repo) {
+        return (
+          &lt;li&gt;
+            &lt;a href={repo.html_url}&gt;{repo.name}&lt;/a&gt; ({repo.stargazers_count} stars) &lt;br/&gt; {repo.description}
+          &lt;/li&gt;
+        );
+      });
+      return (
+        &lt;main&gt;
+          &lt;h1&gt;Most Popular JavaScript Projects in Github&lt;/h1&gt;
+          &lt;ol&gt;{repoList}&lt;/ol&gt;
+        &lt;/main&gt;
+      );
+    }
+  }
+});
+</code></pre>
       
     </div>
     
@@ -631,15 +880,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
-          
-            <a href="/tags/node-js/" rel="tag"><i class="fa fa-tag"></i> node.js</a>
-          
-            <a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>
-          
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
-          
-            <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
+            <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
           
         </div>
       
@@ -652,14 +893,18 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/16/freeCodeCamp-中级算法编程/" rel="next" title="freeCodeCamp JavaScript中级算法编程学习总结">
+                <i class="fa fa-chevron-left"></i> freeCodeCamp JavaScript中级算法编程学习总结
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/title.html" rel="prev" title="Next主题配置---打赏功能+文章结束标志">
-                Next主题配置---打赏功能+文章结束标志 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/26/freeCodeCamp-高级算法编程/" rel="prev" title="freeCodeCamp JavaScript高级算法编程学习总结">
+                freeCodeCamp JavaScript高级算法编程学习总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -911,7 +1156,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境介绍"><span class="nav-number">1.</span> <span class="nav-text">环境介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.1.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js下载安装"><span class="nav-number">2.1.1.</span> <span class="nav-text">node.js下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git下载安装"><span class="nav-number">2.1.2.</span> <span class="nav-text">git下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github注册相关"><span class="nav-number">2.1.3.</span> <span class="nav-text">github注册相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo下载安装"><span class="nav-number">2.2.</span> <span class="nav-text">hexo下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo相关配置"><span class="nav-number">2.3.</span> <span class="nav-text">hexo相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo与github-pages链接"><span class="nav-number">2.4.</span> <span class="nav-text">hexo与github pages链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布第一篇博文"><span class="nav-number">2.5.</span> <span class="nav-text">发布第一篇博文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo主题介绍及配置"><span class="nav-number">2.6.</span> <span class="nav-text">hexo主题介绍及配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo第三方服务集成"><span class="nav-number">2.7.</span> <span class="nav-text">hexo第三方服务集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加disqus评论"><span class="nav-number">2.7.1.</span> <span class="nav-text">添加disqus评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加百度分享功能"><span class="nav-number">2.7.2.</span> <span class="nav-text">添加百度分享功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度统计访客访问量功能"><span class="nav-number">2.7.3.</span> <span class="nav-text">百度统计访客访问量功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博客"><span class="nav-number">2.8.</span> <span class="nav-text">参考博客</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法简介"><span class="nav-number">1.</span> <span class="nav-text">JSX语法简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML模板"><span class="nav-number">2.</span> <span class="nav-text">HTML模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReactDOM-render"><span class="nav-number">3.</span> <span class="nav-text">ReactDOM.render()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法"><span class="nav-number">4.</span> <span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-number">5.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-props-children"><span class="nav-number">6.</span> <span class="nav-text">this.props.children</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PropTypes组件属性"><span class="nav-number">7.</span> <span class="nav-text">PropTypes组件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取真实的DOM节点"><span class="nav-number">8.</span> <span class="nav-text">获取真实的DOM节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-state"><span class="nav-number">9.</span> <span class="nav-text">this.state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">10.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">11.</span> <span class="nav-text">组件的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">12.</span> <span class="nav-text">Ajax</span></a></li></ol></div>
             
 
           </div>
@@ -1427,21 +1672,6 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
 

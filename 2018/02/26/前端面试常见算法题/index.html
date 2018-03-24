@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js算法题," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shirley" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="十道前端面试常见算法题。">
+<meta name="keywords" content="js算法题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试常见算法题总结">
+<meta property="og:url" content="http://yoursite.com/2018/02/26/前端面试常见算法题/index.html">
+<meta property="og:site_name" content="Shirley">
+<meta property="og:description" content="十道前端面试常见算法题。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img1.vued.vanthink.cn/vued90edf7b944ec479ee8b4203cf56e158d.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20160919221509693">
+<meta property="og:image" content="http://img.blog.csdn.net/20160919230148150">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png">
+<meta property="og:updated_time" content="2018-02-27T08:30:03.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试常见算法题总结">
+<meta name="twitter:description" content="十道前端面试常见算法题。">
+<meta name="twitter:image" content="http://img1.vued.vanthink.cn/vued90edf7b944ec479ee8b4203cf56e158d.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/26/前端面试常见算法题/"/>
+
+
+
+
+
+  <title>前端面试常见算法题总结 | Shirley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104091693-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?06185a244e6f872c8aeab11a4e7b5db4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/shirley5li"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shirley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一只自学成菜的仙女!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/前端面试常见算法题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShirleyLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shirley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试常见算法题总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T14:24:48+08:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js算法题/" itemprop="url" rel="index">
+                    <span itemprop="name">js算法题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> Pageviews
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>十道前端面试常见算法题。<br><a id="more"></a></p>
+<h3 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h3><p>思路：将字符串转换为数组，利用数组方法reverse()比较翻转后的字符串是否与源字符串一致。</p>
+<p>实现：</p>
+<pre><code>function checkPalindrome(str) {
+    return str == str.split(&apos;&apos;).reverse().join(&apos;&apos;);
+}
+</code></pre><h3 id="去掉一组整型数组重复的值"><a href="#去掉一组整型数组重复的值" class="headerlink" title="去掉一组整型数组重复的值"></a>去掉一组整型数组重复的值</h3><pre><code>function uniqueArr(arr) {
+    var result = [];
+    for(var i = 0; i &lt; arr.length; i++) {
+        if(arr.indexOf(arr[i]) === i) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+uniqueArr([1,13,24,11,11,14,1,2]);//返回 [1, 13, 24, 11, 14, 2]
+</code></pre><h3 id="统计一个字符串出现最多的字母"><a href="#统计一个字符串出现最多的字母" class="headerlink" title="统计一个字符串出现最多的字母"></a>统计一个字符串出现最多的字母</h3><pre><code>function maxDuplicateLetter(str) {
+    //如果字符串仅有一个字符，即为该字符
+    if(str.length === 1) {
+        return str;
+    }
+    var letterObj = {};
+    for(var i = 0; i &lt; str.length; i++) {
+        if(!letterObj[str[i]]) {//存放字母的对象中还未记录过该字母出现的次数
+            letterObj[str[i]] = 1;
+        }
+        letterObj[str[i]] += 1;
+    }
+    //接下来寻找存放字母的对象中最大的value所对应的key
+    var maxValue = 1;
+    var maxKey = &apos;&apos;;
+    for(var key in letterObj) {
+        if(letterObj[key] &gt; maxValue) {
+            maxValue = letterObj[key];
+            maxKey = key;
+        }
+    }
+    return maxKey;
+}
+maxDuplicateLetter(&quot;abcdddbb&quot;);//返回 &quot;a&quot;
+</code></pre><h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><p><strong>（1）冒泡排序</strong><br>依次比较相邻两个数的大小，进行位置上的交换，若按由小到大排序，第一轮可以将最大的排在最右边。<br>平均时间复杂度：O(n^2)  &nbsp;&nbsp;最好情况：O(n) &nbsp;&nbsp;  最坏情况：O(n^2)<br>空间复杂度：O(1)<br>排序方式:In-place<br>稳定性:稳定</p>
+<pre><code>function bubbleSort(arr) {
+    for(var i = 0; i &lt; arr.length; i++) {
+        for(var j = 0; j &lt; arr.length - i -1; j ++) {
+            // 由小到大排序
+            if(arr[j] &gt; arr[j + 1]){
+                var swap = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = swap;
+            }
+        }
+    }
+    return arr;
+}
+bubbleSort([3, 2, 4, 1, 7]);//返回 [1, 2, 3, 4, 7]
+</code></pre><p><strong>(2)快速排序</strong><br>参考某个元素值，将小于它的值，放到左数组中，大于它的值的元素就放到右数组中，然后递归进行上一次左右数组的操作，返回合并的数组就是已经排好顺序的数组。<br>平均时间复杂度: O(n log n)  &nbsp;&nbsp;最好情况：O(n log n) &nbsp;&nbsp;  最坏情况：O(n^2)<br>空间复杂度：O(1)<br>排序方式:In-place<br>稳定性:不稳定</p>
+<pre><code>function quickSort(arr) {
+    if(arr.length &lt;= 1) {
+        return arr;
+    }
+    var referValue = arr[0];
+    var leftArr = [];
+    var rightArr = [];
+    // 由小到大排序
+    for(var i = 1; i &lt; arr.length; i++) {
+        if(arr[i] &lt; referValue) {
+            leftArr.push(arr[i]);
+        } else {
+            rightArr.push(arr[i]);
+        }
+    }
+    return quickSort(leftArr).concat([referValue], quickSort(rightArr));
+}
+quickSort([3, 2, 4, 1, 7]);//返回 [1, 2, 3, 4, 7]
+</code></pre><p>另外还有 <strong>选择排序、插入排序、希尔排序、归并排序、堆排序、计数排序、桶排序等</strong>，见博客<a href="https://www.cnblogs.com/beli/p/6297741.html" target="_blank" rel="noopener">js十大排序算法</a>。</p>
+<h3 id="不借助临时变量，进行两个整数的交换"><a href="#不借助临时变量，进行两个整数的交换" class="headerlink" title="不借助临时变量，进行两个整数的交换"></a>不借助临时变量，进行两个整数的交换</h3><p>利用 + – 去进行运算，类似 a = a + ( b – a) 实际上等同于最后 的 a = b;</p>
+<pre><code>function swap([a, b]) {
+    var b = b - a;
+    var a = a + b;
+    var b = a - b;
+    return [a, b];
+}
+swap([2, 5]);//返回 [5, 2]
+</code></pre><h3 id="使用canvas-绘制一个有限度的斐波那契数列的曲线"><a href="#使用canvas-绘制一个有限度的斐波那契数列的曲线" class="headerlink" title="使用canvas 绘制一个有限度的斐波那契数列的曲线"></a>使用canvas 绘制一个有限度的斐波那契数列的曲线</h3><p><img src="http://img1.vued.vanthink.cn/vued90edf7b944ec479ee8b4203cf56e158d.png" alt="斐波那契数列曲线"><br>数列长度限定在9时的图像。<br>斐波那契数列，又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……<br><code>fibo[i] = fibo[i-1]+fibo[i-2];</code><br>即生成斐波那契数列，然后再将该数列值作为半径，利用canvas arc方法绘制曲线。</p>
+<pre><code>function generateFibo(n) {
+    var fiboArr = [];
+    var i = 0;
+    while(i &lt; n) {
+        if (i &lt;= 1) {
+            fiboArr.push(i);
+        } else {
+            fiboArr[i] = fiboArr[i - 1] + fiboArr[i - 2];
+        }
+        i++;
+    }
+    return fiboArr;
+}
+generateFibo(6);//返回 [0, 1, 1, 2, 3, 5]
+</code></pre><h3 id="找出正数组的最大差值"><a href="#找出正数组的最大差值" class="headerlink" title="找出正数组的最大差值"></a>找出正数组的最大差值</h3><p>相当于找到一个数组中的最大值与最小值，最大差值即为两者之差。</p>
+<pre><code>function maxDifference(arr) {
+    var minValue = arr[0];
+    var maxDiffer = 0;
+    for(var i = 0; i &lt; arr.length; i++) {
+        minValue = Math.min(minValue, arr[i]);
+        currentDiffer = arr[i] - minValue;
+        maxDiffer = Math.max(maxDiffer, currentDiffer);
+    }
+    return maxDiffer;
+}
+maxDifference([10,5,11,7,8,9]);//返回 6
+</code></pre><h3 id="随机生成指定长度的字符串"><a href="#随机生成指定长度的字符串" class="headerlink" title="随机生成指定长度的字符串"></a>随机生成指定长度的字符串</h3><pre><code>function randomString(n) {
+    var rangeStr = &apos;abcdefghijklmnopqrstuvwxyz0123456789&apos;;
+    var l = rangeStr.length;
+    var randomStr = &apos;&apos;;
+    for(var i = 0; i &lt; n; i++) {
+        randomStr += rangeStr.charAt(Math.floor(Math.random() * l));
+    }
+    return randomStr;
+}
+randomString(10);//返回 &quot;itfjah8rte&quot;
+</code></pre><h3 id="实现类似getElementsByClassName-的功能"><a href="#实现类似getElementsByClassName-的功能" class="headerlink" title="实现类似getElementsByClassName 的功能"></a>实现类似getElementsByClassName 的功能</h3><p>查找某个DOM节点下面的包含某个class的所有DOM节点？不允许使用原生提供的 getElementsByClassName、 querySelectorAll 等原生提供DOM查找的函数。</p>
+<pre><code>function queryClassName(node, name) {
+    var starts = &apos;(^|[ \n\r\t\f])&apos;,
+        ends = &apos;([ \n\r\t\f]|$)&apos;;
+    var resultArr = [],
+        reg = new RegExp(starts + name + ends),
+        elements = node.getElementsByTagName(&quot;*&quot;);
+        length = elements.length,
+        i = 0;
+    while(i &lt; length) {
+        var element = elements[i];
+        if(reg.test(element.className)) {
+            resultArr.push(element);
+        }
+        i++;
+    }
+    return resultArr;
+}
+// 方法2
+function queryClassName2(node, name) {
+    var elements = node.getElementsByTagName(&quot;*&quot;),
+        length = elements.length,
+        resultArr = [];
+    for(var i = 0; i &lt; length; i ++) {
+        if(elements[i].className) {
+            var classNames = elements[i].className.split(&quot; &quot;);/*这里其实还要考虑类名间隔大于一个空格的情况*/
+            if(classNames.indexOf(name) !== -1) {
+                resultArr.push(elements[i]);
+            }
+        }
+    }
+    return resultArr;
+}
+//HTML结构
+&lt;ul id=&quot;ull&quot;&gt;  
+    &lt;li&gt;0&lt;/li&gt;  
+    &lt;li class=&apos;box box2&apos;&gt;1&lt;/li&gt;  
+    &lt;li&gt;2&lt;/li&gt;  
+    &lt;li class=&apos;box1&apos;&gt;3&lt;/li&gt;  
+    &lt;li class=&apos;box1&apos;&gt;4&lt;/li&gt;  
+    &lt;li class=&apos;box box1&apos;&gt;5&lt;/li&gt;   
+&lt;/ul&gt;
+//测试结果
+ window.onload = function() {
+    node = document.getElementById(&quot;ull&quot;);
+    queryClassName(node, &quot;box&quot;);//返回 (2) [li.box.box2, li.box.box1]
+    queryClassName2(node, &quot;box&quot;);// 返回 (2) [li.box.box2, li.box.box1]
+};
+</code></pre><h3 id="JS-实现二叉查找树-Binary-Search-Tree"><a href="#JS-实现二叉查找树-Binary-Search-Tree" class="headerlink" title="JS 实现二叉查找树(Binary Search Tree)"></a>JS 实现二叉查找树(Binary Search Tree)</h3><p>在实际使用时会根据链表和有序数组等数据结构的不同优势进行选择。有序数组的优势在于二分查找，链表的优势在于数据项的插入和数据项的删除。但是在有序数组中插入数据就会很慢，同样在链表中查找数据项效率就很低。综合以上情况，二叉树可以利用链表和有序数组的优势，同时可以合并有序数组和链表的优势，二叉树也是一种常用的数据结构。<br>二叉查找树，也称二叉搜索树、有序二叉树（英语：ordered binary tree）是指一棵空树或者具有下列性质的二叉树：</p>
+<pre><code>任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；
+任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；
+任意节点的左、右子树也分别为二叉查找树；
+没有键值相等的节点。二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低。为O(log n)。二叉查找树是基础性数据结构，用于构建更为抽象的数据结构，如集合、multiset、关联数组等。
+</code></pre><p><strong>二叉树相关概念：</strong><br>凡是每个节点都最多有两个叉的树，都叫二叉树。<br>查找树和排序树是一个东西。特点是中序遍历一遍的结果是单调的。这种树建出来可以用来做二分搜索。<br>平衡树一般是排序树的一种，并且加点条件，就是任意一个节点的两个叉的深度差不多（比如差值的绝对值小于某个常数，或者一个不能比另一个深出去一倍之类的）。<br>这样的树可以保证二分搜索任意元素都是O(log n)的，一般还附带带有插入或者删除某个元素也是O(log n)的的性质。<br>二叉树由节点（node）和边组成。节点分为根节点、父节点、子节点。如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160919221509693" alt="二叉树示意图"><br>红色是根节点（root）。蓝色是子节点也是父节点，绿色的是子节点。其余的线是边。节点和链表中的节点一样都可以存放数据信息。树中的边可以用自引用表示，这种引用就是C/C++里面的指针。通常来说树是顶部小，底部大，且树呈分层结构。root节点时第0层，以此类推。二叉树最多有两个节点。<br>二叉树搜索： 二叉树一个节点左子节点的关键字小于这个节点，右子节点关键字大于或等于这个父节点。<br>创建一个树节点。<br><strong>BST创建过程：</strong><br>(1)创建一个树节点包括左节点引用和右节点引用。<br>(2)创建一个树结构。 创建一个树结构首先是向一个树种插入数据节点。当一棵树为null时，数据项是从树的root节点处开始插入，之后的插入顺序是根据搜索节点顺序规则进行插入。具体规则是：如果数据项比父节点的数据项要小，则插在父节点的左节点（leftNode），如果比父节点的数据项要大，则将新的node插入在父节点的右节点处（rightNode）。<br>插入数据节点过程如下所示：<br><img src="http://img.blog.csdn.net/20160919230148150" alt="BST插入数据节点示意图"><br>插入节点的过程中其实也就是对tree遍历的过程，最终根据条件遍历到左右节点为null时进行添加新的节点。<br><strong>查找关键字</strong><br>查找关键字是数据结构一项重要操作项，在有序数组中通过二分排序效率非常高。在二叉树中的查找效率也比较高。因为二叉树的添加node的过程就是根据数据项的大小进行有序添加的，并不是毫无秩序的插入数据项。在有序的基础上进行查找关键字效率就会快很多。<br>树的最值查找在树中查找是比较容易的，因为从root开始查找，最小值只会出现所有父节点的左节点处，同样最大值只会出现在所有父节点的沿着右节点搜索的最底层右节点处。<br><a href="http://blog.csdn.net/cai2016/article/details/52589952" target="_blank" rel="noopener">参考自博客</a>。<br><strong>删除节点</strong><br>给出如下二叉查找树</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png" alt="二叉查找树"><br>删除节点3之后，可以返回</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png" alt="新的BST1"><br>或者</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png" alt="新的BST2"><br>思路:<br>若要删除一个BST的一个结点，需要考虑如下三种情况：</p>
+<pre><code>需要删除的节点下并没有其他子节点
+需要删除的节点下有一个子节点（左或右）
+需要删除的节点下有两个子节点（既左右节点都存在）
+</code></pre><p>对这三种情况分别采取的措施是：<br>    直接删除此结点<br>    删除此结点，将此结点父节点连接到此结点左（右）子树<br>    找出此结点右子树中的最小结点，用以代替要删除的结点，然后删除此最小结点</p>
+<p><strong>设定每个节点的数据结构：</strong></p>
+<pre><code>class Node {
+    constructor(data, left, right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+</code></pre><p>树由节点构成，由根节点逐渐延生到各个子节点，因此它基本的结构就是具备一个根节点，具备添加，查找和删除节点的方法。</p>
+<pre><code>// 构建BST，具备一个根节点、以及添加、查找、删除节点的方法
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+    // 插入节点的方法
+    insert(data) {
+        let n = new Node(data, null, null);
+        if (!this.root) { //如果此二叉树为空，则数据项从树的root节点处开始插入
+            return this.root = n;
+        }
+        let currentNode = this.root;
+        let parent = null;
+        while (true) {
+            parent = currentNode; //保存当current变为null之前的那一个父节点
+            if (data &lt; currentNode.data) { //插在父节点的左节点
+                currentNode = currentNode.left;
+                if (currentNode === null) { //不断向左node寻找是否为null
+                    parent.left = n;
+                    break;
+                }
+            } else { //插在父节点的右节点
+                currentNode = currentNode.right;
+                if (currentNode === null) {
+                    parent.right = n;
+                    break;
+                }
+            }
+        }
+    }
+    // 删除数据项
+    remove(data) {
+        this.root = this.removeNode(this.root, data);
+    }
+    // 删除节点
+    // 删除树中与给定值相同的节点，如果树中没有相同值的节点，则不做处理，应该保证处理之后的树仍是二叉查找树。
+    removeNode(node, data) {
+        if (node === null) { // 如果根节点为空
+            return null;
+        }
+        if (data === node.data) {
+            // 没有子节点，即node为叶子节点
+            if (node.left === null &amp;&amp; node.right === null) {
+                return null;
+            }
+            // 要删除的节点下只有右节点
+            if (node.left === null) {
+                return node.right;
+            }
+            // 要删除的节点下只有左节点
+            if (node.right === null) {
+                return node.left;
+            }
+            // 要删除的节点下有两个子节点的情况
+            // getSmallest用于找到该节点右子树中的最小节点，用以替代要删除的节点，然后删除此最小节点
+            let getSmallest = function (node) {
+                if (node.left === null &amp;&amp; node.right === null) {
+                    return node;
+                }
+                if (node.left !== null) {
+                    return node.left;
+                }
+                if (node.right !== null) {
+                    return getSmallest(node.right);
+                }
+            }
+            let temNode = getSmallest(node.right);
+            node.data = temNode.data;
+            node.right = this.removeNode(temNode.right, temNode.data);
+            return node;
+        } else if (data &lt; node.data) {
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        }
+    }
+    // 查找方法
+    find(data) {
+        let currentNode = this.root;
+        while (currentNode !== null) {
+            if (data === currentNode.data) {
+                return true;
+            }
+            if (data &lt; currentNode.data) {
+                if (currentNode.left !== null) {
+                    currentNode = currentNode.left;
+                } else {
+                    return false;
+                }
+            } else {// data &gt; currentNode.data
+                if (currentNode.right !== null) {
+                    currentNode = currentNode.right;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+}
+</code></pre><p>有关数组的一些操作见博客后半部分<a href="https://www.cnblogs.com/libin-1/p/5998870.html" target="_blank" rel="noopener">前端面试中的常见的算法问题</a>。</p>
+<p>下面是一篇总结常见数据结构的javascript实现的文章：<br><strong><a href="http://blog.csdn.net/haoshidai/article/details/52263191" target="_blank" rel="noopener">常见数据结构的javascript实现</a></strong>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+    <div>
+       <div>  <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-smile-o"></i>感谢您的阅读-------------</div>  </div>
+
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" style="width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;
+margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    打赏
+  </button>
+  <div id="QR" style="display: none; text-align: center;">
+
+    
+      <div id="wechat" style="display: inline-block;">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ShirleyLi WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block;">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ShirleyLi Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js算法题/" rel="tag"><i class="fa fa-tag"></i> js算法题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/26/vscodeKeyboardShortcuts/" rel="next" title="vscode快捷键">
+                <i class="fa fa-chevron-left"></i> vscode快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/27/interview-questions-about-JS/" rel="prev" title="【interview questions about JS】 from牛客网">
+                【interview questions about JS】 from牛客网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjUzMy85MDk0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ShirleyLi" />
+          <p class="site-author-name" itemprop="name">ShirleyLi</p>
+           
+              <p class="site-description motion-element" itemprop="description">Yesterday I saw a lion kiss a deer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shirley5li" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/8237409/shirley5li" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                    
+                      StackOverflow
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/shirley5li" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2940695757/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/98598367/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/shirley-39-53-43/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断一个单词是否是回文"><span class="nav-number">1.</span> <span class="nav-text">判断一个单词是否是回文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去掉一组整型数组重复的值"><span class="nav-number">2.</span> <span class="nav-text">去掉一组整型数组重复的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计一个字符串出现最多的字母"><span class="nav-number">3.</span> <span class="nav-text">统计一个字符串出现最多的字母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-number">4.</span> <span class="nav-text">排序算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不借助临时变量，进行两个整数的交换"><span class="nav-number">5.</span> <span class="nav-text">不借助临时变量，进行两个整数的交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用canvas-绘制一个有限度的斐波那契数列的曲线"><span class="nav-number">6.</span> <span class="nav-text">使用canvas 绘制一个有限度的斐波那契数列的曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找出正数组的最大差值"><span class="nav-number">7.</span> <span class="nav-text">找出正数组的最大差值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机生成指定长度的字符串"><span class="nav-number">8.</span> <span class="nav-text">随机生成指定长度的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现类似getElementsByClassName-的功能"><span class="nav-number">9.</span> <span class="nav-text">实现类似getElementsByClassName 的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-实现二叉查找树-Binary-Search-Tree"><span class="nav-number">10.</span> <span class="nav-text">JS 实现二叉查找树(Binary Search Tree)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShirleyLi</span>
+</div>
+
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Views
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
