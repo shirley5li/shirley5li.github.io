@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-13T06:05:45.270Z</updated>
+  <updated>2018-03-24T06:56:03.410Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018春季腾讯研发岗在线模拟笔试</title>
+    <link href="http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/"/>
+    <id>http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/</id>
+    <published>2018-03-24T06:52:04.000Z</published>
+    <updated>2018-03-24T06:56:03.410Z</updated>
+    
+    <content type="html"><![CDATA[<p>2018春季腾讯研发岗在线模拟笔试算法题目总结。<br><a id="more"></a></p>
+<h3 id="给出四个点的坐标判断是否为正方形"><a href="#给出四个点的坐标判断是否为正方形" class="headerlink" title="给出四个点的坐标判断是否为正方形"></a>给出四个点的坐标判断是否为正方形</h3><p>思路：暴力方法，求出任意两点之间的距离，如果有四条相等，剩下两条距离相等，则构成正方形。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">      <span class="comment">//给出四个点的坐标，判断这四个点能否构成一个正方形，其中四个点的横坐标存在x数组中，与横坐标对应的纵坐标存在y数组中</span></div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">judgeSquare</span>(<span class="params">x, y</span>) </span>&#123; </div><div class="line">          <span class="keyword">var</span> dists = []; <span class="comment">//用来存放四边形任意两点之间的距离</span></div><div class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</div><div class="line">              <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; <span class="number">4</span>; j++) &#123;</div><div class="line">                  <span class="keyword">var</span> dist = distance(x[i], y[i], x[j], y[j]);</div><div class="line">                  dists.push(dist);</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          dists = dists.sort();</div><div class="line">          <span class="keyword">if</span> (dists[<span class="number">0</span>] === dists[<span class="number">1</span>] &amp;&amp; dists[<span class="number">1</span>] === dists[<span class="number">2</span>] &amp;&amp; dists[<span class="number">2</span>] === dists[<span class="number">3</span>] &amp;&amp; dists[<span class="number">4</span>] === dists[<span class="number">5</span>]) &#123;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'Yes, this is a square!'</span>);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line"></div><div class="line"><span class="comment">// distance表示两点之间距离的平方</span></div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">distance</span>(<span class="params">x1, y1, x2, y2</span>) </span>&#123; <span class="comment">//参数x1,y1和x2,y2分别表示两个点的横纵坐标</span></div><div class="line">          <span class="keyword">var</span> distance = <span class="built_in">Math</span>.pow(x1 - x2, <span class="number">2</span>) + <span class="built_in">Math</span>.pow(y1 - y2, <span class="number">2</span>);</div><div class="line">          <span class="keyword">return</span> distance;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">var</span> xArr = [<span class="number">0</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>];</div><div class="line">      <span class="keyword">var</span> yArr = [<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>];</div><div class="line">      judgeSquare(xArr, yArr); <span class="comment">//Yes, this is a square!</span></div></pre></td></tr></table></figure>
+<h3 id="2-k面值的n组合问题"><a href="#2-k面值的n组合问题" class="headerlink" title="2^k面值的n组合问题"></a>2^k面值的n组合问题</h3><p>问题描述：（记不清了，大概是这样,k和n的上限也记不得了，只记录下实现思路）有面值分别为2^k的硬币各2枚(k&gt;=0，且k为整数)，现在要买n元的东西，问有多少种不同的硬币组合方式？</p>
+<p>思路：从最小面额的开始考虑，</p>
+<p>(1)如果给出的n元是偶数，那么又分为花掉面额为1的(如果花掉面额为1的肯定是花掉2个)，和不花掉面额为1的。</p>
+<p>如果花掉两个面额为1的，那么问题的规模就缩小为求n-2的组合情况(即n-2要用2，4，8…来组合，因为此时1已经用光了)，又因为n-2也是个偶数，所以可以对半分，即(n-2)/2用1，2，4，8…来组合，可以用递归了。</p>
+<p>如果不花掉面额为1的，那么从面额2开始花起，又n为偶数，所以问题的规模可以对半分为，求n/2用 1，2，4，8…来组合，可以用递归了。</p>
+<p>(2)如果给出的n元是奇数，那么肯定要花掉一个面额为1的，那么n-1是个偶数，此时已经不能再花面额为1的了，即n是奇数的时候只能花掉一个面额为1的，所以问题规模就变成了n-1用面额为2，4，8…来组合，即问题规模折半为(n-1)/2用1，2，4，8…来组合，可以用递归了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">combination</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="comment">// 初始条件</span></div><div class="line">    <span class="comment">// if (n === 1) &#123;</span></div><div class="line">    <span class="comment">//     return 1;</span></div><div class="line">    <span class="comment">// &#125;</span></div><div class="line">    <span class="comment">// if (n === 2) &#123;</span></div><div class="line">    <span class="comment">//     return 2;</span></div><div class="line">    <span class="comment">// &#125;</span></div><div class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 先判断n的奇偶性</span></div><div class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> === <span class="number">0</span>) &#123; <span class="comment">//n为偶数</span></div><div class="line">        <span class="keyword">return</span> combination((n - <span class="number">2</span>) / <span class="number">2</span>) + combination(n / <span class="number">2</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> combination((n - <span class="number">1</span>) / <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">combination(<span class="number">12</span>); <span class="comment">//5</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2018春季腾讯研发岗在线模拟笔试算法题目总结。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="js算法题" scheme="http://yoursite.com/categories/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+    
+      <category term="js算法题" scheme="http://yoursite.com/tags/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>汉诺塔递归算法JS实现</title>
@@ -713,7 +745,7 @@ HAVING aggregate_function(column_name) operator value;
     <link href="http://yoursite.com/2018/03/04/interview-questions-about-Web/"/>
     <id>http://yoursite.com/2018/03/04/interview-questions-about-Web/</id>
     <published>2018-03-04T07:20:40.000Z</published>
-    <updated>2018-03-21T02:41:26.186Z</updated>
+    <updated>2018-03-24T06:55:02.283Z</updated>
     
     <content type="html"><![CDATA[<p>Web方面的知识盲区补漏。<br><a id="more"></a></p>
 <h3 id="匹配URL的正则表达式"><a href="#匹配URL的正则表达式" class="headerlink" title="匹配URL的正则表达式"></a>匹配URL的正则表达式</h3><p>URL由三部分组成：资源类型(协议)、存放资源的主机域名、资源文件名。<br>URL的一般语法格式为(带方括号[ ]的为可选项)：<br><code>protocol :// hostname[:port] / path / [;parameters][?query]#fragment</code><br>据说比较好用匹配较全面的是这个：<br><code>(https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</code><br>参考自博客<a href="https://www.cnblogs.com/speeding/p/5097790.html" target="_blank" rel="external">正确匹配URL的正则表达式</a>、<a href="http://blog.csdn.net/t_1007/article/details/52293475" target="_blank" rel="external">匹配URL的正则表达式解析</a>。</p>
@@ -3057,414 +3089,6 @@ pairwise([1, 3, 2, 4], 4);//返回1
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>react-demos学习笔记</title>
-    <link href="http://yoursite.com/2017/11/20/react-demos%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2017/11/20/react-demos学习笔记/</id>
-    <published>2017-11-20T02:35:43.000Z</published>
-    <updated>2018-01-09T02:47:02.942Z</updated>
-    
-    <content type="html"><![CDATA[<p>来自阮一峰的博客<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程</a>学习。<br><a id="more"></a></p>
-<h2 id="JSX语法简介"><a href="#JSX语法简介" class="headerlink" title="JSX语法简介"></a>JSX语法简介</h2><p>React的核心机制之一就是可以在内存中创建虚拟的DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。</p>
-<p><strong>JSX</strong> 就是Javascript和XML结合的一种格式。React发明了JSX，利用HTML语法来创建虚拟DOM。当遇到 <code>&lt;</code>，JSX就当HTML解析，遇到 <code>{</code> 就当JavaScript解析。</p>
-<p>JS语法</p>
-<pre><code>var child1 = React.createElement(&apos;li&apos;, null, &apos;First Text Content&apos;);
-var child2 = React.createElement(&apos;li&apos;, null, &apos;Second Text Content&apos;);
-var root = React.createElement(&apos;ul&apos;, { className: &apos;my-list&apos; }, child1, child2);
-</code></pre><p>JSX语法</p>
-<pre><code>var root =(
-  &lt;ul className=&quot;my-list&quot;&gt;
-    &lt;li&gt;First Text Content&lt;/li&gt;
-    &lt;li&gt;Second Text Content&lt;/li&gt;
-  &lt;/ul&gt;
-);
-</code></pre><p>JSX将XML语法直接加入JS中,通过代码而非模板来高效的定义界面。之后JSX通过翻译器转换为纯JS再由浏览器执行。在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。</p>
-<p>另外，由于JSX只是一种语法，因此JavaScript的关键字class, for等也不能出现在XML中，而要如例子中所示，使用className, htmlFor代替，这和原生DOM在JavaScript中的创建也是一致的。JSX只是创建虚拟DOM的一种语法格式而已,除了用JSX,我们也可以用JS代码来创建虚拟DOM.</p>
-<p>一篇简要介绍JSX语法的文章<a href="http://www.infoq.com/cn/articles/react-jsx-and-component" target="_blank" rel="external">深入浅出React（三）：理解JSX和组件</a>。</p>
-<h2 id="HTML模板"><a href="#HTML模板" class="headerlink" title="HTML模板"></a>HTML模板</h2><p>使用 React 的网页源码，结构大致如下：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;script src=&quot;../build/react.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;../build/react-dom.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;../build/browser.min.js&quot;&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
-    &lt;script type=&quot;text/babel&quot;&gt;
-      // starts here
-    &lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>最后一个 <script\> 标签的 type 属性为 text/babel ,因为 React 独有的 JSX 语法，跟 JavaScript 不兼容。<strong>凡是使用 JSX 的地方，都要加上 type=”text/babel”</strong>。</script\></p>
-<p>上面代码一共用了三个库： react.js 、react-dom.js 和 Browser.js ，它们必须首先加载。其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，Browser.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。</p>
-<h2 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render()"></a>ReactDOM.render()</h2><p>React最基本的方法，用于将模板转为 HTML 语言，并插入到指定的 DOM 节点。</p>
-<pre><code>ReactDOM.render(
-  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
-  document.getElementById(&apos;example&apos;)
-);
-</code></pre><p>上面代码将一个 h1 标题，插入到 example 节点。代码执行结果如下：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;script src=&quot;../build/react.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;../build/react-dom.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;../build/browser.min.js&quot;&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;div id=&quot;example&quot;&gt;
-      &lt;h1 data-reactroot=&quot;&quot;&gt;Hello, world!&lt;/h1&gt;
-    &lt;/div&gt;
-    &lt;script type=&quot;text/babel&quot;&gt;
-      ReactDOM.render(
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;,
-        document.getElementById(&apos;example&apos;)
-      );
-    &lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h2 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h2><p>HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写。</p>
-<pre><code>&lt;body&gt;
-   &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
-   &lt;script type=&quot;text/babel&quot;&gt;
-     var names = [&apos;Alice&apos;, &apos;Emily&apos;, &apos;Kate&apos;];
-
-     ReactDOM.render(
-       &lt;div&gt;
-       {
-         names.map(function (name, index) {
-           return &lt;div key={index}&gt;Hello, {name}!&lt;/div&gt;
-         })
-       }
-       &lt;/div&gt;,
-       document.getElementById(&apos;example&apos;)
-     );
-   &lt;/script&gt;
- &lt;/body&gt;
-</code></pre><p>JSX 的基本语法规则：遇到 HTML 标签（以 <code>&lt;</code>开头），就用 HTML 规则解析；遇到代码块（以<code>{</code>开头），就用 JavaScript 规则解析。上述代码执行结果如下所示。</p>
-<p><img src="/images/react-demo学习/1.png" alt="1"></p>
-<p>JSX 允许直接在模板插入 JavaScript 变量。如果这个变量是一个数组，则会展开这个数组的所有成员。</p>
-<pre><code>var arr = [
-  &lt;h1&gt;Hello world!&lt;/h1&gt;,
-  &lt;h2&gt;React is awesome&lt;/h2&gt;,
-];
-ReactDOM.render(
-  &lt;div&gt;{arr}&lt;/div&gt;,
-  document.getElementById(&apos;example&apos;)
-);
-</code></pre><p>上面代码的arr变量是一个数组，结果 JSX 会把它的所有成员，添加到模板，结果如下。</p>
-<p><img src="/images/react-demo学习/2.png" alt="2"></p>
-<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。<strong>React.createClass()</strong> 方法就用于生成一个组件类。</p>
-<pre><code>var HelloMessage = React.createClass({
-  render: function() {
-    return &lt;h1&gt;Hello {this.props.name}&lt;/h1&gt;;
-  }
-});
-
-ReactDOM.render(
-  &lt;HelloMessage name=&quot;John&quot; /&gt;,
-  document.getElementById(&apos;example&apos;)
-);
-</code></pre><p>上述代码中，变量 <strong>HelloMessage</strong> 就是一个组件类。模板插入 <hellomessage> 时，会自动生成 HelloMessage 的一个实例（下文的”组件”都指组件类的实例）。所有组件类都必须有自己的 render 方法，用于输出组件。执行结果如下所示。</hellomessage></p>
-<p><img src="/images/react-demo学习/3.png" alt="3"></p>
-<p><strong>组件的用法</strong>与原生的 HTML 标签完全一致，可以任意加入属性，比如 <code>&lt;HelloMessage name=&quot;John&quot;&gt;</code> ，就是 <code>HelloMessage</code> 组件加入一个 <code>name</code> 属性，值为 <code>John</code>。</p>
-<p>组件的属性可以在组件类的 <code>this.props</code> 对象上获取，比如 <code>name</code> 属性就可以通过 <code>this.props.name</code> 读取。</p>
-<p><strong>添加组件属性</strong>，需要注意，就是 class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。即在组件类中通过js获取组件的class属性时，需要使用<code>this.props.className</code>。</p>
-<p><strong>注意</strong>，组件类的<strong>第一个字母必须大写</strong>，否则会报错，比如<code>HelloMessage</code>不能写成helloMessage。另外，组件类只能包含一个顶层标签，否则也会报错。</p>
-<pre><code>var HelloMessage = React.createClass({
-  render: function() {
-    return &lt;h1&gt;
-      Hello {this.props.name}
-    &lt;/h1&gt;&lt;p&gt;   //错误，包含了两个顶层标签，h1和p
-      some text
-    &lt;/p&gt;;
-  }
-});
-</code></pre><p>上面代码会报错，因为<code>HelloMessage</code>组件包含了两个顶层标签：<code>h1</code>和<code>p</code>。</p>
-<h2 id="this-props-children"><a href="#this-props-children" class="headerlink" title="this.props.children"></a>this.props.children</h2><p>this.props 对象的属性与组件的属性一一对应，但是有一个例外，就是 <code>this.props.children</code> 属性。它表示组件的所有子节点。</p>
-<pre><code>var NotesList = React.createClass({
-  render: function() {
-    return (
-      &lt;ol&gt;
-      {
-        React.Children.map(this.props.children, function (child) {
-          return &lt;li&gt;{child}&lt;/li&gt;;
-        })
-      }
-      &lt;/ol&gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &lt;NotesList&gt;
-    &lt;span&gt;hello&lt;/span&gt;
-    &lt;span&gt;world&lt;/span&gt;
-  &lt;/NotesList&gt;,
-  document.body
-);
-</code></pre><p>上面代码的 NoteList 组件有两个 span 子节点，它们都可以通过 this.props.children 读取。执行结果如下所示。</p>
-<p><img src="/images/react-demo学习/4.png" alt="4"></p>
-<p><strong>注意</strong>， <code>this.props.children</code> 的值有三种可能：如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array 。所以，处理 this.props.children 的时候要小心。</p>
-<p>React 提供一个工具方法 <strong>React.Children</strong> 来处理 this.props.children 。我们可以用 React.Children.map 来遍历子节点，而不用担心 this.props.children 的数据类型是 undefined 还是 object。更多的 React.Children 的方法。</p>
-<h2 id="PropTypes组件属性"><a href="#PropTypes组件属性" class="headerlink" title="PropTypes组件属性"></a>PropTypes组件属性</h2><p>组件的属性可以接受任意值，字符串、对象、函数等等都可以。有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。</p>
-<p>组件类的<strong>PropTypes</strong>属性，就是用来验证组件实例的属性是否符合要求。例如：</p>
-<pre><code>var MyTitle = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string.isRequired,
-  },
-
-  render: function() {
-     return &lt;h1&gt; {this.props.title} &lt;/h1&gt;;
-   }
-});
-</code></pre><p>上述代码中，Mytitle组件类有一个title属性。PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。假如设置title属性的值是number类型就会报错，如下：</p>
-<pre><code>var data = 123;
-
-ReactDOM.render(
-  &lt;MyTitle title={data} /&gt;,
-  document.body
-);
-</code></pre><p>title属性就通不过验证了。控制台会显示一行警告信息，如下所示：</p>
-<p><img src="/images/react-demo学习/5.png" alt="5"></p>
-<p><img src="/images/react-demo学习/6.png" alt="6"></p>
-<p><strong>getDefaultProps</strong> 方法可以用来设置组件属性的默认值.</p>
-<pre><code>var MyTitle = React.createClass({
-  getDefaultProps : function () {
-    return {
-      title : &apos;Hello World&apos;
-    };
-  },
-
-  render: function() {
-     return &lt;h1&gt; {this.props.title} &lt;/h1&gt;;
-   }
-});
-
-ReactDOM.render(
-  &lt;MyTitle /&gt;,
-  document.body
-);
-</code></pre><p>上面代码会输出”Hello World”。    </p>
-<h2 id="获取真实的DOM节点"><a href="#获取真实的DOM节点" class="headerlink" title="获取真实的DOM节点"></a>获取真实的DOM节点</h2><p>组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做<strong>虚拟 DOM</strong> （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM <a href="https://calendar.perfplanet.com/2013/diff/" target="_blank" rel="external">diff</a> ，它可以极大提高网页的性能表现。</p>
-<p>但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 <code>ref</code> 属性。</p>
-<pre><code>var MyComponent = React.createClass({
-  handleClick: function() {
-    this.refs.myTextInput.focus();
-  },
-  render: function() {
-    return (
-      &lt;div&gt;
-        &lt;input type=&quot;text&quot; ref=&quot;myTextInput&quot; /&gt;
-        &lt;input type=&quot;button&quot; value=&quot;Focus the text input&quot; onClick={this.handleClick} /&gt;
-      &lt;/div&gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &lt;MyComponent /&gt;,
-  document.getElementById(&apos;example&apos;)
-);
-</code></pre><p>上述代码中，组件类 <code>MyComponent</code> 的子节点有一个文本输入框，用于获取用户的输入，这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为此，文本输入框必须有一个 <code>ref</code> 属性，然后 <code>this.refs.[refName]</code> 就会返回这个真实的 DOM 节点。</p>
-<p><strong>注意</strong>，由于 <code>this.refs.[refName]</code> 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。上面代码中，通过为组件指定 Click 事件的回调函数 <code>handleClick</code>，确保了只有等到真实 DOM 发生 Click 事件之后，才会读取 <code>this.refs.[refName]</code> 属性。</p>
-<p>React 组件支持很多事件，除了 Click 事件以外，还有 KeyDown 、Copy、Scroll 等，完整的事件清单请查看<a href="https://reactjs.org/docs/events.html#supported-events" target="_blank" rel="external">官方文档</a>。</p>
-<h2 id="this-state"><a href="#this-state" class="headerlink" title="this.state"></a>this.state</h2><p>组件免不了要与用户互动，React 的一大创新，就是<strong>将组件看成是一个状态机</strong>，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI 。</p>
-<pre><code>var LikeButton = React.createClass({
-  getInitialState: function() {  //初始状态
-    return {liked: false};
-  },
-  handleClick: function(event) {
-    this.setState({liked: !this.state.liked});
-  },
-  render: function() {
-    var text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
-    return (
-      &lt;p onClick={this.handleClick}&gt;
-        You {text} this. Click to toggle.
-      &lt;/p&gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &lt;LikeButton /&gt;,
-  document.getElementById(&apos;example&apos;)
-);
-</code></pre><p>上述组件类的 <strong>getInitialState</strong> 方法用于定义初始状态，也就是一个对象，这个对象可以通过 <code>this.state</code> 属性读取。</p>
-<p>当用户点击组件， 调用Click 事件的回调函数 <code>handleClick</code>，导致状态变化。 <code>this.setState</code> 方法用于修改状态值，每次修改以后，自动调用 <code>this.render</code> 方法，再次渲染组件。</p>
-<p>由于 <code>this.props</code> 和 <code>this.state</code> 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，<code>this.props</code> 表示那些一旦定义，就不再改变的特性，而 <code>this.state</code> 是会随着用户互动而产生变化的特性。</p>
-<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p>用户在表单填入的内容，属于用户跟组件的互动，所以不能用 this.props 读取。</p>
-<pre><code>var Input = React.createClass({
-  getInitialState: function() {
-    return {value: &apos;Hello!&apos;};
-  },
-  handleChange: function(event) {
-    this.setState({value: event.target.value});
-  },
-  render: function () {
-    var value = this.state.value;
-    return (
-      &lt;div&gt;
-        &lt;input type=&quot;text&quot; value={value} onChange={this.handleChange} /&gt;
-        &lt;p&gt;{value}&lt;/p&gt;
-      &lt;/div&gt;
-    );
-  }
-});
-
-ReactDOM.render(&lt;Input/&gt;, document.body);
-</code></pre><p>文本输入框的值，不能用 <code>this.props.value</code> 读取，而要定义一个 <code>onChange</code> 事件的回调函数，通过 <code>event.target.value</code> 读取用户输入的值。textarea 元素、select元素、radio元素都属于这种情况。</p>
-<h2 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h2><p><a href="https://reactjs.org/docs/refs-and-the-dom.html#component-lifecycle" target="_blank" rel="external">组件的生命周期</a>分成三个状态：</p>
-<pre><code>Mounting：已插入真实 DOM
-Updating：正在被重新渲染
-Unmounting：已移出真实 DOM
-</code></pre><p>React 为每个状态都提供了两种处理函数，<code>will</code> 函数在进入状态之前调用，<code>did</code> 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
-<pre><code>componentWillMount()
-componentDidMount()
-componentWillUpdate(object nextProps, object nextState)
-componentDidUpdate(object prevProps, object prevState)
-componentWillUnmount()     
-</code></pre><p>此外，React 还提供两种特殊状态的处理函数。</p>
-<pre><code>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用
-shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用
-</code></pre><p>栗子:</p>
-<pre><code>var Hello = React.createClass({
-  getInitialState: function () {
-    return {
-      opacity: 1.0
-    };
-  },
-
-  componentDidMount: function () {
-    this.timer = setInterval(function () {
-      var opacity = this.state.opacity;
-      opacity -= .05;
-      if (opacity &lt; 0.1) {
-        opacity = 1.0;
-      }
-      this.setState({
-        opacity: opacity
-      });
-    }.bind(this), 100);
-  },
-
-  render: function () {
-    return (
-      &lt;div style={{opacity: this.state.opacity}}&gt;
-        Hello {this.props.name}
-      &lt;/div&gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &lt;Hello name=&quot;world&quot;/&gt;,
-  document.body
-);
-</code></pre><p>上述代码在Hello组件加载以后，通过 <code>componentDidMoun</code>t 方法设置一个定时器，每隔100毫秒，就重新设置组件的透明度，从而引发重新渲染。执行结果如下所示：</p>
-<p><img src="/images/react-demo学习/7.png" alt="7"></p>
-<p><strong>注意：</strong>组件的style属性的设置方式也值得注意，不能写成 </p>
-<pre><code>style=&quot;opacity:{this.state.opacity};&quot;
-</code></pre><p>要写成</p>
-<pre><code>style={{opacity: this.state.opacity}}
-</code></pre><p>这是因为 React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。</p>
-<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p>组件的数据来源，通常是通过 Ajax 请求从服务器获取，可以使用 <strong>componentDidMount 方法设置 Ajax 请求</strong>，等到请求成功，再用 this.setState 方法重新渲染 UI。</p>
-<pre><code>var UserGist = React.createClass({
-  getInitialState: function() {
-    return {
-      username: &apos;&apos;,
-      lastGistUrl: &apos;&apos;
-    };
-  },
-
-  componentDidMount: function() {
-    $.get(this.props.source, function(result) {
-      var lastGist = result[0];
-      if (this.isMounted()) {
-        this.setState({
-          username: lastGist.owner.login,
-          lastGistUrl: lastGist.html_url
-        });
-      }
-    }.bind(this));
-  },
-
-  render: function() {
-    return (
-      &lt;div&gt;
-        {this.state.username}&apos;s last gist is
-        &lt;a href={this.state.lastGistUrl}&gt;here&lt;/a&gt;.
-      &lt;/div&gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &lt;UserGist source=&quot;https://api.github.com/users/octocat/gists&quot; /&gt;,
-  document.body
-);
-</code></pre><p>上面代码使用 jQuery 完成 Ajax 请求，这是为了便于说明。<strong>React 本身没有任何依赖</strong>，完全可以不用jQuery，而使用其他库。</p>
-<p>我们甚至可以把一个<code>promise</code>对象传入组件。</p>
-<pre><code>ReactDOM.render(
-  &lt;RepoList
-    promise={$.getJSON(&apos;https://api.github.com/search/repositories?q=javascript&amp;sort=stars&apos;)}
-  /&gt;,
-  document.body
-);
-</code></pre><p>上面代码从Github的API抓取数据，然后将promise对象作为属性，传给RepoList组件。</p>
-<p>如果promise对象正在抓取数据（pending状态），组件显示”正在加载”；如果promise对象报错（rejected状态），组件显示报错信息；如果promise对象抓取数据成功（fulfilled状态），组件显示获取的数据。</p>
-<pre><code>var RepoList = React.createClass({
-  getInitialState: function() {
-    return { loading: true, error: null, data: null};
-  },
-
-  componentDidMount() {
-    this.props.promise.then(
-      value =&gt; this.setState({loading: false, data: value}),
-      error =&gt; this.setState({loading: false, error: error}));
-  },
-
-  render: function() {
-    if (this.state.loading) {
-      return &lt;span&gt;Loading...&lt;/span&gt;;
-    }
-    else if (this.state.error !== null) {
-      return &lt;span&gt;Error: {this.state.error.message}&lt;/span&gt;;
-    }
-    else {
-      var repos = this.state.data.items;
-      var repoList = repos.map(function (repo) {
-        return (
-          &lt;li&gt;
-            &lt;a href={repo.html_url}&gt;{repo.name}&lt;/a&gt; ({repo.stargazers_count} stars) &lt;br/&gt; {repo.description}
-          &lt;/li&gt;
-        );
-      });
-      return (
-        &lt;main&gt;
-          &lt;h1&gt;Most Popular JavaScript Projects in Github&lt;/h1&gt;
-          &lt;ol&gt;{repoList}&lt;/ol&gt;
-        &lt;/main&gt;
-      );
-    }
-  }
-});
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;来自阮一峰的博客&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/03/react.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;React 入门实例教程&lt;/a&gt;学习。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="React" scheme="http://yoursite.com/categories/React/"/>
-    
-    
-      <category term="react" scheme="http://yoursite.com/tags/react/"/>
     
   </entry>
   
