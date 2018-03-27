@@ -579,11 +579,11 @@ wx.openCard    打开卡券
   </entry>
   
   <entry>
-    <title>2018春季腾讯研发岗在线模拟笔试</title>
+    <title>2018春招研发岗在线模拟笔试编程题总结</title>
     <link href="http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/"/>
     <id>http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/</id>
     <published>2018-03-24T06:52:04.000Z</published>
-    <updated>2018-03-25T08:06:36.273Z</updated>
+    <updated>2018-03-27T01:04:04.751Z</updated>
     
     <content type="html"><![CDATA[<p>2018春季腾讯研发岗在线模拟笔试算法题目总结。<br><a id="more"></a></p>
 <h3 id="给出四个点的坐标判断是否为正方形"><a href="#给出四个点的坐标判断是否为正方形" class="headerlink" title="给出四个点的坐标判断是否为正方形"></a>给出四个点的坐标判断是否为正方形</h3><p>思路：暴力方法，求出任意两点之间的距离，如果有四条相等，剩下两条距离相等，则构成正方形。</p>
