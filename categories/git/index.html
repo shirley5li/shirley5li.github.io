@@ -99,7 +99,7 @@
 <meta name="description" content="Yesterday I saw a lion kiss a deer">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shirley">
-<meta property="og:url" content="http://yoursite.com/tags/css/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/git/index.html">
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="Yesterday I saw a lion kiss a deer">
 <meta property="og:locale" content="zh-Hans">
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/css/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/git/"/>
 
 
 
 
 
-  <title>标签: css | Shirley</title>
+  <title>分类: git | Shirley</title>
   
 
 
@@ -326,11 +326,11 @@
   
   
   
-  <div class="post-block tag">
+  <div class="post-block category">
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>css<small>标签</small>
+        <h1>git<small>分类</small>
         </h1>
       </div>
 
@@ -342,9 +342,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/10/18/默认margin值元素/" itemprop="url">
+            <a class="post-title-link" href="/2018/05/16/git-reset/" itemprop="url">
               
-                <span itemprop="name">有默认margin，padding值的html标签</span>
+                <span itemprop="name">Git操作流程总结</span>
               
             </a>
         
@@ -352,9 +352,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-18T13:00:44+08:00"
-              content="2017-10-18" >
-          10-18
+              datetime="2018-05-16T10:16:48+08:00"
+              content="2018-05-16" >
+          05-16
         </time>
       </div>
 
@@ -371,6 +371,7 @@
   
 
   
+
 
 
           </div>
@@ -988,69 +989,6 @@
           }
 
           if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/love.js"></script>
-</body>
-</html>
-to') {
             input.addEventListener('input', inputEventFunction);
           } else {
             $('.search-icon').click(inputEventFunction);

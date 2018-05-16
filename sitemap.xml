@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/16/git-reset/</loc>
+    
+    <lastmod>2018-05-16T09:18:47.524Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/14/webpack-concepts-study/</loc>
     
     <lastmod>2018-05-14T14:14:04.113Z</lastmod>
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/09/29/demo-qixi/</loc>
+    <loc>http://yoursite.com/2017/10/17/clearfix/</loc>
     
     <lastmod>2018-01-09T02:47:02.937Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/17/clearfix/</loc>
+    <loc>http://yoursite.com/2017/09/29/demo-qixi/</loc>
     
     <lastmod>2018-01-09T02:47:02.937Z</lastmod>
     
@@ -247,13 +254,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/16/NTFS-file-system/</loc>
-    
-    <lastmod>2018-01-09T02:47:02.935Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/10/18/PS%E5%88%87%E5%9B%BE%E7%AC%94%E8%AE%B0-ing/</loc>
     
     <lastmod>2018-01-09T02:47:02.935Z</lastmod>
@@ -261,9 +261,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/15/JSONP%E7%AE%80%E8%A6%81%E4%BA%86%E8%A7%A3/</loc>
+    <loc>http://yoursite.com/2017/10/16/NTFS-file-system/</loc>
     
-    <lastmod>2018-01-09T02:47:02.934Z</lastmod>
+    <lastmod>2018-01-09T02:47:02.935Z</lastmod>
     
   </url>
   
@@ -275,14 +275,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/01/03/CSS%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/</loc>
+    <loc>http://yoursite.com/2017/11/15/JSONP%E7%AE%80%E8%A6%81%E4%BA%86%E8%A7%A3/</loc>
+    
+    <lastmod>2018-01-09T02:47:02.934Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/02/CSS-layout/</loc>
     
     <lastmod>2018-01-09T02:47:02.933Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/01/02/CSS-layout/</loc>
+    <loc>http://yoursite.com/2018/01/03/CSS%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/</loc>
     
     <lastmod>2018-01-09T02:47:02.933Z</lastmod>
     
