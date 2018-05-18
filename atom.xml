@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-17T08:49:19.606Z</updated>
+  <updated>2018-05-18T11:34:53.483Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>phpstudy与DVWA安装与配置，WAMP等相关概念学习</title>
+    <link href="http://yoursite.com/2018/05/17/phpstudy%E4%B8%8EDVWA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/</id>
+    <published>2018-05-17T12:58:23.000Z</published>
+    <updated>2018-05-18T11:34:53.483Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://ciphersaw.me/" target="_blank" rel="noopener">帆哥</a>教我玩WEB安全系列之最最开始环境配置篇。<br><a id="more"></a></p>
+<h1 id="VMware虚拟机安装"><a href="#VMware虚拟机安装" class="headerlink" title="VMware虚拟机安装"></a>VMware虚拟机安装</h1><p>现在最新版本的是 VMware workstation 14，怕激活密钥不好找，就安装了VMware workstation 12 pro(激活密钥：5A02H-AU243-TZJ49-GTC7K-3C61N)。</p>
+<p>选择一个安装目录即可双击安装程序，傻瓜式安装VMware。然后装了win7 x64系统。</p>
+<h2 id="更改虚拟机的网络配置"><a href="#更改虚拟机的网络配置" class="headerlink" title="更改虚拟机的网络配置"></a>更改虚拟机的网络配置</h2><p><code>我的计算机</code>-&gt; <code>Windows 7 x64</code> -&gt; 右键单击 -&gt; <code>设置</code> -&gt; <code>网络适配器</code> -&gt; <code>网络连接</code>，选择桥接模式。</p>
+<p>桥接模式直接连接物理网络，相当于在主机系统和虚拟机系统之间连接了一个网桥，而网桥两端的网络都属于同一网络，主机和虚拟机是处于同一网络中的对等主机。</p>
+<p>桥接模式通常用于利用VMWare在局域网内新建一个虚拟服务器，为局域网用户提供网络服务。</p>
+<p>【博客<a href="https://blog.csdn.net/clevercode/article/details/45934233" target="_blank" rel="noopener">VMware下网络配置三种模式对比（桥接模式，主机模式，网络地址转换）</a>】</p>
+<p>【待解决的问题:】讲道理采用桥接模式之后，虚拟机和宿主主机是处于同一局域网中的对等主机，是可以互相ping通的，不知是不是路由器防火墙的缘故，虚拟机(192.168.1.101)和宿主主机(192.168.1.124)之间ping不通，但可以通过宿主主机的浏览器访问虚拟主机(此时的虚拟主机相当于一个虚拟服务器)。<br>宿主主机ping虚拟服务器：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/RpingV.png" alt="宿主主机ping虚拟服务器"><br>虚拟服务器ping宿主主机：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VpingR.png" alt="虚拟服务器ping宿主主机"><br>浏览器访问虚拟服务器：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="浏览器访问虚拟服务器"></p>
+<h1 id="phpStudy安装配置"><a href="#phpStudy安装配置" class="headerlink" title="phpStudy安装配置"></a>phpStudy安装配置</h1><p>phpStudy是一个PHP调试环境的程序集成包，该程序包集成最新的Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer,一次性安装，无须配置即可使用。可以用来模拟服务器环境，用于测试。</p>
+<p>将phpStudy(2018版本)压缩包拖到虚拟机桌面，解压，安装即可。<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy.png" alt="phpStudy"></p>
+<h2 id="更改网站目录"><a href="#更改网站目录" class="headerlink" title="更改网站目录"></a>更改网站目录</h2><p>默认运行一个.php程序必须要将该程序放在WWW文件夹下面。phpStudy下的web服务相关目录如下所示：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%9B%AE%E5%BD%95.png" alt="phpStudy下的web服务相关目录"></p>
+<p>web服务默认的运行目录是可以修改的: <code>其他选项菜单</code> -&gt; <code>phpStudy设置</code> -&gt; <code>端口常规设置</code><br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE.png" alt="端口常规设置"></p>
+<p>如果更改了网站目录，要将之前WWW目录下的文件都拷过去。</p>
+<h2 id="更改默认首页"><a href="#更改默认首页" class="headerlink" title="更改默认首页"></a>更改默认首页</h2><p>还是在<code>端口常规设置</code>，<code>默认首页</code>选项中更改( localhost 访问的的时候出现的页面即为首页)。</p>
+<h2 id="更改端口号"><a href="#更改端口号" class="headerlink" title="更改端口号"></a>更改端口号</h2><p>还是在<code>端口常规设置</code>，默认端口是 80 端口，如果更改为其他端口号，localhost访问时需要带上端口号(localhost:端口号/xx.html)，否则可以省略(localhost/xx.html)。</p>
+<p>其他phpStudy的功能和用法参考博客【<a href="http://www.php.cn/phpstudy-377909.html" target="_blank" rel="noopener">phpstudy使用说明教程</a>】。</p>
+<h1 id="DVWA"><a href="#DVWA" class="headerlink" title="DVWA"></a>DVWA</h1><p>将DVWA(Damn Vulnerable Web Application)的压缩包拖进虚拟机，解压后丢到网站目录下：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA.png" alt="DVWA安装"></p>
+<p><a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA</a>是一款基于php和mysql编写的用于常规WEB漏洞教学和检测的web脆弱性测试web应用。其中包含了SQL注入，盲注，文件包含，XSS，CSRF等一些常见的WEB漏洞，对进行Web渗透有较强的指导教学意义。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>(1) 首先进入设置页面，<strong>注意：</strong> 在phpStudy虚拟web服务器环境下安装DVWA时出现的问题如以下界面中红色字体提示部分：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA%E8%AE%BE%E7%BD%AE%E6%97%B6%E7%9A%84%E9%94%99%E8%AF%AF.png" alt="安装DVWA时出现的问题"><br>解决方法参考博客 <a href="http://www.cnblogs.com/liuyunbuji/p/8385834.html" target="_blank" rel="noopener">DVWA安装出现的问题（phpStudy）</a><br>其中在解决<code>PHP function allow_url_include：Disabled</code>问题，修改完php.ini配置文件后记得重启phpStudy服务，不然还是显示错误提示。</p>
+<p><strong>注意：</strong> 由于使用了phpStudy，以下(2)中的配置可以忽略(步骤（2）是用于自己配置数据库的相关操作)，phpStudy已经为我们配置好了相关端口和数据库。phpStudy默认的数据库设置如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$_DVWA[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_user'</span> ]     = <span class="string">'root'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_password'</span> ] = <span class="string">'root'</span>;</div></pre></td></tr></table></figure>
+<p>所以直接在setup页面点击<code>Create Database</code>按钮，初始化DVWA即可，就会跳转到login页面，WEB后台的账号是admin，密码password。</p>
+<p>登录DVWA之后，通过<code>DVWA Security</code>设置项设置安全级别。</p>
+<p>(2) 在设置页面，对DVWA需要的数据库进行创建和初始化。此时还没建立相关用户和数据库，那么接下来通过cmd建立数据库和用户：</p>
+<ul>
+<li>连接数据库。<code>mysql -u root -p</code>是连接数据库服务器的命令，<code>-u</code>表示用户名(root),<code>-p</code>表示密码，即在连接数据库之前要求输入用户名和密码|（MySQL用户名和密码默认都是root）。</li>
+</ul>
+<p><code>win+r</code>-&gt;打开cmd命令行，输入用户名和密码，哦豁，又出错了：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%87%BA%E9%94%99.png" alt="连接数据库出错"></p>
+<p>解决办法参考博客 <a href="https://blog.csdn.net/u013310517/article/details/52098479" target="_blank" rel="noopener">命令行中输入：mysql -u root -p 提示没有这个命令</a>，即将mysql的安装路径添加到系统环境变量中。</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93.png" alt="连接数据库"></p>
+<ul>
+<li>此时进入mysql创建数据库 dvwa，然后创建新用户dvwa，并设置密码123456。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> create database dvwa;</div><div class="line"><span class="meta">mysql&gt;</span> insert into mysql.user(Host,User,Password) values("localhost",'dvwa',password('123456'));</div><div class="line"><span class="meta">mysql&gt;</span> flush privileges;</div></pre></td></tr></table></figure>
+<p>其中<code>flush privileges</code>本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在”不重启MySQL服务”的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效，而不必冒太大风险。</p>
+<ul>
+<li>修改dvwa用户针对数据库dvwa的相关权限，授权dvwa用户拥有数据库dvwa的所有权限。格式：<code>grant 权限 on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;</code>。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> grant all privileges on dvwa.* to dvwa@localhost identified by '123456';</div><div class="line"><span class="meta">mysql&gt;</span> flush privileges;</div></pre></td></tr></table></figure>
+<ul>
+<li>修改dvwa目录下的<code>config/config.inc.php</code>以下内容：</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$_DVWA[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_user'</span> ]     = <span class="string">'dvwa'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_password'</span> ] = <span class="string">'123456'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>然后在setup页面点击<code>Create Database</code>按钮，初始化DVWA。</li>
+</ul>
+<p><strong>以下是几个概念的补充学习。</strong></p>
+<h1 id="WAMP"><a href="#WAMP" class="headerlink" title="WAMP"></a>WAMP</h1><p>Windows下的Apache+Mysql/MariaDB+Perl/PHP/Python，一组常用来搭建动态网站或者服务器的开源软件。<br>本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。</p>
+<p>LAMP是基于Linux，Apache，MySQL/MariaDB，Perl/PHP/Python的开放资源网络开发平台。Linux是开放系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；PHP是流行的对象脚本语言。</p>
+<p>一般说来，大家都习惯 于将Apache、MySQL、PHP架设在Linux系统下，开发者在Windows操作系统下使用这些Linux环境里的工具称为使用WAMP。</p>
+<p>目前有不少AMP（Apache\MySQL\PHP）的集成软件，可以让我们一次安装并设置好，WAMP集成环境主要有：</p>
+<ul>
+<li><p>XAMPP（Apache+MySQL+PHP+PERL）<br>XAMPP是一款具有中文说明的功能全面的集成环境，XAMPP并不仅仅针对Windows，而是一个适用于Linux、Windows、Mac OS X 和Solaris 的易于安装的Apache 发行版。软件包中包含Apache 服务器、MySQL、SQLite、PHP、Perl、FileZilla FTP Server、Tomcat等等。默认安装开放了所有功能，安全性有问题，需要进行额外的安全设定。</p>
+</li>
+<li><p>WampServer<br>WampServe是集成了Apache、MySQL、PHP、phpmyadmin的web服务器，支持Apache的mod_rewrite，PHP扩展、Apache模块只需要在菜单“开启/关闭”上点点就搞定，省去了修改配置文件的麻烦，是windows下的 Apache Mysql PHP集成安装环境。</p>
+</li>
+<li><p>AppServ<br>集成了Apache、PHP、MySQL、phpMyAdmin，较为轻量，版本很久未更新了。</p>
+</li>
+<li><p>phpStudy<br>该程序包集成最新的Apache+Nginx+IIS+MySQL+phpMyAdmin，一次性安装，无须配置即可使用，是非常方便、好用的PHP调试环境。</p>
+</li>
+</ul>
+<h1 id="web容器"><a href="#web容器" class="headerlink" title="web容器"></a>web容器</h1><p>Java Servlet 可以理解为服务器端处理数据的java小程序，web容器则负责管理servlet等。</p>
+<p>servlet没有main方法，那我们如何启动一个servlet，如何结束一个servlet，如何寻找一个servlet等等，都受控于另一个java应用，这个应用我们就称之为web容器。</p>
+<p>一个典型的JavaEE系统可以由两部分构成首先是Web Server 用于处理静态资源，然后是JavaEE Application Server 用于处理业务的动态资源。而这两部分可以是单独的服务器例如Nginx+WebSphere也可以在一个服务器上完成比如Tomcat(Tomcat即可以处理静态资源又可以处理动态的Servlet)。</p>
+<p>参考博客:</p>
+<p><a href="https://www.jianshu.com/p/99f34a91aefe" target="_blank" rel="noopener">web开发中 web 容器的作用（如tomcat）</a></p>
+<p><a href="https://www.cnblogs.com/vipyoumay/p/5853694.html" target="_blank" rel="noopener">JavaEE中Web服务器、Web容器、Application服务器区别及联系</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://ciphersaw.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;帆哥&lt;/a&gt;教我玩WEB安全系列之最最开始环境配置篇。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+    
+    
+      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+    
+      <category term="phpStudy" scheme="http://yoursite.com/tags/phpStudy/"/>
+    
+      <category term="DVWA" scheme="http://yoursite.com/tags/DVWA/"/>
+    
+      <category term="WAMP" scheme="http://yoursite.com/tags/WAMP/"/>
+    
+      <category term="web容器" scheme="http://yoursite.com/tags/web%E5%AE%B9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>（二）Web安全深度剖析学习【XSS与SQL注入】</title>
+    <link href="http://yoursite.com/2018/05/17/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-XSS%E4%B8%8ESQL%E6%B3%A8%E5%85%A5/"/>
+    <id>http://yoursite.com/2018/05/17/Web安全深度剖析学习-XSS与SQL注入/</id>
+    <published>2018-05-17T08:56:51.000Z</published>
+    <updated>2018-05-18T11:37:11.627Z</updated>
+    
+    <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。<br><a id="more"></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+    
+    
+      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+    
+      <category term="XSS" scheme="http://yoursite.com/tags/XSS/"/>
+    
+      <category term="CSRF" scheme="http://yoursite.com/tags/CSRF/"/>
+    
+      <category term="SQL注入" scheme="http://yoursite.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>（一）Web安全深度剖析学习【基础+HTTP】</title>
@@ -3384,177 +3510,6 @@ $(&quot;#yellow&quot;).on(&apos;click&apos;,function(e) {
     
     
       <category term="interview questions" scheme="http://yoursite.com/tags/interview-questions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在两台电脑上更新维护github pages + hexo博客</title>
-    <link href="http://yoursite.com/2018/01/07/maintain%20github%20blog%20on%20two%20computer/"/>
-    <id>http://yoursite.com/2018/01/07/maintain github blog on two computer/</id>
-    <published>2018-01-07T13:10:12.000Z</published>
-    <updated>2018-01-09T02:47:03.126Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前在台式机上通过GitHub pages 和Hexo搭建了静态博客，一直用台式机写文章更新博客，这几天想着是不是也可以用笔记本写文章维护下博客，毕竟笔记本带着方便啊。于是就看了一些博客，尝试着在笔记本上实现跟台式机一样的发博客过程，也遇到了一些问题，特将过程总结下来。这篇文章即在笔记本上完成的。</p>
-<a id="more"></a>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>主要思路利用git分支实现。利用Hexo框架生成的静态博客文件默认放在博客repo的master分支，即台式机上初次搭建好的本地博客环境Hexo文件夹下的public文件夹的内容对应github上博客repo的master分支内容。现在我们需要在博客repo新建一个hexo分支，用来放Hexo源文件，即放台式机上Hexo文件夹下的全部文件，而不只是public文件夹（public用来存放静态网站文件）。</p>
-<p>现在我们的博客repo即xxxx.github.io这个仓库有了两个分支，一个master分支用来放Hexo生成的静态网站，一个hexo分支放Hexo的源文件。相当于用hexo分支备份了之前台式机上本地的Hexo环境，在笔记本上将hexo分支clone下来，然后写文章、更新博客到hexo分支（<code>git push</code>到hexo分支，使得备份源文件最新），保证hexo分支的内容最新，然后执行<code>hexo g -d</code>命令，生成的静态文件会被默认push到master分支，更新博客站点内容。</p>
-<p>下面来叙述一下具体的操作步骤。</p>
-<h2 id="原来台式机上的操作"><a href="#原来台式机上的操作" class="headerlink" title="原来台式机上的操作"></a>原来台式机上的操作</h2><ul>
-<li>在Github的xxx.github.io仓库上新建一个hexo分支，并切换到该分支，并在该仓库-&gt;Settings-&gt;Branches-&gt;Default branch中将默认分支设为hexo（之前的默认分支是master），save保存。</li>
-</ul>
-<ul>
-<li>然后将该仓库克隆到本地，进入该xxx.github.io文件目录。在当前目录使用Git Bash，执行<code>git branch</code>命令查看当前文件夹下内容所在的分支，查询结果应为新建的分支hexo。</li>
-</ul>
-<ul>
-<li>接下来，将本地博客的部署文件（<strong>Hexo目录下的全部文件</strong>，即Hexo源文件）全部拷贝进xxx.github.io文件目录中去。最后将xxx.github.io目录下的全部文件push到hexo分支，即完成了Hexo源文件的备份过程。</li>
-</ul>
-<p><strong>注意：</strong>将themes目录以内中的主题的.git目录删除（如果有），因为一个git仓库中不能包含另一个git仓库，提交主题文件夹会失败。可能有人会问，删除了themes目录中的.git不就不能<code>git pull</code>更新主题了吗，很简单，需要更新主题时在另一个地方<code>git clone</code>下来该主题的最新版本，然后将内容拷到当前主题目录即可。</p>
-<p>上面的注意点中的情形我没有遇到，直接把本地Hexo文件夹下的全部内容复制到新clone下来的xxx.github.io文件夹下，然后通过git命令push到博客repo的hexo分支。</p>
-<p><strong>push到hexo分支的git命令介绍:</strong><code>git status</code>可以查看当前目录下哪些文件被改动过了，被改动过但还未被git管理的显示红色，被改动过但已经add添加到暂存区的显示绿色；<code>git add .</code>可以将当前目录下的全部改动文件添加到暂存区，以待被提交；<code>git commit -m &quot;back up hexo files&quot;</code>将暂存区的内容提交至HEAD，以待被push到远端；<code>git push</code>将HEAD内容push到远端github博客仓库的hexo分支。至此完成了台式机本地Hexo源文件备份到xxx.github.io仓库的hexo分支。</p>
-<h2 id="新的笔记本上的操作"><a href="#新的笔记本上的操作" class="headerlink" title="新的笔记本上的操作"></a>新的笔记本上的操作</h2><p>由于上面过程已经完成了原来电脑上本地Hexo源文件的备份，所以博客现在可以在其他电脑上维护和更新了。</p>
-<p>由于笔记本上没有安装node.js、git等，所以需要像初次搭建博客那样，先安装配置好环境。参考之前的文章<a href="http://shirley5li.me/2017/08/06/hello-world/" target="_blank" rel="noopener">基于hexo和github搭建个人博客概述</a>，先下载安装node.js，下载安装git。（如果电脑有这两个工具可以忽略这一步）</p>
-<ul>
-<li><p>将新电脑即笔记本生成的ssh key添加到GitHub账户上（因为通过SSH url方式，使用git客户端第一次git clone github.com代码需要验证ssh key），具体的添加SSH key方法参考<a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="noopener">github设置添加SSH</a>。</p>
-</li>
-<li><p>在笔记本上克隆xxx.github.io仓库的hexo分支到本地，此时本地git仓库处于hexo分支，使用<code>git branch</code>命令查看。</p>
-</li>
-</ul>
-<ul>
-<li>切换到xxx.github.io目录，执行npm install(由于仓库有一个.gitignore文件，里面默认是忽略掉 node_modules文件夹的，也就是说仓库的hexo分支并没有存储该目录，所以需要install下)。</li>
-</ul>
-<p>另外可以看到仓库hexo分支themes/next主题文件夹是空的，所以clone到本地的next主题文件夹也是空的（原因还没搞清楚，为什么备份的时候单单next主题文件夹push不上去），所以只好将台式机上的next主题文件夹拷贝一份到笔记本上，替换clone下来的空next主题文件夹。这个地方算是遇到的一个坑，因为本地测试的时候提示无法渲染index.html，搜索了原因有人回答是不是主题文件没有，这才发现next文件夹是空的。</p>
-<p>还有就是，由于还需要Hexo框架帮我们生成静态网站并push到master分支，而此时你有没有发现我们还忘记装Hexo了，没装Hexo我们怎么能用<code>hexo g -d</code>这样的命令呢。所以最后一步，把Hexo装上。Hexo的下载安装同样参考之前的博客<a href="http://shirley5li.me/2017/08/06/hello-world/" target="_blank" rel="noopener">基于hexo和github搭建个人博客概述</a>。之前我以为备份好Hexo源文件，再clone下来就自带Hexo环境，可以执行<code>hexo g</code>这样命令，我参考的那篇博文也没重装Hexo这一步，但当我试着写了文章执行本地<code>hexo s</code>测试时，提示找不到<code>hexo</code>这样的命令，然后我照初次搭建博客那样<code>$ npm install hexo --save</code>，又装了一下Hexo，就可以执行<code>hexo s</code>命令了，并测试了一下正确。</p>
-<p>至此就可以在笔记本上写博客了。</p>
-<p>在xxx.github.io目录下，执行<code>hexo new post &quot;the first post on laptop&quot;</code>，可以新建一篇文章，然后编辑撰写，或者改动以前的文章。</p>
-<ul>
-<li><p>然后用执行<code>git status</code>可以查看当前目录下哪些文件被改动过了，即新写的文章、添加的文件、修改的文件等；执行<code>git add .</code>将当前目录下的全部改动文件添加到暂存区，以待被提交；执行<code>git commit -m &quot;back up hexo files&quot;</code>将暂存区的内容提交至HEAD，以待被push到远端；执行<code>git push</code>将HEAD内容push到远端github博客仓库的hexo分支。至此完成了笔记本本地Hexo源文件备份到xxx.github.io仓库的hexo分支的过程，即不管是在台式机操作还是在笔记本操作，都要保证hexo分支的内容是最新的。</p>
-</li>
-<li><p>最后执行<code>hexo g -d</code>命令，即将本地编辑好的.md形式的文件生成静态博客文件并push到博客repo的master分支，这一步完成了博客站点的更新。</p>
-</li>
-</ul>
-<h2 id="再回到台式机上更新博客时的操作"><a href="#再回到台式机上更新博客时的操作" class="headerlink" title="再回到台式机上更新博客时的操作"></a>再回到台式机上更新博客时的操作</h2><p><strong>注意： 每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，最好先执行<code>git pull hexo</code>命令</strong>，即将远端最新的hexo分支拉到本地，使本地与远端达到同步。</p>
-<p>另外看到一篇讲解<a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">Hexo的版本控制与持续集成</a>的文章，将本地push到hexo分支和利用hexo部署博客静态文件到master分支的两个步骤合二为一，使用GitHub进行版本控制，又能做到一键发布。即用到了持续集成，也就是用CI来完成一键发布：当有新的change push到Source Repo时，自动执行CI脚本，生成最新的静态网站发布到Content Repo。自己还没有实际操作过，等操作过后再作总结。</p>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用Hexo在多台电脑上提交和更新github pages博客</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;之前在台式机上通过GitHub pages 和Hexo搭建了静态博客，一直用台式机写文章更新博客，这几天想着是不是也可以用笔记本写文章维护下博客，毕竟笔记本带着方便啊。于是就看了一些博客，尝试着在笔记本上实现跟台式机一样的发博客过程，也遇到了一些问题，特将过程总结下来。这篇文章即在笔记本上完成的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="github pages" scheme="http://yoursite.com/categories/github-pages/"/>
-    
-    
-      <category term="github pages" scheme="http://yoursite.com/tags/github-pages/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS动画简介</title>
-    <link href="http://yoursite.com/2018/01/03/CSS%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/"/>
-    <id>http://yoursite.com/2018/01/03/CSS动画简介/</id>
-    <published>2018-01-03T01:53:24.000Z</published>
-    <updated>2018-01-09T02:47:02.933Z</updated>
-    
-    <content type="html"><![CDATA[<p>来自于NEXT十天训练营CSS篇关于动画的笔记。<br><a id="more"></a></p>
-<h2 id="CSS动画分类"><a href="#CSS动画分类" class="headerlink" title="CSS动画分类"></a>CSS动画分类</h2><p>CSS动画主要有两类，即<strong>补间动画和帧动画</strong>。</p>
-<p>补间动画只需定义一个开始状态和结束状态，其余中间状态由浏览器自动填充，使用transition属性实现。</p>
-<p>帧动画不只要定义开始和结束状态，还需要定义中间过程的帧，使用animation属性实现。</p>
-<p><img src="/images/CSS动画简介/1.png" alt="1"> <img src="/images/CSS动画简介/2.png" alt="2"></p>
-<h2 id="transition动画"><a href="#transition动画" class="headerlink" title="transition动画"></a>transition动画</h2><p>transition动画只需定义动画的开始和结束状态，其余过渡状态由浏览器自动补全。示例代码如下：</p>
-<p>HTML结构：</p>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
-    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>CSS样式：</p>
-<pre><code>.box {
-    width: 600px;
-    height: 200px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    margin: 200px auto;
-}
-.circle {
-    width: 50px;
-    height: 50px;
-    /*定义开始状态小球的颜色和位置*/
-    background-color: blue;
-    border-radius: 50%;
-    margin: 75px 0;
-    /*注意transition有多个属性，此处为简写新形式，包括了两个属性*/
-    /*即transition-property: all; transition-duration: 2s;*/
-
-    /*transition-property设置过渡效果的CSS属性的名称*/
-    /*transtion-property的值为all，表示background-color和transform都是过渡渐变属性，*/
-
-    /*若此处transtion-property值为background-color，而transform不变，则只过渡渐变颜色，位置瞬移*/
-    transition: all 2s;
-}
-/*定义结束状态小球的位置和颜色*/
-.box:hover .circle {
-    background-color: red;
-    transform: translate(550px, 0);
-}
-</code></pre><p>实例效果见<a href="https://codepen.io/shirley5li/full/wpeLmw/" target="_blank" rel="noopener">codepen</a>。transition共有如下四个属性。</p>
-<p><img src="/images/CSS动画简介/3.png" alt="3"></p>
-<p>另外transition-property不支持动画的一些属性如下：</p>
-<p><img src="/images/CSS动画简介/4.png" alt="4"></p>
-<p>不支持将a图片过渡渐变为b图片；不支持float属性（即float属性从无到有）；不支持将width/height属性从无渐变为某个值，但支持从一个长度渐变为另一个长度；不支持display属性从无到有；不支持visibility属性；不支持poisition属性。</p>
-<h2 id="animation动画"><a href="#animation动画" class="headerlink" title="animation动画"></a>animation动画</h2><p>animation动画通过关键帧来定义动画的变化状态。示例代码如下：</p>
-<p>HTML结构：</p>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
-    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>CSS样式：</p>
-<pre><code>.circle {
-    width: 50px;
-    height: 50px;
-    background-color: blue;
-    border-radius: 50%;
-    margin: 75px 0;
-    /*animation: circleRun 2s ease infinite;*/
-    /*animation也是一个简写属性，即上一句包括如下属性*/
-    animation-name: circleRun;
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-    /*此外animation还有如下几个属性*/
-    animation-delay: 2s;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-}
-/*定义中间状态小球的关键帧*/
-@keyframes circleRun {
-    from {
-        transform: translate(0, 75px);
-    }
-    33% {
-        transform: translate(150px, 75px);
-    }
-    66% {
-        transform: translate(400px, -75px);
-    }
-    to {
-        transform: translate(550px, 0);
-        background-color: red;
-    }
-}
-</code></pre><p>实例效果见<a href="https://codepen.io/shirley5li/full/baRXbE/" target="_blank" rel="noopener">codepen</a>。</p>
-<p>使用animation实现页面正在loading的效果见<a href="https://codepen.io/shirley5li/full/dJRxzB/" target="_blank" rel="noopener">codepen demo-animationLoading</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;来自于NEXT十天训练营CSS篇关于动画的笔记。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
-    
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   

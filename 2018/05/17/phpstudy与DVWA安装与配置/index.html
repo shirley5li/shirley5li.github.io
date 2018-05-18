@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web security,phpStudy,DVWA,WAMP,web容器," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shirley" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="帆哥教我玩WEB安全系列之最最开始环境配置篇。">
+<meta name="keywords" content="web security,phpStudy,DVWA,WAMP,web容器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phpstudy与DVWA安装与配置，WAMP等相关概念学习">
+<meta property="og:url" content="http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/index.html">
+<meta property="og:site_name" content="Shirley">
+<meta property="og:description" content="帆哥教我玩WEB安全系列之最最开始环境配置篇。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/RpingV.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VpingR.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA%E8%AE%BE%E7%BD%AE%E6%97%B6%E7%9A%84%E9%94%99%E8%AF%AF.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%87%BA%E9%94%99.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93.png">
+<meta property="og:updated_time" content="2018-05-18T11:34:53.483Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="phpstudy与DVWA安装与配置，WAMP等相关概念学习">
+<meta name="twitter:description" content="帆哥教我玩WEB安全系列之最最开始环境配置篇。">
+<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/RpingV.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/"/>
+
+
+
+
+
+  <title>phpstudy与DVWA安装与配置，WAMP等相关概念学习 | Shirley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104091693-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?06185a244e6f872c8aeab11a4e7b5db4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/shirley5li"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shirley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一只自学成菜的仙女!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShirleyLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shirley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">phpstudy与DVWA安装与配置，WAMP等相关概念学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T20:58:23+08:00">
+                2018-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web-security/" itemprop="url" rel="index">
+                    <span itemprop="name">web security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> Pageviews
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://ciphersaw.me/" target="_blank" rel="noopener">帆哥</a>教我玩WEB安全系列之最最开始环境配置篇。<br><a id="more"></a></p>
+<h1 id="VMware虚拟机安装"><a href="#VMware虚拟机安装" class="headerlink" title="VMware虚拟机安装"></a>VMware虚拟机安装</h1><p>现在最新版本的是 VMware workstation 14，怕激活密钥不好找，就安装了VMware workstation 12 pro(激活密钥：5A02H-AU243-TZJ49-GTC7K-3C61N)。</p>
+<p>选择一个安装目录即可双击安装程序，傻瓜式安装VMware。然后装了win7 x64系统。</p>
+<h2 id="更改虚拟机的网络配置"><a href="#更改虚拟机的网络配置" class="headerlink" title="更改虚拟机的网络配置"></a>更改虚拟机的网络配置</h2><p><code>我的计算机</code>-&gt; <code>Windows 7 x64</code> -&gt; 右键单击 -&gt; <code>设置</code> -&gt; <code>网络适配器</code> -&gt; <code>网络连接</code>，选择桥接模式。</p>
+<p>桥接模式直接连接物理网络，相当于在主机系统和虚拟机系统之间连接了一个网桥，而网桥两端的网络都属于同一网络，主机和虚拟机是处于同一网络中的对等主机。</p>
+<p>桥接模式通常用于利用VMWare在局域网内新建一个虚拟服务器，为局域网用户提供网络服务。</p>
+<p>【博客<a href="https://blog.csdn.net/clevercode/article/details/45934233" target="_blank" rel="noopener">VMware下网络配置三种模式对比（桥接模式，主机模式，网络地址转换）</a>】</p>
+<p>【待解决的问题:】讲道理采用桥接模式之后，虚拟机和宿主主机是处于同一局域网中的对等主机，是可以互相ping通的，不知是不是路由器防火墙的缘故，虚拟机(192.168.1.101)和宿主主机(192.168.1.124)之间ping不通，但可以通过宿主主机的浏览器访问虚拟主机(此时的虚拟主机相当于一个虚拟服务器)。<br>宿主主机ping虚拟服务器：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/RpingV.png" alt="宿主主机ping虚拟服务器"><br>虚拟服务器ping宿主主机：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VpingR.png" alt="虚拟服务器ping宿主主机"><br>浏览器访问虚拟服务器：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="浏览器访问虚拟服务器"></p>
+<h1 id="phpStudy安装配置"><a href="#phpStudy安装配置" class="headerlink" title="phpStudy安装配置"></a>phpStudy安装配置</h1><p>phpStudy是一个PHP调试环境的程序集成包，该程序包集成最新的Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer,一次性安装，无须配置即可使用。可以用来模拟服务器环境，用于测试。</p>
+<p>将phpStudy(2018版本)压缩包拖到虚拟机桌面，解压，安装即可。<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy.png" alt="phpStudy"></p>
+<h2 id="更改网站目录"><a href="#更改网站目录" class="headerlink" title="更改网站目录"></a>更改网站目录</h2><p>默认运行一个.php程序必须要将该程序放在WWW文件夹下面。phpStudy下的web服务相关目录如下所示：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%9B%AE%E5%BD%95.png" alt="phpStudy下的web服务相关目录"></p>
+<p>web服务默认的运行目录是可以修改的: <code>其他选项菜单</code> -&gt; <code>phpStudy设置</code> -&gt; <code>端口常规设置</code><br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE.png" alt="端口常规设置"></p>
+<p>如果更改了网站目录，要将之前WWW目录下的文件都拷过去。</p>
+<h2 id="更改默认首页"><a href="#更改默认首页" class="headerlink" title="更改默认首页"></a>更改默认首页</h2><p>还是在<code>端口常规设置</code>，<code>默认首页</code>选项中更改( localhost 访问的的时候出现的页面即为首页)。</p>
+<h2 id="更改端口号"><a href="#更改端口号" class="headerlink" title="更改端口号"></a>更改端口号</h2><p>还是在<code>端口常规设置</code>，默认端口是 80 端口，如果更改为其他端口号，localhost访问时需要带上端口号(localhost:端口号/xx.html)，否则可以省略(localhost/xx.html)。</p>
+<p>其他phpStudy的功能和用法参考博客【<a href="http://www.php.cn/phpstudy-377909.html" target="_blank" rel="noopener">phpstudy使用说明教程</a>】。</p>
+<h1 id="DVWA"><a href="#DVWA" class="headerlink" title="DVWA"></a>DVWA</h1><p>将DVWA(Damn Vulnerable Web Application)的压缩包拖进虚拟机，解压后丢到网站目录下：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA.png" alt="DVWA安装"></p>
+<p><a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA</a>是一款基于php和mysql编写的用于常规WEB漏洞教学和检测的web脆弱性测试web应用。其中包含了SQL注入，盲注，文件包含，XSS，CSRF等一些常见的WEB漏洞，对进行Web渗透有较强的指导教学意义。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>(1) 首先进入设置页面，<strong>注意：</strong> 在phpStudy虚拟web服务器环境下安装DVWA时出现的问题如以下界面中红色字体提示部分：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA%E8%AE%BE%E7%BD%AE%E6%97%B6%E7%9A%84%E9%94%99%E8%AF%AF.png" alt="安装DVWA时出现的问题"><br>解决方法参考博客 <a href="http://www.cnblogs.com/liuyunbuji/p/8385834.html" target="_blank" rel="noopener">DVWA安装出现的问题（phpStudy）</a><br>其中在解决<code>PHP function allow_url_include：Disabled</code>问题，修改完php.ini配置文件后记得重启phpStudy服务，不然还是显示错误提示。</p>
+<p><strong>注意：</strong> 由于使用了phpStudy，以下(2)中的配置可以忽略(步骤（2）是用于自己配置数据库的相关操作)，phpStudy已经为我们配置好了相关端口和数据库。phpStudy默认的数据库设置如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$_DVWA[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_user'</span> ]     = <span class="string">'root'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_password'</span> ] = <span class="string">'root'</span>;</div></pre></td></tr></table></figure>
+<p>所以直接在setup页面点击<code>Create Database</code>按钮，初始化DVWA即可，就会跳转到login页面，WEB后台的账号是admin，密码password。</p>
+<p>登录DVWA之后，通过<code>DVWA Security</code>设置项设置安全级别。</p>
+<p>(2) 在设置页面，对DVWA需要的数据库进行创建和初始化。此时还没建立相关用户和数据库，那么接下来通过cmd建立数据库和用户：</p>
+<ul>
+<li>连接数据库。<code>mysql -u root -p</code>是连接数据库服务器的命令，<code>-u</code>表示用户名(root),<code>-p</code>表示密码，即在连接数据库之前要求输入用户名和密码|（MySQL用户名和密码默认都是root）。</li>
+</ul>
+<p><code>win+r</code>-&gt;打开cmd命令行，输入用户名和密码，哦豁，又出错了：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%87%BA%E9%94%99.png" alt="连接数据库出错"></p>
+<p>解决办法参考博客 <a href="https://blog.csdn.net/u013310517/article/details/52098479" target="_blank" rel="noopener">命令行中输入：mysql -u root -p 提示没有这个命令</a>，即将mysql的安装路径添加到系统环境变量中。</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93.png" alt="连接数据库"></p>
+<ul>
+<li>此时进入mysql创建数据库 dvwa，然后创建新用户dvwa，并设置密码123456。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> create database dvwa;</div><div class="line"><span class="meta">mysql&gt;</span> insert into mysql.user(Host,User,Password) values("localhost",'dvwa',password('123456'));</div><div class="line"><span class="meta">mysql&gt;</span> flush privileges;</div></pre></td></tr></table></figure>
+<p>其中<code>flush privileges</code>本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在”不重启MySQL服务”的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效，而不必冒太大风险。</p>
+<ul>
+<li>修改dvwa用户针对数据库dvwa的相关权限，授权dvwa用户拥有数据库dvwa的所有权限。格式：<code>grant 权限 on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;</code>。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> grant all privileges on dvwa.* to dvwa@localhost identified by '123456';</div><div class="line"><span class="meta">mysql&gt;</span> flush privileges;</div></pre></td></tr></table></figure>
+<ul>
+<li>修改dvwa目录下的<code>config/config.inc.php</code>以下内容：</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$_DVWA[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_user'</span> ]     = <span class="string">'dvwa'</span>;</div><div class="line">$_DVWA[ <span class="string">'db_password'</span> ] = <span class="string">'123456'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>然后在setup页面点击<code>Create Database</code>按钮，初始化DVWA。</li>
+</ul>
+<p><strong>以下是几个概念的补充学习。</strong></p>
+<h1 id="WAMP"><a href="#WAMP" class="headerlink" title="WAMP"></a>WAMP</h1><p>Windows下的Apache+Mysql/MariaDB+Perl/PHP/Python，一组常用来搭建动态网站或者服务器的开源软件。<br>本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。</p>
+<p>LAMP是基于Linux，Apache，MySQL/MariaDB，Perl/PHP/Python的开放资源网络开发平台。Linux是开放系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；PHP是流行的对象脚本语言。</p>
+<p>一般说来，大家都习惯 于将Apache、MySQL、PHP架设在Linux系统下，开发者在Windows操作系统下使用这些Linux环境里的工具称为使用WAMP。</p>
+<p>目前有不少AMP（Apache\MySQL\PHP）的集成软件，可以让我们一次安装并设置好，WAMP集成环境主要有：</p>
+<ul>
+<li><p>XAMPP（Apache+MySQL+PHP+PERL）<br>XAMPP是一款具有中文说明的功能全面的集成环境，XAMPP并不仅仅针对Windows，而是一个适用于Linux、Windows、Mac OS X 和Solaris 的易于安装的Apache 发行版。软件包中包含Apache 服务器、MySQL、SQLite、PHP、Perl、FileZilla FTP Server、Tomcat等等。默认安装开放了所有功能，安全性有问题，需要进行额外的安全设定。</p>
+</li>
+<li><p>WampServer<br>WampServe是集成了Apache、MySQL、PHP、phpmyadmin的web服务器，支持Apache的mod_rewrite，PHP扩展、Apache模块只需要在菜单“开启/关闭”上点点就搞定，省去了修改配置文件的麻烦，是windows下的 Apache Mysql PHP集成安装环境。</p>
+</li>
+<li><p>AppServ<br>集成了Apache、PHP、MySQL、phpMyAdmin，较为轻量，版本很久未更新了。</p>
+</li>
+<li><p>phpStudy<br>该程序包集成最新的Apache+Nginx+IIS+MySQL+phpMyAdmin，一次性安装，无须配置即可使用，是非常方便、好用的PHP调试环境。</p>
+</li>
+</ul>
+<h1 id="web容器"><a href="#web容器" class="headerlink" title="web容器"></a>web容器</h1><p>Java Servlet 可以理解为服务器端处理数据的java小程序，web容器则负责管理servlet等。</p>
+<p>servlet没有main方法，那我们如何启动一个servlet，如何结束一个servlet，如何寻找一个servlet等等，都受控于另一个java应用，这个应用我们就称之为web容器。</p>
+<p>一个典型的JavaEE系统可以由两部分构成首先是Web Server 用于处理静态资源，然后是JavaEE Application Server 用于处理业务的动态资源。而这两部分可以是单独的服务器例如Nginx+WebSphere也可以在一个服务器上完成比如Tomcat(Tomcat即可以处理静态资源又可以处理动态的Servlet)。</p>
+<p>参考博客:</p>
+<p><a href="https://www.jianshu.com/p/99f34a91aefe" target="_blank" rel="noopener">web开发中 web 容器的作用（如tomcat）</a></p>
+<p><a href="https://www.cnblogs.com/vipyoumay/p/5853694.html" target="_blank" rel="noopener">JavaEE中Web服务器、Web容器、Application服务器区别及联系</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+    <div>
+       <div>  <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-smile-o"></i>感谢您的阅读-------------</div>  </div>
+
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" style="width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;
+margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    打赏
+  </button>
+  <div id="QR" style="display: none; text-align: center;">
+
+    
+      <div id="wechat" style="display: inline-block;">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ShirleyLi WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block;">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ShirleyLi Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web-security/" rel="tag"><i class="fa fa-tag"></i> web security</a>
+          
+            <a href="/tags/phpStudy/" rel="tag"><i class="fa fa-tag"></i> phpStudy</a>
+          
+            <a href="/tags/DVWA/" rel="tag"><i class="fa fa-tag"></i> DVWA</a>
+          
+            <a href="/tags/WAMP/" rel="tag"><i class="fa fa-tag"></i> WAMP</a>
+          
+            <a href="/tags/web容器/" rel="tag"><i class="fa fa-tag"></i> web容器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/17/Web安全深度剖析学习-XSS与SQL注入/" rel="next" title="（二）Web安全深度剖析学习【XSS与SQL注入】">
+                <i class="fa fa-chevron-left"></i> （二）Web安全深度剖析学习【XSS与SQL注入】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjUzMy85MDk0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ShirleyLi" />
+          <p class="site-author-name" itemprop="name">ShirleyLi</p>
+           
+              <p class="site-description motion-element" itemprop="description">Yesterday I saw a lion kiss a deer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shirley5li" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/8237409/shirley5li" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                    
+                      StackOverflow
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/shirley5li" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2940695757/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/98598367/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/shirley-39-53-43/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VMware虚拟机安装"><span class="nav-number">1.</span> <span class="nav-text">VMware虚拟机安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更改虚拟机的网络配置"><span class="nav-number">1.1.</span> <span class="nav-text">更改虚拟机的网络配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#phpStudy安装配置"><span class="nav-number">2.</span> <span class="nav-text">phpStudy安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更改网站目录"><span class="nav-number">2.1.</span> <span class="nav-text">更改网站目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改默认首页"><span class="nav-number">2.2.</span> <span class="nav-text">更改默认首页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改端口号"><span class="nav-number">2.3.</span> <span class="nav-text">更改端口号</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DVWA"><span class="nav-number">3.</span> <span class="nav-text">DVWA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.1.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WAMP"><span class="nav-number">4.</span> <span class="nav-text">WAMP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web容器"><span class="nav-number">5.</span> <span class="nav-text">web容器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShirleyLi</span>
+</div>
+
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Views
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
