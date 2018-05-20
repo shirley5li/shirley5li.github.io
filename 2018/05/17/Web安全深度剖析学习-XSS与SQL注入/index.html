@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T11:37:11.627Z">
+<meta property="og:updated_time" content="2018-05-19T06:29:30.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（二）Web安全深度剖析学习【XSS与SQL注入】">
 <meta name="twitter:description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。">
@@ -434,6 +434,8 @@
 
       
         <p>《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。<br><a id="more"></a></p>
+<h1 id="XSS跨站脚本漏洞"><a href="#XSS跨站脚本漏洞" class="headerlink" title="XSS跨站脚本漏洞"></a>XSS跨站脚本漏洞</h1><p>XSS(Cross Site Scripting)，即跨站脚本攻击。指攻击者在网页中嵌入客户端脚本，通常是JS编写的恶意代码，当用户使用浏览器浏览被嵌入恶意代码的网页时，恶意代码将会在用户浏览器上执行。XSS属于客户端攻击。</p>
+<h2 id="XSS原理"><a href="#XSS原理" class="headerlink" title="XSS原理"></a>XSS原理</h2><p>XSS攻击在网页中嵌入客户端恶意脚本代码，这些恶意脚本代码一般使用JavaScript编写，所以JS能做到什么效果，XSS的威力就有多大。<br>JavaScript可以用来获取用户cookie，改变页面内容、url跳转，所以存在XSS漏洞的网站就可以盗取用户cookie、黑掉页面、导航到恶意网站。</p>
 
       
     </div>
@@ -610,8 +612,17 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -626,7 +637,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -637,7 +648,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -648,7 +659,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -750,6 +761,22 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS跨站脚本漏洞"><span class="nav-number">1.</span> <span class="nav-text">XSS跨站脚本漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS原理"><span class="nav-number">1.1.</span> <span class="nav-text">XSS原理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shirley" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="来自菜鸟PHP基础语法学习总结。">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP入门学习">
+<meta property="og:url" content="http://yoursite.com/2018/05/20/PHP入门学习-菜鸟/index.html">
+<meta property="og:site_name" content="Shirley">
+<meta property="og:description" content="来自菜鸟PHP基础语法学习总结。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-20T09:07:19.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP入门学习">
+<meta name="twitter:description" content="来自菜鸟PHP基础语法学习总结。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/20/PHP入门学习-菜鸟/"/>
+
+
+
+
+
+  <title>PHP入门学习 | Shirley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104091693-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?06185a244e6f872c8aeab11a4e7b5db4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/shirley5li"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shirley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一只自学成菜的仙女!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/20/PHP入门学习-菜鸟/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShirleyLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shirley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP入门学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T17:06:32+08:00">
+                2018-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> Pageviews
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>来自菜鸟PHP基础语法学习总结。<br><a id="more"></a></p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>PHP 脚本在服务器上执行，然后将纯 HTML 结果发送回浏览器。</p>
+<ul>
+<li>PHP 脚本以 <code>&lt;?php</code> 开始，以 <code>?&gt;</code> 结束。</li>
+<li>PHP 中的每个代码行都必须以分号结束。</li>
+<li>两种在浏览器输出文本的基础指令：<code>echo</code> 和 <code>print</code>。</li>
+<li>PHP 文件通常包含 HTML 标签和一些 PHP 脚本代码,PHP 脚本可以放在文档中的任何位置。</li>
+<li>单行注释：<code>//</code>，多行注释：<code>/**/</code><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2>变量以 $ 符号开始，变量名是区分大小写。<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$txt=<span class="string">"Hello world!"</span>;</div><div class="line">$x=<span class="number">5</span>;</div><div class="line">$y=<span class="number">10.5</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>PHP 是一门弱类型语言。</p>
+<h3 id="PHP-变量作用域"><a href="#PHP-变量作用域" class="headerlink" title="PHP 变量作用域"></a>PHP 变量作用域</h3><p>PHP 有四种不同的变量作用域：local、global、static、parameter。</p>
+<p>在所有函数外部定义的变量，拥有全局作用域。除了函数外，全局变量可以被脚本中的任何部分访问，要在一个函数中访问一个全局变量，需要使用 global 关键字。 </p>
+<p>函数内部声明的变量是局部变量，仅能在函数内部访问。</p>
+<p><strong>注意：</strong> global 关键字用于函数内访问全局变量。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$x=<span class="number">5</span>;</div><div class="line">$y=<span class="number">10</span>;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">global</span> $x,$y;</div><div class="line">    $y=$x+$y;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">myTest();</div><div class="line"><span class="keyword">echo</span> $y; <span class="comment">// 输出 15</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>PHP 将所有全局变量存储在一个名为 $GLOBALS[index] 的数组中。 index 保存变量的名称。这个数组可以在函数内部访问，也可以直接用来更新全局变量。</p>
+<p><strong>Static 作用域</strong> 当一个函数完成时，它的所有局部变量通常都会被删除。然而有时候希望某个局部变量不要被删除,第一次声明变量时使用 static 关键字。</p>
+<h2 id="超级全局变量"><a href="#超级全局变量" class="headerlink" title="超级全局变量"></a>超级全局变量</h2><p>超级全局变量在一个脚本的全部作用域中都可用。 不需要特别说明，也可以在函数及类中使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$GLOBALS</div><div class="line">$_SERVER</div><div class="line">$_REQUEST</div><div class="line">$_POST</div><div class="line">$_GET</div><div class="line">$_FILES</div><div class="line">$_ENV</div><div class="line">$_COOKIE</div><div class="line">$_SESSION</div></pre></td></tr></table></figure></p>
+<h3 id="GLOBALS"><a href="#GLOBALS" class="headerlink" title="$GLOBALS"></a>$GLOBALS</h3><p><code>$GLOBALS</code> 是一个包含了全部变量的全局组合数组。变量的名字就是数组的键。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span> </div><div class="line">$x = <span class="number">75</span>; </div><div class="line">$y = <span class="number">25</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addition</span><span class="params">()</span> </span></div><div class="line"><span class="function"></span>&#123; </div><div class="line">    $GLOBALS[<span class="string">'z'</span>] = $GLOBALS[<span class="string">'x'</span>] + $GLOBALS[<span class="string">'y'</span>]; </div><div class="line">&#125;</div><div class="line">addition(); </div><div class="line"><span class="keyword">echo</span> $z; </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h3><p><code>$_SERVER</code> 是一个包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组。这个数组中的项目由 Web 服务器创建。不能保证每个服务器都提供全部项目；服务器可能会忽略一些，或者提供一些没有在这里列举出来的项目。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span> </div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'PHP_SELF'</span>];</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'SERVER_NAME'</span>];</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'HTTP_HOST'</span>];</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'HTTP_REFERER'</span>];</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'HTTP_USER_AGENT'</span>];</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'SCRIPT_NAME'</span>];</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h3><p><code>$_REQUEST</code> 用于收集HTML表单提交的数据。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"&lt;?php echo $_SERVER['PHP_SELF'];?&gt;"</span>&gt;</span></div><div class="line">Name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="php"><span class="meta">&lt;?php</span> </span></div><div class="line"><span class="php">$name = $_REQUEST[<span class="string">'fname'</span>]; </span></div><div class="line"><span class="php"><span class="keyword">echo</span> $name; </span></div><div class="line"><span class="php"><span class="meta">?&gt;</span></span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="POST"><a href="#POST" class="headerlink" title="$_POST"></a>$_POST</h3><p><code>$_POST</code> 被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method=”post”。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"&lt;?php echo $_SERVER['PHP_SELF'];?&gt;"</span>&gt;</span></div><div class="line">Name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="php">$name = $_POST[<span class="string">'fname'</span>];</span></div><div class="line"><span class="php"><span class="keyword">echo</span> $name;</span></div><div class="line"><span class="php"><span class="meta">?&gt;</span></span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="$_GET"></a>$_GET</h3><p><code>$_GET</code> 同样被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method=”get”。<code>$_GET</code>也可以收集URL中发送的数据。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"test_get.php?subject=PHP&amp;web=runoob.com"</span>&gt;</span>Test $GET<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>test_get.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"Study "</span> . $_GET[<span class="string">'subject'</span>] . <span class="string">" at "</span> . $_GET[<span class="string">'web'</span>];</div><div class="line"><span class="meta">?&gt;</span></div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="魔术变量"><a href="#魔术变量" class="headerlink" title="魔术变量"></a>魔术变量</h2><p>PHP 向它运行的任何脚本提供了大量的预定义常量。不过很多常量都是由不同的扩展库定义的，只有在加载了这些扩展库时才会出现，或者动态加载后，或者在编译时已经包括进去了。</p>
+<p>这些特殊的常量不区分大小写,随着它们在代码中的位置改变而改变。</p>
+<ul>
+<li><code>__LINE__</code>: 文件中的当前行号。</li>
+<li><code>__FILE__</code>: 文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名。</li>
+<li><code>__DIR__</code>: 文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录。等价于 dirname(<strong>FILE</strong>)。除非是根目录，否则目录中名不包括末尾的斜杠。</li>
+<li><code>__FUNCTION__</code>: 返回该函数被定义时的名字。（PHP 5 起区分大小写）</li>
+<li><code>__CLASS__</code>: 返回该类被定义时的名字（PHP 5 起区分大小写）</li>
+<li><code>__TRAIT__</code>: Trait 的名字</li>
+<li><code>__METHOD__</code>: 类的方法名，返回该方法被定义时的名字（区分大小写）</li>
+<li><code>__NAMESPACE__</code>: 当前命名空间的名称（区分大小写）</li>
+</ul>
+<h2 id="echo-print"><a href="#echo-print" class="headerlink" title="echo/print"></a>echo/print</h2><ul>
+<li>echo - 可以输出一个或多个字符串。字符串可以包含 HTML 标签。</li>
+<li>print - 只允许输出一个字符串，返回值总为 1。字符串可以包含 HTML 标签。</li>
+</ul>
+<p>两者在使用时都可以加括号或不加，<code>echo</code>/<code>echo()</code>，<code>print</code>/<code>print()</code>。</p>
+<h2 id="定界符EOF-heredoc"><a href="#定界符EOF-heredoc" class="headerlink" title="定界符EOF(heredoc)"></a>定界符EOF(heredoc)</h2><p>PHP 定界符 EOF 的作用就是按照原样，包括换行格式什么的，输出在其内部的字符串；定界符 EOF 中的任何特殊字符都不需要转义。</p>
+<p>规则：</p>
+<ol>
+<li>必须后接分号，否则编译通不过。</li>
+<li>EOF 可以用任意其它字符代替，只需保证结束标识<code>EOF</code>与开始标识<code>&lt;&lt;&lt;EOF</code>一致。</li>
+<li>结束标识必须顶格独自占一行(即必须从行首开始，前后不能衔接任何空白和字符)。</li>
+<li>开始标识可以不带引号或带单双引号，不带引号与带双引号效果一致，解释内嵌的变量和转义符号，带单引号则不解释内嵌的变量和转义符号。</li>
+<li>当内容需要内嵌引号（单引号或双引号）时，不需要加转义符，本身对单双引号转义。</li>
+<li>位于开始标记和结束标记之间的变量可以被正常解析，但是函数则不可以。</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$name=<span class="string">"runoob"</span>;</div><div class="line">$a= <span class="string">&lt;&lt;&lt;EOF</span></div><div class="line"><span class="string">    "abc"<span class="subst">$name</span></span></div><div class="line"><span class="string">    "123"</span></div><div class="line"><span class="string">EOF;</span></div><div class="line"><span class="comment">// 结束需要独立一行且前后不能空格</span></div><div class="line"><span class="keyword">echo</span> $a;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>String（字符串）, Integer（整型）, Float（浮点型）, Boolean（布尔型）, Array（数组）, Object（对象）, NULL（空值）。</p>
+<p>以下实例中创建了一个<strong>数组</strong>， 然后使用 PHP var_dump() 函数返回数组的数据类型和值：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span> </div><div class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</div><div class="line">var_dump($cars);</div><div class="line"><span class="meta">?&gt;</span></div><div class="line"></div><div class="line"><span class="comment">//输出 array(3) &#123; [0]=&gt; string(5) "Volvo" [1]=&gt; string(3) "BMW" [2]=&gt; string(6) "Toyota" &#125;</span></div></pre></td></tr></table></figure></p>
+<p><strong>对象</strong><br>在 PHP 中，对象必须声明。用<code>class</code>关键字声明类对象，类是包含属性和方法的数据结构。在类中定义数据类型，然后在实例化的对象中使用数据类型：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">  <span class="keyword">var</span> $color;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($color=<span class="string">"green"</span>)</span> </span>&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;color = $color;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">what_color</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;color;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>$this</code> 代表实例化的对象，<code>PHP_EOL</code> 为换行符。</p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量在定义后，默认是全局变量,可以在整个运行的脚本的任何地方使用（包括函数内部）。</p>
+<p>使用<code>define()</code>函数设置常量：<code>bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )</code></p>
+<pre><code>name：必选参数，常量名称，即标志符。
+value：必选参数，常量的值。
+case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的。
+</code></pre><p>eg:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// 不区分大小写的常量名</span></div><div class="line">define(<span class="string">"GREETING"</span>, <span class="string">"欢迎访问 Runoob.com"</span>, <span class="keyword">true</span>);</div><div class="line"><span class="keyword">echo</span> greeting;  <span class="comment">// 输出 "欢迎访问 Runoob.com"</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+<li><p>并置运算符 <code>.</code> 用于把两个字符串值连接起来。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">&lt;?php</span></div><div class="line">$txt1=<span class="string">"Hello world!"</span>;</div><div class="line">$txt2=<span class="string">"What a nice day!"</span>;</div><div class="line"><span class="keyword">echo</span> $txt1 . <span class="string">" "</span> . $txt2;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>strlen()</code> 函数返回字符串的长度（字符数)。</p>
+</li>
+<li><code>strpos()</code> 函数用于在字符串内查找一个字符或一段指定的文本。如果在字符串中找到匹配，该函数会返回第一个匹配的字符位置。如果未找到匹配，则返回 FALSE。<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span> </div><div class="line"><span class="keyword">echo</span> strpos(<span class="string">"Hello world!"</span>,<span class="string">"world"</span>); </div><div class="line"><span class="meta">?&gt;</span></div><div class="line"><span class="comment">//输出 6</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><p>array() 函数用于创建数组：<code>array();</code><br>有三种类型的数组：</p>
+<ul>
+<li>数值数组 - 带有数字 ID 键的数组。<code>$cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</code></li>
+<li>关联数组 - 带有指定的键的数组，每个键关联一个值。 使用分配给数组的指定键创建的数组。<code>$age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;);</code></li>
+<li>多维数组 - 包含一个或多个数组的数组</li>
+</ul>
+<h3 id="操作数组的方法"><a href="#操作数组的方法" class="headerlink" title="操作数组的方法"></a>操作数组的方法</h3><ul>
+<li><code>count()</code> 函数用于返回数组的长度</li>
+<li>访问数组元素，使用中括号 <code>[]</code>，即<code>$cars[0]</code></li>
+<li>使用 foreach 循环遍历关联数组<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);</div><div class="line"><span class="keyword">foreach</span>($age <span class="keyword">as</span> $x=&gt;$x_value)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"Key="</span> . $x . <span class="string">", Value="</span> . $x_value;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span> </div><div class="line"><span class="comment">//输出</span></div><div class="line"><span class="comment">//Key=Peter, Value=35</span></div><div class="line"><span class="comment">//Key=Ben, Value=37</span></div><div class="line"><span class="comment">//Key=Joe, Value=43</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sort() - 对数组进行升序排列</div><div class="line">rsort() - 对数组进行降序排列</div><div class="line">asort() - 根据关联数组的值，对数组进行升序排列</div><div class="line">ksort() - 根据关联数组的键，对数组进行升序排列</div><div class="line">arsort() - 根据关联数组的值，对数组进行降序排列</div><div class="line">krsort() - 根据关联数组的键，对数组进行降序排列</div></pre></td></tr></table></figure>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>默认情况下，所有常量、类和函数名都放在全局空间下。<br>如果一个文件中包含命名空间，它必须在其它所有代码之前声明命名空间，命名空间通过关键字namespace 来声明。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span>  </div><div class="line"><span class="comment">// 定义代码在 'MyProject' 命名空间中  </span></div><div class="line"><span class="keyword">namespace</span> <span class="title">MyProject</span>;  </div><div class="line"> </div><div class="line"><span class="comment">// ... 代码 ...</span></div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 在声明命名空间之前唯一合法的代码是用于定义源文件编码方式的 declare 语句。所有非 PHP 代码包括空白符都不能出现在命名空间的声明之前。</p>
+<p>将全局的非命名空间中的代码与命名空间中的代码组合在一起，只能使用大括号形式的语法。全局代码必须用一个不带名称的 namespace 语句加上大括号括起来，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">MyProject</span> &#123;</div><div class="line"></div><div class="line"><span class="title">const</span> <span class="title">CONNECT_OK</span> = 1;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Connection</span> </span>&#123; <span class="comment">/* ... */</span> &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">()</span> </span>&#123; <span class="comment">/* ... */</span>  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> &#123; // 全局代码</div><div class="line"><span class="title">session_start</span>();</div><div class="line">$a = MyProject\connect();</div><div class="line"><span class="keyword">echo</span> MyProject\Connection::start();</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p><a href="http://www.runoob.com/php/php-oop.html" target="_blank" rel="noopener">PHP 面向对象</a></p>
+<h1 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h1><h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="下拉菜单多选"><a href="#下拉菜单多选" class="headerlink" title="下拉菜单多选"></a>下拉菜单多选</h3><p>下拉菜单是多选的（ multiple=”multiple”），可以通过将设置 select <code>name=&quot;q[]&quot;</code> 以数组的方式获取。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$q = <span class="keyword">isset</span>($_POST[<span class="string">'q'</span>])? $_POST[<span class="string">'q'</span>] : <span class="string">''</span>;</div><div class="line"><span class="keyword">if</span>(is_array($q)) &#123;</div><div class="line">    $sites = <span class="keyword">array</span>(</div><div class="line">            <span class="string">'RUNOOB'</span> =&gt; <span class="string">'菜鸟教程: http://www.runoob.com'</span>,</div><div class="line">            <span class="string">'GOOGLE'</span> =&gt; <span class="string">'Google 搜索: http://www.google.com'</span>,</div><div class="line">            <span class="string">'TAOBAO'</span> =&gt; <span class="string">'淘宝: http://www.taobao.com'</span>,</div><div class="line">    );</div><div class="line">    <span class="keyword">foreach</span>($q <span class="keyword">as</span> $val) &#123;</div><div class="line">        <span class="comment">// PHP_EOL 为常量，用于换行</span></div><div class="line">        <span class="keyword">echo</span> $sites[$val] . PHP_EOL;</div><div class="line">    &#125;</div><div class="line">      </div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="meta">?&gt;</span></div><div class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"post"</span>&gt; </div><div class="line">    &lt;select multiple=<span class="string">"multiple"</span> name=<span class="string">"q[]"</span>&gt;</div><div class="line">    &lt;option value=<span class="string">""</span>&gt;选择一个站点:&lt;/option&gt;</div><div class="line">    &lt;option value=<span class="string">"RUNOOB"</span>&gt;Runoob&lt;/option&gt;</div><div class="line">    &lt;option value=<span class="string">"GOOGLE"</span>&gt;Google&lt;/option&gt;</div><div class="line">    &lt;option value=<span class="string">"TAOBAO"</span>&gt;Taobao&lt;/option&gt;</div><div class="line">    &lt;/select&gt;</div><div class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line"><span class="meta">&lt;?php</span></div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h3><p>单选按钮表单中 <code>name</code> 属性的值是一致的，<code>value</code> 值是不同的。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$q = <span class="keyword">isset</span>($_GET[<span class="string">'q'</span>])? htmlspecialchars($_GET[<span class="string">'q'</span>]) : <span class="string">''</span>;</div><div class="line"><span class="keyword">if</span>($q) &#123;</div><div class="line">        <span class="keyword">if</span>($q ==<span class="string">'RUNOOB'</span>) &#123;</div><div class="line">                <span class="keyword">echo</span> <span class="string">'菜鸟教程&lt;br&gt;http://www.runoob.com'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>($q ==<span class="string">'GOOGLE'</span>) &#123;</div><div class="line">                <span class="keyword">echo</span> <span class="string">'Google 搜索&lt;br&gt;http://www.google.com'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>($q ==<span class="string">'TAOBAO'</span>) &#123;</div><div class="line">                <span class="keyword">echo</span> <span class="string">'淘宝&lt;br&gt;http://www.taobao.com'</span>;</div><div class="line">        &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="meta">?&gt;</span>&lt;form action=<span class="string">""</span> method=<span class="string">"get"</span>&gt; </div><div class="line">    &lt;input type=<span class="string">"radio"</span> name=<span class="string">"q"</span> value=<span class="string">"RUNOOB"</span> /&gt;Runoob</div><div class="line">    &lt;input type=<span class="string">"radio"</span> name=<span class="string">"q"</span> value=<span class="string">"GOOGLE"</span> /&gt;Google</div><div class="line">    &lt;input type=<span class="string">"radio"</span> name=<span class="string">"q"</span> value=<span class="string">"TAOBAO"</span> /&gt;Taobao</div><div class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"><span class="meta">&lt;?php</span></div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$q = <span class="keyword">isset</span>($_POST[<span class="string">'q'</span>])? $_POST[<span class="string">'q'</span>] : <span class="string">''</span>;</div><div class="line"><span class="keyword">if</span>(is_array($q)) &#123;</div><div class="line">    $sites = <span class="keyword">array</span>(</div><div class="line">            <span class="string">'RUNOOB'</span> =&gt; <span class="string">'菜鸟教程: http://www.runoob.com'</span>,</div><div class="line">            <span class="string">'GOOGLE'</span> =&gt; <span class="string">'Google 搜索: http://www.google.com'</span>,</div><div class="line">            <span class="string">'TAOBAO'</span> =&gt; <span class="string">'淘宝: http://www.taobao.com'</span>,</div><div class="line">    );</div><div class="line">    <span class="keyword">foreach</span>($q <span class="keyword">as</span> $val) &#123;</div><div class="line">        <span class="comment">// PHP_EOL 为常量，用于换行</span></div><div class="line">        <span class="keyword">echo</span> $sites[$val] . PHP_EOL;</div><div class="line">    &#125;</div><div class="line">      </div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="meta">?&gt;</span>&lt;form action=<span class="string">""</span> method=<span class="string">"post"</span>&gt; </div><div class="line">    &lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"q[]"</span> value=<span class="string">"RUNOOB"</span>&gt; Runoob&lt;br&gt; </div><div class="line">    &lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"q[]"</span> value=<span class="string">"GOOGLE"</span>&gt; Google&lt;br&gt; </div><div class="line">    &lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"q[]"</span> value=<span class="string">"TAOBAO"</span>&gt; Taobao&lt;br&gt;</div><div class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"><span class="meta">&lt;?php</span></div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="表单验证-1"><a href="#表单验证-1" class="headerlink" title="表单验证"></a>表单验证</h3><p>应该尽可能的对用户的输入进行验证（通过客户端脚本），该验证仅用于对输入信息作合法性判断。浏览器验证速度更快，并且可以减轻服务器的压力。</p>
+<p>如果用户输入需要插入数据库，应该考虑使用服务器验证，需要作安全性验证。</p>
+<p>在服务器验证表单的一种好的方式是，把表单的数据传给当前页面（异步提交的方式更好），而不是跳转到不同的页面。这样用户就可以在同一张表单页面得到错误信息。用户也就更容易发现错误了。</p>
+<h2 id="表单验证-2"><a href="#表单验证-2" class="headerlink" title="表单验证"></a>表单验证</h2><p>一段html表单代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"&lt;?php echo htmlspecialchars($_SERVER["</span><span class="attr">PHP_SELF</span>"]);?&gt;</span>"&gt;</div><div class="line">“名字”: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span></div><div class="line">E-mail: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span>&gt;</span></div><div class="line">网址: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"website"</span>&gt;</span></div><div class="line">备注: <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"comment"</span> <span class="attr">rows</span>=<span class="string">"5"</span> <span class="attr">cols</span>=<span class="string">"40"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">性别:</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"female"</span>&gt;</span>女</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"male"</span>&gt;</span>男</div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>该表单使用 method=”post” 方法来提交数据。</p>
+<p><code>$_SERVER[&quot;PHP_SELF&quot;]</code>是超级全局变量，返回当前正在执行脚本的文件名，与document root相关。 所以 <code>$_SERVER[&quot;PHP_SELF&quot;]</code> 会发送表单数据到当前页面，而不是跳转到不同的页面。</p>
+<p><code>htmlspecialchars()</code>方法：把一些预定义的字符转换为 HTML 实体。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&amp; （和号） 成为 &amp;amp;</div><div class="line">&quot; （双引号） 成为 &amp;quot;</div><div class="line">&apos; （单引号） 成为 &amp;#039;</div><div class="line">&lt; （小于） 成为 &amp;lt;</div><div class="line">&gt; （大于） 成为 &amp;gt;</div></pre></td></tr></table></figure></p>
+<h3 id="SERVER-“PHP-SELF”-被用作XSS攻击"><a href="#SERVER-“PHP-SELF”-被用作XSS攻击" class="headerlink" title="$_SERVER[“PHP_SELF”]被用作XSS攻击"></a>$_SERVER[“PHP_SELF”]被用作XSS攻击</h3><p>当黑客使用跨网站脚本的HTTP链接来攻击时，<code>$_SERVER[&quot;PHP_SELF&quot;]</code>服务器变量也会被植入脚本。原因就是跨网站脚本是附在执行文件的路径后面的，因此<code>$_SERVER[&quot;PHP_SELF&quot;]</code>的字符串就会包含HTTP链接后面的JavaScript程序代码。</p>
+<p>指定以下表单文件名为 “test_form.php”:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"&lt;?php echo $_SERVER["</span><span class="attr">PHP_SELF</span>"];?&gt;</span>"&gt;</div></pre></td></tr></table></figure></p>
+<p>现在，使用URL来指定提交地址 “test_form.php”,以上代码修改为如下所示:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"test_form.php"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>但是，当用户在浏览器输入以下地址：<code>http://www.runoob.com/test_form.php/%22%3E%3Cscript%3Ealert(&#39;hacked&#39;)%3C/script%3E</code><br>以上的 URL 中，将被解析为如下代码并执行:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"test_form.php/"</span>&gt;</span><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">alert(<span class="string">'hacked'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>代码中添加了 script 标签，并添加了alert命令。 当页面载入时会执行该Javascript代码（用户会看到弹出框）。</p>
+<h3 id="如何避免-SERVER-“PHP-SELF”-被利用"><a href="#如何避免-SERVER-“PHP-SELF”-被利用" class="headerlink" title="如何避免 $_SERVER[“PHP_SELF”] 被利用"></a>如何避免 $_SERVER[“PHP_SELF”] 被利用</h3><p>可以通过 <code>htmlspecialchars()</code> 函数来避免被利用，如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"&lt;?php echo htmlspecialchars($_SERVER["</span><span class="attr">PHP_SELF</span>"]);?&gt;</span>"&gt;</div></pre></td></tr></table></figure></p>
+<p>htmlspecialchars() 把一些预定义的字符转换为 HTML 实体。现在如果用户想利用 <code>PHP_SELF</code> 变量, 结果将输出如下所示：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"test_form.php/&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert('hacked')&amp;lt;/script&amp;gt;"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+    <div>
+       <div>  <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-smile-o"></i>感谢您的阅读-------------</div>  </div>
+
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" style="width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;
+margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    打赏
+  </button>
+  <div id="QR" style="display: none; text-align: center;">
+
+    
+      <div id="wechat" style="display: inline-block;">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ShirleyLi WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block;">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ShirleyLi Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/17/phpstudy与DVWA安装与配置/" rel="next" title="phpstudy与DVWA安装与配置，WAMP等相关概念学习">
+                <i class="fa fa-chevron-left"></i> phpstudy与DVWA安装与配置，WAMP等相关概念学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjUzMy85MDk0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ShirleyLi" />
+          <p class="site-author-name" itemprop="name">ShirleyLi</p>
+           
+              <p class="site-description motion-element" itemprop="description">Yesterday I saw a lion kiss a deer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shirley5li" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/8237409/shirley5li" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                    
+                      StackOverflow
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/shirley5li" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2940695757/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/98598367/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/shirley-39-53-43/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-变量作用域"><span class="nav-number">1.1.1.</span> <span class="nav-text">PHP 变量作用域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超级全局变量"><span class="nav-number">1.2.</span> <span class="nav-text">超级全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GLOBALS"><span class="nav-number">1.2.1.</span> <span class="nav-text">$GLOBALS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SERVER"><span class="nav-number">1.2.2.</span> <span class="nav-text">$_SERVER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REQUEST"><span class="nav-number">1.2.3.</span> <span class="nav-text">$_REQUEST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST"><span class="nav-number">1.2.4.</span> <span class="nav-text">$_POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">1.2.5.</span> <span class="nav-text">$_GET</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔术变量"><span class="nav-number">1.3.</span> <span class="nav-text">魔术变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#echo-print"><span class="nav-number">1.4.</span> <span class="nav-text">echo/print</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定界符EOF-heredoc"><span class="nav-number">1.5.</span> <span class="nav-text">定界符EOF(heredoc)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.6.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">1.7.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.8.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.9.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数组"><span class="nav-number">1.9.1.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作数组的方法"><span class="nav-number">1.9.2.</span> <span class="nav-text">操作数组的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组排序"><span class="nav-number">1.9.3.</span> <span class="nav-text">数组排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number">1.10.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象"><span class="nav-number">1.11.</span> <span class="nav-text">面向对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单验证"><span class="nav-number">2.</span> <span class="nav-text">表单验证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">2.1.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉菜单多选"><span class="nav-number">2.1.1.</span> <span class="nav-text">下拉菜单多选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单选按钮"><span class="nav-number">2.1.2.</span> <span class="nav-text">单选按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复选框"><span class="nav-number">2.1.3.</span> <span class="nav-text">复选框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单验证-1"><span class="nav-number">2.1.4.</span> <span class="nav-text">表单验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单验证-2"><span class="nav-number">2.2.</span> <span class="nav-text">表单验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SERVER-“PHP-SELF”-被用作XSS攻击"><span class="nav-number">2.2.1.</span> <span class="nav-text">$_SERVER[“PHP_SELF”]被用作XSS攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何避免-SERVER-“PHP-SELF”-被利用"><span class="nav-number">2.2.2.</span> <span class="nav-text">如何避免 $_SERVER[“PHP_SELF”] 被利用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShirleyLi</span>
+</div>
+
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Views
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

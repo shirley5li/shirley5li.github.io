@@ -477,12 +477,12 @@
 <ul>
 <li>此时进入mysql创建数据库 dvwa，然后创建新用户dvwa，并设置密码123456。</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> create database dvwa;</div><div class="line"><span class="meta">mysql&gt;</span> insert into mysql.user(Host,User,Password) values("localhost",'dvwa',password('123456'));</div><div class="line"><span class="meta">mysql&gt;</span> flush privileges;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span><span class="bash"> create database dvwa;</span></div><div class="line"><span class="meta">mysql&gt;</span><span class="bash"> insert into mysql.user(Host,User,Password) values(<span class="string">"localhost"</span>,<span class="string">'dvwa'</span>,password(<span class="string">'123456'</span>));</span></div><div class="line"><span class="meta">mysql&gt;</span><span class="bash"> flush privileges;</span></div></pre></td></tr></table></figure>
 <p>其中<code>flush privileges</code>本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在”不重启MySQL服务”的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效，而不必冒太大风险。</p>
 <ul>
 <li>修改dvwa用户针对数据库dvwa的相关权限，授权dvwa用户拥有数据库dvwa的所有权限。格式：<code>grant 权限 on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;</code>。</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> grant all privileges on dvwa.* to dvwa@localhost identified by '123456';</div><div class="line"><span class="meta">mysql&gt;</span> flush privileges;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span><span class="bash"> grant all privileges on dvwa.* to dvwa@localhost identified by <span class="string">'123456'</span>;</span></div><div class="line"><span class="meta">mysql&gt;</span><span class="bash"> flush privileges;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>修改dvwa目录下的<code>config/config.inc.php</code>以下内容：</li>
 </ul>
@@ -594,6 +594,10 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/20/PHP入门学习-菜鸟/" rel="prev" title="PHP入门学习">
+                PHP入门学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -710,7 +714,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -721,7 +725,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -732,7 +736,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
