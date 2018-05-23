@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-20T09:07:19.481Z</updated>
+  <updated>2018-05-23T09:01:20.463Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>（三）Web安全深度剖析学习【SQL注入】</title>
+    <link href="http://yoursite.com/2018/05/22/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-SQL%E6%B3%A8%E5%85%A5/"/>
+    <id>http://yoursite.com/2018/05/22/Web安全深度剖析学习-SQL注入/</id>
+    <published>2018-05-22T03:00:14.000Z</published>
+    <updated>2018-05-23T09:01:20.463Z</updated>
+    
+    <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要总结SQL注入原理。<br><a id="more"></a><br>SQL注入漏洞是Web层面最高危的漏洞之一。</p>
+<h1 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h1><p>SQL注入指web应用程序对用户输入数据的合法性没有判断，攻击者可以在web应用程序事先定义好的查询语句的结尾上添加额外的SQL语句，以此来实现欺骗数据库服务器执行非授权的任意SQL查询，从而进一步得到相应的数据信息。</p>
+<p>即SQL注入通过把额外的SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串后，最终达到欺骗服务器执行恶意的SQL命令。</p>
+<p><strong>万能密码案例</strong>（JSP + SQL Server）<br>假设数据库中只有admin用户，密码为password。</p>
+<p>一般登录某个网站需要输入用户名和密码，现在构造一个特殊用户名 <code>&#39;or 1=1--</code>，其中<code>--</code>是SQL Server的单行注释符号。现在使用该特殊用户名登录，密码可随意填写或不填，都可正常登录。</p>
+<p>下面分析处理用户登录的程序：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findAdmin</span><span class="params">(Admin admin)</span> </span>&#123;</div><div class="line">    String sql = <span class="string">"select count(*) from admin where username='"</span>+admin.getUsername()+<span class="string">"' </span></div><div class="line"><span class="string">    and password='"</span>+admin.getPassword()+<span class="string">"'"</span>;   <span class="comment">//SQL查询语句</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        ResultSet res = <span class="keyword">this</span>.conn.createStatement().executeQuery(sql);  <span class="comment">//执行SQL语句</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span>(res.next()) &#123;</div><div class="line">            <span class="keyword">int</span> i = res.getInt(<span class="number">1</span>);   <span class="comment">//获取第一列的值</span></div><div class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;  <span class="comment">//如果结果大于0，返回true</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span>(Exception e) &#123;</div><div class="line">        e.printStackTrace();  <span class="comment">//打印异常信息</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上述SQL语句的本意是，在数据库中查询username=xxx&amp;&amp;password=xxx的结果，若查询结果大于0，则表示用户存在，返回true，表示登录成功，否则返回false，登录失败。</p>
+<p>现在假设用户名为admin,密码为password，执行SQL语句如下：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">select <span class="title">count</span><span class="params">(*)</span> from admin where username</span>=<span class="string">'admin'</span> and password=<span class="string">'password'</span></div></pre></td></tr></table></figure></p>
+<p>此时数据库中存在admin用户，并且密码为password，查询结果大于0，返回true，用户登录成功。</p>
+<p>接下来使用构造的特殊用户登录，执行SQL语句如下：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">select <span class="title">count</span><span class="params">(*)</span> from admin where username</span>=<span class="string">''</span>or <span class="number">1</span>=<span class="number">1</span>--<span class="string">' and password='</span><span class="string">'</span></div></pre></td></tr></table></figure></p>
+<p>此时password字段被注释掉了，所以输不输入密码都无所谓，并且<code>username=&#39;&#39;or 1=1</code>语句永远为真，所以最终执行的SQL语句相当于：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">select <span class="title">count</span><span class="params">(*)</span> from admin  <span class="comment">//查询admin表所有数据条数</span></span></div></pre></td></tr></table></figure></p>
+<p>显然以上查询语句返回条数大于0，返回true，可以成功登录。至此一次简单的SQL注入过程完成。</p>
+<p>SQL注入危害很大，假设构造用户名如下： <code>&#39;or 1=1;drop table admin--</code>，由于SQL Server支持多语句执行，这里可以直接删除admin表。危害很大滴！</p>
+<p>SQL注入漏洞的成因：用户输入的数据被SQL解释器执行。</p>
+<h1 id="注入漏洞分类"><a href="#注入漏洞分类" class="headerlink" title="注入漏洞分类"></a>注入漏洞分类</h1><p>常见的SQL注入类型包括：数字型和字符型。<br>不管分类如何，攻击者的目的都是绕过程序限制，使用户输入的数据带入数据库执行，利用数据库的特殊性获取更多的信息或者更大的权限。</p>
+<h2 id="数字型注入"><a href="#数字型注入" class="headerlink" title="数字型注入"></a>数字型注入</h2><p>当输入的参数为整型时，如ID、年龄、页码等，若存在注入漏洞，则可以认为是数字型注入。数字型注入是最简单的一种。<br>假设URL为<code>http://www.xxser.com/test.php?id=8</code>，可以猜测SQL语句为：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from table where id=<span class="number">8</span></div></pre></td></tr></table></figure></p>
+<p><strong>测试步骤如下：</strong><br>(1) <code>http://www.xxser.com/test.php?id=8</code><br>SQL语句为<code>select * from table where id=8</code>，该语句会出错，导致脚本程序无法正常从数据库中获取数据，从而使原来的页面出现异常。<br>(2)<code>http://www.xxser.com/test.php?id=8 and 1=1</code><br>SQL语句为<code>select * from table where id=8 and 1=1</code>，此时语句执行正常，返回数据与原始请求无异。<br>(3)<code>http://www.xxser.com/test.php?id=8 and 1=2</code><br>SQL语句为<code>select * from table where id=8 and 1=2</code>，语句执行正常，但无法查询出数据，因为<code>and 1=2</code>始终为假，返回数据与原始请求有差异。</p>
+<p>若以上三个步骤都满足，则程序可能存在SQL注入漏洞。</p>
+<p>数字型注入多出现在ASP、PHP等弱类型语言中，弱类型语言会自动推导变量类型，如参数<code>id=8</code>，PHP会自动推导变量id的数据类型为int类型，<code>id=8 and 1=1</code>会推到为string 类型。而JAVA、C++等强类型语言，若试图把一个string类型转换为int类型会抛出异常。所以强类型语言很少存在数字型注入漏洞。</p>
+<h2 id="字符型注入"><a href="#字符型注入" class="headerlink" title="字符型注入"></a>字符型注入</h2><p>当输入参数为字符串时，称为字符型注入。数字类型不需要单引号闭合，而字符串类型一般需要使用单引号来闭合。<br>字符型注入关键：如何闭合SQL语句以及注释多余的代码。只要是字符串类型注入，都必须闭合单引号以及注释多余的代码。<br>例如，update语句：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update Person set username=<span class="string">'username'</span>,set password=<span class="string">'password'</span> where id=<span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>现在对上述SQL语句进行注入，需要闭合单引号，可以在username或password处插入语句<code>&#39;+(select@@version)+&#39;</code>，最终执行的SQL语句为：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update Person set username=<span class="string">'username'</span>,set password=<span class="string">''</span>+(select@@version)+<span class="string">''</span> where id=<span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p><strong>补充：</strong> 不同的数据库，字符串连接符不同，SQL Server字符串连接符号为<code>+</code>，Oracle字符串连接符号为<code>||</code>，MySQL字符串连接符号为<code>+</code>。</p>
+<h2 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h2><p>Cookie注入、POST注入、盲注、延时注入都是数字型注入和字符型注入在不同位置的展现形式，都可归纳为数字型注入和字符型注入。</p>
+<ul>
+<li>POST注入(注入字段在POST数据中)</li>
+<li>Cookie注入(注入字段在Cookie数据中)</li>
+<li>延时注入(使用数据库延时特性注入)</li>
+<li>搜索注入(注入处为搜索的地点)</li>
+<li>base64注入(注入字符串需要经过base64加密)</li>
+</ul>
+<h1 id="防止SQL注入"><a href="#防止SQL注入" class="headerlink" title="防止SQL注入"></a>防止SQL注入</h1><p>关键在于后端程序对用户输入进行过滤。防御主要分为两种：数据类型判断和特殊字符转义。</p>
+<h2 id="严格的数据类型"><a href="#严格的数据类型" class="headerlink" title="严格的数据类型"></a>严格的数据类型</h2><p>数据类型处理正确后，足以抵挡数字型注入。对于强类型语言，几乎不存在数字类型的注入。对于弱类型语言，需要在程序中严格判断数据类型。如使用<code>is_numeric()</code>、<code>ctype_digit()</code>等函数判断数据类型。</p>
+<h2 id="特殊字符转义"><a href="#特殊字符转义" class="headerlink" title="特殊字符转义"></a>特殊字符转义</h2><p>此方法针对字符型注入。由于攻击者在字符型注入中会使用单引号等特殊字符，可以将这些特殊字符转义，即可防御字符型SQL注入。</p>
+<h2 id="使用预编译语句"><a href="#使用预编译语句" class="headerlink" title="使用预编译语句"></a>使用预编译语句</h2><p>Java提供了三个接口与数据库交互，<code>Statement</code>、<code>PrepareStatement</code>、<code>CallableStatement</code>。<br><code>Statement</code>用于执行静态SQL语句，并返回它所生成结果的对象。<br><code>PrepareStatement</code>为<code>Statement</code>的字类，表示预编译SQL语句的对象。<br><code>CallableStatement</code>为<code>PrepareStatement</code>的子类，用于执行SQL存储过程。</p>
+<h2 id="框架技术"><a href="#框架技术" class="headerlink" title="框架技术"></a>框架技术</h2><p>在众多的框架中，有一类框架专门与数据库打交道，称为持久层框架，比较有代表性的有Hibernate、MyBatis、JORM等。</p>
+<h1 id="DVWA之SQL注入"><a href="#DVWA之SQL注入" class="headerlink" title="DVWA之SQL注入"></a>DVWA之SQL注入</h1><p>参考博客<a href="www.freebuf.com/articles/web/120747.html">新手指南：DVWA-1.9全级别教程之SQL Injection </a></p>
+<p>SQL注入，是指攻击者通过注入恶意的SQL命令，破坏SQL查询语句的结构，从而达到执行恶意SQL语句的目的。SQL注入漏洞的危害是巨大的，常常会导致整个数据库被“脱裤”，尽管如此，SQL注入仍是现在最常见的Web漏洞之一。</p>
+<p>(1)基于报错的检测方法：<br>各种符号以及组合： <code>&#39;</code> <code>&quot;</code> <code>(</code>  <code>%</code> </p>
+<p>(2)基于布尔的检测：<br><code>1&#39; and &#39;1&#39;=&#39;1</code> 和 <code>1&#39; and &#39;1&#39;=&#39;2</code> , 相当于<code>1&#39; and &#39;1</code> 和 <code>1&#39; and &#39;0</code><br>当返回的结果不同时即有漏洞。</p>
+<p>(3)几个常用的函数：</p>
+<p><code>user()</code>返回当前数据库连接使用的用户；<br><code>database()</code>返回当前数据库连接使用的数据库；<br><code>version()</code>返回当前数据库的版本；<br>concat或者concat-ws函数可以将这些函数进行组合使用并显示出来。concat函数中，将其中的参数直接连接起来产生新的字符串。而concat_ws函数，第一个参数作为分隔符将后面各个参数的内容分隔开来再进行相应的连接产生新的字符串。以其常用的例子为例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">concat_ws(char(<span class="number">32</span>,<span class="number">58</span>,<span class="number">32</span>),user(),database(),version())</div></pre></td></tr></table></figure></p>
+<p>其中char()函数为将里面的参数转化为相应的字符，32为空格，58为冒号<code>:</code>，通过这样的方式可以绕过一些简单的过滤机制。</p>
+<p>(4)几个全局函数：<br><code>@@datadir</code> :查询数据库的文件位置<br><code>@@hostname</code>:查询主机名<br><code>@@version_compile_os</code>:查询操作系统版本</p>
+<h2 id="手工注入思路"><a href="#手工注入思路" class="headerlink" title="手工注入思路"></a>手工注入思路</h2><p>自动化的注入神器sqlmap。手工注入（非盲注）的步骤如下：<br>        1.判断是否存在注入，注入是字符型还是数字型<br>        2.猜解SQL查询语句中的字段数<br>        3.确定显示的字段顺序<br>        4.获取当前数据库<br>        5.获取数据库中的表<br>        6.获取表中的字段名<br>        7.下载数据</p>
+<h2 id="LOW"><a href="#LOW" class="headerlink" title="LOW"></a>LOW</h2><p>SOURCE<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_REQUEST[ <span class="string">'Submit'</span> ] ) ) &#123;</div><div class="line">    <span class="comment">// Get input</span></div><div class="line">    $id = $_REQUEST[ <span class="string">'id'</span> ];</div><div class="line"></div><div class="line">    <span class="comment">// Check database</span></div><div class="line">    $query  = <span class="string">"SELECT first_name, last_name FROM users WHERE user_id = '$id';"</span>;</div><div class="line">    $result = mysql_query( $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . mysql_error() . <span class="string">'&lt;/pre&gt;'</span> );</div><div class="line"></div><div class="line">    <span class="comment">// Get results</span></div><div class="line">    $num = mysql_numrows( $result );</div><div class="line">    $i   = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>( $i &lt; $num ) &#123;</div><div class="line">        <span class="comment">// Get values</span></div><div class="line">        $first = mysql_result( $result, $i, <span class="string">"first_name"</span> );</div><div class="line">        $last  = mysql_result( $result, $i, <span class="string">"last_name"</span> );</div><div class="line"></div><div class="line">        <span class="comment">// Feedback for end user</span></div><div class="line">        <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;ID: &#123;$id&#125;&lt;br /&gt;First name: &#123;$first&#125;&lt;br /&gt;Surname: &#123;$last&#125;&lt;/pre&gt;"</span>;</div><div class="line"></div><div class="line">        <span class="comment">// Increase loop count</span></div><div class="line">        $i++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mysql_close();</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Low级别的代码对来自客户端的参数id没有进行任何的检查与过滤，存在明显的SQL注入。<br>现实攻击场景下，攻击者是无法看到后端代码的，所以下面的手工注入步骤是建立在无法看到源码的基础上。<br><strong>1.判断是否存在注入，注入是字符型还是数字型</strong><br>(1)输入1，查询成功：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-1.png" alt="1-1"></p>
+<p>(2)输入<code>1&#39; and &#39;1&#39;=&#39;2</code>，查询失败，返回结果为空：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-2.png" alt="1-2"></p>
+<p>(3)输入<code>1&#39; and &#39;1&#39;=&#39;1</code>，查询成功：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-3.png" alt="1-3"></p>
+<p>(4)输入<code>1&#39; or &#39;1&#39;=&#39;1</code>，查询成功:<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-4.png" alt="1-4"><br>返回了多个结果，说明存在字符型注入。</p>
+<p><strong>2.猜解SQL查询语句中的字段数</strong><br>(1)输入<code>1&#39; or 1=1 order by 1 #</code>，查询成功(<code>#</code>或<code>--</code>表示注释)：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-5.png" alt="1-5"></p>
+<p>SQL <strong>ORDER BY</strong> 子句: 用于对结果集进行排序。根据指定的列对结果集进行排序，默认按照升序对记录进行排序。若希望按照降序对记录进行排序，可以使用 DESC 关键字。<code>ORDER BY 1</code> 表示所select的字段按第一个字段排序。</p>
+<p><strong>补充 SQL语句中$与#区别</strong>：<br><code>select * from user where id=${id} and username=#{username}</code><br>在经过编译后，得到如下语句:<code>select * from user where id=2 and username=?</code><br>经过编译后,如果是#{}的形式是编译成?，而如果${}是编译成直接的数据。<br>区别：<br><code>#{}</code>: 是以预编译的形式，将参数设置到SQL语句中;<code>PreparedStatement</code>:防止SQL注入<br><code>${}</code>: 取出的值直接拼装在SQL语句中;会有安全问题。$方式一般用于传入数据库对象，例如传入表名。</p>
+<p>(2)输入<code>1&#39; or 1=1 order by 2 #</code>，查询成功:<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-6.png" alt="1-6"></p>
+<p>(3)输入<code>1′ or 1=1 order by 3 #</code>，查询失败:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unknown column &apos;3&apos; in &apos;order clause&apos;</div></pre></td></tr></table></figure></p>
+<p>说明执行的SQL查询语句中只有两个字段，即这里的<code>First name</code>、<code>Surname</code>。</p>
+<p><strong>3.确定显示的字段顺序</strong><br>输入<code>1&#39; union select 1,2 #</code>，查询成功：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-7.png" alt="1-7"><br>说明执行的SQL语句为<code>select First name,Surname from 表 where ID=&#39;id&#39;</code>。<br><code>select 1,2</code>中的1和2只是为了凑够union关键字前面的那个表的字段数，在sql注入时，在相应位置替换成想要的数据即可。</p>
+<p><strong>补充<code>UNION</code>操作符:</strong><br>UNION 操作符用于合并两个或多个 SELECT 语句的结果集。注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。<br>默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。SQL UNION 语法如下:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name1</div><div class="line"><span class="keyword">UNION</span></div><div class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name2</div></pre></td></tr></table></figure></p>
+<p><strong>4.获取当前数据库</strong><br>输入<code>1′ union select 1,database() #</code>，查询成功：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-8.png" alt="1-8"><br>说明当前的数据库为<code>dvwa</code>。</p>
+<p><strong>5.获取数据库中的表</strong><br>输入<code>1&#39; union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() #</code>，查询成功:<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-9.png" alt="1-9"><br>说明数据库dvwa中一共有两个表，<code>guestbook</code>与<code>users</code>。</p>
+<p><strong>补充：</strong><br>MySQL中的<code>information_schema</code> 数据库保存了MySQL服务器所有数据库的信息，如数据库名，数据库的表，表栏的数据类型与访问权限等，提供了访问数据库元数据的方式。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SCHEMATA表：提供了关于数据库名的信息。</div><div class="line">TABLES表：给出了关于数据库中的表的信息。</div><div class="line">COLUMNS表：给出了表中的列信息。</div></pre></td></tr></table></figure></p>
+<p>参考博客<a href="https://blog.csdn.net/boshuzhang/article/details/65632708" target="_blank" rel="noopener">mysql中information_schema.tables字段说明 </a>。<br><code>information_schema.tables</code>表用来保存数据库中所有表的信息。<br><code>table_schema=数据库名</code>表示数据表所属的数据库。<br><code>table_name</code>表名称。<br><code>group_concat()</code>会计算哪些行属于同一组，将属于同一组的列显示出来(同一组的显示在一行)，要返回哪些列，由函数参数(就是字段名)决定。分组必须有个标准，就是根据<code>group by</code>指定的列进行分组。</p>
+<p><strong>6.获取表中的字段名</strong><br>输入<code>1&#39; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#39;users&#39; #</code>，查询成功：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-10.png" alt="1-10"><br>说明<code>users</code>表中有8个字段，分别是user_id,first_name,last_name,user,password,avatar,last_login,failed_login。</p>
+<p><strong>7.下载数据</strong><br>输入<code>1&#39; or 1=1 union select group_concat(user_id,first_name,last_name),group_concat(password) from users #</code>，查询成功：<br><img src="http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-11.png" alt="1-11"><br>这样就得到了users表中所有用户的user_id,first_name,last_name,password的数据。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《Web安全深度剖析》学习总结, 本部分主要总结SQL注入原理。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+    
+    
+      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+    
+      <category term="SQL注入" scheme="http://yoursite.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="SQL" scheme="http://yoursite.com/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP入门学习</title>
@@ -242,8 +331,8 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
   
   <entry>
     <title>（二）Web安全深度剖析学习【XSS】</title>
-    <link href="http://yoursite.com/2018/05/17/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-XSS%E4%B8%8ESQL%E6%B3%A8%E5%85%A5/"/>
-    <id>http://yoursite.com/2018/05/17/Web安全深度剖析学习-XSS与SQL注入/</id>
+    <link href="http://yoursite.com/2018/05/17/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-XSS/"/>
+    <id>http://yoursite.com/2018/05/17/Web安全深度剖析学习-XSS/</id>
     <published>2018-05-17T08:56:51.000Z</published>
     <updated>2018-05-21T14:29:39.676Z</updated>
     
@@ -332,7 +421,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/16/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2018/05/16/Web安全深度剖析学习/</id>
     <published>2018-05-16T11:55:17.000Z</published>
-    <updated>2018-05-17T08:49:19.606Z</updated>
+    <updated>2018-05-22T02:58:23.443Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。<br><a id="more"></a></p>
 <h1 id="Web安全简介"><a href="#Web安全简介" class="headerlink" title="Web安全简介"></a>Web安全简介</h1><p>Web服务默认运行在服务器的80端口之上(http服务器)，https服务器默认443端口。</p>
@@ -411,11 +500,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
       <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
     
-      <category term="XSS" scheme="http://yoursite.com/tags/XSS/"/>
-    
-      <category term="CSRF" scheme="http://yoursite.com/tags/CSRF/"/>
-    
-      <category term="SQL注入" scheme="http://yoursite.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+      <category term="http" scheme="http://yoursite.com/tags/http/"/>
     
   </entry>
   
@@ -3367,89 +3452,6 @@ visibility: hidden;
     
     
       <category term="interview questions" scheme="http://yoursite.com/tags/interview-questions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>introduction about HTTP</title>
-    <link href="http://yoursite.com/2018/01/09/introduction-about-HTTP/"/>
-    <id>http://yoursite.com/2018/01/09/introduction-about-HTTP/</id>
-    <published>2018-01-08T16:15:58.000Z</published>
-    <updated>2018-01-09T02:47:03.157Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于HTTP协议相关知识的学习总结。</p>
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>HTTP协议（Hyper Text Transfer Protocol，超文本传输协议）,是用于从万维网（WWW:World    Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
-<p>HTTP基于TCP/IP通信协议来传递数据。  </p>
-<p>HTTP基于客户端/服务端（C/S）架构模型，通过一个可靠的链接来交换信息，是一个无状态的请求/响应协议。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>（1）HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。   </p>
-<p>（2）HTTP是媒体独立的：只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。   </p>
-<p>（3）HTTP是无状态：无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
-<h2 id="通信流程"><a href="#通信流程" class="headerlink" title="通信流程"></a>通信流程</h2><p><img src="https://uploadfiles.nowcoder.com/files/20160727/213669_1469604624728_cgiarch.gif" alt="http协议通信流程图"></p>
-<h2 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h2><p>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。一旦建立连接后，数据消息就通过类似Internet邮件所使用的格式[RFC5322]和多用途Internet邮件扩展（MIME）[RFC2045]来传送。</p>
-<p>客户端请求消息：请求行、请求头部、空行和请求数据。<br>    GET /hello.txt HTTP/1.1<br>    User-Agent: curl/7.16.3 libcurl/7.16.3<br>    OpenSSL/0.9.7l zlib/1.2.3<br>    Host: www.example.com Accept-Language: en, mi<br>服务端响应消息：状态行、消息报头、空行和响应正文。<br>    HTTP/1.1 200 OK<br>    Date: Mon, 27 Jul 2009 12:28:53 GMT<br>    Server: Apache<br>    Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT<br>    ETag: “34aa387-d-1568eb00”<br>    Accept-Ranges: bytes<br>    Content-Length: 51<br>    Vary: Accept-Encoding<br>    Content-Type: text/plain</p>
-<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><p>​    GET 请求指定的页面信息，并返回实体主体。   </p>
-<p>​    HEAD    类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头   </p>
-<p>​    POST   向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。     POST请求可能会导致新的资源的建立和/或已有资源的修改。   </p>
-<p>​    PUT 从客户端向服务器传送的数据取代指定的文档的内容。   </p>
-<p>​    DELETE  请求服务器删除指定的页面。   </p>
-<p>​    CONNECT HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。   </p>
-<p>​    OPTIONS 允许客户端查看服务器的性能。   </p>
-<p>​    TRACE   回显服务器收到的请求，主要用于测试或诊断</p>
-<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><strong>HTTP状态码分类</strong><br>​        1xx  信息，服务器收到请求，需要请求者继续执行操作<br>​        2xx 成功，操作被成功接收并处理<br>​        3xx 重定向，需要进一步的操作以完成请求<br>​        4xx 客户端错误，请求包含语法错误或无法完成请求<br>​        5xx 服务器错误，服务器在处理请求的过程中发生了错   </p>
-<p><strong>HTTP状态码列表</strong><br>​    100 Continue    继续。客户端应继续其请求   </p>
-<p>​    101 Switching Protocols      切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议   </p>
-<p>​      200 OK  请求成功。一般用于GET与POST请求    </p>
-<p>​    201 Created 已创建。成功请求并创建了新的资源   </p>
-<p>​    202 Accepted    已接受。已经接受请求，但未处理完成   </p>
-<p>​    203 Non-Authoritative Information        非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本   </p>
-<p>​    204 No Content       无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档   </p>
-<p>​    205 Reset Content        重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域   </p>
-<p>​    206 Partial Content 部分内容。服务器成功处理了部分GET请求   </p>
-<p>​    300 Multiple Choices         多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择   </p>
-<p>​      301 Moved Permanently   永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替    </p>
-<p>​    302 Found   临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI   </p>
-<p>​    303 See Other   查看其它地址。与301类似。使用GET和POST请求查看   </p>
-<p>​      304 Not Modified    未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源    </p>
-<p>​    305 Use Proxy   使用代理。所请求的资源必须通过代理访问   </p>
-<p>​    306 Unused  已经被废弃的HTTP状态码   </p>
-<p>​      307 Temporary Redirect  临时重定向。与302类似。使用GET请求重定向    </p>
-<p>​    400 Bad Request 客户端请求的语法错误，服务器无法理解   </p>
-<p>​    401 Unauthorized    请求要求用户的身份认证   </p>
-<p>​    402 Payment Required    保留，将来使用   </p>
-<p>​    403 Forbidden   服务器理解请求客户端的请求，但是拒绝执行此请求   </p>
-<p>​      404 Not Found   服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面    </p>
-<p>​    405 Method Not Allowed  客户端请求中的方法被禁止   </p>
-<p>​    406 Not Acceptable  服务器无法根据客户端请求的内容特性完成请求   </p>
-<p>​    407 Proxy Authentication Required        请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权   </p>
-<p>​    408 Request Time-out    服务器等待客户端发送的请求时间过长，超时   </p>
-<p>​    409 Conflict    服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突   </p>
-<p>​    410 Gone         客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置   </p>
-<p>​    411 Length Required 服务器无法处理客户端发送的不带Content-Length的请求信息   </p>
-<p>​    412 Precondition Failed 客户端请求信息的先决条件错误   </p>
-<p>​    413 Request Entity Too Large         由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息   </p>
-<p>​    414 Request-URI Too Large   请求的URI过长（URI通常为网址），服务器无法处理   </p>
-<p>​    415 Unsupported Media Type  服务器无法处理请求附带的媒体格式   </p>
-<p>​    416 Requested range not satisfiable 客户端请求的范围无效   </p>
-<p>​    417 Expectation Failed  服务器无法满足Expect的请求头信息   </p>
-<p>​      500 Internal Server Error   服务器内部错误，无法完成请求    </p>
-<p>​    501 Not Implemented 服务器不支持请求的功能，无法完成请求   </p>
-<p>​    502 Bad Gateway 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求   </p>
-<p>​    503 Service Unavailable      由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中   </p>
-<p>​    504 Gateway Time-out    充当网关或代理的服务器，未及时从远端服务器获取请求   </p>
-<p>​    505 HTTP Version not supported  服务器不支持请求的HTTP协议的版本，无法完成处理   </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关于HTTP协议相关知识的学习总结。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="http" scheme="http://yoursite.com/categories/http/"/>
-    
-    
-      <category term="http" scheme="http://yoursite.com/tags/http/"/>
     
   </entry>
   
