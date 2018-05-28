@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="antd,dva," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shirley" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Ant Design of React 提供开箱即用的高质量 React 组件，具体的UI组件参见Ant Design 文档。">
+<meta name="keywords" content="antd,dva">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ant Design 入门学习总结">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/Ant-Design-入门学习总结/index.html">
+<meta property="og:site_name" content="Shirley">
+<meta property="og:description" content="Ant Design of React 提供开箱即用的高质量 React 组件，具体的UI组件参见Ant Design 文档。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/1.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/2.png">
+<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/3.png">
+<meta property="og:updated_time" content="2018-05-28T08:22:40.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ant Design 入门学习总结">
+<meta name="twitter:description" content="Ant Design of React 提供开箱即用的高质量 React 组件，具体的UI组件参见Ant Design 文档。">
+<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/28/Ant-Design-入门学习总结/"/>
+
+
+
+
+
+  <title>Ant Design 入门学习总结 | Shirley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104091693-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?06185a244e6f872c8aeab11a4e7b5db4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/shirley5li"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shirley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一只自学成菜的仙女!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/Ant-Design-入门学习总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShirleyLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shirley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ant Design 入门学习总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T16:15:46+08:00">
+                2018-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/antd/" itemprop="url" rel="index">
+                    <span itemprop="name">antd</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> Pageviews
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Ant Design of React 提供开箱即用的高质量 React 组件，具体的UI组件参见<a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">Ant Design 文档</a>。<br><a id="more"></a></p>
+<h1 id="Ant-Design简介"><a href="#Ant-Design简介" class="headerlink" title="Ant Design简介"></a>Ant Design简介</h1><p><a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">Ant Design of React</a> 是 Ant Design 的 React 实现。<br>npm安装：<code>npm install antd --save</code></p>
+<p><strong>按需加载：</strong> 使用 <a href="https://github.com/ant-design/babel-plugin-import" target="_blank" rel="noopener">babel-plugin-import</a>，babel-plugin-import 会帮助你加载 JS 和 CSS，只需从 antd 引入模块即可，无需单独引入样式。<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// .babelrc or babel-loader option</div><div class="line">&#123;</div><div class="line">  <span class="attr">"plugins"</span>: [</div><div class="line">    [<span class="string">"import"</span>, &#123; <span class="attr">"libraryName"</span>: <span class="string">"antd"</span>, <span class="attr">"libraryDirectory"</span>: <span class="string">"es"</span>, <span class="attr">"style"</span>: <span class="string">"css"</span> &#125;] // `style: <span class="literal">true</span>` 会加载 less 文件</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>使用示例：</strong><br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; DatePicker &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line">ReactDOM.render(&lt;DatePicker /&gt;, mountNode);</div></pre></td></tr></table></figure></p>
+<p><strong>快速上手：</strong><br>利用<a href="https://ant.design/docs/react/getting-started-cn" target="_blank" rel="noopener">antd-init</a>脚手架生成应用实例。(<strong>注意：</strong> antd-init只用于学习和体验antd如何使用，实际业务项目建议使用 dva-cli 和 create-react-app 进行搭建)<br><code>$ npm install antd-init -g</code> -&gt; <code>$ mkdir antd-demo &amp;&amp; cd antd-demo</code> -&gt; <code>$ antd-init</code><br>index.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; LocaleProvider, DatePicker, message &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line"><span class="comment">// 由于 antd 组件的默认文案是英文，所以需要修改为中文</span></div><div class="line"><span class="keyword">import</span> zhCN <span class="keyword">from</span> <span class="string">'antd/lib/locale-provider/zh_CN'</span>;</div><div class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'moment/locale/zh-cn'</span>;</div><div class="line"></div><div class="line">moment.locale(<span class="string">'zh-cn'</span>);</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      date: <span class="string">''</span>,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  handleChange(date) &#123;</div><div class="line">    message.info(<span class="string">'您选择的日期是: '</span> + (date ? date.toString() : <span class="string">''</span>));</div><div class="line">    <span class="keyword">this</span>.setState(&#123; date &#125;);</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;LocaleProvider locale=&#123;zhCN&#125;&gt;</div><div class="line">        &lt;div style=&#123;&#123; <span class="attr">width</span>: <span class="number">400</span>, <span class="attr">margin</span>: <span class="string">'100px auto'</span> &#125;&#125;&gt;</div><div class="line">          &lt;DatePicker onChange=&#123;value =&gt; <span class="keyword">this</span>.handleChange(value)&#125; /&gt;</div><div class="line">          &lt;div style=&#123;&#123; <span class="attr">marginTop</span>: <span class="number">20</span> &#125;&#125;&gt;当前日期：&#123;<span class="keyword">this</span>.state.date &amp;&amp; <span class="keyword">this</span>.state.date.toString()&#125;&lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        &lt;/</span>div&gt;</div><div class="line">      &lt;<span class="regexp">/LocaleProvider&gt;</span></div><div class="line"><span class="regexp">    );</span></div><div class="line"><span class="regexp">  &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">ReactDOM.render(&lt;App /</span>&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure></p>
+<p><code>$ npm start</code>, 访问<code>http://127.0.0.1:8000</code>UI样式如下：<br><img src="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/1.png" alt="1"><br><img src="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/2.png" alt="2"><br><img src="http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/3.png" alt="3"></p>
+<p><code>$ npm run build</code>，入口文件会构建到 dist 目录中，可以自由部署到不同环境中进行引用。</p>
+<h1 id="项目实战-dva"><a href="#项目实战-dva" class="headerlink" title="项目实战 dva"></a>项目实战 dva</h1><p><a href="https://github.com/dvajs/dva" target="_blank" rel="noopener">dva</a> 是一个基于 React 和 Redux (Redux 或者 MobX 为数据应用框架) 的轻量应用框架，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。<br>Ant Design React 作为一个 UI 库，搭配 React 生态圈内的Redux，构建了轻量应用框架dva。<br>(1)<strong>安装dva-cli</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install dva-cli -g</div><div class="line">$ dva -v</div><div class="line">dva-cli version 0.9.1</div></pre></td></tr></table></figure></p>
+<p>(2)<strong>创建新应用</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dva new dva-quickstart</div></pre></td></tr></table></figure></p>
+<p>以上命令用于创建 <code>dva-quickstart</code> 目录，包含项目初始化目录和文件，并提供开发服务器、构建脚本、数据 mock 服务、代理服务器等功能。<br>接下来启动开发服务器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> dva-quickstart</div><div class="line">$ npm start</div></pre></td></tr></table></figure></p>
+<p>在浏览器访问<code>http://localhost:8000</code> ，会看到 dva 的欢迎界面。<br>(3)<strong>使用antd</strong><br>通过 npm 安装 <code>antd</code> 和 <code>babel-plugin-import</code>(用来按需加载 antd 的脚本和样式，而不是把整个库都引入，从而提高性能) 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install antd babel-plugin-import --save</div></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong> 一定要用cnpm，npm真的慢出天际。。。。<br>接下来编辑 <code>.webpackrc</code>，使 <code>babel-plugin-import</code> 插件生效:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">+  "extraBabelPlugins": [</div><div class="line">+    ["import", &#123; "libraryName": "antd", "libraryDirectory": "es", "style": "css" &#125;]</div><div class="line">+  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(4)<strong>定义路由</strong><br>写个应用来显示产品列表。首先第一步是创建路由，路由可以想象成是组成应用的不同页面,<code>src/routes</code>下是存放页面的。<br>新建 route component  <code>src/routes/Products.js</code>，内容如下:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Products = <span class="function">(<span class="params">props</span>) =&gt;</span> (</div><div class="line">  &lt;h2&gt;List <span class="keyword">of</span> Products&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">);</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">export default Products;</span></div></pre></td></tr></table></figure></p>
+<p>添加路由信息到路由表，编辑 <code>router.js</code>(处理页面路由):<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ <span class="keyword">import</span> Products <span class="keyword">from</span> <span class="string">'./routes/Products'</span>;</div><div class="line">...</div><div class="line">+ &lt;Route path="/products" exact component=&#123;Products&#125; /&gt;</div></pre></td></tr></table></figure></p>
+<p>在浏览器里打开 <code>http://localhost:8000/#/products</code> ，能看到前面定义的 <code>&lt;h2&gt;</code> 标签。<br>(5)<strong>编写 UI Component</strong><br>编写一个 <code>ProductList</code> component。新建 <code>components/ProductList.js</code> 文件:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Table, Popconfirm, Button &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> ProductList = <span class="function">(<span class="params">&#123; onDelete, products &#125;</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> columns = [&#123;</div><div class="line">    title: <span class="string">'Name'</span>,</div><div class="line">    dataIndex: <span class="string">'name'</span>,</div><div class="line">  &#125;, &#123;</div><div class="line">    title: <span class="string">'Actions'</span>,</div><div class="line">    render: <span class="function">(<span class="params">text, record</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">        &lt;Popconfirm title=<span class="string">"Delete?"</span> onConfirm=&#123;() =&gt; onDelete(record.id)&#125;&gt;</div><div class="line">          &lt;Button&gt;Delete&lt;<span class="regexp">/Button&gt;</span></div><div class="line"><span class="regexp">        &lt;/</span>Popconfirm&gt;</div><div class="line">      );</div><div class="line">    &#125;,</div><div class="line">  &#125;];</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;Table</div><div class="line">      dataSource=&#123;products&#125;</div><div class="line">      columns=&#123;columns&#125;</div><div class="line">    /&gt;</div><div class="line">  );</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ProductList.propTypes = &#123;</div><div class="line">  onDelete: PropTypes.func.isRequired,</div><div class="line">  products: PropTypes.array.isRequired,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> ProductList;</div></pre></td></tr></table></figure></p>
+<p>其中<code>&lt;Table /&gt;</code>的<code>columns</code>用于表格列的配置描述，类型<code>ColumnProps[]</code>。<a href="https://ant.design/components/table-cn/" target="_blank" rel="noopener">见文档</a><br>(6)<strong>定义 Model</strong><br>完成 UI 后，现在开始处理数据和逻辑。<br>dva 通过 model 的概念把一个领域的模型管理起来，包含同步更新 state 的 reducers，处理异步逻辑的 effects，订阅数据源的 subscriptions 。<br>新建 model <code>models/products.js</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  namespace: <span class="string">'products'</span>,</div><div class="line">  state: [],</div><div class="line">  reducers: &#123;</div><div class="line">    <span class="string">'delete'</span>(state, &#123; <span class="attr">payload</span>: id &#125;) &#123;</div><div class="line">      <span class="keyword">return</span> state.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.id !== id);</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>上述 model 里：</p>
+<ul>
+<li><code>namespace</code> 表示在全局 state 上的 key</li>
+<li><code>state</code> 是初始值，在这里是空数组</li>
+<li><code>reducers</code> 等同于 redux 里的 reducer，接收 action，同步更新 state</li>
+</ul>
+<p>然后在<code>index.js</code>中载入：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 3. Model</span></div><div class="line">+ app.model(<span class="built_in">require</span>(<span class="string">'./models/products'</span>).default);</div></pre></td></tr></table></figure></p>
+<p>(7)<strong>connect 起来</strong><br>将 model 和 component 串联起来。dva 提供了 connect 方法，类似于 react-redux 的 connect，用于将 model 和 component 串联起来。<br>编辑 <code>src/routes/Products.js</code>(页面展示组件)，替换为以下内容:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'dva'</span>;</div><div class="line"><span class="keyword">import</span> ProductList <span class="keyword">from</span> <span class="string">'../components/ProductList'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Products = <span class="function">(<span class="params">&#123; dispatch, products &#125;</span>) =&gt;</span> &#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleDelete</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">    dispatch(&#123;</div><div class="line">      type: <span class="string">'products/delete'</span>,</div><div class="line">      payload: id,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;h2&gt;List <span class="keyword">of</span> Products&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">      &lt;ProductList onDelete=&#123;handleDelete&#125; products=&#123;products&#125; /</span>&gt;</div><div class="line">    &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">  );</span></div><div class="line"><span class="regexp">&#125;;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">/</span><span class="regexp">/ export default Products;</span></div><div class="line"><span class="regexp">export default connect((&#123; products &#125;) =&gt; (&#123;</span></div><div class="line"><span class="regexp">  products,</span></div><div class="line"><span class="regexp">&#125;))(Products);</span></div></pre></td></tr></table></figure></p>
+<p>最后mock一些初始数据让此应用运行起来，编辑<code>index.js</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- <span class="keyword">const</span> app = dva();</div><div class="line">+ <span class="keyword">const</span> app = dva(&#123;</div><div class="line">+   initialState: &#123;</div><div class="line">+     products: [</div><div class="line">+       &#123; <span class="attr">name</span>: <span class="string">'dva'</span>, <span class="attr">id</span>: <span class="number">1</span> &#125;,</div><div class="line">+       &#123; <span class="attr">name</span>: <span class="string">'antd'</span>, <span class="attr">id</span>: <span class="number">2</span> &#125;,</div><div class="line">+     ],</div><div class="line">+   &#125;,</div><div class="line">+ &#125;);</div></pre></td></tr></table></figure></p>
+<p>(8)<strong>构建应用</strong><br>完成开发并且在开发环境验证之后，接下来部署到生产环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div></pre></td></tr></table></figure></p>
+<p>几秒后控制台输出如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div><div class="line"></div><div class="line">&gt; @ build C:\Users\Shirley\Desktop\dva-quickstart</div><div class="line">&gt; roadhog build</div><div class="line"></div><div class="line">Compiled successfully.</div><div class="line"></div><div class="line">File sizes after gzip:</div><div class="line"></div><div class="line">  145.28 KB  dist\index.js</div><div class="line">  17.84 KB   dist\index.css</div></pre></td></tr></table></figure></p>
+<p><code>build</code> 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等，可以在 <code>dist/</code> 目录下找到这些文件。</p>
+<h1 id="在-create-react-app-中使用-antd"><a href="#在-create-react-app-中使用-antd" class="headerlink" title="在 create-react-app 中使用 antd"></a>在 create-react-app 中使用 antd</h1><p>（1）<strong>安装和初始化</strong><br>在命令行中安装 create-react-app 工具:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g create-react-app</div></pre></td></tr></table></figure></p>
+<p>新建一个项目:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ create-react-app antd-demo</div></pre></td></tr></table></figure></p>
+<p>工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖。接下来进入项目并启动，浏览器会访问 <code>http://localhost:3000/</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> antd-demo</div><div class="line">$ npm start</div></pre></td></tr></table></figure></p>
+<p>(2)<strong>引入 antd</strong><br>npm 安装并引入 antd:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm add antd</div></pre></td></tr></table></figure></p>
+<p>修改 <code>src/App.js</code>，引入 antd 的按钮组件:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'antd/lib/button'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div className=<span class="string">"App"</span>&gt;</div><div class="line">        &lt;Button type=<span class="string">"primary"</span>&gt;Button&lt;<span class="regexp">/Button&gt;</span></div><div class="line"><span class="regexp">      &lt;/</span>div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure></p>
+<p>修改 <code>src/App.css</code>，在文件顶部引入 <code>antd/dist/antd.css</code>:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> <span class="string">'~antd/dist/antd.css'</span>;</div><div class="line"></div><div class="line"><span class="selector-class">.App</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>现在可以看到页面上已经有了 antd 的蓝色按钮组件。<br>(3)<strong>高级配置</strong><br>步骤(2)已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（对前端性能是个隐患）。<br>需要对 create-react-app 的默认配置进行自定义，这里使用 <code>react-app-rewired</code> （一个对 create-react-app 进行自定义配置的社区解决方案）。</p>
+<p>引入 <code>react-app-rewired</code> 并修改 package.json 里的启动配置:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm add react-app-rewired --dev</div></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/* package.json */</div><div class="line">"scripts": &#123;</div><div class="line">-   "start": "react-scripts start",</div><div class="line">+   "start": "react-app-rewired start",</div><div class="line">-   "build": "react-scripts build",</div><div class="line">+   "build": "react-app-rewired build",</div><div class="line">-   "test": "react-scripts test --env=jsdom",</div><div class="line">+   "test": "react-app-rewired test --env=jsdom",</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在项目根目录创建一个 <code>config-overrides.js</code> 用于修改默认配置:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">override</span>(<span class="params">config, env</span>) </span>&#123;</div><div class="line">  <span class="comment">// do stuff with the webpack config...</span></div><div class="line">  <span class="keyword">return</span> config;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>使用 <code>babel-plugin-import</code>(用于 <strong>按需加载</strong> 组件代码和样式的 babel 插件)，安装它并修改 <code>config-overrides.js</code> 文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm add babel-plugin-import --dev</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+ <span class="keyword">const</span> &#123; injectBabelPlugin &#125; = <span class="built_in">require</span>(<span class="string">'react-app-rewired'</span>);</div><div class="line"></div><div class="line">  <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">override</span>(<span class="params">config, env</span>) </span>&#123;</div><div class="line">+   config = injectBabelPlugin([<span class="string">'import'</span>, &#123; <span class="attr">libraryName</span>: <span class="string">'antd'</span>, <span class="attr">libraryDirectory</span>: <span class="string">'es'</span>, <span class="attr">style</span>: <span class="string">'css'</span> &#125;], config);</div><div class="line">    <span class="keyword">return</span> config;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+<p>然后移除前面在 <code>src/App.css</code> 里全量添加的 <code>@import &#39;~antd/dist/antd.css&#39;;</code> 样式代码，并且按下面的格式引入模块:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// src/App.js</span></div><div class="line">  <span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line">- <span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'antd/lib/button'</span>;</div><div class="line">+ <span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line">  <span class="keyword">import</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">        &lt;div className=<span class="string">"App"</span>&gt;</div><div class="line">          &lt;Button type=<span class="string">"primary"</span>&gt;Button&lt;<span class="regexp">/Button&gt;</span></div><div class="line"><span class="regexp">        &lt;/</span>div&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure></p>
+<p>需要重启<code>npm start</code>访问页面，否则看不到效果。antd 组件的 js 和 css 代码都会按需加载。</p>
+<p><strong>自定义主题</strong>：自定义主题需要用到 less 变量覆盖功能，可以引入 react-app-rewire 的 less 插件 <code>react-app-rewire-less</code> 来帮助加载 less 样式，同时修改 <code>config-overrides.js</code> 文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm add react-app-rewire-less --dev</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">const</span> &#123; injectBabelPlugin &#125; = <span class="built_in">require</span>(<span class="string">'react-app-rewired'</span>);</div><div class="line">+ <span class="keyword">const</span> rewireLess = <span class="built_in">require</span>(<span class="string">'react-app-rewire-less'</span>);</div><div class="line"></div><div class="line">  <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">override</span>(<span class="params">config, env</span>) </span>&#123;</div><div class="line">-   config = injectBabelPlugin([<span class="string">'import'</span>, &#123; <span class="attr">libraryName</span>: <span class="string">'antd'</span>, <span class="attr">style</span>: <span class="string">'css'</span> &#125;], config);</div><div class="line">+   config = injectBabelPlugin([<span class="string">'import'</span>, &#123; <span class="attr">libraryName</span>: <span class="string">'antd'</span>, <span class="attr">style</span>: <span class="literal">true</span> &#125;], config);</div><div class="line">+   config = rewireLess.withLoaderOptions(&#123;</div><div class="line">+     modifyVars: &#123; <span class="string">"@primary-color"</span>: <span class="string">"#1DA57A"</span> &#125;,</div><div class="line">+   &#125;)(config, env);</div><div class="line">    <span class="keyword">return</span> config;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+<p>这里利用了 less-loader 的 <code>modifyVars</code> 来进行主题配置，修改配置后需要重启 <code>npm start</code>才能看到效果。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+    <div>
+       <div>  <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-smile-o"></i>感谢您的阅读-------------</div>  </div>
+
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" style="width: 80px;line-height: 38px;text-align: center;font-weight: bold;color: #fff;border-radius: 5px;
+margin:0 20px 20px 0;position: relative;overflow: hidden;color: #8c96a0;text-shadow:1px 1px 1px #fff;border:1px solid #dce1e6;box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);background: linear-gradient(top,#f2f3f7,#e4e8ec);" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    打赏
+  </button>
+  <div id="QR" style="display: none; text-align: center;">
+
+    
+      <div id="wechat" style="display: inline-block;">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ShirleyLi WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block;">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ShirleyLi Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/antd/" rel="tag"><i class="fa fa-tag"></i> antd</a>
+          
+            <a href="/tags/dva/" rel="tag"><i class="fa fa-tag"></i> dva</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/Web安全深度剖析学习-SQL注入/" rel="next" title="（三）Web安全深度剖析学习【SQL注入】">
+                <i class="fa fa-chevron-left"></i> （三）Web安全深度剖析学习【SQL注入】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjUzMy85MDk0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ShirleyLi" />
+          <p class="site-author-name" itemprop="name">ShirleyLi</p>
+           
+              <p class="site-description motion-element" itemprop="description">Yesterday I saw a lion kiss a deer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shirley5li" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/8237409/shirley5li" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                    
+                      StackOverflow
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/shirley5li" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2940695757/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/98598367/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/shirley-39-53-43/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ant-Design简介"><span class="nav-number">1.</span> <span class="nav-text">Ant Design简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目实战-dva"><span class="nav-number">2.</span> <span class="nav-text">项目实战 dva</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-create-react-app-中使用-antd"><span class="nav-number">3.</span> <span class="nav-text">在 create-react-app 中使用 antd</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShirleyLi</span>
+</div>
+
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Views
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
