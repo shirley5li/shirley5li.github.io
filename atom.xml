@@ -98,7 +98,7 @@ npm start
 <p>(3)jsx注释<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Body</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">var</span> userName = <span class="string">'Shirley'</span>;</div><div class="line">        <span class="keyword">var</span> boolInput = <span class="literal">true</span>;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h2&gt;这是是页面主体&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;userName === '' ? '用户未登录' : '用户名' + userName&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p&gt;</div><div class="line">                    &lt;input type=<span class="string">"button"</span> value=&#123;userName&#125; disabled=&#123;boolInput&#125;/&gt;</div><div class="line">                &lt;<span class="regexp">/p&gt;</span></div><div class="line"><span class="regexp">                &#123;/</span>* 注释 *<span class="regexp">/&#125;</span></div><div class="line"><span class="regexp">            &lt;/</span>div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>(4)jsx解析html<br>将html中的空格字符使用unicode转码，jsx解析后会在页面显示空格。若html变量中使用<code>&amp;nbsp;</code>这样的html实体，jsx不会将其解析为空格，还是输出字符串。<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Body</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">var</span> userName = <span class="string">'Shirley'</span>;</div><div class="line">        <span class="keyword">var</span> boolInput = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">var</span> htmlStr1 = <span class="string">'Hello\u0020Stranger1'</span>;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h2&gt;这是是页面主体&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;userName === '' ? '用户未登录' : '用户名' + userName&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p&gt;</div><div class="line">                    &lt;input type=<span class="string">"button"</span> value=&#123;userName&#125; disabled=&#123;boolInput&#125;/&gt;</div><div class="line">                &lt;<span class="regexp">/p&gt;</span></div><div class="line"><span class="regexp">                &#123;/</span>* 注释 *<span class="regexp">/&#125;</span></div><div class="line"><span class="regexp">				&lt;p&gt;&#123;htmlStr1&#125;&lt;/</span>p&gt;</div><div class="line">            &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure></p>
 <p>但该种方式还需要在后台设置unicode转码，比较麻烦。(注意：即使在htmlStr的<code>Hello</code>和<code>Stranger</code>之间添加多个<code>\u0020</code>，页面还是显示一个空格)</p>
-<p>第二种方式是使用标签的<code>dangerouslySetInnerHTML</code>属性，但该属性可能造成XSS漏洞，也不建议使用，将要显示的html字符串挂载到<code>__html</code>这样一个变量上。<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Body</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">var</span> userName = <span class="string">'Shirley'</span>;</div><div class="line">        <span class="keyword">var</span> boolInput = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">var</span> htmlStr1 = <span class="string">'Hello\u0020Stranger1'</span>;</div><div class="line">        <span class="keyword">var</span> htmlStr2 = <span class="string">'Hello&amp;nbsp;Stranger2'</span>;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h2&gt;这是是页面主体&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;userName === '' ? '用户未登录' : '用户名' + userName&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p&gt;</div><div class="line">                    &lt;input type=<span class="string">"button"</span> value=&#123;userName&#125; disabled=&#123;boolInput&#125;/&gt;</div><div class="line">                &lt;<span class="regexp">/p&gt;               </span></div><div class="line"><span class="regexp">                &#123;/</span>* 注释 *<span class="regexp">/&#125;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;htmlStr1&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p dangerouslySetInnerHTML= &#123;&#123;<span class="attr">__html</span> : htmlStr2&#125;&#125;&gt;&lt;/p&gt;</div><div class="line">                &#123;htmlStr2&#125;</div><div class="line">            &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure></p>
+<p>第二种方式是使用标签的<code>dangerouslySetInnerHTML</code>属性，但该属性可能造成XSS漏洞，也不建议使用，将要显示的html字符串挂载到<code>__html</code>这样一个变量上。<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Body</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">var</span> userName = <span class="string">'Shirley'</span>;</div><div class="line">        <span class="keyword">var</span> boolInput = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">var</span> htmlStr1 = <span class="string">'Hello\u0020Stranger1'</span>;</div><div class="line">        <span class="keyword">var</span> htmlStr2 = <span class="string">'Hello&amp;nbsp;Stranger2'</span>;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h2&gt;这是是页面主体&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;userName === '' ? '用户未登录' : '用户名' + userName&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p&gt;</div><div class="line">                    &lt;input type=<span class="string">"button"</span> value=&#123;userName&#125; disabled=&#123;boolInput&#125;/&gt;</div><div class="line">                &lt;<span class="regexp">/p&gt;               </span></div><div class="line"><span class="regexp">                &#123;/</span>* 注释 *<span class="regexp">/&#125;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;htmlStr1&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p dangerouslySetInnerHTML= &#123;&#123;<span class="attr">__html</span> : htmlStr2&#125;&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">                &#123;htmlStr2&#125;</div><div class="line">            &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure></p>
 <p>显示效果对比如下：<br><img src="http://ou3oh86t1.bkt.clouddn.com/react_newsapp/readme/images/jsx%E8%A7%A3%E6%9E%90html.png" alt="jsx解析html"></p>
 <h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><img src="http://ou3oh86t1.bkt.clouddn.com/react_newsapp/readme/images/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="生命周期"></p>
 <p>src/components/body.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Body</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    componentWillMount() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"Body-componentWillMount"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"Body-componentDidMount"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -112,7 +112,7 @@ npm start
 <p><strong>子组件向父组件传递数据：</strong> 只能通过事件的形式，从子组件向父组件传递数据。通过在父组件中事先定义好处理子组件事件的函数，并且以props属性的形式，将该事件处理函数传递给子组件，从而实现子组件向父组件传递数据。</p>
 <p>例如在<code>&lt;Body/&gt;</code>组件中添加子组件<code>&lt;BodyChild/&gt;</code>，并且事先定义好了子组件在输入值改变时的事件处理函数<code>handleChildValueChange(event)</code>，以子组件属性的形式(<code>&lt;BodyChild handleChildValueChange={this.handleChildValueChange.bind(this)}/&gt;</code>)将该事件处理函数传递给子组件，从而实现从子组件<code>&lt;BodyChild/&gt;</code>向父组件<code>&lt;Body/&gt;</code>传递数据。</p>
 <p>父组件<code>&lt;Body/&gt;</code>:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Body</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>() &#123;</div><div class="line">        <span class="keyword">super</span>(); <span class="comment">//调用基类的所有初始化方法</span></div><div class="line">        <span class="keyword">this</span>.state = &#123;<span class="attr">userName</span>: <span class="string">"Shirley"</span>&#125;; <span class="comment">//初始化赋值</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    changeUserInfo() &#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">userName</span>: <span class="string">"Your name has changed!"</span>&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleChildValueChange(event) &#123; <span class="comment">//通过事件形式，获取子组件的数据</span></div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">userName</span>: event.target.value&#125;);</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h2&gt;这是是页面主体&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">                &lt;p&gt;&#123;this.state.userName&#125;&lt;/</span>p&gt;</div><div class="line">                &lt;p&gt;&#123;<span class="keyword">this</span>.props.userId&#125;&lt;<span class="regexp">/p&gt; </span></div><div class="line"><span class="regexp">                &lt;input type="button" value="提交" onClick=&#123;() =&gt; this.changeUserInfo()&#125; /</span>&gt;</div><div class="line">                &#123;<span class="comment">/* BodyChild 子组件 */</span>&#125;</div><div class="line">                &lt;BodyChild handleChildValueChange=&#123;<span class="keyword">this</span>.handleChildValueChange.bind(<span class="keyword">this</span>)&#125;/&gt;             </div><div class="line">            &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure></p>
-<p>子组件<code>&lt;BodyChild/&gt;</code>:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BodyChild</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;p&gt;子页面输入:&lt;input type="text" onChange=&#123;this.props.handleChildValueChange&#125;/&gt;&lt;/p&gt;</div><div class="line">            &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure></p>
+<p>子组件<code>&lt;BodyChild/&gt;</code>:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BodyChild</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;p&gt;子页面输入:<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onChange</span>=<span class="string">&#123;this.props.handleChildValueChange&#125;/</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">            &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure></p>
 <p>这样当子组件文本输入框内的值改变时，会实时反映到父组件的<code>&lt;p&gt;{this.state.userName}&lt;/p&gt;</code>区域。</p>
 <h2 id="props属性校验"><a href="#props属性校验" class="headerlink" title="props属性校验"></a>props属性校验</h2><p>props是一个组件对外暴露的接口，React提供了PropTypes对象，用于校验组件属性的类型。<br>以Body组件为例，当类定义完之后，可以通过<code>Body.propTypes</code>形式，限定Body组件属性值的类型。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">import React, &#123; Component &#125; from &apos;react&apos;;</div><div class="line">import PropTypes from &apos;prop-types&apos;;</div><div class="line">import BodyChild from &apos;./bodyChild&apos;;</div><div class="line"></div><div class="line"></div><div class="line">class Body extends Component &#123;</div><div class="line">    constructor() &#123;</div><div class="line">        super(); //调用基类的所有初始化方法</div><div class="line">        this.state = &#123;userName: &quot;Shirley&quot;&#125;; //初始化赋值</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    changeUserInfo() &#123;</div><div class="line">        this.setState(&#123;userName: &quot;Your name has changed!&quot;&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleChildValueChange(event) &#123; //通过事件形式，获取子组件的数据</div><div class="line">        this.setState(&#123;userName: event.target.value&#125;);</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line"></div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h2&gt;这是是页面主体&lt;/h2&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.userName&#125;&lt;/p&gt;</div><div class="line">                &#123;/* 通过 PropTypes 对象校验uesrId的类型 */&#125;</div><div class="line">                &lt;p&gt;&#123;this.props.userId&#125;&lt;/p&gt; </div><div class="line">                &lt;input type=&quot;button&quot; value=&quot;提交&quot; onClick=&#123;() =&gt; this.changeUserInfo()&#125; /&gt;</div><div class="line">                &#123;/* BodyChild 子组件 */&#125;</div><div class="line">                &lt;BodyChild handleChildValueChange=&#123;this.handleChildValueChange.bind(this)&#125;/&gt;             </div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Body组件props属性校验</div><div class="line">Body.propTypes = &#123;</div><div class="line">    userId: PropTypes.number</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default Body;</div></pre></td></tr></table></figure></p>
 <p>当在Body父组件App中，通过props传递一个字符串给Body组件的userId属性，会报错：<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> ComponentHeader <span class="keyword">from</span> <span class="string">'./header'</span>;</div><div class="line"><span class="keyword">import</span> ComponentFooter <span class="keyword">from</span> <span class="string">'./footer'</span>;</div><div class="line"><span class="keyword">import</span> Body <span class="keyword">from</span> <span class="string">'./body'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123; </div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div className=<span class="string">"App"</span>&gt;</div><div class="line">        &lt;ComponentHeader /&gt;</div><div class="line">        &#123;<span class="comment">/* Body组件通过 PropTypes对象校验uesrId的类型必须为Number类型 */</span>&#125;</div><div class="line">        &lt;Body userId=&#123;<span class="string">"hello"</span>&#125; /&gt;</div><div class="line">        &lt;ComponentFooter /&gt;</div><div class="line">      &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">    );</span></div><div class="line"><span class="regexp">  &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp">export default App;</span></div></pre></td></tr></table></figure></p>
@@ -249,7 +249,7 @@ npm start
     <link href="http://yoursite.com/2018/05/22/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-SQL%E6%B3%A8%E5%85%A5/"/>
     <id>http://yoursite.com/2018/05/22/Web安全深度剖析学习-SQL注入/</id>
     <published>2018-05-22T03:00:14.000Z</published>
-    <updated>2018-05-23T09:01:20.463Z</updated>
+    <updated>2018-05-29T02:22:15.558Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要总结SQL注入原理。<br><a id="more"></a><br>SQL注入漏洞是Web层面最高危的漏洞之一。</p>
 <h1 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h1><p>SQL注入指web应用程序对用户输入数据的合法性没有判断，攻击者可以在web应用程序事先定义好的查询语句的结尾上添加额外的SQL语句，以此来实现欺骗数据库服务器执行非授权的任意SQL查询，从而进一步得到相应的数据信息。</p>
@@ -322,10 +322,10 @@ npm start
     
     </summary>
     
-      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
     
     
-      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
     
       <category term="SQL注入" scheme="http://yoursite.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
@@ -466,7 +466,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/17/phpstudy%E4%B8%8EDVWA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/</id>
     <published>2018-05-17T12:58:23.000Z</published>
-    <updated>2018-05-18T11:34:53.483Z</updated>
+    <updated>2018-05-29T02:23:07.382Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://ciphersaw.me/" target="_blank" rel="noopener">帆哥</a>教我玩WEB安全系列之最最开始环境配置篇。<br><a id="more"></a></p>
 <h1 id="VMware虚拟机安装"><a href="#VMware虚拟机安装" class="headerlink" title="VMware虚拟机安装"></a>VMware虚拟机安装</h1><p>现在最新版本的是 VMware workstation 14，怕激活密钥不好找，就安装了VMware workstation 12 pro(激活密钥：5A02H-AU243-TZJ49-GTC7K-3C61N)。</p>
@@ -543,10 +543,10 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
     
     
-      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
     
       <category term="phpStudy" scheme="http://yoursite.com/tags/phpStudy/"/>
     
@@ -554,7 +554,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
       <category term="WAMP" scheme="http://yoursite.com/tags/WAMP/"/>
     
-      <category term="web容器" scheme="http://yoursite.com/tags/web%E5%AE%B9%E5%99%A8/"/>
+      <category term="Web容器" scheme="http://yoursite.com/tags/Web%E5%AE%B9%E5%99%A8/"/>
     
   </entry>
   
@@ -563,7 +563,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/17/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-XSS/"/>
     <id>http://yoursite.com/2018/05/17/Web安全深度剖析学习-XSS/</id>
     <published>2018-05-17T08:56:51.000Z</published>
-    <updated>2018-05-21T14:29:39.676Z</updated>
+    <updated>2018-05-29T02:22:35.038Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。<br>一篇较好的博客<a href="https://blog.csdn.net/u011781521/article/details/53894399" target="_blank" rel="noopener">XSS跨站脚本攻击(一)—-XSS攻击的三种类型</a>。<br><a id="more"></a></p>
 <h1 id="XSS跨站脚本漏洞"><a href="#XSS跨站脚本漏洞" class="headerlink" title="XSS跨站脚本漏洞"></a>XSS跨站脚本漏洞</h1><p>XSS(Cross Site Scripting)，即跨站脚本攻击。指攻击者在网页中嵌入客户端脚本，通常是JS编写的恶意代码，当用户使用浏览器浏览被嵌入恶意代码的网页时，恶意代码将会在用户浏览器上执行。XSS属于客户端攻击。</p>
@@ -636,10 +636,10 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
     
     
-      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
     
       <category term="XSS" scheme="http://yoursite.com/tags/XSS/"/>
     
@@ -650,7 +650,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/16/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2018/05/16/Web安全深度剖析学习/</id>
     <published>2018-05-16T11:55:17.000Z</published>
-    <updated>2018-05-22T02:58:23.443Z</updated>
+    <updated>2018-05-29T02:21:01.736Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。<br><a id="more"></a></p>
 <h1 id="Web安全简介"><a href="#Web安全简介" class="headerlink" title="Web安全简介"></a>Web安全简介</h1><p>Web服务默认运行在服务器的80端口之上(http服务器)，https服务器默认443端口。</p>
@@ -724,12 +724,12 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="web security" scheme="http://yoursite.com/categories/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
     
     
-      <category term="web security" scheme="http://yoursite.com/tags/web-security/"/>
+      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
     
-      <category term="http" scheme="http://yoursite.com/tags/http/"/>
+      <category term="HTTP" scheme="http://yoursite.com/tags/HTTP/"/>
     
   </entry>
   
@@ -738,7 +738,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/16/git-reset/"/>
     <id>http://yoursite.com/2018/05/16/git-reset/</id>
     <published>2018-05-16T02:16:48.000Z</published>
-    <updated>2018-05-16T09:18:47.524Z</updated>
+    <updated>2018-05-29T01:47:06.339Z</updated>
     
     <content type="html"><![CDATA[<p>来自<a href="https://www.fengerzh.com/git-reset/" target="_blank" rel="noopener">Git的4个阶段的撤销更改</a>、<a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">Git远程操作详解</a>等博客的学习总结(PS:备份)。<br><a id="more"></a></p>
 <h1 id="Git的基本概念"><a href="#Git的基本概念" class="headerlink" title="Git的基本概念"></a>Git的基本概念</h1><p>在创建Git仓库的时候，工作区会有一个隐藏目录.git（Git的版本库)，Git会自动创建一个master分支，以及一个指向master分支的指针<code>HEAD</code>。<br><img src="http://ou3oh86t1.bkt.clouddn.com/git-reset/git%E5%B7%A5%E4%BD%9C%E5%88%86%E5%8C%BA.png" alt="git工作分区"></p>
@@ -885,19 +885,19 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="git" scheme="http://yoursite.com/categories/git/"/>
+      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
     
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
     
   </entry>
   
   <entry>
-    <title>(二)webpack相关概念总结</title>
+    <title>(二)Webpack相关概念总结</title>
     <link href="http://yoursite.com/2018/05/14/webpack-concepts-study/"/>
     <id>http://yoursite.com/2018/05/14/webpack-concepts-study/</id>
     <published>2018-05-14T01:19:45.000Z</published>
-    <updated>2018-05-14T14:14:04.113Z</updated>
+    <updated>2018-05-29T02:33:45.150Z</updated>
     
     <content type="html"><![CDATA[<p>关于webapck相关概念的学习总结。<br><a id="more"></a></p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。</p>
@@ -1095,19 +1095,19 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="webpack" scheme="http://yoursite.com/categories/webpack/"/>
+      <category term="Webpack" scheme="http://yoursite.com/categories/Webpack/"/>
     
     
-      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
+      <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
     
   </entry>
   
   <entry>
-    <title>(一)webpack入门总结</title>
+    <title>(一)Webpack入门总结</title>
     <link href="http://yoursite.com/2018/05/14/webpack-start-first/"/>
     <id>http://yoursite.com/2018/05/14/webpack-start-first/</id>
     <published>2018-05-14T01:06:21.000Z</published>
-    <updated>2018-05-14T01:11:31.281Z</updated>
+    <updated>2018-05-29T02:33:34.808Z</updated>
     
     <content type="html"><![CDATA[<p>关于webpck基本使用的入门总结。<br><a id="more"></a><br><strong>webpack版本【webpack@4.8.3】</strong></p>
 <p><strong>补充：</strong><br>(1)git bash新建文件的命令：<code>touch index.html</code>（再别忘记了！！！）</p>
@@ -1170,10 +1170,10 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="webpack" scheme="http://yoursite.com/categories/webpack/"/>
+      <category term="Webpack" scheme="http://yoursite.com/categories/Webpack/"/>
     
     
-      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
+      <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
     
   </entry>
   
@@ -1309,7 +1309,7 @@ event.target //事件的目标DOM元素
     <link href="http://yoursite.com/2018/03/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/03/26/微信小程序开发文档总结/</id>
     <published>2018-03-26T14:15:57.000Z</published>
-    <updated>2018-03-27T00:58:47.667Z</updated>
+    <updated>2018-05-29T02:36:14.215Z</updated>
     
     <content type="html"><![CDATA[<p>小程序开发文档的简要概括。<br><a id="more"></a></p>
 <h1 id="基本的文件结构"><a href="#基本的文件结构" class="headerlink" title="基本的文件结构"></a>基本的文件结构</h1><p>最关键也是必不可少的，是 app.js、app.json、app.wxss 这三个，<code>.js</code>后缀的是脚本文件，<code>.json</code>后缀的文件是配置文件，<code>.wxss</code>后缀的是样式表文件。</p>
@@ -1860,10 +1860,10 @@ wx.openCard    打开卡券
     
     </summary>
     
-      <category term="wechat_smallProgram" scheme="http://yoursite.com/categories/wechat-smallProgram/"/>
+      <category term="WeChat MiniPro" scheme="http://yoursite.com/categories/WeChat-MiniPro/"/>
     
     
-      <category term="wechat_smallProgram" scheme="http://yoursite.com/tags/wechat-smallProgram/"/>
+      <category term="WeChat MiniPro" scheme="http://yoursite.com/tags/WeChat-MiniPro/"/>
     
   </entry>
   
@@ -1872,7 +1872,7 @@ wx.openCard    打开卡券
     <link href="http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/"/>
     <id>http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/</id>
     <published>2018-03-24T06:52:04.000Z</published>
-    <updated>2018-03-27T01:04:04.751Z</updated>
+    <updated>2018-05-29T02:37:04.415Z</updated>
     
     <content type="html"><![CDATA[<p>2018春季腾讯研发岗在线模拟笔试算法题目总结。<br><a id="more"></a></p>
 <h3 id="给出四个点的坐标判断是否为正方形"><a href="#给出四个点的坐标判断是否为正方形" class="headerlink" title="给出四个点的坐标判断是否为正方形"></a>给出四个点的坐标判断是否为正方形</h3><p>思路：暴力方法，求出任意两点之间的距离，如果有四条相等，剩下两条距离相等，则构成正方形。</p>
@@ -1910,6 +1910,8 @@ wx.openCard    打开卡券
     
     
       <category term="js算法题" scheme="http://yoursite.com/tags/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
@@ -2611,7 +2613,7 @@ HAVING aggregate_function(column_name) operator value;
     <link href="http://yoursite.com/2018/03/04/interview-questions-about-Web/"/>
     <id>http://yoursite.com/2018/03/04/interview-questions-about-Web/</id>
     <published>2018-03-04T07:20:40.000Z</published>
-    <updated>2018-03-24T06:55:02.283Z</updated>
+    <updated>2018-05-29T02:40:43.615Z</updated>
     
     <content type="html"><![CDATA[<p>Web方面的知识盲区补漏。<br><a id="more"></a></p>
 <h3 id="匹配URL的正则表达式"><a href="#匹配URL的正则表达式" class="headerlink" title="匹配URL的正则表达式"></a>匹配URL的正则表达式</h3><p>URL由三部分组成：资源类型(协议)、存放资源的主机域名、资源文件名。<br>URL的一般语法格式为(带方括号[ ]的为可选项)：<br><code>protocol :// hostname[:port] / path / [;parameters][?query]#fragment</code><br>据说比较好用匹配较全面的是这个：<br><code>(https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</code><br>参考自博客<a href="https://www.cnblogs.com/speeding/p/5097790.html" target="_blank" rel="noopener">正确匹配URL的正则表达式</a>、<a href="http://blog.csdn.net/t_1007/article/details/52293475" target="_blank" rel="noopener">匹配URL的正则表达式解析</a>。</p>
@@ -2658,10 +2660,12 @@ EventLoop轮询的处理线程
     
     </summary>
     
-      <category term="interview questions" scheme="http://yoursite.com/categories/interview-questions/"/>
+      <category term="面试题" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
     
-      <category term="interview questions" scheme="http://yoursite.com/tags/interview-questions/"/>
+      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
     
   </entry>
   
@@ -2670,7 +2674,7 @@ EventLoop轮询的处理线程
     <link href="http://yoursite.com/2018/02/27/interview-questions-about-JS/"/>
     <id>http://yoursite.com/2018/02/27/interview-questions-about-JS/</id>
     <published>2018-02-27T08:35:38.000Z</published>
-    <updated>2018-03-03T02:48:47.858Z</updated>
+    <updated>2018-05-29T02:40:01.808Z</updated>
     
     <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/front-end-interview?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="noopener">前端面试经典题目合集</a> 篇学习总结。<br><a id="more"></a></p>
 <h3 id="Cookie的弊端"><a href="#Cookie的弊端" class="headerlink" title="Cookie的弊端"></a>Cookie的弊端</h3><p>cookie虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。<br><strong>优点：</strong><br>1) 数据持久性。<br>2) 不需要任何服务器资源。 Cookie 存储在客户端并在发送后由服务器读取。<br>3) 可配置到期规则。 控制 cookie 的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的 cookie 。<br>4) 简单性。 基于文本的轻量结构。<br>5) 通过良好的编程，控制保存在 cookie 中的 session 对象的大小。<br>6) 通过加密和安全传输技术（ SSL ），减少 cookie 被破解的可能性。<br>7) 只在 cookie 中存放不敏感数据，即使被盗也不会有重大损失。<br><strong>缺点：</strong><br>1) Cookie 数量和长度的限制 。<br>数量：每个域的 cookie 总数有限。</p>
@@ -3013,10 +3017,12 @@ function unsetCookie(name) {
     
     </summary>
     
-      <category term="interview questions" scheme="http://yoursite.com/categories/interview-questions/"/>
+      <category term="面试题" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
     
-      <category term="interview questions" scheme="http://yoursite.com/tags/interview-questions/"/>
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
@@ -3025,7 +3031,7 @@ function unsetCookie(name) {
     <link href="http://yoursite.com/2018/02/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/"/>
     <id>http://yoursite.com/2018/02/26/前端面试常见算法题/</id>
     <published>2018-02-26T06:24:48.000Z</published>
-    <updated>2018-02-27T08:30:03.042Z</updated>
+    <updated>2018-05-29T02:37:37.119Z</updated>
     
     <content type="html"><![CDATA[<p>十道前端面试常见算法题。<br><a id="more"></a></p>
 <h3 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h3><p>思路：将字符串转换为数组，利用数组方法reverse()比较翻转后的字符串是否与源字符串一致。</p>
@@ -3334,6 +3340,8 @@ class BinarySearchTree {
     
       <category term="js算法题" scheme="http://yoursite.com/tags/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
     
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
   </entry>
   
   <entry>
@@ -3341,7 +3349,7 @@ class BinarySearchTree {
     <link href="http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/"/>
     <id>http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/</id>
     <published>2018-02-26T05:35:19.000Z</published>
-    <updated>2018-02-26T06:06:33.652Z</updated>
+    <updated>2018-05-29T02:33:10.487Z</updated>
     
     <content type="html"><![CDATA[<p>vscode中常用的快捷键功能。<br><a id="more"></a></p>
 <h3 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h3><p>alt+up/down    向上/下移动单行</p>
@@ -3394,10 +3402,10 @@ class BinarySearchTree {
     
     </summary>
     
-      <category term="vscode" scheme="http://yoursite.com/categories/vscode/"/>
+      <category term="VScode" scheme="http://yoursite.com/categories/VScode/"/>
     
     
-      <category term="vscode" scheme="http://yoursite.com/tags/vscode/"/>
+      <category term="VScode" scheme="http://yoursite.com/tags/VScode/"/>
     
   </entry>
   
