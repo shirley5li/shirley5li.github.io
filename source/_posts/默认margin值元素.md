@@ -1,7 +1,7 @@
 ---
 title: 有默认margin，padding值的html标签
 date: 2017-10-18 13:00:44
-tags: [css]
+tags: [CSS]
 categories: CSS
 ---
 总结一下那些有默认margin及padding值的html标签，在CSS reset时，最好将这些元素的padding和margin值初始化为0，以实现不同浏览器下的样式兼容，避免后期团队开发过程因不同浏览器下默认样式不同而造成混乱。

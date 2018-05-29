@@ -1,8 +1,8 @@
 ---
-title: (二)webpack相关概念总结
+title: (二)Webpack相关概念总结
 date: 2018-05-14 09:19:45
-tags: [webpack]
-categories: webpack
+tags: [Webpack]
+categories: Webpack
 ---
 关于webapck相关概念的学习总结。
 <!--more-->

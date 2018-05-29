@@ -1,8 +1,8 @@
 ---
-title: introduction about HTTP
+title: HTTP基础学习总结
 date: 2018-01-09 00:15:58
-tags: [http]
-categories: http
+tags: [HTTP]
+categories: HTTP
 ---
 
 关于HTTP协议相关知识的学习总结。

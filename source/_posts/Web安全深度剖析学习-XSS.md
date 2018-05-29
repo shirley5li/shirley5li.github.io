@@ -1,8 +1,8 @@
 ---
 title: （二）Web安全深度剖析学习【XSS】
 date: 2018-05-17 16:56:51
-tags: [web security, XSS]
-categories: web security
+tags: [Web Security, XSS]
+categories: Web Security
 ---
 《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。
 一篇较好的博客[XSS跨站脚本攻击(一)----XSS攻击的三种类型](https://blog.csdn.net/u011781521/article/details/53894399)。

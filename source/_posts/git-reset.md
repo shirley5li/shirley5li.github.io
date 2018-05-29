@@ -1,8 +1,8 @@
 ---
 title: Git操作流程总结
 date: 2018-05-16 10:16:48
-tags: [git]
-categories: git
+tags: [Git]
+categories: Git
 ---
 来自[Git的4个阶段的撤销更改](https://www.fengerzh.com/git-reset/)、[Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)等博客的学习总结(PS:备份)。
 <!--more-->

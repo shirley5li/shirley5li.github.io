@@ -1,8 +1,8 @@
 ---
 title: （一）Web安全深度剖析学习【基础+HTTP】
 date: 2018-05-16 19:55:17
-tags: [web security, http]
-categories: web security
+tags: [Web Security, HTTP]
+categories: Web Security
 ---
 《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。
 <!--more-->

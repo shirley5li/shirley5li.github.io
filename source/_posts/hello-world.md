@@ -1,7 +1,7 @@
 ---
-title: 基于hexo和github搭建个人博客概述
+title: 基于 Hexo 和 Github 搭建个人博客概述
 date: 2017-08-6
-tags: [node.js, npm, git, hexo, github]
+tags: [Node.js, Npm, Git, Hexo, Github]
 categories: 搭建博客
 ---
 前言：第一次写博客，小激动~~~分享总结下用hexo+github搭建个人博客的过程，以及过程中遇到的问题。（我用的win10 64位系统）

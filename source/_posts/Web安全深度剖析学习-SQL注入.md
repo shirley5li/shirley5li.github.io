@@ -1,8 +1,8 @@
 ---
 title: （三）Web安全深度剖析学习【SQL注入】
 date: 2018-05-22 11:00:14
-tags: [web security, SQL注入, SQL]
-categories: web security
+tags: [Web Security, SQL注入, SQL]
+categories: Web Security
 ---
 《Web安全深度剖析》学习总结, 本部分主要总结SQL注入原理。
 <!--more-->

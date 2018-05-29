@@ -1,7 +1,7 @@
 ---
-title: react-demos学习笔记
+title: React-demos学习笔记【from阮】
 date: 2017-11-20 10:35:43
-tags: [react]
+tags: [React]
 categories: React
 ---
 来自阮一峰的博客[React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)学习。

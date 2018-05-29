@@ -1,8 +1,8 @@
 ---
 title: 【interview questions about Web】
 date: 2018-03-04 15:20:40
-tags: [interview questions]
-categories: interview questions
+tags: [面试题, Web]
+categories: 面试题
 ---
 Web方面的知识盲区补漏。
 <!--more-->

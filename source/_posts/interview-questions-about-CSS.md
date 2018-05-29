@@ -1,8 +1,8 @@
 ---
 title: 【interview questions about CSS】 from牛客网
 date: 2018-01-13 15:02:40
-tags: [interview questions]
-categories: interview questions
+tags: [面试题, CSS]
+categories: 面试题
 ---
 来自牛客网[前端面试常考知识点 HTML+CSS](https://www.nowcoder.com/ta/review-frontend?query=&asc=true&order=&page=1) 篇学习总结。
 <!--more-->
