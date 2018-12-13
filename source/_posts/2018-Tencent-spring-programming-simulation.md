@@ -1,8 +1,8 @@
 ---
 title: 2018春招研发岗在线模拟笔试编程题总结
 date: 2018-03-24 14:52:04
-tags: [js算法题, JavaScript]
-categories: js算法题
+tags: [Algorithm , JavaScript]
+categories: JavaScript
 ---
 2018春季腾讯研发岗在线模拟笔试算法题目总结。
 <!--more-->
@@ -240,4 +240,138 @@ for (var i = 0; i < resultArr.length; i ++) {
 531
 
 ```
+### 腾讯： node如何开启一个http服务###
+```js
+// 引入内置http模块
+var http = require('http');
 
+// 创建一个简单服务器，访问http://127.0.0.1:1337/,显示Hello World
+http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+```
+
+### 腾讯： CSS3动画的实现方式有哪些，动手写一下将一个div在1s内移动300px###
+有transition和animation动画两种方式，transition过渡动画只定义初始和最终状态，而animation动画可以逐帧设置。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /* transition属性动画结合transform变化属性，实现元素移动一段距离的动画 */
+        #transitonDiv:hover {
+            transition: all 1s ease-in-out;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+
+            transform: translateX(300px);
+            -ms-transform: translateX(300px);
+            -moz-transform: translateX(300px);
+            -webkit-transform: translateX(300px);
+            -o-transform: translateX(300px);
+        }
+
+        /* 通过animation属性，实现逐帧动画 */
+        #animationDiv:hover {
+            animation: animName 1s ease-in-out;
+            -webkit-animation: animName 1s ease-in-out;
+            -moz-animation: animName 1s ease-in-out;
+            -o-animation: animName 1s ease-in-out;
+        }
+        
+        /* 定义关键帧 */
+        @keyframes animName {
+            0% {
+                transform: translateX(0px);
+            }
+            30% {
+                transform: translateX(100px);
+            }
+            60% {
+                transform: translateX(200px);
+            }
+            100% {
+                transform: translateX(300px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="transitonDiv" style="width:40px;height:40px;background-color:red;"></div>
+    <div id="animationDiv" style="width:40px;height:40px;background-color:green;"></div>
+</body>
+</html>
+```
+### 腾讯： DNS解析过程？若是新申请的域名如何查找DNS?###
+DNS是应用层协议，事实上他是为其他应用层协议工作的，包括不限于HTTP和SMTP以及FTP，用于将用户提供的主机名解析为ip地址。具体过程如下：
+
+(1)浏览器缓存: 当用户通过浏览器访问某域名时，浏览器首先会在自己的缓存中查找是否有该域名对应的IP地址（若曾经访问过该域名且没有清空缓存便存在)；
+
+(2)系统缓存： 当浏览器缓存中无域名对应IP则会自动检查用户计算机系统Hosts文件DNS缓存是否有该域名对应IP；
+
+(3)路由器缓存: 当浏览器及系统缓存中均无域名对应IP则进入路由器缓存中检查，以上三步均为客户端的DNS缓存；
+
+(4)ISP（互联网服务提供商）DNS缓存: 当在用户客服端查找不到域名对应IP地址，则将进入ISP DNS缓存中进行查询。比如你用的是电信的网络，则会进入电信的DNS缓存服务器中进行查找；(或者向网络设置中指定的local DNS进行查询，如果在PC指定了DNS的话，如果没有设置比如DNS动态获取，则向ISP DNS发起查询请求)
+
+(5)根域名服务器: 当以上均未完成，则进入根服务器进行查询。全球仅有13台根域名服务器，1个主根域名服务器，其余12为辅根域名服务器。根域名收到请求后会查看区域文件记录，若无则将其管辖范围内顶级域名（如.com）服务器IP告诉本地DNS服务器；
+
+(6)顶级域名服务器: 顶级域名服务器收到请求后查看区域文件记录，若无则将其管辖范围内主域名服务器的IP地址告诉本地DNS服务器；
+
+(7)主域名服务器: 主域名服务器接受到请求后查询自己的缓存，如果没有则进入下一级域名服务器进行查找，并重复该步骤直至找到正确记录；
+
+(8)保存结果至缓存: 本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时将该结果反馈给客户端，客户端通过这个IP地址与web服务器建立链接。
+
+### 腾讯：Ajax请求状态及意义 ###
+在javascript里面写AJax的时，最关键的一步是对XMLHttpRequest对象建立监听，即使用“onreadystatechange”方法。监听的时候，要对XMLHttpRequest对象的请求状态进行判断，通常是判断readyState的值为4且http返回状态status的值为200或者304时执行我们需要的操作。readyState 属性表示Ajax请求的当前状态。
+
+```
+0 代表未初始化。 还没有调用 open 方法
+1 代表正在加载。 open 方法已被调用，但 send 方法还没有被调用
+2 代表已加载完毕。send 已被调用。请求已经开始
+3 代表交互中。服务器正在发送响应
+4 代表完成。响应发送完毕
+```
+### 腾讯： cookie的操作，读写###
+```js
+(function(){
+ var cookieObj = {
+    //修改或是添加cookie
+   'add': function(name, value, hours) { 
+        var expire = "";
+        if(hours != null){
+            expire = new Date((new Date()).getTime() + hours * 3600000);
+            expire = "; expires=" + expire.toGMTString();
+        }    
+    document.cookie = name + "=" + escape(value) + expire + ";path=/";
+    
+    //如果指定域名可以使用如下
+    //document.cookie = name + "=" + escape(value) + expire + ";path=/;domain=findme.wang";
+   },
+   
+   //读取cookie
+   'get': function(c_name){
+        if (document.cookie.length>0) {
+            c_start = document.cookie.indexOf(c_name + "=");
+            if (c_start != -1) { 
+                c_start=c_start + c_name.length+1;
+                c_end=document.cookie.indexOf(";",c_start);
+                if (c_end == -1) {
+                    c_end = document.cookie.length;
+                }
+                return unescape(document.cookie.substring(c_start,c_end));
+            } 
+        }
+        return "";
+   }
+ };
+ window.cookieObj=cookieObj;
+}());
+```

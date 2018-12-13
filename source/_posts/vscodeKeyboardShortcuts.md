@@ -1,8 +1,8 @@
 ---
 title: vscode快捷键
 date: 2018-02-26 13:35:19
-tags: [VScode]
-categories: VScode
+tags: [VSCode]
+categories: Editor
 ---
 vscode中常用的快捷键功能。
 <!--more-->

@@ -1,8 +1,8 @@
 ---
 title: planeGame-H5 Canvas小游戏未完成的问题
 date: 2017-10-30 16:31:25
-tags: [HTML5]
-categories: Canvas
+tags: [HTML5, Canvas]
+categories: FrontEndDemo
 ---
 H5 Canvas打飞机游戏中未完成以及存在疑惑的地方。
 <!--more-->

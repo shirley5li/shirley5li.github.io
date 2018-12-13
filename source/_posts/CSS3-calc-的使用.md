@@ -1,8 +1,8 @@
 ---
 title: CSS3 calc()的使用
 date: 2018-01-23 20:15:51
-tags: [CSS3]
-categories: CSS3
+tags: [CSS]
+categories: CSS
 ---
 参考转自博客[CSS3的calc()使用](https://www.w3cplus.com/css3/how-to-use-css3-calc-function.html)。
 <!--more-->

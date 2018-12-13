@@ -1,8 +1,8 @@
 ---
 title: 慕课网七夕动画学习总结 + Github Pages展示
 date: 2017-09-29 20:31:33
-tags: [Animation, Github Pages]
-categories: github
+tags: [Animation, GithubPages]
+categories: FrontEndDemo
 ---
 这段时间照着慕课网上的一个动画案例-[H5+JS+CSS3实现七夕言情](http://www.imooc.com/learn/453)学习，
 <!--more-->

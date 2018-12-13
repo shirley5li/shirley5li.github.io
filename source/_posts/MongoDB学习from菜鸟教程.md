@@ -2,7 +2,7 @@
 title: MongoDB学习from菜鸟教程
 date: 2018-03-12 13:12:29
 tags: [MongoDB]
-categories: MongoDB
+categories: DataBase
 ---
 在学习[《一起学 Node.js》](https://github.com/nswbmw/N-blog)中，需要使用 Express + MongoDB 搭建多人博客，因此在[菜鸟MongoDB 教程](http://www.runoob.com/mongodb/mongodb-tutorial.html)上学习总结MongoDB的基本用法。
 <!--more-->

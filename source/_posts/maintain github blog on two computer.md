@@ -1,8 +1,8 @@
 ---
 title: 在两台电脑上更新维护Github Pages + Hexo博客
 date: 2018-01-07 21:10:12
-tags: [Github Pages, Hexo]
-categories: 搭建博客
+tags: [GithubPages, Hexo]
+categories: Blog
 ---
 
 之前在台式机上通过GitHub pages 和Hexo搭建了静态博客，一直用台式机写文章更新博客，这几天想着是不是也可以用笔记本写文章维护下博客，毕竟笔记本带着方便啊。于是就看了一些博客，尝试着在笔记本上实现跟台式机一样的发博客过程，也遇到了一些问题，特将过程总结下来。这篇文章即在笔记本上完成的。

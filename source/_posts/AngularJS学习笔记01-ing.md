@@ -2,7 +2,7 @@
 title: AngularJS学习笔记01
 date: 2017-12-08 16:41:16
 tags: [Angular]
-categories: Angular
+categories: FrontEndFrame
 ---
  AngularJS是Google开源的一款JavaScript MVC的前端框架，弥补了HTML在构建应用方面的不足，其通过使用指令（directives）结构来扩展HTML词汇，且通过表达式绑定数据到 HTML，使开发者可以使用HTML来声明动态内容，从而使得Web开发和测试工作变得更加容易。
 <!--more-->

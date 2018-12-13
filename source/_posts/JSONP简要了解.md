@@ -1,8 +1,8 @@
 ---
 title: JSONP简要了解
 date: 2017-11-15 21:08:22
-tags: [JSONP, JavaScript, JSON]
-categories: JSONP
+tags: [JSONP]
+categories: JavaScript
 ---
 在freeCodeCamp上学习使用twith TV API获取频道信息时，在freeCodeCamp的指导中提到若使用`$.getJSON(()`方法会因为跨域资源共享(CORS)问题发生错误信息。[ freeCodeCamp Challenge Guide: How to Use the TwitchTV API ](https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541)中建议使用jQuery的JSONP方法来解决CORS问题。
 <!--more-->

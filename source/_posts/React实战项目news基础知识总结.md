@@ -1,8 +1,8 @@
 ---
 title: React实战项目news基础知识总结
 date: 2018-05-28 22:59:38
-tags: [React, antd]
-categories: React
+tags: [React, AntDesign]
+categories: FrontEndFrame
 ---
 React实战项目news基础知识学习总结部分。
 <!--more-->

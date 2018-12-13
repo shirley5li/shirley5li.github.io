@@ -2,7 +2,7 @@
 title: MySQL数据库的安装及基本的使用方法
 date: 2018-03-09 10:37:30
 tags: [MySQL]
-categories: MySQL
+categories: DataBase
 ---
 关于MySQL数据库基本的安装和操作方法。[MySQL教程--菜鸟](http://www.runoob.com/mysql/mysql-tutorial.html)。
 <!--more-->

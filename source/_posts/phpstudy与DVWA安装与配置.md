@@ -1,8 +1,8 @@
 ---
 title: phpstudy与DVWA安装与配置，WAMP等相关概念学习
 date: 2018-05-17 20:58:23
-tags: [Web Security, phpStudy, DVWA, WAMP, Web容器]
-categories: Web Security
+tags: [WebSecurity, PhpStudy, DVWA, WAMP, WebContainer]
+categories: WebSecurity
 ---
 [帆哥](https://ciphersaw.me/)教我玩WEB安全系列之最最开始环境配置篇。
 <!--more-->

@@ -1,8 +1,8 @@
 ---
 title: DNS 相关概念及 Github Pages自定义域名
 date: 2017-12-29 14:49:39
-tags: [Github Pages, DNS]
-categories: DNS
+tags: [GithubPages, DNS]
+categories: Network
 ---
 在帆锅的启示下，试着给github pages买个域名，毕竟github.io还是有点长哦。以下域名购买、绑定设置，以及DNS的相关知识得益于帆锅给自己博客绑定域名的笔记以及各位大佬的博客，感谢！
 <!--more-->

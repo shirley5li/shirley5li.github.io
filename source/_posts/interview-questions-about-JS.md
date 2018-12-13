@@ -1,8 +1,8 @@
 ---
 title: 【interview questions about JS】 from牛客网
 date: 2018-02-27 16:35:38
-tags: [面试题, JavaScript]
-categories: 面试题
+tags: [InterviewQuestions, JavaScript]
+categories: FrontEndInterview
 ---
 来自牛客网[前端面试经典题目合集](https://www.nowcoder.com/ta/front-end-interview?query=&asc=true&order=&page=1) 篇学习总结。
 <!--more-->

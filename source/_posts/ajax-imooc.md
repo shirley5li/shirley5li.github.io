@@ -2,7 +2,7 @@
 title: Ajax基础用法---from imooc
 date: 2017-11-06 16:13:39
 tags: [Ajax]
-categories: Ajax
+categories: JavaScript
 ---
 ajax,即异步JavaScript和XML，通过在后台和服务器少量的数据交换实现页面的异步局部加载更新。
 ajax中一个关键的对象 **XMLHttpRequest**对象，作为网页和服务器之间交换数据的桥梁，来实现网页的异步请求、局部刷新。

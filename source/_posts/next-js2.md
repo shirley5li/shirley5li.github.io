@@ -2,7 +2,7 @@
 title: JS笔记(二)DOM操作--from next十天训练营
 date: 2017-10-20 20:21:29
 tags: [JavaScript]
-categories: JavaScript
+categories: FrontEndInterview
 ---
 JS调用DOM接口修改样式。
 <!--more-->

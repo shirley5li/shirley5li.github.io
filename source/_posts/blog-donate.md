@@ -1,8 +1,8 @@
 ---
 title: Next主题配置---打赏功能+文章结束标志
 date: 2017-08-10 20:44:56
-tags: [Next, Hexo]
-categories: 搭建博客
+tags: [Hexo]
+categories: Blog
 ---
 这次介绍一下next主题下添加打赏功能，以及在每篇文章末尾统一添加“文章结束”标志 \~\~\~吼吼吼
 <!--more-->

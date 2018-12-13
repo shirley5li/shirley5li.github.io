@@ -1,8 +1,8 @@
 ---
 title: 博文集锦
 date: 2017-12-27 10:58:05
-tags: [blogPost]
-categories: bolgPost
+tags: [BlogPost]
+categories: Blog
 ---
 以下是一些关于WEB开发比较好的技术文章集锦，收集以待后面再看一遍。
 <!--more-->

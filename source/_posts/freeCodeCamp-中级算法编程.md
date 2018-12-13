@@ -1,7 +1,7 @@
 ---
 title: freeCodeCamp JavaScript中级算法编程学习总结
 date: 2017-11-16 21:49:52
-tags: [JavaScript]
+tags: [Algorithm, JavaScript]
 categories: JavaScript
 ---
 几个 freeCodeCamp JS中级算法编程例题的学习总结。

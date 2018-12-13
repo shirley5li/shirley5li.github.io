@@ -2,7 +2,7 @@
 title: jQuery学习
 date: 2018-03-28 09:02:51
 tags: [jQuery]
-categories: jQuery
+categories: JavaScript
 ---
 JQuery是一个轻量级的JavaScript库。核心是JavaScript，不仅兼容CSS3，还兼容各种浏览器。
 <!--more-->

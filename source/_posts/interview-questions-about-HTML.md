@@ -1,8 +1,8 @@
 ---
 title: 【interview questions about HTML】 from牛客网
 date: 2018-01-08 15:16:53
-tags: [面试题, HTML]
-categories: 面试题
+tags: [InterviewQuestions, HTML]
+categories: FrontEndInterview
 ---
 来自牛客网[前端面试常考知识点 HTML+CSS](https://www.nowcoder.com/ta/review-frontend?query=&asc=true&order=&page=1) 篇学习总结。
 <!--more-->

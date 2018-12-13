@@ -2,7 +2,7 @@
 title: JS笔记(一)--from next十天训练营
 date: 2017-10-20 09:21:29
 tags: [JavaScript]
-categories: JavaScript
+categories: FrontEndInterview
 ---
 NEXT十天训练营有关JS学习的笔记。
 <!--more-->

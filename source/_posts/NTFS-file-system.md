@@ -2,7 +2,7 @@
 title: NTFS文件系统介绍
 date: 2017-10-16 10:49:05
 tags: [NTFS]
-categories: 文件系统
+categories: FileSystem
 ---
 【转】Windows文件系统FAT16、FAT32、NTFS的简单介绍。
 <!--more-->

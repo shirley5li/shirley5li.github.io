@@ -1,8 +1,8 @@
 ---
 title: Ant Design 入门学习总结
 date: 2018-05-28 16:15:46
-tags: [antd, dva]
-categories: antd
+tags: [AntDesign, DVA]
+categories: FrontEndFrame
 ---
 Ant Design of React 提供开箱即用的高质量 React 组件，具体的UI组件参见[Ant Design 文档](https://ant.design/docs/react/introduce-cn)。
 <!--more-->

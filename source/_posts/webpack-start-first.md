@@ -2,7 +2,7 @@
 title: (一)Webpack入门总结
 date: 2018-05-14 09:06:21
 tags: [Webpack]
-categories: Webpack
+categories: FrontEndFrame
 ---
 关于webpck基本使用的入门总结。
 <!--more-->
