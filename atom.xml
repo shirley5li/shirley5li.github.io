@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-13T06:18:02.540Z</updated>
+  <updated>2018-12-13T08:36:15.577Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,73 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>360奇舞学院2018前端星技术测评总结</title>
+    <link href="http://yoursite.com/2018/12/13/360-2018%E5%89%8D%E7%AB%AF%E6%98%9F%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%84%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/12/13/360-2018前端星技术测评总结/</id>
+    <published>2018-12-13T08:11:15.000Z</published>
+    <updated>2018-12-13T08:36:15.577Z</updated>
+    
+    <content type="html"><![CDATA[<p>360奇舞学院2018年前端星计划技术测评相关问题及自己的回答。<br><a id="more"></a><br>说明：写这篇博客意在记录做题经历，后面有时间温故知新，因为学习时间较短，所以难免有不少错误和不周之处，希望多多指正。同时，也分享给一起学习的小伙伴，一起进步成长，fighting，时刻不忘奶自己，蛤蛤蛤。</p>
+<p>题目回忆及自己解答如下，我自己的回答肯定不太好，仅供参考，欢迎有更周全回答的小伙伴多多补充~~~</p>
+<h1 id="关于HTML”语义化”"><a href="#关于HTML”语义化”" class="headerlink" title="关于HTML”语义化”"></a>关于HTML”语义化”</h1><p><strong>题目：</strong>HTML“语义化”的理解。</p>
+<p><strong>回答如下：</strong></p>
+<p>1、我所理解的”语义化”</p>
+<p>写html结构时，要根据内容结构安排，选择合适的标签元素，便于开发人员阅读，即语义化好的html文档，即使在没有css的情况下，页面也能呈现出良好的内容结构，开发人员能清晰的阅读和了解到基本的内容结构；</p>
+<p>语义化也有助于提升用户体验，例如使用标签的title、alt属性可以提供附加的提示信息；</p>
+<p>语义化还有助于SEO，爬虫可以根据标签确定关键字的权重，让浏览器爬虫更好的解析，所以类似h标签，和title标签就对SEO很重要。</p>
+<p>语义化还可以使其他设备例如屏幕阅读器等以自己的方式呈现网页。</p>
+<p>2、平时在项目中如何实践”语义化”</p>
+<p>首先，在页面结构的整体组织上，对于页面内容整体划分区域结构，使用html5的语义化标签，像navigator定义导航栏,header、footer分别定义页面的头部和脚部，section定义某块区域，article定义一大段的文章段落等等。</p>
+<p>其次，在具体的某一块内容区域内部的html结构实现上，注重细节，像img元素的alt属性，以便图片在无法加载时显示给用户必要的文字说明，lable标签的使用，可以使表单输入操作对用户更友好等等。</p>
+<p>最后，应该尽量避免通篇div。</p>
+<h1 id="对结构、表现、行为分离原则的理解"><a href="#对结构、表现、行为分离原则的理解" class="headerlink" title="对结构、表现、行为分离原则的理解"></a>对结构、表现、行为分离原则的理解</h1><p><strong>题目：</strong>对结构、表现、行为分离原则的理解。</p>
+<p><strong>回答如下：</strong></p>
+<p>使用html文件编写网页结构，使用css文件写样式，js文件写与用户交互等网页动态行为，应该避免在html文件的标签内写内联样式，尽量使用外部样式表引入网页样式，同理，避免在html文件的标签上添加onClick等与交互相关的js操作，将动态行为相关的js操作放在单独的js文件中，使用script标签在body底部引入。</p>
+<p>在实践中，我会在html文件中只写页面结构，不会添加style这样的内联样式，以及在标签上定义onClick这样的js属性操作，而是在单独的css文件中写页面样式，在单独的js文件中写页面的交互相关的动态操作代码，最后在引入到html文件中。</p>
+<h1 id="操作数组"><a href="#操作数组" class="headerlink" title="操作数组"></a>操作数组</h1><p><strong>题目：</strong>给定两个长度相同的整数数组，将其中的数字分别一一配对，对每一对数字计算乘积，然后求和，计算出总和最小的配对方式，并打印出总和。例如输入 <code>[1,2,3], [1,2,3]</code>，输出为10。</p>
+<p><strong>回答如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> num1 - num2;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">match</span>(<span class="params">arr1, arr2</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> len = arr1.length;</div><div class="line">	arr1.sort(compare); <span class="comment">//将数组arr1按从小到大排序</span></div><div class="line">	arr2.sort(compare);</div><div class="line">	<span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">var</span> temp = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">		temp = arr1[i] * arr2[len - <span class="number">1</span> - i]; <span class="comment">//将arr1的最小值与arr2的最大值配对</span></div><div class="line">		sum += temp;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> sum;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><strong>待改进：</strong>应该全部用ES6语法写要好一些，但ES6语法不太熟练，导致写的有点不伦不类，凑合看看吧。。</p>
+<h1 id="CSS画扇形"><a href="#CSS画扇形" class="headerlink" title="CSS画扇形"></a>CSS画扇形</h1><p><strong>题目：</strong>垂直、水平居中显示一个半径100的标志，如图所示：</p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/360-2018%E5%89%8D%E7%AB%AF%E6%98%9F%E6%B5%8B%E8%AF%84%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/360%E5%89%8D%E7%AB%AF%E6%98%9F%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%84%E6%89%87%E5%BD%A2%E6%95%88%E6%9E%9C%E5%9B%BE.png" alt="效果图"></p>
+<p><strong>回答如下：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning &#123;</span></div><div class="line"><span class="undefined">            position: relative;</span></div><div class="line"><span class="undefined">            overflow: hidden;</span></div><div class="line"><span class="undefined">            width: 200px;</span></div><div class="line"><span class="undefined">            height: 200px;</span></div><div class="line"><span class="undefined">            margin: 150px auto;</span></div><div class="line"><span class="undefined">            background-color: yellow;</span></div><div class="line"><span class="undefined">            border-radius: 50%;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning ul li &#123;</span></div><div class="line"><span class="undefined">            list-style: none;</span></div><div class="line"><span class="undefined">            position: absolute;</span></div><div class="line"><span class="undefined">            width: 200px;</span></div><div class="line"><span class="undefined">            height: 100px;</span></div><div class="line"><span class="undefined">            right: 50%;</span></div><div class="line"><span class="undefined">            top: 0;</span></div><div class="line"><span class="undefined">            -webkit-transform-origin: 100% 100%;</span></div><div class="line"><span class="undefined">            -moz-transform-origin: 100% 100%;</span></div><div class="line"><span class="undefined">            -ms-transform-origin: 100% 100%;</span></div><div class="line"><span class="undefined">            transform-origin: 100% 100%;</span></div><div class="line"><span class="undefined">            /*transform-origin设置旋转元素的基点位置*/</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .sector1 &#123;</span></div><div class="line"><span class="undefined">            background-color: black;</span></div><div class="line"><span class="undefined">            -webkit-transform: skew(30deg, 0);</span></div><div class="line"><span class="undefined">            -moz-transform: skew(30deg, 0);</span></div><div class="line"><span class="undefined">            -ms-transform: skew(30deg, 0);</span></div><div class="line"><span class="undefined">            transform: skew(30deg, 0);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .sector2 &#123;</span></div><div class="line"><span class="undefined">            background-color: black;</span></div><div class="line"><span class="undefined">            -webkit-transform: rotate(120deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">            -moz-transform: rotate(120deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">            -ms-transform: rotate(120deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">            transform: rotate(120deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .sector3 &#123;</span></div><div class="line"><span class="undefined">            background-color: black;</span></div><div class="line"><span class="undefined">            -webkit-transform: rotate(240deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">            -moz-transform: rotate(240deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">            -ms-transform: rotate(240deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">            transform: rotate(240deg) skew(30deg, 0);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 核辐射警告标志是一个60度扇形黄、黑相间的圆，要求，使用html和css实现下面的效果：在网页中始终垂直、水平居中显示一个半径100的核辐射警告标志圆--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 制作原理，底部一个黄色纯色圆形，里面用三个黑色的矩形通过rotate、skew等变换得到三个黑色扇形--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warning"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"sector1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"sector2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"sector3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>待改进：</strong>忘记实现垂直居中效果了！！！ 以下是老师批改时给的思路，”使用border构造相间的三角形，然后使用overflow-hidden和border-radius剪裁成圆”，感觉老师好认真，很nice! 下面是老师的思路实现：</p>
+<p>其中：</p>
+<pre><code>border-top: solid 173.2px yellow;
+border-left: solid 100px transparent;
+border-bottom: solid 173.2px black;
+border-right: solid 100px transparent;
+</code></pre><p>实现的效果是利用border构造两个顶角是60度的三角形，效果如图：</p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/360-2018%E5%89%8D%E7%AB%AF%E6%98%9F%E6%B5%8B%E8%AF%84%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/360border%E6%9E%84%E9%80%A0%E4%B8%89%E8%A7%92%E5%BD%A2.png" alt="使用border构造相间的三角形"></p>
+<p>然后再利用父元素的overflow-hidden和border-radius剪裁成圆。完整代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning &#123;</span></div><div class="line"><span class="undefined">            width: 200px;</span></div><div class="line"><span class="undefined">            height: 200px;</span></div><div class="line"><span class="undefined">            border-radius: 50%;</span></div><div class="line"><span class="undefined">            /* 水平、垂直居中 */</span></div><div class="line"><span class="undefined">            transform: translate(-50%, -50%);</span></div><div class="line"><span class="undefined">            position: absolute;</span></div><div class="line"><span class="undefined">            left: 50%;</span></div><div class="line"><span class="undefined">            top: 50%;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">            overflow: hidden;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .bg &#123;</span></div><div class="line"><span class="undefined">            position: absolute;</span></div><div class="line"><span class="undefined">            width: 0;</span></div><div class="line"><span class="undefined">            height: 0;</span></div><div class="line"><span class="undefined">            top: -73.2px;</span></div><div class="line"><span class="undefined">            left: 0px;</span></div><div class="line"><span class="undefined">            border-top: solid 173.2px yellow;</span></div><div class="line"><span class="undefined">            border-left: solid 100px transparent;</span></div><div class="line"><span class="undefined">            border-bottom: solid 173.2px black;</span></div><div class="line"><span class="undefined">            border-right: solid 100px transparent;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .bg:nth-child(1)&#123;</span></div><div class="line"><span class="undefined">            transform: rotate(0deg);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .bg:nth-child(2) &#123;</span></div><div class="line"><span class="undefined">            transform: rotate(120deg);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        #warning .bg:nth-child(3) &#123;</span></div><div class="line"><span class="undefined">            transform: rotate(240deg);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warning"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1 id="2048游戏"><a href="#2048游戏" class="headerlink" title="2048游戏"></a>2048游戏</h1><p><strong>问题：</strong> 实现一个 2048 游戏。</p>
+<p><strong>解答如下：</strong></p>
+<p><a href="https://github.com/shirley5li/2018-contest" target="_blank" rel="noopener">我的github项目地址</a></p>
+<p>2048游戏的实现原理参考了github项目<a href="https://github.com/nnngu/js_game_2048" target="_blank" rel="noopener">js实现2048小游戏</a>。</p>
+<p><strong>待改进：</strong>没有实现移动盒子时的动画效果，游戏初始时的第一个数字有时不是2，因为当时为了简单，设计的每一次更新盒子2或者4出现的概率分别为2/3、1/3，没有为初始的情况单独设计，有待进一步改进。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;360奇舞学院2018年前端星计划技术测评相关问题及自己的回答。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="FrontEndInterview" scheme="http://yoursite.com/categories/FrontEndInterview/"/>
+    
+    
+      <category term="InterviewQuestions" scheme="http://yoursite.com/tags/InterviewQuestions/"/>
+    
+  </entry>
+  
+  <entry>
     <title>React实战项目news基础知识总结</title>
     <link href="http://yoursite.com/2018/05/28/React%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AEnews%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/05/28/React实战项目news基础知识总结/</id>
     <published>2018-05-28T14:59:38.000Z</published>
-    <updated>2018-12-13T06:18:02.540Z</updated>
+    <updated>2018-12-13T08:51:54.106Z</updated>
     
     <content type="html"><![CDATA[<p>React实战项目news基础知识学习总结部分。<br><a id="more"></a></p>
 <h1 id="React安装及开发环境配置-v16-2-0"><a href="#React安装及开发环境配置-v16-2-0" class="headerlink" title="React安装及开发环境配置(v16.2.0)"></a>React安装及开发环境配置(v16.2.0)</h1><p>使用npm包的形式下载及管理，不推荐使用cdn的形式直接引用和独立安装的形式。</p>
@@ -166,10 +228,10 @@ npm start
     
     </summary>
     
-      <category term="React" scheme="http://yoursite.com/categories/React/"/>
+      <category term="FrontEndFrame" scheme="http://yoursite.com/categories/FrontEndFrame/"/>
     
     
-      <category term="antd" scheme="http://yoursite.com/tags/antd/"/>
+      <category term="AntDesign" scheme="http://yoursite.com/tags/AntDesign/"/>
     
       <category term="React" scheme="http://yoursite.com/tags/React/"/>
     
@@ -180,12 +242,12 @@ npm start
     <link href="http://yoursite.com/2018/05/28/Ant-Design-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/05/28/Ant-Design-入门学习总结/</id>
     <published>2018-05-28T08:15:46.000Z</published>
-    <updated>2018-12-13T04:30:14.433Z</updated>
+    <updated>2018-12-13T08:38:38.649Z</updated>
     
     <content type="html"><![CDATA[<p>Ant Design of React 提供开箱即用的高质量 React 组件，具体的UI组件参见<a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">Ant Design 文档</a>。<br><a id="more"></a></p>
 <h1 id="Ant-Design简介"><a href="#Ant-Design简介" class="headerlink" title="Ant Design简介"></a>Ant Design简介</h1><p><a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">Ant Design of React</a> 是 Ant Design 的 React 实现。<br>npm安装：<code>npm install antd --save</code></p>
 <p><strong>按需加载：</strong> 使用 <a href="https://github.com/ant-design/babel-plugin-import" target="_blank" rel="noopener">babel-plugin-import</a>，babel-plugin-import 会帮助你加载 JS 和 CSS，只需从 antd 引入模块即可，无需单独引入样式。<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// .babelrc or babel-loader option</div><div class="line">&#123;</div><div class="line">  <span class="attr">"plugins"</span>: [</div><div class="line">    [<span class="string">"import"</span>, &#123; <span class="attr">"libraryName"</span>: <span class="string">"antd"</span>, <span class="attr">"libraryDirectory"</span>: <span class="string">"es"</span>, <span class="attr">"style"</span>: <span class="string">"css"</span> &#125;] // `style: <span class="literal">true</span>` 会加载 less 文件</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>使用示例：</strong><br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; DatePicker &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line">ReactDOM.render(&lt;DatePicker /&gt;, mountNode);</div></pre></td></tr></table></figure></p>
+<p><strong>使用示例：</strong><br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; DatePicker &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">DatePicker</span> /&gt;</span>, mountNode);</span></div></pre></td></tr></table></figure></p>
 <p><strong>快速上手：</strong><br>利用<a href="https://ant.design/docs/react/getting-started-cn" target="_blank" rel="noopener">antd-init</a>脚手架生成应用实例。(<strong>注意：</strong> antd-init只用于学习和体验antd如何使用，实际业务项目建议使用 dva-cli 和 create-react-app 进行搭建)<br><code>$ npm install antd-init -g</code> -&gt; <code>$ mkdir antd-demo &amp;&amp; cd antd-demo</code> -&gt; <code>$ antd-init</code><br>index.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; LocaleProvider, DatePicker, message &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line"><span class="comment">// 由于 antd 组件的默认文案是英文，所以需要修改为中文</span></div><div class="line"><span class="keyword">import</span> zhCN <span class="keyword">from</span> <span class="string">'antd/lib/locale-provider/zh_CN'</span>;</div><div class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'moment/locale/zh-cn'</span>;</div><div class="line"></div><div class="line">moment.locale(<span class="string">'zh-cn'</span>);</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      date: <span class="string">''</span>,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  handleChange(date) &#123;</div><div class="line">    message.info(<span class="string">'您选择的日期是: '</span> + (date ? date.toString() : <span class="string">''</span>));</div><div class="line">    <span class="keyword">this</span>.setState(&#123; date &#125;);</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;LocaleProvider locale=&#123;zhCN&#125;&gt;</div><div class="line">        &lt;div style=&#123;&#123; <span class="attr">width</span>: <span class="number">400</span>, <span class="attr">margin</span>: <span class="string">'100px auto'</span> &#125;&#125;&gt;</div><div class="line">          &lt;DatePicker onChange=&#123;value =&gt; <span class="keyword">this</span>.handleChange(value)&#125; /&gt;</div><div class="line">          &lt;div style=&#123;&#123; <span class="attr">marginTop</span>: <span class="number">20</span> &#125;&#125;&gt;当前日期：&#123;<span class="keyword">this</span>.state.date &amp;&amp; <span class="keyword">this</span>.state.date.toString()&#125;&lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        &lt;/</span>div&gt;</div><div class="line">      &lt;<span class="regexp">/LocaleProvider&gt;</span></div><div class="line"><span class="regexp">    );</span></div><div class="line"><span class="regexp">  &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">ReactDOM.render(&lt;App /</span>&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure></p>
 <p><code>$ npm start</code>, 访问<code>http://127.0.0.1:8000</code>UI样式如下：<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/antd-init-demo/1.png" alt="1"><br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/antd-init-demo/2.png" alt="2"><br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/antd-init-demo/3.png" alt="3"></p>
 <p><code>$ npm run build</code>，入口文件会构建到 dist 目录中，可以自由部署到不同环境中进行引用。</p>
@@ -195,7 +257,7 @@ npm start
 <p>在浏览器访问<code>http://localhost:8000</code> ，会看到 dva 的欢迎界面。<br>(3)<strong>使用antd</strong><br>通过 npm 安装 <code>antd</code> 和 <code>babel-plugin-import</code>(用来按需加载 antd 的脚本和样式，而不是把整个库都引入，从而提高性能) 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install antd babel-plugin-import --save</div></pre></td></tr></table></figure></p>
 <p><strong>注意：</strong> 一定要用cnpm，npm真的慢出天际。。。。<br>接下来编辑 <code>.webpackrc</code>，使 <code>babel-plugin-import</code> 插件生效:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">+  "extraBabelPlugins": [</div><div class="line">+    ["import", &#123; "libraryName": "antd", "libraryDirectory": "es", "style": "css" &#125;]</div><div class="line">+  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>(4)<strong>定义路由</strong><br>写个应用来显示产品列表。首先第一步是创建路由，路由可以想象成是组成应用的不同页面,<code>src/routes</code>下是存放页面的。<br>新建 route component  <code>src/routes/Products.js</code>，内容如下:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Products = <span class="function">(<span class="params">props</span>) =&gt;</span> (</div><div class="line">  &lt;h2&gt;List <span class="keyword">of</span> Products&lt;<span class="regexp">/h2&gt;</span></div><div class="line"><span class="regexp">);</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">export default Products;</span></div></pre></td></tr></table></figure></p>
-<p>添加路由信息到路由表，编辑 <code>router.js</code>(处理页面路由):<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ <span class="keyword">import</span> Products <span class="keyword">from</span> <span class="string">'./routes/Products'</span>;</div><div class="line">...</div><div class="line">+ &lt;Route path="/products" exact component=&#123;Products&#125; /&gt;</div></pre></td></tr></table></figure></p>
+<p>添加路由信息到路由表，编辑 <code>router.js</code>(处理页面路由):<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ <span class="keyword">import</span> Products <span class="keyword">from</span> <span class="string">'./routes/Products'</span>;</div><div class="line">...</div><div class="line">+ <span class="xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/products"</span> <span class="attr">exact</span> <span class="attr">component</span>=<span class="string">&#123;Products&#125;</span> /&gt;</span></span></div></pre></td></tr></table></figure></p>
 <p>在浏览器里打开 <code>http://localhost:8000/#/products</code> ，能看到前面定义的 <code>&lt;h2&gt;</code> 标签。<br>(5)<strong>编写 UI Component</strong><br>编写一个 <code>ProductList</code> component。新建 <code>components/ProductList.js</code> 文件:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Table, Popconfirm, Button &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> ProductList = <span class="function">(<span class="params">&#123; onDelete, products &#125;</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> columns = [&#123;</div><div class="line">    title: <span class="string">'Name'</span>,</div><div class="line">    dataIndex: <span class="string">'name'</span>,</div><div class="line">  &#125;, &#123;</div><div class="line">    title: <span class="string">'Actions'</span>,</div><div class="line">    render: <span class="function">(<span class="params">text, record</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">        &lt;Popconfirm title=<span class="string">"Delete?"</span> onConfirm=&#123;() =&gt; onDelete(record.id)&#125;&gt;</div><div class="line">          &lt;Button&gt;Delete&lt;<span class="regexp">/Button&gt;</span></div><div class="line"><span class="regexp">        &lt;/</span>Popconfirm&gt;</div><div class="line">      );</div><div class="line">    &#125;,</div><div class="line">  &#125;];</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;Table</div><div class="line">      dataSource=&#123;products&#125;</div><div class="line">      columns=&#123;columns&#125;</div><div class="line">    /&gt;</div><div class="line">  );</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ProductList.propTypes = &#123;</div><div class="line">  onDelete: PropTypes.func.isRequired,</div><div class="line">  products: PropTypes.array.isRequired,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> ProductList;</div></pre></td></tr></table></figure></p>
 <p>其中<code>&lt;Table /&gt;</code>的<code>columns</code>用于表格列的配置描述，类型<code>ColumnProps[]</code>。<a href="https://ant.design/components/table-cn/" target="_blank" rel="noopener">见文档</a><br>(6)<strong>定义 Model</strong><br>完成 UI 后，现在开始处理数据和逻辑。<br>dva 通过 model 的概念把一个领域的模型管理起来，包含同步更新 state 的 reducers，处理异步逻辑的 effects，订阅数据源的 subscriptions 。<br>新建 model <code>models/products.js</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  namespace: <span class="string">'products'</span>,</div><div class="line">  state: [],</div><div class="line">  reducers: &#123;</div><div class="line">    <span class="string">'delete'</span>(state, &#123; <span class="attr">payload</span>: id &#125;) &#123;</div><div class="line">      <span class="keyword">return</span> state.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.id !== id);</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>上述 model 里：</p>
@@ -235,12 +297,12 @@ npm start
     
     </summary>
     
-      <category term="antd" scheme="http://yoursite.com/categories/antd/"/>
+      <category term="FrontEndFrame" scheme="http://yoursite.com/categories/FrontEndFrame/"/>
     
     
-      <category term="antd" scheme="http://yoursite.com/tags/antd/"/>
+      <category term="AntDesign" scheme="http://yoursite.com/tags/AntDesign/"/>
     
-      <category term="dva" scheme="http://yoursite.com/tags/dva/"/>
+      <category term="DVA" scheme="http://yoursite.com/tags/DVA/"/>
     
   </entry>
   
@@ -249,7 +311,7 @@ npm start
     <link href="http://yoursite.com/2018/05/22/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-SQL%E6%B3%A8%E5%85%A5/"/>
     <id>http://yoursite.com/2018/05/22/Web安全深度剖析学习-SQL注入/</id>
     <published>2018-05-22T03:00:14.000Z</published>
-    <updated>2018-12-13T04:25:40.905Z</updated>
+    <updated>2018-12-13T08:54:39.171Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要总结SQL注入原理。<br><a id="more"></a><br>SQL注入漏洞是Web层面最高危的漏洞之一。</p>
 <h1 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h1><p>SQL注入指web应用程序对用户输入数据的合法性没有判断，攻击者可以在web应用程序事先定义好的查询语句的结尾上添加额外的SQL语句，以此来实现欺骗数据库服务器执行非授权的任意SQL查询，从而进一步得到相应的数据信息。</p>
@@ -322,14 +384,12 @@ npm start
     
     </summary>
     
-      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/categories/WebSecurity/"/>
     
     
-      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/tags/WebSecurity/"/>
     
-      <category term="SQL注入" scheme="http://yoursite.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
-    
-      <category term="SQL" scheme="http://yoursite.com/tags/SQL/"/>
+      <category term="SQLInjection" scheme="http://yoursite.com/tags/SQLInjection/"/>
     
   </entry>
   
@@ -466,7 +526,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/17/phpstudy%E4%B8%8EDVWA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/</id>
     <published>2018-05-17T12:58:23.000Z</published>
-    <updated>2018-12-13T05:23:31.988Z</updated>
+    <updated>2018-12-13T08:49:46.251Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://ciphersaw.me/" target="_blank" rel="noopener">帆哥</a>教我玩WEB安全系列之最最开始环境配置篇。<br><a id="more"></a></p>
 <h1 id="VMware虚拟机安装"><a href="#VMware虚拟机安装" class="headerlink" title="VMware虚拟机安装"></a>VMware虚拟机安装</h1><p>现在最新版本的是 VMware workstation 14，怕激活密钥不好找，就安装了VMware workstation 12 pro(激活密钥：5A02H-AU243-TZJ49-GTC7K-3C61N)。</p>
@@ -543,12 +603,12 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/categories/WebSecurity/"/>
     
     
-      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/tags/WebSecurity/"/>
     
-      <category term="phpStudy" scheme="http://yoursite.com/tags/phpStudy/"/>
+      <category term="PhpStudy" scheme="http://yoursite.com/tags/PhpStudy/"/>
     
       <category term="DVWA" scheme="http://yoursite.com/tags/DVWA/"/>
     
@@ -563,7 +623,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/17/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0-XSS/"/>
     <id>http://yoursite.com/2018/05/17/Web安全深度剖析学习-XSS/</id>
     <published>2018-05-17T08:56:51.000Z</published>
-    <updated>2018-12-13T04:28:32.442Z</updated>
+    <updated>2018-12-13T08:30:02.801Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要包括XSS原理及三种类型XSS攻击和预防。<br>一篇较好的博客<a href="https://blog.csdn.net/u011781521/article/details/53894399" target="_blank" rel="noopener">XSS跨站脚本攻击(一)—-XSS攻击的三种类型</a>。<br><a id="more"></a></p>
 <h1 id="XSS跨站脚本漏洞"><a href="#XSS跨站脚本漏洞" class="headerlink" title="XSS跨站脚本漏洞"></a>XSS跨站脚本漏洞</h1><p>XSS(Cross Site Scripting)，即跨站脚本攻击。指攻击者在网页中嵌入客户端脚本，通常是JS编写的恶意代码，当用户使用浏览器浏览被嵌入恶意代码的网页时，恶意代码将会在用户浏览器上执行。XSS属于客户端攻击。</p>
@@ -636,10 +696,10 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/categories/WebSecurity/"/>
     
     
-      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/tags/WebSecurity/"/>
     
       <category term="XSS" scheme="http://yoursite.com/tags/XSS/"/>
     
@@ -650,7 +710,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/16/Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2018/05/16/Web安全深度剖析学习/</id>
     <published>2018-05-16T11:55:17.000Z</published>
-    <updated>2018-12-13T05:16:46.082Z</updated>
+    <updated>2018-12-13T08:29:54.386Z</updated>
     
     <content type="html"><![CDATA[<p>《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。<br><a id="more"></a></p>
 <h1 id="Web安全简介"><a href="#Web安全简介" class="headerlink" title="Web安全简介"></a>Web安全简介</h1><p>Web服务默认运行在服务器的80端口之上(http服务器)，https服务器默认443端口。</p>
@@ -724,10 +784,10 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="Web Security" scheme="http://yoursite.com/categories/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/categories/WebSecurity/"/>
     
     
-      <category term="Web Security" scheme="http://yoursite.com/tags/Web-Security/"/>
+      <category term="WebSecurity" scheme="http://yoursite.com/tags/WebSecurity/"/>
     
       <category term="HTTP" scheme="http://yoursite.com/tags/HTTP/"/>
     
@@ -897,7 +957,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/14/webpack-concepts-study/"/>
     <id>http://yoursite.com/2018/05/14/webpack-concepts-study/</id>
     <published>2018-05-14T01:19:45.000Z</published>
-    <updated>2018-12-13T05:28:01.354Z</updated>
+    <updated>2018-12-13T08:54:07.498Z</updated>
     
     <content type="html"><![CDATA[<p>关于webapck相关概念的学习总结。<br><a id="more"></a></p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。</p>
@@ -1095,7 +1155,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="Webpack" scheme="http://yoursite.com/categories/Webpack/"/>
+      <category term="FrontEndFrame" scheme="http://yoursite.com/categories/FrontEndFrame/"/>
     
     
       <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
@@ -1107,7 +1167,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/14/webpack-start-first/"/>
     <id>http://yoursite.com/2018/05/14/webpack-start-first/</id>
     <published>2018-05-14T01:06:21.000Z</published>
-    <updated>2018-12-13T05:14:04.866Z</updated>
+    <updated>2018-12-13T08:54:17.114Z</updated>
     
     <content type="html"><![CDATA[<p>关于webpck基本使用的入门总结。<br><a id="more"></a><br><strong>webpack版本【webpack@4.8.3】</strong></p>
 <p><strong>补充：</strong><br>(1)git bash新建文件的命令：<code>touch index.html</code>（再别忘记了！！！）</p>
@@ -1170,7 +1230,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
     </summary>
     
-      <category term="Webpack" scheme="http://yoursite.com/categories/Webpack/"/>
+      <category term="FrontEndFrame" scheme="http://yoursite.com/categories/FrontEndFrame/"/>
     
     
       <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
@@ -1182,7 +1242,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/03/28/jQuery%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2018/03/28/jQuery学习/</id>
     <published>2018-03-28T01:02:51.000Z</published>
-    <updated>2018-12-13T04:50:52.226Z</updated>
+    <updated>2018-12-13T08:46:05.808Z</updated>
     
     <content type="html"><![CDATA[<p>JQuery是一个轻量级的JavaScript库。核心是JavaScript，不仅兼容CSS3，还兼容各种浏览器。<br><a id="more"></a></p>
 <h1 id="jQuery对象与DOM对象"><a href="#jQuery对象与DOM对象" class="headerlink" title="jQuery对象与DOM对象"></a>jQuery对象与DOM对象</h1><p>jQuery对象与DOM对象是不一样的。jQuery对象是一个类数组对象，而DOM对象就是一个单独的DOM元素。</p>
@@ -1297,7 +1357,7 @@ event.target //事件的目标DOM元素
     
     </summary>
     
-      <category term="jQuery" scheme="http://yoursite.com/categories/jQuery/"/>
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
     
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
@@ -1309,7 +1369,7 @@ event.target //事件的目标DOM元素
     <link href="http://yoursite.com/2018/03/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/03/26/微信小程序开发文档总结/</id>
     <published>2018-03-26T14:15:57.000Z</published>
-    <updated>2018-12-13T05:10:35.370Z</updated>
+    <updated>2018-12-13T08:59:09.338Z</updated>
     
     <content type="html"><![CDATA[<p>小程序开发文档的简要概括。<br><a id="more"></a></p>
 <h1 id="基本的文件结构"><a href="#基本的文件结构" class="headerlink" title="基本的文件结构"></a>基本的文件结构</h1><p>最关键也是必不可少的，是 app.js、app.json、app.wxss 这三个，<code>.js</code>后缀的是脚本文件，<code>.json</code>后缀的文件是配置文件，<code>.wxss</code>后缀的是样式表文件。</p>
@@ -1860,10 +1920,10 @@ wx.openCard    打开卡券
     
     </summary>
     
-      <category term="WeChat MiniPro" scheme="http://yoursite.com/categories/WeChat-MiniPro/"/>
+      <category term="FrontEndFrame" scheme="http://yoursite.com/categories/FrontEndFrame/"/>
     
     
-      <category term="WeChat MiniPro" scheme="http://yoursite.com/tags/WeChat-MiniPro/"/>
+      <category term="WeChatMP" scheme="http://yoursite.com/tags/WeChatMP/"/>
     
   </entry>
   
@@ -1872,7 +1932,7 @@ wx.openCard    打开卡券
     <link href="http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/"/>
     <id>http://yoursite.com/2018/03/24/2018-Tencent-spring-programming-simulation/</id>
     <published>2018-03-24T06:52:04.000Z</published>
-    <updated>2018-12-12T13:43:56.999Z</updated>
+    <updated>2018-12-13T08:35:27.720Z</updated>
     
     <content type="html"><![CDATA[<p>2018春季腾讯研发岗在线模拟笔试算法题目总结。<br><a id="more"></a></p>
 <h3 id="给出四个点的坐标判断是否为正方形"><a href="#给出四个点的坐标判断是否为正方形" class="headerlink" title="给出四个点的坐标判断是否为正方形"></a>给出四个点的坐标判断是否为正方形</h3><p>思路：暴力方法，求出任意两点之间的距离，如果有四条相等，剩下两条距离相等，则构成正方形。</p>
@@ -1898,6 +1958,21 @@ wx.openCard    打开卡券
 <h3 id="百词斩：-给出一组数字的从小到大的全排列形式"><a href="#百词斩：-给出一组数字的从小到大的全排列形式" class="headerlink" title="百词斩： 给出一组数字的从小到大的全排列形式"></a>百词斩： 给出一组数字的从小到大的全排列形式</h3><p>问题描述：给出一个数字数组，数组里的数字各不相同，例如[3, 1, 5],给出这几个数字的全排列并按从小到大的形式输出，即输出为 135,153,315,351,513,531。</p>
 <p>思路：从数组的数字里面任意选一个，放在第一项,然后将剩下的数字递归全排。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fullSort</span>(<span class="params">arr</span>)  </span>&#123;</div><div class="line">    <span class="keyword">var</span> arr = arr.sort(); <span class="comment">//先将数组排序</span></div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="keyword">if</span> (arr.length === <span class="number">1</span>) &#123;</div><div class="line">        result.push(arr);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i ++) &#123;</div><div class="line">        <span class="keyword">var</span> temp = [];</div><div class="line">        temp.push(arr[i]); <span class="comment">//取arr的任意一项放到temp的第一项</span></div><div class="line"></div><div class="line">        <span class="keyword">var</span> remain = arr.slice(<span class="number">0</span>); <span class="comment">//深复制原数组到remain</span></div><div class="line">        remain.splice(i, <span class="number">1</span>); <span class="comment">//去掉temp中的那一项</span></div><div class="line"></div><div class="line">        <span class="keyword">var</span> temp2 = fullSort(remain).concat(); <span class="comment">//将剩下的项全排列，返回[[3,5],[5,3]]这样的数据</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; temp2.length; j ++) &#123;</div><div class="line">            temp2[j].unshift(temp[<span class="number">0</span>]); <span class="comment">//得到[[1,3,5],[1,5,3]]这样的数据</span></div><div class="line">            result.push(temp2[j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>];</div><div class="line"><span class="keyword">var</span> resultArr = fullSort(arr);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; resultArr.length; i ++) &#123;</div><div class="line">    <span class="keyword">var</span> num = resultArr[i].join(<span class="string">""</span>) - <span class="number">0</span>;</div><div class="line">    <span class="built_in">console</span>.log(num);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果</span></div><div class="line"><span class="number">135</span></div><div class="line"><span class="number">153</span></div><div class="line"><span class="number">315</span></div><div class="line"><span class="number">351</span></div><div class="line"><span class="number">513</span></div><div class="line"><span class="number">531</span></div></pre></td></tr></table></figure>
+<h3 id="腾讯：-node如何开启一个http服务"><a href="#腾讯：-node如何开启一个http服务" class="headerlink" title="腾讯： node如何开启一个http服务"></a>腾讯： node如何开启一个http服务</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引入内置http模块</span></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 创建一个简单服务器，访问http://127.0.0.1:1337/,显示Hello World</span></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line">    res.end(<span class="string">'Hello World\n'</span>);</div><div class="line">&#125;).listen(<span class="number">1337</span>, <span class="string">'127.0.0.1'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Server running at http://127.0.0.1:1337/'</span>);</div></pre></td></tr></table></figure>
+<h3 id="腾讯：-CSS3动画的实现方式有哪些，动手写一下将一个div在1s内移动300px"><a href="#腾讯：-CSS3动画的实现方式有哪些，动手写一下将一个div在1s内移动300px" class="headerlink" title="腾讯： CSS3动画的实现方式有哪些，动手写一下将一个div在1s内移动300px"></a>腾讯： CSS3动画的实现方式有哪些，动手写一下将一个div在1s内移动300px</h3><p>有transition和animation动画两种方式，transition过渡动画只定义初始和最终状态，而animation动画可以逐帧设置。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        /* transition属性动画结合transform变化属性，实现元素移动一段距离的动画 */</span></div><div class="line"><span class="undefined">        #transitonDiv:hover &#123;</span></div><div class="line"><span class="undefined">            transition: all 1s ease-in-out;</span></div><div class="line"><span class="undefined">            -webkit-transition: all 1s ease-in-out;</span></div><div class="line"><span class="undefined">            -moz-transition: all 1s ease-in-out;</span></div><div class="line"><span class="undefined">            -o-transition: all 1s ease-in-out;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">            transform: translateX(300px);</span></div><div class="line"><span class="undefined">            -ms-transform: translateX(300px);</span></div><div class="line"><span class="undefined">            -moz-transform: translateX(300px);</span></div><div class="line"><span class="undefined">            -webkit-transform: translateX(300px);</span></div><div class="line"><span class="undefined">            -o-transform: translateX(300px);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        /* 通过animation属性，实现逐帧动画 */</span></div><div class="line"><span class="undefined">        #animationDiv:hover &#123;</span></div><div class="line"><span class="undefined">            animation: animName 1s ease-in-out;</span></div><div class="line"><span class="undefined">            -webkit-animation: animName 1s ease-in-out;</span></div><div class="line"><span class="undefined">            -moz-animation: animName 1s ease-in-out;</span></div><div class="line"><span class="undefined">            -o-animation: animName 1s ease-in-out;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">        </span></div><div class="line"><span class="undefined">        /* 定义关键帧 */</span></div><div class="line"><span class="undefined">        @keyframes animName &#123;</span></div><div class="line"><span class="undefined">            0% &#123;</span></div><div class="line"><span class="undefined">                transform: translateX(0px);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">            30% &#123;</span></div><div class="line"><span class="undefined">                transform: translateX(100px);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">            60% &#123;</span></div><div class="line"><span class="undefined">                transform: translateX(200px);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">            100% &#123;</span></div><div class="line"><span class="undefined">                transform: translateX(300px);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transitonDiv"</span> <span class="attr">style</span>=<span class="string">"width:40px;height:40px;background-color:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"animationDiv"</span> <span class="attr">style</span>=<span class="string">"width:40px;height:40px;background-color:green;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="腾讯：-DNS解析过程？若是新申请的域名如何查找DNS"><a href="#腾讯：-DNS解析过程？若是新申请的域名如何查找DNS" class="headerlink" title="腾讯： DNS解析过程？若是新申请的域名如何查找DNS?"></a>腾讯： DNS解析过程？若是新申请的域名如何查找DNS?</h3><p>DNS是应用层协议，事实上他是为其他应用层协议工作的，包括不限于HTTP和SMTP以及FTP，用于将用户提供的主机名解析为ip地址。具体过程如下：</p>
+<p>(1)浏览器缓存: 当用户通过浏览器访问某域名时，浏览器首先会在自己的缓存中查找是否有该域名对应的IP地址（若曾经访问过该域名且没有清空缓存便存在)；</p>
+<p>(2)系统缓存： 当浏览器缓存中无域名对应IP则会自动检查用户计算机系统Hosts文件DNS缓存是否有该域名对应IP；</p>
+<p>(3)路由器缓存: 当浏览器及系统缓存中均无域名对应IP则进入路由器缓存中检查，以上三步均为客户端的DNS缓存；</p>
+<p>(4)ISP（互联网服务提供商）DNS缓存: 当在用户客服端查找不到域名对应IP地址，则将进入ISP DNS缓存中进行查询。比如你用的是电信的网络，则会进入电信的DNS缓存服务器中进行查找；(或者向网络设置中指定的local DNS进行查询，如果在PC指定了DNS的话，如果没有设置比如DNS动态获取，则向ISP DNS发起查询请求)</p>
+<p>(5)根域名服务器: 当以上均未完成，则进入根服务器进行查询。全球仅有13台根域名服务器，1个主根域名服务器，其余12为辅根域名服务器。根域名收到请求后会查看区域文件记录，若无则将其管辖范围内顶级域名（如.com）服务器IP告诉本地DNS服务器；</p>
+<p>(6)顶级域名服务器: 顶级域名服务器收到请求后查看区域文件记录，若无则将其管辖范围内主域名服务器的IP地址告诉本地DNS服务器；</p>
+<p>(7)主域名服务器: 主域名服务器接受到请求后查询自己的缓存，如果没有则进入下一级域名服务器进行查找，并重复该步骤直至找到正确记录；</p>
+<p>(8)保存结果至缓存: 本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时将该结果反馈给客户端，客户端通过这个IP地址与web服务器建立链接。</p>
+<h3 id="腾讯：Ajax请求状态及意义"><a href="#腾讯：Ajax请求状态及意义" class="headerlink" title="腾讯：Ajax请求状态及意义"></a>腾讯：Ajax请求状态及意义</h3><p>在javascript里面写AJax的时，最关键的一步是对XMLHttpRequest对象建立监听，即使用“onreadystatechange”方法。监听的时候，要对XMLHttpRequest对象的请求状态进行判断，通常是判断readyState的值为4且http返回状态status的值为200或者304时执行我们需要的操作。readyState 属性表示Ajax请求的当前状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">0 代表未初始化。 还没有调用 open 方法</div><div class="line">1 代表正在加载。 open 方法已被调用，但 send 方法还没有被调用</div><div class="line">2 代表已加载完毕。send 已被调用。请求已经开始</div><div class="line">3 代表交互中。服务器正在发送响应</div><div class="line">4 代表完成。响应发送完毕</div></pre></td></tr></table></figure>
+<h3 id="腾讯：-cookie的操作，读写"><a href="#腾讯：-cookie的操作，读写" class="headerlink" title="腾讯： cookie的操作，读写"></a>腾讯： cookie的操作，读写</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="keyword">var</span> cookieObj = &#123;</div><div class="line">    <span class="comment">//修改或是添加cookie</span></div><div class="line">   <span class="string">'add'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name, value, hours</span>) </span>&#123; </div><div class="line">        <span class="keyword">var</span> expire = <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span>(hours != <span class="literal">null</span>)&#123;</div><div class="line">            expire = <span class="keyword">new</span> <span class="built_in">Date</span>((<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() + hours * <span class="number">3600000</span>);</div><div class="line">            expire = <span class="string">"; expires="</span> + expire.toGMTString();</div><div class="line">        &#125;    </div><div class="line">    <span class="built_in">document</span>.cookie = name + <span class="string">"="</span> + <span class="built_in">escape</span>(value) + expire + <span class="string">";path=/"</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//如果指定域名可以使用如下</span></div><div class="line">    <span class="comment">//document.cookie = name + "=" + escape(value) + expire + ";path=/;domain=findme.wang";</span></div><div class="line">   &#125;,</div><div class="line">   </div><div class="line">   <span class="comment">//读取cookie</span></div><div class="line">   <span class="string">'get'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">c_name</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.cookie.length&gt;<span class="number">0</span>) &#123;</div><div class="line">            c_start = <span class="built_in">document</span>.cookie.indexOf(c_name + <span class="string">"="</span>);</div><div class="line">            <span class="keyword">if</span> (c_start != <span class="number">-1</span>) &#123; </div><div class="line">                c_start=c_start + c_name.length+<span class="number">1</span>;</div><div class="line">                c_end=<span class="built_in">document</span>.cookie.indexOf(<span class="string">";"</span>,c_start);</div><div class="line">                <span class="keyword">if</span> (c_end == <span class="number">-1</span>) &#123;</div><div class="line">                    c_end = <span class="built_in">document</span>.cookie.length;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="built_in">unescape</span>(<span class="built_in">document</span>.cookie.substring(c_start,c_end));</div><div class="line">            &#125; </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">   &#125;</div><div class="line"> &#125;;</div><div class="line"> <span class="built_in">window</span>.cookieObj=cookieObj;</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -1906,10 +1981,10 @@ wx.openCard    打开卡券
     
     </summary>
     
-      <category term="js算法题" scheme="http://yoursite.com/categories/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
     
     
-      <category term="js算法题" scheme="http://yoursite.com/tags/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+      <category term="Algorithm" scheme="http://yoursite.com/tags/Algorithm/"/>
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
@@ -1920,7 +1995,7 @@ wx.openCard    打开卡券
     <link href="http://yoursite.com/2018/03/13/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2018/03/13/汉诺塔递归算法JS实现/</id>
     <published>2018-03-13T03:25:25.000Z</published>
-    <updated>2018-12-13T04:22:56.969Z</updated>
+    <updated>2018-12-13T08:55:08.402Z</updated>
     
     <content type="html"><![CDATA[<p>递归把一组问题分解为一组相似的子问题，每一个问题都用一个寻常解去解决。递归函数就是会直接或者间接调用自身的一种函数，一般来说，一个递归函数调用自身去解决它的子问题。在自己这个函数里有调用自己这个函数的语句，而这个调用怎么才能调用结束呢？，这里还必须有一个结束点，或者具体的说是在调用到某一次后函数能返回一个确定的值，接着倒数第二个就能返回一个确定的值，一直到第一次调用的这个函数能返回一个确定的值。<br><a id="more"></a></p>
 <h2 id="“汉诺塔问题”描述"><a href="#“汉诺塔问题”描述" class="headerlink" title="“汉诺塔问题”描述"></a>“汉诺塔问题”描述</h2><p>塔上有三根柱子和一套直径各不相同的空心圆盘，开始时源柱子上的所有圆盘都按从大到小的顺序排列。目标是通过每一次移动一个圆盘到另一根柱子上，最终把一堆圆盘移动到目标柱子上，过程中不允许把较大的圆盘放置在较小的圆盘上；</p>
@@ -1947,6 +2022,8 @@ wx.openCard    打开卡券
       <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
     
     
+      <category term="Algorithm" scheme="http://yoursite.com/tags/Algorithm/"/>
+    
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
@@ -1956,7 +2033,7 @@ wx.openCard    打开卡券
     <link href="http://yoursite.com/2018/03/12/MongoDB%E5%AD%A6%E4%B9%A0from%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/03/12/MongoDB学习from菜鸟教程/</id>
     <published>2018-03-12T05:12:29.000Z</published>
-    <updated>2018-12-12T13:43:57.003Z</updated>
+    <updated>2018-12-13T08:48:05.065Z</updated>
     
     <content type="html"><![CDATA[<p>在学习<a href="https://github.com/nswbmw/N-blog" target="_blank" rel="noopener">《一起学 Node.js》</a>中，需要使用 Express + MongoDB 搭建多人博客，因此在<a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="noopener">菜鸟MongoDB 教程</a>上学习总结MongoDB的基本用法。<br><a id="more"></a><br>MongoDB是一个基于分布式文件存储的开源数据库系统。 在高负载的情况下，添加更多的节点，可以保证服务器性能, 为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。 MongoDB 文档类似于 JSON 对象。 字段值可以包含其他文档，数组及文档数组。<br>mongodb中基本的概念是文档、集合、数据库。一个mongodb中可以建立多个数据库。MongoDB的默认数据库为”db”，该数据库存储在data目录中。</p>
 <p>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</p>
@@ -2042,7 +2119,7 @@ local   0.000GB
     
     </summary>
     
-      <category term="MongoDB" scheme="http://yoursite.com/categories/MongoDB/"/>
+      <category term="DataBase" scheme="http://yoursite.com/categories/DataBase/"/>
     
     
       <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
@@ -2054,7 +2131,7 @@ local   0.000GB
     <link href="http://yoursite.com/2018/03/09/MySQL-install-and-usage/"/>
     <id>http://yoursite.com/2018/03/09/MySQL-install-and-usage/</id>
     <published>2018-03-09T02:37:30.000Z</published>
-    <updated>2018-12-12T13:43:57.004Z</updated>
+    <updated>2018-12-13T08:48:19.002Z</updated>
     
     <content type="html"><![CDATA[<p>关于MySQL数据库基本的安装和操作方法。<a href="http://www.runoob.com/mysql/mysql-tutorial.html" target="_blank" rel="noopener">MySQL教程–菜鸟</a>。<br><a id="more"></a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装步骤可参考博客<a href="http://blog.csdn.net/pansanday/article/details/51321178" target="_blank" rel="noopener">mysql数据库下载、安装、使用</a>前部分，我选择安装的是MySQL Server组件，其他基本照着默认方式就好了。</p>
@@ -2601,7 +2678,7 @@ HAVING aggregate_function(column_name) operator value;
     
     </summary>
     
-      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+      <category term="DataBase" scheme="http://yoursite.com/categories/DataBase/"/>
     
     
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
@@ -2613,7 +2690,7 @@ HAVING aggregate_function(column_name) operator value;
     <link href="http://yoursite.com/2018/03/04/interview-questions-about-Web/"/>
     <id>http://yoursite.com/2018/03/04/interview-questions-about-Web/</id>
     <published>2018-03-04T07:20:40.000Z</published>
-    <updated>2018-12-12T13:43:57.016Z</updated>
+    <updated>2018-12-13T08:45:13.290Z</updated>
     
     <content type="html"><![CDATA[<p>Web方面的知识盲区补漏。<br><a id="more"></a></p>
 <h3 id="匹配URL的正则表达式"><a href="#匹配URL的正则表达式" class="headerlink" title="匹配URL的正则表达式"></a>匹配URL的正则表达式</h3><p>URL由三部分组成：资源类型(协议)、存放资源的主机域名、资源文件名。<br>URL的一般语法格式为(带方括号[ ]的为可选项)：<br><code>protocol :// hostname[:port] / path / [;parameters][?query]#fragment</code><br>据说比较好用匹配较全面的是这个：<br><code>(https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</code><br>参考自博客<a href="https://www.cnblogs.com/speeding/p/5097790.html" target="_blank" rel="noopener">正确匹配URL的正则表达式</a>、<a href="http://blog.csdn.net/t_1007/article/details/52293475" target="_blank" rel="noopener">匹配URL的正则表达式解析</a>。</p>
@@ -2660,12 +2737,10 @@ EventLoop轮询的处理线程
     
     </summary>
     
-      <category term="面试题" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="FrontEndInterview" scheme="http://yoursite.com/categories/FrontEndInterview/"/>
     
     
-      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+      <category term="InterviewQuestions" scheme="http://yoursite.com/tags/InterviewQuestions/"/>
     
   </entry>
   
@@ -2674,7 +2749,7 @@ EventLoop轮询的处理线程
     <link href="http://yoursite.com/2018/02/27/interview-questions-about-JS/"/>
     <id>http://yoursite.com/2018/02/27/interview-questions-about-JS/</id>
     <published>2018-02-27T08:35:38.000Z</published>
-    <updated>2018-12-12T13:43:57.016Z</updated>
+    <updated>2018-12-13T08:44:36.594Z</updated>
     
     <content type="html"><![CDATA[<p>来自牛客网<a href="https://www.nowcoder.com/ta/front-end-interview?query=&amp;asc=true&amp;order=&amp;page=1" target="_blank" rel="noopener">前端面试经典题目合集</a> 篇学习总结。<br><a id="more"></a></p>
 <h3 id="Cookie的弊端"><a href="#Cookie的弊端" class="headerlink" title="Cookie的弊端"></a>Cookie的弊端</h3><p>cookie虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。<br><strong>优点：</strong><br>1) 数据持久性。<br>2) 不需要任何服务器资源。 Cookie 存储在客户端并在发送后由服务器读取。<br>3) 可配置到期规则。 控制 cookie 的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的 cookie 。<br>4) 简单性。 基于文本的轻量结构。<br>5) 通过良好的编程，控制保存在 cookie 中的 session 对象的大小。<br>6) 通过加密和安全传输技术（ SSL ），减少 cookie 被破解的可能性。<br>7) 只在 cookie 中存放不敏感数据，即使被盗也不会有重大损失。<br><strong>缺点：</strong><br>1) Cookie 数量和长度的限制 。<br>数量：每个域的 cookie 总数有限。</p>
@@ -3017,12 +3092,12 @@ function unsetCookie(name) {
     
     </summary>
     
-      <category term="面试题" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="FrontEndInterview" scheme="http://yoursite.com/categories/FrontEndInterview/"/>
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="InterviewQuestions" scheme="http://yoursite.com/tags/InterviewQuestions/"/>
     
   </entry>
   
@@ -3031,7 +3106,7 @@ function unsetCookie(name) {
     <link href="http://yoursite.com/2018/02/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/"/>
     <id>http://yoursite.com/2018/02/26/前端面试常见算法题/</id>
     <published>2018-02-26T06:24:48.000Z</published>
-    <updated>2018-12-13T05:24:57.787Z</updated>
+    <updated>2018-12-13T08:55:35.738Z</updated>
     
     <content type="html"><![CDATA[<p>十道前端面试常见算法题。<br><a id="more"></a></p>
 <h3 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h3><p>思路：将字符串转换为数组，利用数组方法reverse()比较翻转后的字符串是否与源字符串一致。</p>
@@ -3335,77 +3410,12 @@ class BinarySearchTree {
     
     </summary>
     
-      <category term="js算法题" scheme="http://yoursite.com/categories/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
+      <category term="FrontEndInterview" scheme="http://yoursite.com/categories/FrontEndInterview/"/>
     
-    
-      <category term="js算法题" scheme="http://yoursite.com/tags/js%E7%AE%97%E6%B3%95%E9%A2%98/"/>
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-  </entry>
-  
-  <entry>
-    <title>vscode快捷键</title>
-    <link href="http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/"/>
-    <id>http://yoursite.com/2018/02/26/vscodeKeyboardShortcuts/</id>
-    <published>2018-02-26T05:35:19.000Z</published>
-    <updated>2018-12-12T13:43:57.022Z</updated>
-    
-    <content type="html"><![CDATA[<p>vscode中常用的快捷键功能。<br><a id="more"></a></p>
-<h3 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h3><p>alt+up/down    向上/下移动单行</p>
-<p>shift+alt+up/down    向上/下复制单行</p>
-<p>shift+alt+f    格式化文本</p>
-<p>command + +/-  增大/减小文本字体</p>
-<p>Ctrl+Enter   在当前行下边插入一行</p>
-<p>Ctrl+Shift+Enter  在当前行上方插入一行</p>
-<p>代码行缩进：  向左缩进 Ctrl+[ &nbsp;&nbsp; 向右缩进 Ctrl+]</p>
-<h3 id="光标相关"><a href="#光标相关" class="headerlink" title="光标相关"></a>光标相关</h3><p>移动到行首：Home</p>
-<p>移动到行尾：End</p>
-<p>移动到文件结尾：Ctrl+End</p>
-<p>移动到文件开头：Ctrl+Home</p>
-<p>移动到后半个括号： Ctrl+Shift+]</p>
-<p>选中当前行   Ctrl+i</p>
-<p>选择从光标到行尾   Shift+End</p>
-<p>选择从行首到光标处   Shift+Home</p>
-<p>删除光标右侧的所有字： Ctrl+Delete</p>
-<p>删除光标所在行:    Ctrl+Shift+K </p>
-<p>扩展/缩小选取范围： Shift+Alt+Left/Right</p>
-<p>多行编辑(列编辑)：Alt+Shift+鼠标左键，Ctrl+Alt+Down/Up</p>
-<p>同时选中所有匹配： Ctrl+Shift+L</p>
-<p>回退上一个光标操作： Ctrl+U</p>
-<h3 id="重构代码"><a href="#重构代码" class="headerlink" title="重构代码"></a>重构代码</h3><p>移动到定义处： F12</p>
-<p>定义处缩略图：只看一眼而不跳转过去 Alt+F12</p>
-<p>列出所有引用： Shift+F12</p>
-<p>同时修改本文件中所有匹配的： Ctrl+F12</p>
-<p>重命名：比如要修改一个方法名，可以选中后按 F2，输入新的名字，回车，会发现所有的文件都修改了</p>
-<p>跳转到下一个 Error 或 Warning：当有多个错误时可以按 F8 逐个跳转</p>
-<p>查看 diff： 在 explorer 里选择文件右键 Set file to compare，然后需要对比的文件上右键选择 Compare with file_name_you_chose</p>
-<h3 id="左侧边栏及显示相关"><a href="#左侧边栏及显示相关" class="headerlink" title="左侧边栏及显示相关"></a>左侧边栏及显示相关</h3><p>打开资源  ctrl+shift+E</p>
-<p>打开搜索  ctrl+shift+F</p>
-<p>打开git    ctrl+shift+G</p>
-<p>打开调试 ctrl+shift+D</p>
-<p>打开扩展 ctrl+shift+X</p>
-<p>全屏：F11</p>
-<p>侧边栏显/隐：Ctrl+B</p>
-<p>输出Show Output：  Ctrl+Shift+U</p>
-<p>预览markdown：  Ctrl+Shift+V</p>
-<h3 id="编辑器与窗口管理"><a href="#编辑器与窗口管理" class="headerlink" title="编辑器与窗口管理"></a>编辑器与窗口管理</h3><p>打开一个新窗口： Ctrl+Shift+N</p>
-<p>关闭窗口： Ctrl+Shift+W</p>
-<p>新建文件：   Ctrl+N</p>
-<p>文件之间切换：   Ctrl+Tab</p>
-<p>切出一个新的编辑器： Ctrl+\  (也可以按住 Ctrl 鼠标点击 Explorer 里的文件名。左中右 3 个编辑器的快捷键分别为 Ctrl+1 Ctrl+2 Ctrl+3)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vscode中常用的快捷键功能。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="VScode" scheme="http://yoursite.com/categories/VScode/"/>
-    
-    
-      <category term="VScode" scheme="http://yoursite.com/tags/VScode/"/>
+      <category term="InterviewQuestions" scheme="http://yoursite.com/tags/InterviewQuestions/"/>
     
   </entry>
   
