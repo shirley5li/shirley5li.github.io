@@ -9,10 +9,10 @@ categories: JavaScript
 ## "汉诺塔问题"描述 ##
 塔上有三根柱子和一套直径各不相同的空心圆盘，开始时源柱子上的所有圆盘都按从大到小的顺序排列。目标是通过每一次移动一个圆盘到另一根柱子上，最终把一堆圆盘移动到目标柱子上，过程中不允许把较大的圆盘放置在较小的圆盘上；
 
-![汉诺塔示意图](http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![汉诺塔示意图](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/%E6%B1%89%E8%AF%BA%E5%A1%94%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 当n=3时的移动如下：
 
-![n=3时的汉诺塔问题](http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/n=3%E6%97%B6%E7%9A%84%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98.gif)
+![n=3时的汉诺塔问题](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/n%3D3%E6%97%B6%E7%9A%84%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98.gif)
 
 把所有圆盘(n个)从A(src)移动到C(dst)。
 
@@ -66,4 +66,4 @@ categories: JavaScript
 (1)函数hanoi(n, A, B, C)的功能是把编号为n的圆盘借助B从A移到C上；
 (2)函数move(n, M, N)的功能是把编号为n的圆盘从M移到N上；
 
-![汉诺塔问题n=3时的运行流程](http://ou3oh86t1.bkt.clouddn.com/demo/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/images/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98n=3%E6%97%B6%E7%9A%84%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.png)
+![汉诺塔问题n=3时的运行流程](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95JS%E5%AE%9E%E7%8E%B0/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98n%3D3%E6%97%B6%E7%9A%84%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.png)

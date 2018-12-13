@@ -29,7 +29,7 @@ npm初始化语法：`npm init [--force|-f|--yes|-y|--scope]`
 
 **项目目录结构**
 
-![目录结构](http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
+![目录结构](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
 
 **src/index.js**
 
@@ -100,7 +100,7 @@ index.html中的`<script>`标签之间存在隐式依赖关系，index.js的运�
 首先调整目录结构，将“源”代码（`/src`）与“分发”代码（`/dist`）分开。“源代码”是需要编写和编辑的代码，“分发”代码是构建过程的最小化和最优输出，并且最终将在浏览器中加载。修改后的目录结构如下：
 
 **目录结构**
-![修改后的目录结构](http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
+![修改后的目录结构](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
 
 为了捆绑`lodash`与index.js之间的依赖关系，需要在本地安装lodash库，命令如下：`npm install --save lodash`。
 
@@ -193,7 +193,7 @@ You can also set it to 'none' to disable any default behavior. Learn more: https
 上面的坑在英文文档中，后来看了中文文档发现中文的改过来了。。
 
 打包后的目录结构如下：
-![打包后的目录结构](http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
+![打包后的目录结构](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
 
 ## 模块(Modules) ##
 在ES2015中`import`和`export`声明已经标准化，尽管大部分浏览器还不支持，但webpack支持。

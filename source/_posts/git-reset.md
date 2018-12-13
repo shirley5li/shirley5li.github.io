@@ -8,7 +8,7 @@ categories: Git
 <!--more-->
 # Git的基本概念 #
 在创建Git仓库的时候，工作区会有一个隐藏目录.git（Git的版本库)，Git会自动创建一个master分支，以及一个指向master分支的指针`HEAD`。
-![git工作分区](http://ou3oh86t1.bkt.clouddn.com/git-reset/git%E5%B7%A5%E4%BD%9C%E5%88%86%E5%8C%BA.png)
+![git工作分区](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/git-reset/git%E5%B7%A5%E4%BD%9C%E5%88%86%E5%8C%BA.png)
 
 如上图所示，Git的本地管理主要分为三个区，第一个工作区，第二个暂存区(statge/index)，第三个本地仓库。
 1.工作区中文件的增删改，通过`git add <file>`将改动文件添加到暂存区
@@ -21,9 +21,9 @@ categories: Git
 
 以下流程包括查看分支、新建并切换到dev分支、在dev分支修改文件后合并到master分支，最后删除dev分支的过程。
 
-![新建并切换分支](http://ou3oh86t1.bkt.clouddn.com/git-reset/%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF.png)
+![新建并切换分支](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/git-reset/%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF.png)
 
-![合并分支](http://ou3oh86t1.bkt.clouddn.com/git-reset/%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF.png)
+![合并分支](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/git-reset/%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF.png)
 
 下面的例子演示了从github clone一个`test`仓库到本地，并创建新分支dev，在新分支dev上修改文件，合并到主分支master，最后删除dev分支。（**注意：** 执行`git clone`命令是将远程仓库更新到本地仓库区，而不是本地工作区！）
 
@@ -92,7 +92,7 @@ Shirley@DESKTOP-G6LSDJO MINGW64 ~/Desktop/test (master)
 $ git branch
 * master
 ```
-![团队合作分支](http://ou3oh86t1.bkt.clouddn.com/git-reset/%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E5%88%86%E6%94%AF%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![团队合作分支](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/git-reset/%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E5%88%86%E6%94%AF%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 # Git常用指令 #
 `git --help`中常见的git操作指令如下：
@@ -155,7 +155,7 @@ $ git branch -r
 
 ```
 # Git远程操作 #
-![git远程操作示意图](http://ou3oh86t1.bkt.clouddn.com/git-reset/git%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9C.jpg)
+![git远程操作示意图](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/git-reset/git%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9C.jpg)
 ## git clone ##
 `git clone <版本库的网址> <本地目录名>`
 
@@ -280,7 +280,7 @@ $ git push origin --delete master
 如果当前分支只有一个追踪分支，那么主机名也可以省略： `git push`。
 
 # Git的4个阶段的撤销更改 #
-![Git基本操作流程](http://ou3oh86t1.bkt.clouddn.com/git-reset/git-commands.png)
+![Git基本操作流程](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/git-reset/git-commands.png)
 
 该部分内容假设只有一个主分支master。
 ## 4个区 ##

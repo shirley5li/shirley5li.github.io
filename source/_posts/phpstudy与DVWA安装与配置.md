@@ -21,23 +21,23 @@ categories: Web Security
 
 【待解决的问题:】讲道理采用桥接模式之后，虚拟机和宿主主机是处于同一局域网中的对等主机，是可以互相ping通的，不知是不是路由器防火墙的缘故，虚拟机(192.168.1.101)和宿主主机(192.168.1.124)之间ping不通，但可以通过宿主主机的浏览器访问虚拟主机(此时的虚拟主机相当于一个虚拟服务器)。
 宿主主机ping虚拟服务器：
-![宿主主机ping虚拟服务器](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/RpingV.png)
+![宿主主机ping虚拟服务器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/RpingV.png)
 虚拟服务器ping宿主主机：
-![虚拟服务器ping宿主主机](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VpingR.png)
+![虚拟服务器ping宿主主机](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VpingR.png)
 浏览器访问虚拟服务器：
-![浏览器访问虚拟服务器](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8.png)
+![浏览器访问虚拟服务器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8.png)
 
 # phpStudy安装配置 #
 phpStudy是一个PHP调试环境的程序集成包，该程序包集成最新的Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer,一次性安装，无须配置即可使用。可以用来模拟服务器环境，用于测试。
 
 将phpStudy(2018版本)压缩包拖到虚拟机桌面，解压，安装即可。
-![phpStudy](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy.png)
+![phpStudy](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy.png)
 ## 更改网站目录 ##
 默认运行一个.php程序必须要将该程序放在WWW文件夹下面。phpStudy下的web服务相关目录如下所示：
-![phpStudy下的web服务相关目录](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%9B%AE%E5%BD%95.png)
+![phpStudy下的web服务相关目录](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%9B%AE%E5%BD%95.png)
 
 web服务默认的运行目录是可以修改的: `其他选项菜单` -> `phpStudy设置` -> `端口常规设置`
-![端口常规设置](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE.png)
+![端口常规设置](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/phpStudy%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE.png)
 
 如果更改了网站目录，要将之前WWW目录下的文件都拷过去。
 ## 更改默认首页 ##
@@ -49,13 +49,13 @@ web服务默认的运行目录是可以修改的: `其他选项菜单` -> `phpSt
 
 # DVWA #
 将DVWA(Damn Vulnerable Web Application)的压缩包拖进虚拟机，解压后丢到网站目录下：
-![DVWA安装](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA.png)
+![DVWA安装](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA.png)
 
 [DVWA](http://www.dvwa.co.uk/)是一款基于php和mysql编写的用于常规WEB漏洞教学和检测的web脆弱性测试web应用。其中包含了SQL注入，盲注，文件包含，XSS，CSRF等一些常见的WEB漏洞，对进行Web渗透有较强的指导教学意义。
 
 ## 配置 ##
 (1) 首先进入设置页面，**注意：** 在phpStudy虚拟web服务器环境下安装DVWA时出现的问题如以下界面中红色字体提示部分：
-![安装DVWA时出现的问题](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA%E8%AE%BE%E7%BD%AE%E6%97%B6%E7%9A%84%E9%94%99%E8%AF%AF.png)
+![安装DVWA时出现的问题](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/DVWA%E8%AE%BE%E7%BD%AE%E6%97%B6%E7%9A%84%E9%94%99%E8%AF%AF.png)
 解决方法参考博客 [DVWA安装出现的问题（phpStudy）](http://www.cnblogs.com/liuyunbuji/p/8385834.html)
 其中在解决`PHP function allow_url_include：Disabled`问题，修改完php.ini配置文件后记得重启phpStudy服务，不然还是显示错误提示。
 
@@ -75,11 +75,11 @@ $_DVWA[ 'db_password' ] = 'root';
 - 连接数据库。`mysql -u root -p`是连接数据库服务器的命令，`-u`表示用户名(root),`-p`表示密码，即在连接数据库之前要求输入用户名和密码|（MySQL用户名和密码默认都是root）。
 
 `win+r`->打开cmd命令行，输入用户名和密码，哦豁，又出错了：
-![连接数据库出错](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%87%BA%E9%94%99.png)
+![连接数据库出错](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%87%BA%E9%94%99.png)
 
 解决办法参考博客 [命令行中输入：mysql -u root -p 提示没有这个命令](https://blog.csdn.net/u013310517/article/details/52098479)，即将mysql的安装路径添加到系统环境变量中。
 
-![连接数据库](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93.png)
+![连接数据库](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93.png)
 
 - 此时进入mysql创建数据库 dvwa，然后创建新用户dvwa，并设置密码123456。
 

@@ -10,7 +10,7 @@ categories: Web Security
 Web服务默认运行在服务器的80端口之上(http服务器)，https服务器默认443端口。
 
 服务器风险点如下图：
-![服务器风险点](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png)
+![服务器风险点](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png)
 直接对目标攻击的三种手段：
 - **C段渗透**： 攻击者通过渗透同一网段内的一台主机，对目标主机进行ARP等手段的渗透。
 
@@ -45,7 +45,7 @@ HTTP协议经历了三个版本：
 以HTTP/1.1为例，描述HTTP请求与响应如下。
 
 **HTTP请求：** 包括请求行(请求方法)、请求头(消息报头)、请求正文(请求体)。
-![http请求](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/http%E8%AF%B7%E6%B1%82.png)
+![http请求](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/http%E8%AF%B7%E6%B1%82.png)
 HTTP请求的第一行为请求行，由三部分组成，`POST`表示请求方法，`/login.php`表示请求路径(该域名根目录下的login.php)，`HTTP/1.1`表示HTTP版本。
 
 第二行至空白行为HTTP请求头，`HOST`表示请求的主机地址，`User-Agent`表示浏览器标识。请求头由客户端自行设定。Google访问[http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html](http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html)的HTTP GET请求行和请求头如下：
@@ -64,7 +64,7 @@ If-Modified-Since: Sun, 06 May 2018 03:32:14 GMT
 空白行之后为请求正文(请求体)，请求正文是可选的，通常出现在POST方法中，GET方法不含请求体。
 
 **HTTP响应：** 包括响应行、响应头(消息报头)、响应正文(响应体)。
-![http响应](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/http%E5%93%8D%E5%BA%94.png)
+![http响应](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/http%E5%93%8D%E5%BA%94.png)
 Google访问[http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html](http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html)的HTTP 响应行和响应头如下：
 ```
 HTTP/1.1 200 OK
@@ -116,7 +116,7 @@ HTTP隧道技术可以理解为把所有要传送的数据全部封装到HTTP协
 
 - OPTIONS
 用于请求由URI标识的资源在通信过程中可以使用的功能选项。
-![OPTIONS请求与响应](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/OPTIONS.png)
+![OPTIONS请求与响应](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/OPTIONS.png)
 
 ### HTTP状态码 ###
 - 1XX: 信息提示，表示请求已被成功接收，继续处理。100~101
@@ -125,7 +125,7 @@ HTTP隧道技术可以理解为把所有要传送的数据全部封装到HTTP协
 - 4XX: 客户端错误，客户端发送一些服务器无法处理的信息，例如格式错误的请求、请求一个不存在的URL。400~415
 - 5XX: 服务器错误。500~505
 
-![常见状态码错误](http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E7%8A%B6%E6%80%81%E7%A0%81.png)
+![常见状态码错误](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E7%8A%B6%E6%80%81%E7%A0%81.png)
 
 ### HTTP与HTTPS的区别 ###
 HTTPS在HTTP之下加入SSL层，可以保护数据的隐私性和完整性。

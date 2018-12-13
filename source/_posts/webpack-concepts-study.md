@@ -229,7 +229,7 @@ module.exports = {
 (2) 从 CLI 参数中传递: `webpack --mode=production`
 
 支持以下字符串值：
-![mode](http://ou3oh86t1.bkt.clouddn.com/webpack-demo/mode.png)
+![mode](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/mode.png)
 **注意：** 只设置 `NODE_ENV`，则不会自动设置 `mode`。
 
 **mode:development**

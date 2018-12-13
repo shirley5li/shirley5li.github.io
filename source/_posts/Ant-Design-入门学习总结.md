@@ -66,9 +66,9 @@ class App extends React.Component {
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 `$ npm start`, 访问`http://127.0.0.1:8000`UI样式如下：
-![1](http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/1.png)
-![2](http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/2.png)
-![3](http://ou3oh86t1.bkt.clouddn.com/antd-init-demo/3.png)
+![1](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/antd-init-demo/1.png)
+![2](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/antd-init-demo/2.png)
+![3](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/antd-init-demo/3.png)
 
 `$ npm run build`，入口文件会构建到 dist 目录中，可以自由部署到不同环境中进行引用。
 

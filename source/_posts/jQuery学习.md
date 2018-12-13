@@ -26,31 +26,31 @@ jQuery对象与DOM对象是不一样的。jQuery对象是一个类数组对象�
 
 **基本筛选选择器：**
 
-![基本筛选选择器](http://ou3oh86t1.bkt.clouddn.com/jQuery%E5%AD%A6%E4%B9%A0/images/jq%E5%9F%BA%E6%9C%AC%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
+![基本筛选选择器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/jq%E5%9F%BA%E6%9C%AC%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
 
 **内容筛选选择器：** 
 
-![内容筛选选择器](http://ou3oh86t1.bkt.clouddn.com/jQuery%E5%AD%A6%E4%B9%A0/images/%E5%86%85%E5%AE%B9%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
+![内容筛选选择器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/%E5%86%85%E5%AE%B9%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
 
 **可见性筛选选择器：** `$(":visible")`与`$(":hidden")`。:hidden选择器，不只包括display:none的元素，还包括隐藏表单、visibility等。
 
-![隐藏元素](http://ou3oh86t1.bkt.clouddn.com/jQuery%E5%AD%A6%E4%B9%A0/images/%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0.png)
+![隐藏元素](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0.png)
 
 **属性选择器：** 
 
-![属性选择器](http://ou3oh86t1.bkt.clouddn.com/jQuery%E5%AD%A6%E4%B9%A0/images/%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.png)
+![属性选择器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.png)
 
 **子元素筛选选择器：** 
 
-![子元素筛选选择器](http://ou3oh86t1.bkt.clouddn.com/jQuery%E5%AD%A6%E4%B9%A0/images/%E5%AD%90%E5%85%83%E7%B4%A0%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
+![子元素筛选选择器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/%E5%AD%90%E5%85%83%E7%B4%A0%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
 
 **表单元素选择器:** 
 
-![表单元素选择器](http://ou3oh86t1.bkt.clouddn.com/jQuery%E5%AD%A6%E4%B9%A0/images/%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8.png)
+![表单元素选择器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8.png)
 
 **表单对象属性筛选选择器:**
 
-![表单对象属性筛选选择器](http://ou3oh86t1.bkt.clouddn.com/%E8%A1%A8%E5%8D%95%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
+![表单对象属性筛选选择器](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/jQuery%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E5%8D%95%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8.png)
 
 **this选择器:**
 

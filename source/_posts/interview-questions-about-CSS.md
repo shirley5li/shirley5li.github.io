@@ -38,12 +38,12 @@ width(content) = content + padding-left + padding-right + border-left + border-r
 有个例外的情况，就是如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。
 (6) !important 权重最高，比 inline style 还要高 
 **选择器的优先权-计算特殊性值**
-![选择器优先权](http://ou3oh86t1.bkt.clouddn.com/blog/interview-questions-about-CSS/selecter%20weight.png)
+![选择器优先权](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93CSS%E7%AF%87/selecter%20weight.png)
 1.  内联样式表的权值最高 1000；
 2.  ID 选择器的权值为 100
 3.  Class 类选择器的权值为 10
 4.  HTML 标签选择器的权值为 1 
-![css selector priority](http://ou3oh86t1.bkt.clouddn.com/blog/interview-questions-about-CSS/css%20selector%20priority.png)
+![css selector priority](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93CSS%E7%AF%87/css%20selector%20priority.png)
 CSS 优先级法则：
 A  选择器都有一个权值，权值越大越优先；
 B  当权值相等时，后出现的样式表设置要优于先出现的样式表设置；
