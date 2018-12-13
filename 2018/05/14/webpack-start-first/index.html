@@ -104,14 +104,14 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="关于webpck基本使用的入门总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
-<meta property="og:updated_time" content="2018-05-29T02:33:34.808Z">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
+<meta property="og:updated_time" content="2018-12-13T05:14:04.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(一)Webpack入门总结">
 <meta name="twitter:description" content="关于webpck基本使用的入门总结。">
-<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
+<meta name="twitter:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
 
 
 
@@ -445,7 +445,7 @@
 <p>npm初始化语法：<code>npm init [--force|-f|--yes|-y|--scope]</code></p>
 <p>在项目的根目录下，及webpack-demo下创建以下目录结构，具体目录结构及相应文件内容如下：</p>
 <p><strong>项目目录结构</strong></p>
-<p><img src="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="目录结构"></p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="目录结构"></p>
 <p><strong>src/index.js</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">component</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 借助了Lodash(一个js工具库，作用是降低array、number、object等使用难度)，</span></div><div class="line">    <span class="comment">// _ 是假定存在的一个Lodash全局对象，将js方法挂载在 _ 这个全局对象变量上。</span></div><div class="line">    element.innerHTML = _.join([<span class="string">'Hello'</span>,<span class="string">'webpack'</span>],<span class="string">' '</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> element;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.appendChild(component());</div></pre></td></tr></table></figure>
 <p><strong>index.html</strong></p>
@@ -462,7 +462,7 @@
 </ul>
 <p>接下来使用webpack来管理脚本。</p>
 <h2 id="创建一个捆绑-Creating-a-Bundle"><a href="#创建一个捆绑-Creating-a-Bundle" class="headerlink" title="创建一个捆绑(Creating a Bundle)"></a>创建一个捆绑(Creating a Bundle)</h2><p>首先调整目录结构，将“源”代码（<code>/src</code>）与“分发”代码（<code>/dist</code>）分开。“源代码”是需要编写和编辑的代码，“分发”代码是构建过程的最小化和最优输出，并且最终将在浏览器中加载。修改后的目录结构如下：</p>
-<p><strong>目录结构</strong><br><img src="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="修改后的目录结构"></p>
+<p><strong>目录结构</strong><br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="修改后的目录结构"></p>
 <p>为了捆绑<code>lodash</code>与index.js之间的依赖关系，需要在本地安装lodash库，命令如下：<code>npm install --save lodash</code>。</p>
 <p><strong>注意：</strong> 安装生产环境中用到的包时，需要使用<code>npm install --save</code>，开发环境时，使用<code>npm install --save-dev</code>。</p>
 <p>接下来就可以在脚本中引入<code>lodash</code>，如下：</p>
@@ -476,7 +476,7 @@
 <p><strong>注意踩坑！！！</strong> 这里照着文档一步步来，发现浏览器没有文本内容，检查后发现，在index.html文件中引入打包后的脚本文件时示例代码给的打包脚本名字为<code>bundle.js</code>，但使用<code>npx webpack</code>生成的打包脚本名称为<code>main.js</code>,所以导致index.html文件没有正确的引入打包脚本文件。<code>dist/index.html</code>修改如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>上面的坑在英文文档中，后来看了中文文档发现中文的改过来了。。</p>
-<p>打包后的目录结构如下：<br><img src="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="打包后的目录结构"></p>
+<p>打包后的目录结构如下：<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="打包后的目录结构"></p>
 <h2 id="模块-Modules"><a href="#模块-Modules" class="headerlink" title="模块(Modules)"></a>模块(Modules)</h2><p>在ES2015中<code>import</code>和<code>export</code>声明已经标准化，尽管大部分浏览器还不支持，但webpack支持。</p>
 <p>webpack实际上对ES2015语法进行了转码，通过查看node_modules目录可以看到webpack通过引入babel-preset-es2015来进行ES2015语法的转码。除了<code>import</code>和<code>export</code>，的webpackk支持各种其他模块语法。</p>
 <p><strong>注意：</strong>  除了<code>import</code>和<code>export</code>声明，webpack不会改变其他代码，如果要使用ES2015的其他特性，请确保通过webpack loader系统使用了像babel这样的转码器。</p>

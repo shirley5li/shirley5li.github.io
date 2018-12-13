@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="关于webapck相关概念的学习总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/mode.png">
-<meta property="og:updated_time" content="2018-05-29T02:33:45.150Z">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/mode.png">
+<meta property="og:updated_time" content="2018-12-13T05:28:01.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(二)Webpack相关概念总结">
 <meta name="twitter:description" content="关于webapck相关概念的学习总结。">
-<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/mode.png">
+<meta name="twitter:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/mode.png">
 
 
 
@@ -492,7 +492,7 @@
 <h2 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h2><p>(1) 在配置文件中提供<code>mode</code>属性：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  mode: <span class="string">'production'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>(2) 从 CLI 参数中传递: <code>webpack --mode=production</code></p>
-<p>支持以下字符串值：<br><img src="http://ou3oh86t1.bkt.clouddn.com/webpack-demo/mode.png" alt="mode"><br><strong>注意：</strong> 只设置 <code>NODE_ENV</code>，则不会自动设置 <code>mode</code>。</p>
+<p>支持以下字符串值：<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/webpack-demo/mode.png" alt="mode"><br><strong>注意：</strong> 只设置 <code>NODE_ENV</code>，则不会自动设置 <code>mode</code>。</p>
 <p><strong>mode:development</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.development.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">+ mode: <span class="string">'development'</span></div><div class="line">- plugins: [</div><div class="line">-   <span class="keyword">new</span> webpack.NamedModulesPlugin(),</div><div class="line">-   <span class="keyword">new</span> webpack.DefinePlugin(&#123; <span class="string">"process.env.NODE_ENV"</span>: <span class="built_in">JSON</span>.stringify(<span class="string">"development"</span>) &#125;),</div><div class="line">- ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>mode:production</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.production.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">+  mode: <span class="string">'production'</span>,</div><div class="line">-  plugins: [</div><div class="line">-    <span class="keyword">new</span> UglifyJsPlugin(<span class="comment">/* ... */</span>),</div><div class="line">-    <span class="keyword">new</span> webpack.DefinePlugin(&#123; <span class="string">"process.env.NODE_ENV"</span>: <span class="built_in">JSON</span>.stringify(<span class="string">"production"</span>) &#125;),</div><div class="line">-    <span class="keyword">new</span> webpack.optimize.ModuleConcatenationPlugin(),</div><div class="line">-    <span class="keyword">new</span> webpack.NoEmitOnErrorsPlugin()</div><div class="line">-  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="loader-1"><a href="#loader-1" class="headerlink" title="loader"></a>loader</h1><p>loader 用于对模块的源代码进行转换。loader 可以使你在 import 或”加载”模块时预处理文件。<br>loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。loader 甚至允许你直接在 JavaScript 模块中 <code>import</code> CSS文件。</p>

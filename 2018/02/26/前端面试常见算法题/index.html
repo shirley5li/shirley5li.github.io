@@ -107,10 +107,10 @@
 <meta property="og:image" content="http://img1.vued.vanthink.cn/vued90edf7b944ec479ee8b4203cf56e158d.png">
 <meta property="og:image" content="http://img.blog.csdn.net/20160919221509693">
 <meta property="og:image" content="http://img.blog.csdn.net/20160919230148150">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png">
-<meta property="og:updated_time" content="2018-05-29T02:37:37.119Z">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png">
+<meta property="og:updated_time" content="2018-12-13T05:24:57.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试常见算法题总结">
 <meta name="twitter:description" content="十道前端面试常见算法题。">
@@ -615,9 +615,9 @@ function queryClassName2(node, name) {
 没有键值相等的节点。二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低。为O(log n)。二叉查找树是基础性数据结构，用于构建更为抽象的数据结构，如集合、multiset、关联数组等。
 </code></pre><p><strong>二叉树相关概念：</strong><br>凡是每个节点都最多有两个叉的树，都叫二叉树。<br>查找树和排序树是一个东西。特点是中序遍历一遍的结果是单调的。这种树建出来可以用来做二分搜索。<br>平衡树一般是排序树的一种，并且加点条件，就是任意一个节点的两个叉的深度差不多（比如差值的绝对值小于某个常数，或者一个不能比另一个深出去一倍之类的）。<br>这样的树可以保证二分搜索任意元素都是O(log n)的，一般还附带带有插入或者删除某个元素也是O(log n)的的性质。<br>二叉树由节点（node）和边组成。节点分为根节点、父节点、子节点。如下图所示：</p>
 <p><img src="http://img.blog.csdn.net/20160919221509693" alt="二叉树示意图"><br>红色是根节点（root）。蓝色是子节点也是父节点，绿色的是子节点。其余的线是边。节点和链表中的节点一样都可以存放数据信息。树中的边可以用自引用表示，这种引用就是C/C++里面的指针。通常来说树是顶部小，底部大，且树呈分层结构。root节点时第0层，以此类推。二叉树最多有两个节点。<br>二叉树搜索： 二叉树一个节点左子节点的关键字小于这个节点，右子节点关键字大于或等于这个父节点。<br>创建一个树节点。<br><strong>BST创建过程：</strong><br>(1)创建一个树节点包括左节点引用和右节点引用。<br>(2)创建一个树结构。 创建一个树结构首先是向一个树种插入数据节点。当一棵树为null时，数据项是从树的root节点处开始插入，之后的插入顺序是根据搜索节点顺序规则进行插入。具体规则是：如果数据项比父节点的数据项要小，则插在父节点的左节点（leftNode），如果比父节点的数据项要大，则将新的node插入在父节点的右节点处（rightNode）。<br>插入数据节点过程如下所示：<br><img src="http://img.blog.csdn.net/20160919230148150" alt="BST插入数据节点示意图"><br>插入节点的过程中其实也就是对tree遍历的过程，最终根据条件遍历到左右节点为null时进行添加新的节点。<br><strong>查找关键字</strong><br>查找关键字是数据结构一项重要操作项，在有序数组中通过二分排序效率非常高。在二叉树中的查找效率也比较高。因为二叉树的添加node的过程就是根据数据项的大小进行有序添加的，并不是毫无秩序的插入数据项。在有序的基础上进行查找关键字效率就会快很多。<br>树的最值查找在树中查找是比较容易的，因为从root开始查找，最小值只会出现所有父节点的左节点处，同样最大值只会出现在所有父节点的沿着右节点搜索的最底层右节点处。<br><a href="http://blog.csdn.net/cai2016/article/details/52589952" target="_blank" rel="noopener">参考自博客</a>。<br><strong>删除节点</strong><br>给出如下二叉查找树</p>
-<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png" alt="二叉查找树"><br>删除节点3之后，可以返回</p>
-<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png" alt="新的BST1"><br>或者</p>
-<p><img src="http://ou3oh86t1.bkt.clouddn.com/blog/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png" alt="新的BST2"><br>思路:<br>若要删除一个BST的一个结点，需要考虑如下三种情况：</p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/BST.png" alt="二叉查找树"><br>删除节点3之后，可以返回</p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST1.png" alt="新的BST1"><br>或者</p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%A2%98/newBST2.png" alt="新的BST2"><br>思路:<br>若要删除一个BST的一个结点，需要考虑如下三种情况：</p>
 <pre><code>需要删除的节点下并没有其他子节点
 需要删除的节点下有一个子节点（左或右）
 需要删除的节点下有两个子节点（既左右节点都存在）

@@ -104,16 +104,16 @@
 <meta property="og:site_name" content="Shirley">
 <meta property="og:description" content="《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/http%E8%AF%B7%E6%B1%82.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/http%E5%93%8D%E5%BA%94.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/OPTIONS.png">
-<meta property="og:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E7%8A%B6%E6%80%81%E7%A0%81.png">
-<meta property="og:updated_time" content="2018-05-29T02:21:01.736Z">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/http%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/http%E5%93%8D%E5%BA%94.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/OPTIONS.png">
+<meta property="og:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E7%8A%B6%E6%80%81%E7%A0%81.png">
+<meta property="og:updated_time" content="2018-12-13T05:16:46.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（一）Web安全深度剖析学习【基础+HTTP】">
 <meta name="twitter:description" content="《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。">
-<meta name="twitter:image" content="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png">
+<meta name="twitter:image" content="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png">
 
 
 
@@ -441,7 +441,7 @@
       
         <p>《Web安全深度剖析》学习总结, 本部分主要包括WEB安全的基础知识和HTTP协议相关。<br><a id="more"></a></p>
 <h1 id="Web安全简介"><a href="#Web安全简介" class="headerlink" title="Web安全简介"></a>Web安全简介</h1><p>Web服务默认运行在服务器的80端口之上(http服务器)，https服务器默认443端口。</p>
-<p>服务器风险点如下图：<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png" alt="服务器风险点"><br>直接对目标攻击的三种手段：</p>
+<p>服务器风险点如下图：<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%82%B9.png" alt="服务器风险点"><br>直接对目标攻击的三种手段：</p>
 <ul>
 <li><strong>C段渗透</strong>： 攻击者通过渗透同一网段内的一台主机，对目标主机进行ARP等手段的渗透。</li>
 </ul>
@@ -467,10 +467,10 @@
 <li>HTTP/2： 下一代HTTP协议，目前应用还比较少。特点，二进制协议、多路复用、数据流、头部压缩、随时复位、Server Push、优先权和依赖。</li>
 </ul>
 <h2 id="HTTP协议详解"><a href="#HTTP协议详解" class="headerlink" title="HTTP协议详解"></a>HTTP协议详解</h2><p>以HTTP/1.1为例，描述HTTP请求与响应如下。</p>
-<p><strong>HTTP请求：</strong> 包括请求行(请求方法)、请求头(消息报头)、请求正文(请求体)。<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/http%E8%AF%B7%E6%B1%82.png" alt="http请求"><br>HTTP请求的第一行为请求行，由三部分组成，<code>POST</code>表示请求方法，<code>/login.php</code>表示请求路径(该域名根目录下的login.php)，<code>HTTP/1.1</code>表示HTTP版本。</p>
+<p><strong>HTTP请求：</strong> 包括请求行(请求方法)、请求头(消息报头)、请求正文(请求体)。<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/http%E8%AF%B7%E6%B1%82.png" alt="http请求"><br>HTTP请求的第一行为请求行，由三部分组成，<code>POST</code>表示请求方法，<code>/login.php</code>表示请求路径(该域名根目录下的login.php)，<code>HTTP/1.1</code>表示HTTP版本。</p>
 <p>第二行至空白行为HTTP请求头，<code>HOST</code>表示请求的主机地址，<code>User-Agent</code>表示浏览器标识。请求头由客户端自行设定。Google访问<a href="http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html" target="_blank" rel="noopener">http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html</a>的HTTP GET请求行和请求头如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">GET /IFE-2018-CSS/animate.css_log/index.html HTTP/1.1</div><div class="line">Host: shirley5li.me</div><div class="line">Connection: keep-alive</div><div class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36</div><div class="line">Upgrade-Insecure-Requests: 1</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Accept-Language: zh-CN,zh;q=0.9</div><div class="line">Cookie: _ga=GA1.2.2018838122.1520044936; _gid=GA1.2.1506554401.1526462676; Hm_lvt_06185a244e6f872c8aeab11a4e7b5db4=1526478354; Hm_lpvt_06185a244e6f872c8aeab11a4e7b5db4=1526528658</div><div class="line">If-Modified-Since: Sun, 06 May 2018 03:32:14 GMT</div></pre></td></tr></table></figure></p>
 <p>空白行之后为请求正文(请求体)，请求正文是可选的，通常出现在POST方法中，GET方法不含请求体。</p>
-<p><strong>HTTP响应：</strong> 包括响应行、响应头(消息报头)、响应正文(响应体)。<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/http%E5%93%8D%E5%BA%94.png" alt="http响应"><br>Google访问<a href="http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html" target="_blank" rel="noopener">http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html</a>的HTTP 响应行和响应头如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Server: GitHub.com</div><div class="line">Content-Type: text/html; charset=utf-8</div><div class="line">Last-Modified: Sun, 06 May 2018 03:32:14 GMT</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Expires: Thu, 17 May 2018 05:20:22 GMT</div><div class="line">Cache-Control: max-age=600</div><div class="line">Content-Encoding: gzip</div><div class="line">X-GitHub-Request-Id: FEEA:43E7:353D5D:46B7F2:5AFD0EBD</div><div class="line">Content-Length: 629</div><div class="line">Accept-Ranges: bytes</div><div class="line">Date: Thu, 17 May 2018 05:20:41 GMT</div><div class="line">Via: 1.1 varnish</div><div class="line">Age: 0</div><div class="line">Connection: keep-alive</div><div class="line">X-Served-By: cache-hkg17927-HKG</div><div class="line">X-Cache: MISS</div><div class="line">X-Cache-Hits: 0</div><div class="line">X-Timer: S1526534441.070496,VS0,VE229</div><div class="line">Vary: Accept-Encoding</div><div class="line">X-Fastly-Request-ID: da54366ec4de37d5adfc39dede5b758996befa2c</div></pre></td></tr></table></figure></p>
+<p><strong>HTTP响应：</strong> 包括响应行、响应头(消息报头)、响应正文(响应体)。<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/http%E5%93%8D%E5%BA%94.png" alt="http响应"><br>Google访问<a href="http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html" target="_blank" rel="noopener">http://shirley5li.me/IFE-2018-CSS/animate.css_log/index.html</a>的HTTP 响应行和响应头如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Server: GitHub.com</div><div class="line">Content-Type: text/html; charset=utf-8</div><div class="line">Last-Modified: Sun, 06 May 2018 03:32:14 GMT</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Expires: Thu, 17 May 2018 05:20:22 GMT</div><div class="line">Cache-Control: max-age=600</div><div class="line">Content-Encoding: gzip</div><div class="line">X-GitHub-Request-Id: FEEA:43E7:353D5D:46B7F2:5AFD0EBD</div><div class="line">Content-Length: 629</div><div class="line">Accept-Ranges: bytes</div><div class="line">Date: Thu, 17 May 2018 05:20:41 GMT</div><div class="line">Via: 1.1 varnish</div><div class="line">Age: 0</div><div class="line">Connection: keep-alive</div><div class="line">X-Served-By: cache-hkg17927-HKG</div><div class="line">X-Cache: MISS</div><div class="line">X-Cache-Hits: 0</div><div class="line">X-Timer: S1526534441.070496,VS0,VE229</div><div class="line">Vary: Accept-Encoding</div><div class="line">X-Fastly-Request-ID: da54366ec4de37d5adfc39dede5b758996befa2c</div></pre></td></tr></table></figure></p>
 <h3 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h3><ul>
 <li><p>GET<br>GET方法用于获取请求页面的指定信息(以实体的格式)，如果请求资源为动态脚本(非HTML)，则返回文本是Web容器解析后的HTML源代码，而不是源文件。如请求<code>index.jsp</code>，返回的不是<code>index.jsp</code>的源文件，而是经过解析后的HTML代码。GET方法可以通过查询参数携带数据传递给服务器端，但发送的数据会显示在浏览器，并且有长度限制。</p>
 </li>
@@ -486,7 +486,7 @@
 </li>
 <li><p>CONNECT<br>为了能动态切换到隧道代理。<br>【HTTP隧道：】是HTTP/1.1中引入的功能，主要为了解决明文的HTTP代理无法代理跑在TLS中的流量(https)的问题，同时提供了作为任意流量的TCP通道的能力。<a href="https://www.zhihu.com/question/21955083" target="_blank" rel="noopener">什么是HTTP隧道，怎么理解HTTP隧道</a>。<br>HTTP隧道技术可以理解为把所有要传送的数据全部封装到HTTP协议里进行传送。<br>客户端与服务器之间的中间层：代理，网关，或者隧道。</p>
 </li>
-<li><p>OPTIONS<br>用于请求由URI标识的资源在通信过程中可以使用的功能选项。<br><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/OPTIONS.png" alt="OPTIONS请求与响应"></p>
+<li><p>OPTIONS<br>用于请求由URI标识的资源在通信过程中可以使用的功能选项。<br><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/OPTIONS.png" alt="OPTIONS请求与响应"></p>
 </li>
 </ul>
 <h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><ul>
@@ -496,7 +496,7 @@
 <li>4XX: 客户端错误，客户端发送一些服务器无法处理的信息，例如格式错误的请求、请求一个不存在的URL。400~415</li>
 <li>5XX: 服务器错误。500~505</li>
 </ul>
-<p><img src="http://ou3oh86t1.bkt.clouddn.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/%E7%8A%B6%E6%80%81%E7%A0%81.png" alt="常见状态码错误"></p>
+<p><img src="https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%A6%E4%B9%A0/%E7%8A%B6%E6%80%81%E7%A0%81.png" alt="常见状态码错误"></p>
 <h3 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h3><p>HTTPS在HTTP之下加入SSL层，可以保护数据的隐私性和完整性。</p>
 <ul>
 <li>HTTP传输的是明文，HTTPS则是具有安全性的SSL加密传输协议</li>
