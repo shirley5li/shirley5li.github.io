@@ -35,7 +35,7 @@ npm install -g create-react-app
 
 在使用`create-react-app react_newsapp`命令创建应用时，由以下安装提示可以发现，`create-react-app`会帮你自动下载所需要的多个react应用的基本依赖包,例如react,react-dom等。
 
-![create-react-app创建应用](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/create-react-app%E5%AE%89%E8%A3%85.png)
+![create-react-app创建应用](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/create-react-app%E5%AE%89%E8%A3%85.png)
 
 **阿西吧的事情又发生了。。。于是又卡在了下载资源这一步**，由于`create-react-app`命令默认使用的npm源，真的是下载起来慢的无以表达，几度安装失败，挂了vpn也不行，最终放弃，换到 **淘宝的镜像源** 。由于`create-react-app`指令默认调用npm，于是直接把npm的register给永久设置过来就好了，这样使用cnpm或者npm就没差别了。参考博客[create-react-app慢的解决方法](https://blog.csdn.net/eagyne/article/details/53780653)，方法操作如下：
 
@@ -47,7 +47,7 @@ npm install -g create-react-app
 
 设置成功后，再执行`create-react-app react_newsapp`，安装成功后提示如下，使用了淘宝镜像源都下了一会儿，不然真要下到地老天荒。
 
-![create-react-app创建应用2](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/create-react-app%E5%AE%89%E8%A3%852.png)
+![create-react-app创建应用2](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/create-react-app%E5%AE%89%E8%A3%852.png)
 安装成功后可以在项目的根目录下的package.json中查看引入的依赖，可以看到包括react、react-dom、react-scripts，如下：
 
 	{
@@ -98,7 +98,7 @@ npm install -g create-react-app
 ## create-react-app的目录结构 ##
 使用` create-react-app`命令创建的项目目录结构默认如下所示：
 
-![目录结构](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/create-react-app%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
+![目录结构](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/create-react-app%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
 
 node_modules文件夹内是安装的所有依赖模块；
 
@@ -134,7 +134,7 @@ webpack.config有两个，一个是dev（开发）环境下的配置文件，一
 
 这里暂且不修改webpack的配置，就用create-react-app默认的脚手架，后面需要再修改(其实是看了看脚手架的配置文件太复杂了...)。接下来将`src`目录下的js文件们或者css文件们单独放到js目录或css目录下，整理一下不那么乱，然后再修改下对应文件的引入路径，让`hello world`跑起来。
 整理src目录结构如下：
-![整理后的目录结构](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
+![整理后的目录结构](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
 
 ### webpack热加载配置 ###
 (1) `Create React App` 不会处理后端逻辑或数据库，它只是创建一个前端构建管道（build pipeline），所以可以使用它来配合任何想使用的后端。它使用 `Babel` 和 `webpack` 这样的构建工具，但是在使用`create-react-app`命令创建项目时已经配置好了，可以零配置使用，自带热加载效果。
@@ -253,9 +253,9 @@ class Body extends Component {
 }
 ```
 显示效果对比如下：
-![jsx解析html](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/jsx%E8%A7%A3%E6%9E%90html.png)
+![jsx解析html](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/jsx%E8%A7%A3%E6%9E%90html.png)
 ## 生命周期 ##
-![生命周期](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
+![生命周期](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 
 src/components/body.js
 ```jsx
@@ -298,7 +298,7 @@ class App extends Component {
 export default App;
 ```
 不同组件的加载顺序如下：
-![不同组件的加载顺序](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/%E4%B8%8D%E5%90%8C%E7%BB%84%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F.png)
+![不同组件的加载顺序](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/%E4%B8%8D%E5%90%8C%E7%BB%84%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F.png)
 ## 状态state ##
 `state` -> 虚拟DOM -> DOM
 `state`是组件自身内部的属性，只会影响所在的组件，不会污染外部组件。
@@ -511,7 +511,7 @@ class App extends Component {
 }
 export default App;
 ```
-![props类型校验](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B%E6%A0%A1%E9%AA%8C.png)
+![props类型校验](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B%E6%A0%A1%E9%AA%8C.png)
 
 **为组件属性指定默认值：** 当组件属性未被赋值时，组件会使用defaultProps定义的默认属性。
 ```jsx
@@ -617,7 +617,7 @@ class Body extends Component {
 }
 ```
 `console.log(this.refs.submitBtn)`结果：
-![ref操作DOM](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/ref%E6%93%8D%E4%BD%9CDOM.png)
+![ref操作DOM](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/ref%E6%93%8D%E4%BD%9CDOM.png)
 **Refs特点：**
 Refs是访问到组件内部DOM节点唯一可靠的方法。
 Refs会自动销毁对子组件的引用，即如果子组件被销毁，它的引用也会被销毁，从而不必担心内存问题。
@@ -1050,7 +1050,7 @@ class App extends Component {
 }
 export default App;
 ```
-![antd Input](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/antd%20Input.png)
+![antd Input](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/antd%20Input.png)
 # React Router #
 `react-router`用来控制页面间的路由，安装`react-router`:
 ```bash
@@ -1166,7 +1166,7 @@ class ComponentList extends Component {
 
 export default ComponentList;
 ```
-![Route传参](	https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/readme/images/Route%E4%BC%A0%E5%8F%82.png)
+![Route传参](https://githubblogbucket1-1258277786.cos.ap-shanghai.myqcloud.com/react_newsapp/Route%E4%BC%A0%E5%8F%82.png)
 
 
 
