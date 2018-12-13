@@ -526,7 +526,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     <link href="http://yoursite.com/2018/05/17/phpstudy%E4%B8%8EDVWA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/05/17/phpstudy与DVWA安装与配置/</id>
     <published>2018-05-17T12:58:23.000Z</published>
-    <updated>2018-12-13T08:49:46.251Z</updated>
+    <updated>2018-12-13T09:03:20.196Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://ciphersaw.me/" target="_blank" rel="noopener">帆哥</a>教我玩WEB安全系列之最最开始环境配置篇。<br><a id="more"></a></p>
 <h1 id="VMware虚拟机安装"><a href="#VMware虚拟机安装" class="headerlink" title="VMware虚拟机安装"></a>VMware虚拟机安装</h1><p>现在最新版本的是 VMware workstation 14，怕激活密钥不好找，就安装了VMware workstation 12 pro(激活密钥：5A02H-AU243-TZJ49-GTC7K-3C61N)。</p>
@@ -614,7 +614,7 @@ case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写�
     
       <category term="WAMP" scheme="http://yoursite.com/tags/WAMP/"/>
     
-      <category term="Web容器" scheme="http://yoursite.com/tags/Web%E5%AE%B9%E5%99%A8/"/>
+      <category term="WebContainer" scheme="http://yoursite.com/tags/WebContainer/"/>
     
   </entry>
   
