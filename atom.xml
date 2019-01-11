@@ -3095,9 +3095,9 @@ function unsetCookie(name) {
       <category term="FrontEndInterview" scheme="http://yoursite.com/categories/FrontEndInterview/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
       <category term="InterviewQuestions" scheme="http://yoursite.com/tags/InterviewQuestions/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
@@ -3413,9 +3413,9 @@ class BinarySearchTree {
       <category term="FrontEndInterview" scheme="http://yoursite.com/categories/FrontEndInterview/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
       <category term="InterviewQuestions" scheme="http://yoursite.com/tags/InterviewQuestions/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
