@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[青甘环线]]></title>
+    <url>%2F2019%2F06%2F28%2Ftour-qinghai%2F</url>
+    <content type="text"><![CDATA[谨以此几张照片纪念毕业。美丽的青甘大环线。 日月山顶眺望牛羊遍布的广袤草原。相传日月山是文成公主进藏停留回望长安之处。 天空之境茶卡盐湖。坐在小火车轨道尽头听了很久的 california dream。天气很好，人很多，很热闹。 青海湖边的油菜花田。因为惊艳的美丽，路边停车匆匆拍下的照片。总以为前方景色更好要追赶，却迎来了冷雨和冰雹。 大柴旦翡翠湖。一群像玉石一样美丽的盐湖，工业采矿的遗产，尚待开发的景点，却也是行程中最心动的色彩。 茶卡盐湖的小火车轨道，从出口方向一侧走远的一双人。阳光，侧影，热闹里也看起来安静。 又一块碧绿纯净的翡翠湖。雪一样的盐晶，层次的绿色，对岸的车影、高山、天空和云彩，它们被留下，以另一种价值存在着。 张掖大峡谷的一丛野菊花。在混凝土一样坚硬的沙土质地生长，一簇簇，衬着蓝天很可爱。 张掖五彩丹霞的日落。没有等到“小布拉宫”的余晖，也喜欢这迷人的日落。像小黄鸭一样的日头剪影。小时候的眼睛看云朵总是要牵扯到各种小动物的。 大柴旦天黑前的一片湿地。在颠簸快速行驶的车上拍的，虽然失焦模糊，也留下了美好的印象。大概因为和谐宁静。]]></content>
+      <categories>
+        <category>Wander</category>
+      </categories>
+      <tags>
+        <tag>Qinghai</tag>
+        <tag>Gansu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[360奇舞学院2018前端星技术测评总结]]></title>
     <url>%2F2018%2F12%2F13%2F360-2018%E5%89%8D%E7%AB%AF%E6%98%9F%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%84%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[360奇舞学院2018年前端星计划技术测评相关问题及自己的回答。说明：写这篇博客意在记录做题经历，后面有时间温故知新，因为学习时间较短，所以难免有不少错误和不周之处，希望多多指正。同时，也分享给一起学习的小伙伴，一起进步成长，fighting，时刻不忘奶自己，蛤蛤蛤。 题目回忆及自己解答如下，我自己的回答肯定不太好，仅供参考，欢迎有更周全回答的小伙伴多多补充~~~ 关于HTML”语义化”题目：HTML“语义化”的理解。 回答如下： 1、我所理解的”语义化” 写html结构时，要根据内容结构安排，选择合适的标签元素，便于开发人员阅读，即语义化好的html文档，即使在没有css的情况下，页面也能呈现出良好的内容结构，开发人员能清晰的阅读和了解到基本的内容结构； 语义化也有助于提升用户体验，例如使用标签的title、alt属性可以提供附加的提示信息； 语义化还有助于SEO，爬虫可以根据标签确定关键字的权重，让浏览器爬虫更好的解析，所以类似h标签，和title标签就对SEO很重要。 语义化还可以使其他设备例如屏幕阅读器等以自己的方式呈现网页。 2、平时在项目中如何实践”语义化” 首先，在页面结构的整体组织上，对于页面内容整体划分区域结构，使用html5的语义化标签，像navigator定义导航栏,header、footer分别定义页面的头部和脚部，section定义某块区域，article定义一大段的文章段落等等。 其次，在具体的某一块内容区域内部的html结构实现上，注重细节，像img元素的alt属性，以便图片在无法加载时显示给用户必要的文字说明，lable标签的使用，可以使表单输入操作对用户更友好等等。 最后，应该尽量避免通篇div。 对结构、表现、行为分离原则的理解题目：对结构、表现、行为分离原则的理解。 回答如下： 使用html文件编写网页结构，使用css文件写样式，js文件写与用户交互等网页动态行为，应该避免在html文件的标签内写内联样式，尽量使用外部样式表引入网页样式，同理，避免在html文件的标签上添加onClick等与交互相关的js操作，将动态行为相关的js操作放在单独的js文件中，使用script标签在body底部引入。 在实践中，我会在html文件中只写页面结构，不会添加style这样的内联样式，以及在标签上定义onClick这样的js属性操作，而是在单独的css文件中写页面样式，在单独的js文件中写页面的交互相关的动态操作代码，最后在引入到html文件中。 操作数组题目：给定两个长度相同的整数数组，将其中的数字分别一一配对，对每一对数字计算乘积，然后求和，计算出总和最小的配对方式，并打印出总和。例如输入 [1,2,3], [1,2,3]，输出为10。 回答如下： 12345678910111213141516function compare(num1, num2) &#123; return num1 - num2;&#125;module.exports = function match(arr1, arr2)&#123; var len = arr1.length; arr1.sort(compare); //将数组arr1按从小到大排序 arr2.sort(compare); var sum = 0; var temp = 0; for (var i = 0; i &lt; len; i++) &#123; temp = arr1[i] * arr2[len - 1 - i]; //将arr1的最小值与arr2的最大值配对 sum += temp; &#125; return sum;&#125;; 待改进：应该全部用ES6语法写要好一些，但ES6语法不太熟练，导致写的有点不伦不类，凑合看看吧。。 CSS画扇形题目：垂直、水平居中显示一个半径100的标志，如图所示： 回答如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;Document&lt;/title&gt; &lt;style type="text/css"&gt; #warning &#123; position: relative; overflow: hidden; width: 200px; height: 200px; margin: 150px auto; background-color: yellow; border-radius: 50%; &#125; #warning ul li &#123; list-style: none; position: absolute; width: 200px; height: 100px; right: 50%; top: 0; -webkit-transform-origin: 100% 100%; -moz-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; transform-origin: 100% 100%; /*transform-origin设置旋转元素的基点位置*/ &#125; #warning .sector1 &#123; background-color: black; -webkit-transform: skew(30deg, 0); -moz-transform: skew(30deg, 0); -ms-transform: skew(30deg, 0); transform: skew(30deg, 0); &#125; #warning .sector2 &#123; background-color: black; -webkit-transform: rotate(120deg) skew(30deg, 0); -moz-transform: rotate(120deg) skew(30deg, 0); -ms-transform: rotate(120deg) skew(30deg, 0); transform: rotate(120deg) skew(30deg, 0); &#125; #warning .sector3 &#123; background-color: black; -webkit-transform: rotate(240deg) skew(30deg, 0); -moz-transform: rotate(240deg) skew(30deg, 0); -ms-transform: rotate(240deg) skew(30deg, 0); transform: rotate(240deg) skew(30deg, 0); &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;!-- 核辐射警告标志是一个60度扇形黄、黑相间的圆，要求，使用html和css实现下面的效果：在网页中始终垂直、水平居中显示一个半径100的核辐射警告标志圆--&gt; &lt;!-- 制作原理，底部一个黄色纯色圆形，里面用三个黑色的矩形通过rotate、skew等变换得到三个黑色扇形--&gt; &lt;div id="warning"&gt; &lt;ul&gt; &lt;li class="sector1"&gt;&lt;/li&gt; &lt;li class="sector2"&gt;&lt;/li&gt; &lt;li class="sector3"&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;&lt;/body&gt;&lt;/html&gt; 待改进：忘记实现垂直居中效果了！！！ 以下是老师批改时给的思路，”使用border构造相间的三角形，然后使用overflow-hidden和border-radius剪裁成圆”，感觉老师好认真，很nice! 下面是老师的思路实现： 其中： border-top: solid 173.2px yellow; border-left: solid 100px transparent; border-bottom: solid 173.2px black; border-right: solid 100px transparent; 实现的效果是利用border构造两个顶角是60度的三角形，效果如图： 然后再利用父元素的overflow-hidden和border-radius剪裁成圆。完整代码如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;Document&lt;/title&gt; &lt;style type="text/css"&gt; #warning &#123; width: 200px; height: 200px; border-radius: 50%; /* 水平、垂直居中 */ transform: translate(-50%, -50%); position: absolute; left: 50%; top: 50%; overflow: hidden; &#125; #warning .bg &#123; position: absolute; width: 0; height: 0; top: -73.2px; left: 0px; border-top: solid 173.2px yellow; border-left: solid 100px transparent; border-bottom: solid 173.2px black; border-right: solid 100px transparent; &#125; #warning .bg:nth-child(1)&#123; transform: rotate(0deg); &#125; #warning .bg:nth-child(2) &#123; transform: rotate(120deg); &#125; #warning .bg:nth-child(3) &#123; transform: rotate(240deg); &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;div id="warning"&gt; &lt;div class="bg"&gt;&lt;/div&gt; &lt;div class="bg"&gt;&lt;/div&gt; &lt;div class="bg"&gt;&lt;/div&gt; &lt;/div&gt;&lt;/body&gt;&lt;/html&gt; 2048游戏问题： 实现一个 2048 游戏。 解答如下： 我的github项目地址 2048游戏的实现原理参考了github项目js实现2048小游戏。 待改进：没有实现移动盒子时的动画效果，游戏初始时的第一个数字有时不是2，因为当时为了简单，设计的每一次更新盒子2或者4出现的概率分别为2/3、1/3，没有为初始的情况单独设计，有待进一步改进。]]></content>
@@ -160,8 +172,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>JavaScript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -172,8 +184,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>JavaScript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -217,8 +229,8 @@
         <category>FrontEndInterview</category>
       </categories>
       <tags>
-        <tag>InterviewQuestions</tag>
         <tag>JavaScript</tag>
+        <tag>InterviewQuestions</tag>
       </tags>
   </entry>
   <entry>
@@ -229,8 +241,8 @@
         <category>FrontEndInterview</category>
       </categories>
       <tags>
-        <tag>InterviewQuestions</tag>
         <tag>JavaScript</tag>
+        <tag>InterviewQuestions</tag>
       </tags>
   </entry>
   <entry>
@@ -263,8 +275,8 @@
         <category>FrontEndInterview</category>
       </categories>
       <tags>
-        <tag>InterviewQuestions</tag>
         <tag>CSS</tag>
+        <tag>InterviewQuestions</tag>
       </tags>
   </entry>
   <entry>
@@ -377,8 +389,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>JavaScript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -400,8 +412,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>JavaScript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
